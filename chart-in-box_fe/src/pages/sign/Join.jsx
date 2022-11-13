@@ -12,17 +12,16 @@ import Container from '@mui/material/Container';
 import styled from 'styled-components';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
-import Swal from 'sweetalert2';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 // mui의 css 우선순위가 높기때문에 important를 설정 - 실무하다 보면 종종 발생 우선순위 문제
 const FormHelperTexts = styled(FormHelperText)`
     width: 100%;
-    padding-left: 16px;
-    font-weight: 700 !important;
+    padding-left: 1px;
+    font-weight: 500 !important;
     color: #d32f2f !important;
 `;
 
@@ -48,22 +47,29 @@ function Join() {
 
     // 유효성 검사 useState 추가
     const [checked, setChecked] = useState(false);
-    const [nameError, setNameError] = useState('');
+    const [privateChecked, setPrivateChecked] = useState(false);
+    const [checkedError, setCheckedError] = useState('');
     const [idError, setIdError] = useState('');
-    const [passwordState, setPasswordState] = useState('');
-    const [passwordError, setPasswordError] = useState('');
-    const navigate = useNavigate();
-    //useNavigate?!
+    const [passwordState, setPasswordState] = useState(''); //비밀번호 입력
+    const [passwordError, setPasswordError] = useState(''); //비밀번호 재입력
+    const [nameError, setNameError] = useState('');
+    // const navigate = useNavigate();
+    //useNavigate?! -> 페이지
 
     // 약관 동의 체크 확인
     const handleAgree = event => {
         setChecked(event.target.checked);
+        //선택됐으면 event.target.checked는 true가 된다
+    };
+    const handlePrivateAgree = event => {
+        setPrivateChecked(event.target.checked);
+        //선택됐으면 event.target.checked는 true가 된다
     };
 
     // 이름, 전화번호, 아이디, 패스워드 받기
     const onhandlePost = async data => {
-        const { name, phone, id, password } = data;
-        const postData = { name, phone, id, password };
+        const { id, password, name } = data;
+        const postData = { id, password, name };
 
         await axios
             .post('http://localhost:8080/join', { postData })
@@ -76,22 +82,13 @@ function Join() {
                     this.setAttribute('disabledElevation', 'true');
                     this.setAttribute('disabledRipple', 'true');
                 });
-                Swal.fire({
-                    icon: 'success',
-                    title: '회원가입 성공',
-                    showConfirmButton: false,
-                    timer: 1500,
-                });
-                navigate('/');
+                // navigate('/');
             })
             .catch(err => {
-                Swal.fire({
-                    icon: 'error',
-                    iconColor: '#d32f2f',
-                    title: '회원가입 실패',
-                    text: '다시 시도해주세요',
-                    confirmButtonColor: '#005cb8',
-                });
+                console.log(err);
+                if (err === 'userNickname') {
+                    //닉네임 중복으로 인해 회원가입 실패
+                }
             });
     };
 
@@ -101,48 +98,46 @@ function Join() {
 
         const data = new FormData(event.currentTarget);
         const joinData = {
-            name: data.get('name'),
-            phone: data.get('phone'),
             id: data.get('id'),
             password: data.get('password'),
+            name: data.get('name'),
             rePassword: data.get('rePassword'),
         };
-        const { name, id, password, rePassword } = joinData;
-        // 이름 유효성 체크
-        const nameRegex = /^[가-힣a-zA-Z]+$/;
-        if (!nameRegex.test(name) || name.length < 1)
-            setNameError('올바른 이름을 입력해주세요.');
-        else setNameError('');
+        const { id, password, name, rePassword } = joinData;
 
         // 아이디 유효성 체크
-        const idRegrex = /^[a-zA-Z]\w{2,7}$/;
-        if (!idRegrex.test(id)) setIdError('올바른 아이디 형식이 아닙니다.');
+        const idRegrex =
+            /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        if (!idRegrex.test(id)) setIdError('이메일 형식이 올바르지 않습니다');
         else setIdError('');
 
         // 비밀번호 유효성 체크
         const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
         if (!passwordRegex.test(password))
-            setPasswordState('영문자+숫자 조합으로 8자리 이상 입력해주세요.');
+            setPasswordState(
+                ' 영문, 숫자, 특수문자를 포함한 8자 이상의 비밀번호를 설정해주세요.',
+            );
         else setPasswordState('');
 
+        // const nameRegex = /^[가-힣a-zA-Z]+$/;
+        // if (!nameRegex.test(name) || name.length < 1)
+        //   setNameError('올바른 이름을 입력해주세요.');
+        // else setNameError('');
         // 비밀번호 같은지 체크
+
         if (password !== rePassword)
             setPasswordError('비밀번호가 일치하지 않습니다.');
         else setPasswordError('');
 
+        // 이름 유효성 체크
+
         // 회원가입 동의 체크
-        if (!checked)
-            Swal.fire({
-                icon: 'error',
-                iconColor: '#d32f2f',
-                title: '회원가입 실패',
-                text: '회원가입 약관에 동의해주세요.',
-                confirmButtonColor: '#005cb8',
-            });
+        if (!checked || !privateChecked) setCheckedError('약관에 동의해주세요');
+        else setCheckedError('');
 
         // 모두 통과하면 post되는 코드 실행
         if (
-            nameRegex.test(name) &&
+            // nameRegex.test(name) &&
             idRegrex.test(id) &&
             passwordRegex.test(password) &&
             password === rePassword &&
@@ -162,37 +157,51 @@ function Join() {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
+                        width: 470,
+                        paddingLeft: 2,
+                        paddingRight: 2,
                     }}
                 >
                     {/* 아이콘 */}
-                    <Box
-                        sx={{
-                            m: 1,
-                            width: 142,
-                            height: 37,
-                            backgroundColor: 'secondary.main',
-                        }}
-                    >
-                        <Typography
-                            sx={{
-                                color: 'white',
-                                fontSize: 20,
-                                fontWeight: 'bold',
-                                textAlign: 'center',
-                            }}
+                    <Box sx={{ m: 1, width: 142, height: 37 }}>
+                        <Button
+                            fullWidth
+                            variant="contained"
+                            sx={{ mt: 3, mb: 2, fontSize: 16, fontWeight: 500 }}
+                            size="medium"
+                            color="secondary"
                         >
                             로고
-                        </Typography>
+                        </Button>
                     </Box>
+                    {/* <Box
+            sx={{
+              m: 1,
+              width: 142,
+              height: 37,
+              backgroundColor: 'secondary.main',
+            }}
+          >
+            <Typography
+              sx={{
+                color: 'white',
+                fontSize: 20,
+                fontWeight: 'bold',
+                textAlign: 'center',
+              }}
+            >
+              로고
+            </Typography>
+          </Box> */}
                     {/* 메인 제목 */}
                     <Boxs
                         component="form"
                         noValidate
                         onSubmit={handleSubmit}
-                        sx={{ mt: 3 }}
+                        sx={{ mt: 5 }}
                     >
                         <FormControl component="fieldset" variant="standard">
-                            {/* 이름 입력 폼 */}
+                            {/* 아이디 입력 폼 */}
                             <Grid container spacing={2}>
                                 <Grid item xs={12} sx={{ marginBottom: 3 }}>
                                     <Typography
@@ -212,13 +221,13 @@ function Join() {
                                         fullWidth
                                         id="id"
                                         name="id"
-                                        autoComplete="id"
+                                        autoComplete="id" //자동완성 기능
                                         placeholder="이메일 입력 (ex. chartinbox@gmail.com)"
                                         autoFocus
                                         error={idError !== '' || false}
                                     />
+                                    <FormHelperTexts>{idError}</FormHelperTexts>
                                 </Grid>
-                                <FormHelperTexts>{idError}</FormHelperTexts>
 
                                 {/* 비밀번호 입력 폼 */}
                                 <Grid item xs={12} sx={{ marginBottom: 1 }}>
@@ -245,13 +254,13 @@ function Join() {
                                         autoComplete="new-password"
                                         error={passwordState !== '' || false}
                                     />
+                                    <FormHelperTexts>
+                                        {passwordState}
+                                    </FormHelperTexts>
                                 </Grid>
-                                <FormHelperTexts>
-                                    {passwordState}
-                                </FormHelperTexts>
 
                                 {/* 비밀번호 재입력 폼 */}
-                                <Grid item xs={12}>
+                                <Grid item xs={12} sx={{ marginBottom: 3 }}>
                                     <TextField
                                         variant="standard"
                                         required
@@ -263,13 +272,46 @@ function Join() {
                                         autoComplete="new-password"
                                         error={passwordError !== '' || false}
                                     />
+                                    <FormHelperTexts>
+                                        {passwordError}
+                                    </FormHelperTexts>
                                 </Grid>
-                                <FormHelperTexts>
-                                    {passwordError}
-                                </FormHelperTexts>
+                                <Grid item xs={12} sx={{ marginBottom: 3 }}>
+                                    <Typography
+                                        sx={{
+                                            color: 'black',
+                                            fontSize: 12,
+                                            fontWeight: 500,
+                                            textAlign: 'left',
+                                        }}
+                                    >
+                                        닉네임{' '}
+                                    </Typography>
+
+                                    <TextField
+                                        variant="standard"
+                                        required
+                                        fullWidth
+                                        name="name"
+                                        placeholder="영문, 숫자, 특수문자 포함 8자 이상"
+                                        id="name"
+                                        autoComplete="name"
+                                        error={nameError !== '' || false}
+                                    />
+                                    <FormHelperTexts>
+                                        {nameError}
+                                    </FormHelperTexts>
+                                </Grid>
 
                                 {/* 이용약관 체크 박스 */}
-                                <Grid item xs={12}>
+                                <Grid
+                                    item
+                                    xs={12}
+                                    sx={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                    }}
+                                >
                                     <FormControlLabel
                                         control={
                                             <Checkbox
@@ -278,12 +320,25 @@ function Join() {
                                                 size="small"
                                             />
                                         }
-                                        label="이용약관 및 개인정보 처리 방침에 동의합니다."
+                                        label="이용약관 동의"
                                         labelPlacement="end"
                                     />
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox
+                                                onChange={handlePrivateAgree}
+                                                color="primary"
+                                                size="small"
+                                            />
+                                        }
+                                        label="개인정보처리방침 동의"
+                                        labelPlacement="end"
+                                    />
+                                    <FormHelperTexts>
+                                        {checkedError}
+                                    </FormHelperTexts>
                                 </Grid>
                             </Grid>
-
                             {/* 회원가입 버튼 */}
                             <Button
                                 id="submit"
@@ -300,7 +355,7 @@ function Join() {
                         {/* 로그인 링크 */}
                         <Grid container justifyContent="flex-end">
                             <Grid item>
-                                <Link href="/login" variant="body2">
+                                <Link href="/log-in" variant="body2">
                                     이미 계정이 있으신가요? <b>로그인 하기</b>
                                 </Link>
                             </Grid>
