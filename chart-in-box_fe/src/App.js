@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Join from './pages/sign/Join';
 import Login from './pages/sign/Login';
 import Mypage from './pages/mypage/Mypage';
+import ChangeInfo from './pages/mypage/ChangeInfo';
 import ChangePassword from './pages/sign/ChangePassword';
 
 function App() {
@@ -18,6 +19,10 @@ function App() {
                         element={<ChangePassword />}
                     />
                     <Route path="/Mypage" element={<Mypage></Mypage>} />
+                    <Route
+                        path="/ChangeInfo"
+                        element={<ChangeInfo></ChangeInfo>}
+                    />
                 </Routes>
             </Router>
         </div>
