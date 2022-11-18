@@ -11,6 +11,7 @@ function App() {
         <div className="App">
             <Router>
                 <Routes>
+
                     <Route path="/" element={<MainPage></MainPage>} />
                     <Route path="/terms" element={<Terms></Terms>} />
                     <Route path="/privatepolicy" element={<PrivatePolicy />} />
