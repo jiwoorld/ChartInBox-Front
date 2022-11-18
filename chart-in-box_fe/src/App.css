@@ -35,7 +35,6 @@
     to {
         transform: rotate(360deg);
     }
-
 }
 
 .swal2-html-container {
@@ -53,5 +52,7 @@
 }
 .swal2-popup {
     height: 250px;
-
+}
+.swal2-title {
+    padding-top: 45px !important;
 }

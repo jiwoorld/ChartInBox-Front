@@ -67,8 +67,8 @@ function Join({ clickLogin, joinClose }) {
 
     // 이름, 전화번호, 아이디, 패스워드 받기
     const onhandlePost = async data => {
-        const { id, password, name } = data;
-        const postData = { id, password, name };
+        const { userEmail, userPassword, userNickname } = data;
+        const postData = { userEmail, userPassword, userNickname };
 
         await axios
             .post('http://localhost:8080/join', { postData })
@@ -82,13 +82,52 @@ function Join({ clickLogin, joinClose }) {
                     this.setAttribute('disabledRipple', 'true');
                     console.log('성공');
                 });
+                joinClose();
+                Swal.fire({
+                    width: 460,
+                    height: 260,
+                    html: '가입하신 이메일로 전송된 링크를 <br> 클릭하면 회원가입이 완료됩니다.',
+                    showConfirmButton: false,
+                    cancelButtonText: '확인',
+                    cancelButtonColor: '#CF5E53',
+                    showCancelButton: true,
+                    background: '#fff url(/image/swalBackground.png)',
+                    timer: 5000,
+                }); //회원가입 성공
                 // navigate('/');
             })
             .catch(err => {
                 console.log(err);
                 if (err === 'userNickname') {
                     //닉네임 중복으로 인해 회원가입 실패
-                }
+                    joinClose();
+                    Swal.fire({
+                        width: 460,
+                        height: 260,
+                        title: '회원가입 실패',
+                        html: '이미 존재하는 닉네임입니다',
+                        showConfirmButton: false,
+                        cancelButtonText: '확인',
+                        cancelButtonColor: '#CF5E53',
+                        showCancelButton: true,
+                        background: '#fff url(/image/swalBackground.png)',
+                        marginTop: '0px !important!',
+                    });
+                } else if (err === 'userEmail') {
+                    joinClose();
+                    Swal.fire({
+                        width: 460,
+                        height: 260,
+                        title: '회원가입 실패',
+                        html: '이미 존재하는 이메일입니다',
+                        showConfirmButton: false,
+                        cancelButtonText: '확인',
+                        cancelButtonColor: '#CF5E53',
+                        showCancelButton: true,
+                        background: '#fff url(/image/swalBackground.png)',
+                        marginTop: '0px !important!',
+                    });
+                } //중복된 이메일로 회원가입 실패
             });
     };
 
@@ -141,21 +180,9 @@ function Join({ clickLogin, joinClose }) {
             idRegrex.test(id) &&
             passwordRegex.test(password) &&
             password === rePassword &&
-            checked
+            checked &&
+            privateChecked
         ) {
-            joinClose();
-            Swal.fire({
-                width: 460,
-                height: 260,
-                html: '가입하신 이메일로 전송된 링크를 <br> 클릭하면 회원가입이 완료됩니다.',
-                showConfirmButton: false,
-                cancelButtonText: '확인',
-                cancelButtonColor: '#CF5E53',
-                showCancelButton: true,
-                background: '#fff url(/image/swalBackground.png)',
-                timer: 5000,
-            });
-            //회원가입 성공창은 임시로 post 전 유효성 검사만 완료하면 뜨게 함
             onhandlePost(joinData);
         }
     };

@@ -8,9 +8,9 @@ import Typography from '@mui/material/Typography';
 import styled from 'styled-components';
 import FormControl from '@mui/material/FormControl';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 // mui의 css 우선순위가 높기때문에 important를 설정 - 실무하다 보면 종종 발생 우선순위 문제
 
@@ -18,7 +18,7 @@ const Boxs = styled(Box)`
     padding-bottom: 40px !important;
 `;
 
-function ChangePassword() {
+function ChangePassword({ changePasswordClose }) {
     // color, font 설정
     const theme = createTheme({
         palette: {
@@ -34,9 +34,6 @@ function ChangePassword() {
         },
     });
 
-    // 유효성 검사 useState 추가
-    const [idError, setIdError] = useState('');
-    const [passwordError, setPasswordError] = useState(''); //비밀번호 재입력
     // const navigate = useNavigate();
     //useNavigate?! -> 페이지
 
@@ -56,10 +53,36 @@ function ChangePassword() {
                     this.setAttribute('disabledElevation', 'true');
                     this.setAttribute('disabledRipple', 'true');
                 });
+                changePasswordClose();
+                Swal.fire({
+                    width: 460,
+                    height: 260,
+                    title: '비밀번호 찾기 성공',
+                    showConfirmButton: false,
+                    cancelButtonText: '확인',
+                    cancelButtonColor: '#CF5E53',
+                    showCancelButton: true,
+                    background: '#fff url(/image/swalBackground.png)',
+                }); // 비밀번호 찾기 성공
                 // navigate('/');
             })
             .catch(err => {
-                console.log(err);
+                if (err === 'userEmail') {
+                    changePasswordClose();
+
+                    Swal.fire({
+                        width: 460,
+                        height: 260,
+                        title: '비밀번호 찾기 실패',
+                        html: '잘못된 이메일입니다',
+                        showConfirmButton: false,
+                        cancelButtonText: '확인',
+                        cancelButtonColor: '#CF5E53',
+                        showCancelButton: true,
+                        background: '#fff url(/image/swalBackground.png)',
+                        marginTop: '0px !important!',
+                    });
+                } //잘못된 이메일 비밀번호 찾기 실패
             });
     };
 
