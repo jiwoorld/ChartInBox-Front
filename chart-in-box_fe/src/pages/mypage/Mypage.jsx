@@ -42,28 +42,25 @@ export default function Album() {
             <CssBaseline />
             <AppBar position="relative">
                 <Toolbar>
-                   {/* <CameraIcon sx={{ mr: 2 }} />*/}
+                    {/* <CameraIcon sx={{ mr: 2 }} />*/}
                     <Typography variant="h6" color="inherit" noWrap>
                         위에 상단바 들어갈 칸 ~.~
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <main
-            >
-                
+            <main>
                 {/* Hero unit */}
                 <Box
                     sx={{
                         bgcolor: 'background.paper',
                         pt: 8,
                         pb: 6,
-                        paddingLeft: "25%",
+                        paddingLeft: '25%',
                         borderBottom: 1,
-                        borderBottomColor: 'grey.500'
+                        borderBottomColor: 'grey.500',
                     }}
                 >
-                    <Container
-                        maxWidth="550px">
+                    <Container maxWidth="550px">
                         <Typography
                             component="h1"
                             //variant="h2"
@@ -72,13 +69,12 @@ export default function Album() {
                             color="text.primary"
                             fontSize="1.75rem"
                             fontWeight="1500px"
-                            maxWidth= "200px"
+                            maxWidth="200px"
                             gutterBottom
                         >
                             내 프로필
                             <CardActions>
                                 <Button size="medium">개인정보수정</Button>
-                                
                             </CardActions>
                         </Typography>
 
@@ -88,161 +84,282 @@ export default function Album() {
                             spacing={2}
                             justifyContent="center"
                         >
-                        
                             <CardContent sx={{ flexGrow: 1 }}>
                                 <Typography
-                                    gutterBottom variant="h5"
+                                    gutterBottom
+                                    variant="h5"
                                     fontSize="1rem"
-                                    textAlign="left">
+                                    textAlign="left"
+                                >
                                     닉네임
                                 </Typography>
                                 <Typography
                                     textAlign="left"
                                     fontSize="1.75rem"
-                                    fontWeight="1500px">
+                                    fontWeight="700"
+                                >
                                     잇타2피
                                 </Typography>
                             </CardContent>
                             <CardContent sx={{ flexGrow: 1 }}>
                                 <Typography
-                                    gutterBottom variant="h5"
+                                    gutterBottom
+                                    variant="h5"
                                     fontSize="1rem"
-                                    textAlign="left" >
+                                    textAlign="left"
+                                >
                                     이메일
                                 </Typography>
                                 <Typography
                                     textAlign="left"
                                     fontSize="1.75rem"
-                                    fontWeight="1500px">
+                                    fontWeight="700"
+                                >
                                     chartinbox@gmail.com
                                 </Typography>
-                                
                             </CardContent>
                         </Stack>
-
                     </Container>
                 </Box>
-                
-                <Container sx={{ py: 10 }} maxWidth="md">
-                    <Box
-                        sx={{ padding: "10px" }}>
-                    <Grid container spacing={2}>
-                        
-                        <Grid card xs={3.5} sx={{ border: 1, margin: "1em" }}>
-                            <CardContent sx={{ flexGrow: 1 }}>
-                                <Box
-                                    sx={{ paddingBottom: "30px" }}>
-                                    <Typography gutterBottom variant="h5" component="h2" textAlign="left">
-                                        내 글
-                                    </Typography>
-                                </Box>
-                                <Box
-                                    sx={{ borderBottom: 1 }}>
-                                <Typography
-                                        textAlign="left"
-                                        margin="20px">
-                                    각 내용이 들어갈 칸!
-                                    </Typography>
-                                </Box>
-                                <Box
-                                    sx={{ borderBottom: 1 }}>
-                                    <Typography
-                                        textAlign="left"
-                                        margin="20px">
-                                        각 내용이 들어갈 칸!
-                                    </Typography>
-                                </Box>
-                                <Box
-                                    sx={{ borderBottom: 1 }}>
-                                    <Typography
-                                        margin="20px"
-                                        textAlign="left">
-                                        각 내용이 들어갈 칸!
-                                    </Typography>
-                                </Box>
-                            </CardContent>
-                            <CardActions>
-                                <Button size="medium">See more</Button>
-                            </CardActions>
+                <Container sx={{ py: 10 }} paddingLeft="20%">
+                    <Box sx={{ padding: '10px', leftMargin: '30px' }}>
+                        <Grid container spacing={2}>
+                            <Grid
+                                card
+                                xs={3.5}
+                                sx={{
+                                    border: 1,
+                                    margin: '1em',
+                                    borderColor: 'white',
+                                }}
+                            >
+                                <CardContent sx={{ flexGrow: 1 }}>
+                                    <Box sx={{ paddingBottom: '30px' }}>
+                                        <Typography
+                                            gutterBottom
+                                            variant="h5"
+                                            component="h2"
+                                            textAlign="left"
+                                            fontSize="1.5rem"
+                                            fontWeight="530"
+                                        >
+                                            내 글
+                                        </Typography>
+                                    </Box>
+                                    <Box
+                                        sx={{
+                                            borderBottom: 1,
+                                            borderColor: 'grey.500',
+                                        }}
+                                    >
+                                        <Typography
+                                            textAlign="left"
+                                            margin="20px"
+                                        >
+                                            각 내용이 들어갈 칸!
+                                        </Typography>
+                                    </Box>
+                                    <Box
+                                        sx={{
+                                            borderBottom: 1,
+                                            borderColor: 'grey.500',
+                                        }}
+                                    >
+                                        <Typography
+                                            textAlign="left"
+                                            margin="20px"
+                                        >
+                                            각 내용이 들어갈 칸!
+                                        </Typography>
+                                    </Box>
+                                    <Box
+                                        sx={{
+                                            borderBottom: 1,
+                                            borderColor: 'grey.500',
+                                        }}
+                                    >
+                                        <Typography
+                                            margin="20px"
+                                            textAlign="left"
+                                        >
+                                            각 내용이 들어갈 칸!
+                                        </Typography>
+                                    </Box>
+                                    <Box
+                                        sx={{
+                                            borderBottom: 1,
+                                            borderColor: 'grey.500',
+                                        }}
+                                    >
+                                        <Typography
+                                            margin="20px"
+                                            textAlign="left"
+                                        >
+                                            각 내용이 들어갈 칸!
+                                        </Typography>
+                                    </Box>
+                                </CardContent>
+                                <CardActions>
+                                    <Button size="medium">See more</Button>
+                                </CardActions>
+                            </Grid>
+                            <Grid
+                                card
+                                xs={3.5}
+                                sx={{
+                                    border: 1,
+                                    margin: '1em',
+                                    borderColor: 'white',
+                                }}
+                            >
+                                {/*<card>xs=4</card>*/}
+                                <CardContent sx={{ flexGrow: 1 }}>
+                                    <Box sx={{ paddingBottom: '30px' }}>
+                                        <Typography
+                                            gutterBottom
+                                            variant="h5"
+                                            component="h2"
+                                            textAlign="left"
+                                        >
+                                            내 댓글
+                                        </Typography>
+                                    </Box>
+                                    <Box
+                                        sx={{
+                                            borderBottom: 1,
+                                            borderColor: 'grey.500',
+                                        }}
+                                    >
+                                        <Typography
+                                            margin="20px"
+                                            textAlign="left"
+                                        >
+                                            각 내용이 들어갈 칸!
+                                        </Typography>
+                                    </Box>
+                                    <Box
+                                        sx={{
+                                            borderBottom: 1,
+                                            borderColor: 'grey.500',
+                                        }}
+                                    >
+                                        <Typography
+                                            margin="20px"
+                                            textAlign="left"
+                                        >
+                                            각 내용이 들어갈 칸!
+                                        </Typography>
+                                    </Box>
+                                    <Box
+                                        sx={{
+                                            borderBottom: 1,
+                                            borderColor: 'grey.500',
+                                        }}
+                                    >
+                                        <Typography
+                                            margin="20px"
+                                            textAlign="left"
+                                        >
+                                            각 내용이 들어갈 칸!
+                                        </Typography>
+                                    </Box>
+                                    <Box
+                                        sx={{
+                                            borderBottom: 1,
+                                            borderColor: 'grey.500',
+                                        }}
+                                    >
+                                        <Typography
+                                            margin="20px"
+                                            textAlign="left"
+                                        >
+                                            각 내용이 들어갈 칸!
+                                        </Typography>
+                                    </Box>
+                                </CardContent>
+                                <CardActions>
+                                    <Button size="medium">See more</Button>
+                                </CardActions>
+                            </Grid>
+                            <Grid
+                                card
+                                xs={3.5}
+                                sx={{
+                                    border: 1,
+                                    margin: '1em',
+                                    borderColor: 'white',
+                                }}
+                            >
+                                {/*<card>xs=4</card>*/}
+                                <CardContent sx={{ flexGrow: 1 }}>
+                                    <Box sx={{ paddingBottom: '30px' }}>
+                                        <Typography
+                                            gutterBottom
+                                            variant="h5"
+                                            component="h2"
+                                            textAlign="left"
+                                        >
+                                            마음함
+                                        </Typography>
+                                    </Box>
+                                    <Box
+                                        sx={{
+                                            borderBottom: 1,
+                                            borderColor: 'grey.500',
+                                        }}
+                                    >
+                                        <Typography
+                                            margin="20px"
+                                            textAlign="left"
+                                        >
+                                            각 내용이 들어갈 칸!
+                                        </Typography>
+                                    </Box>
+                                    <Box
+                                        sx={{
+                                            borderBottom: 1,
+                                            borderColor: 'grey.500',
+                                        }}
+                                    >
+                                        <Typography
+                                            margin="20px"
+                                            textAlign="left"
+                                        >
+                                            각 내용이 들어갈 칸!
+                                        </Typography>
+                                    </Box>
+                                    <Box
+                                        sx={{
+                                            borderBottom: 1,
+                                            borderColor: 'grey.500',
+                                        }}
+                                    >
+                                        <Typography
+                                            margin="20px"
+                                            textAlign="left"
+                                        >
+                                            각 내용이 들어갈 칸!
+                                        </Typography>
+                                    </Box>
+                                    <Box
+                                        sx={{
+                                            borderBottom: 1,
+                                            borderColor: 'grey.500',
+                                        }}
+                                    >
+                                        <Typography
+                                            margin="20px"
+                                            textAlign="left"
+                                        >
+                                            각 내용이 들어갈 칸!
+                                        </Typography>
+                                    </Box>
+                                </CardContent>
+                                <CardActions>
+                                    <Button size="medium">See more</Button>
+                                </CardActions>
+                            </Grid>
                         </Grid>
-                        <Grid card xs={3.5} sx={{ border: 1, margin: "1em" }}>
-                            {/*<card>xs=4</card>*/}
-                            <CardContent sx={{ flexGrow: 1 }}>
-                                <Box
-                                    sx={{ paddingBottom: "30px" }}>
-                                <Typography gutterBottom variant="h5" component="h2" textAlign="left">
-                                    내 댓글
-                                </Typography>
-                                </Box>
-                                <Box
-                                    sx={{ borderBottom: 1 }}>
-                                    <Typography
-                                        margin="20px"
-                                        textAlign="left">
-                                        각 내용이 들어갈 칸!
-                                    </Typography>
-                                </Box>
-                                <Box
-                                    sx={{ borderBottom: 1 }}>
-                                    <Typography
-                                        margin="20px"
-                                        textAlign="left">
-                                        각 내용이 들어갈 칸!
-                                    </Typography>
-                                </Box>
-                                <Box
-                                    sx={{ borderBottom: 1 }}>
-                                    <Typography
-                                        margin="20px"
-                                        textAlign="left">
-                                        각 내용이 들어갈 칸!
-                                    </Typography>
-                                </Box>
-                            </CardContent>
-                            <CardActions>
-                                <Button size="medium">See more</Button>
-                            </CardActions>
-                        </Grid>
-                        <Grid card xs={3.5} sx={{ border: 1, margin: "1em" }}>
-                            {/*<card>xs=4</card>*/}
-                            <CardContent sx={{ flexGrow: 1 }}>
-                                <Box
-                                    sx={{ paddingBottom: "30px" }}>
-                                    <Typography gutterBottom variant="h5" component="h2" textAlign="left">
-                                        마음함
-                                    </Typography>
-                                </Box>
-                                <Box
-                                    sx={{ borderBottom: 1 }}>
-                                    <Typography
-                                        margin="20px"
-                                        textAlign="left">
-                                        각 내용이 들어갈 칸!
-                                    </Typography>
-                                </Box>
-                                <Box
-                                    sx={{ borderBottom: 1 }}>
-                                    <Typography
-                                        margin="20px"
-                                        textAlign="left">
-                                        각 내용이 들어갈 칸!
-                                    </Typography>
-                                </Box>
-                                <Box
-                                    sx={{ borderBottom: 1 }}>
-                                    <Typography
-                                        margin="20px"
-                                        textAlign="left">
-                                        각 내용이 들어갈 칸!
-                                    </Typography>
-                                </Box>
-                            </CardContent>
-                            <CardActions>
-                                <Button size="medium">See more</Button>
-                            </CardActions>
-
-                        </Grid>
-                    </Grid>
                     </Box>
                 </Container>
             </main>
@@ -259,7 +376,7 @@ export default function Album() {
                 >
                     푸터가 들어갈 칸입니다
                 </Typography>
-{/*                <Copyright />*/}
+                {/*                <Copyright />*/}
             </Box>
             {/* End footer */}
         </ThemeProvider>
