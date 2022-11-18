@@ -4,11 +4,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
 import styled from 'styled-components';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
@@ -16,6 +14,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 // mui의 css 우선순위가 높기때문에 important를 설정 - 실무하다 보면 종종 발생 우선순위 문제
 const FormHelperTexts = styled(FormHelperText)`
@@ -29,7 +28,7 @@ const Boxs = styled(Box)`
     padding-bottom: 40px !important;
 `;
 
-function Join({ clickLogin }) {
+function Join({ clickLogin, joinClose }) {
     // color, font 설정
     const theme = createTheme({
         palette: {
@@ -144,6 +143,19 @@ function Join({ clickLogin }) {
             password === rePassword &&
             checked
         ) {
+            joinClose();
+            Swal.fire({
+                width: 460,
+                height: 260,
+                html: '가입하신 이메일로 전송된 링크를 <br> 클릭하면 회원가입이 완료됩니다.',
+                showConfirmButton: false,
+                cancelButtonText: '확인',
+                cancelButtonColor: '#CF5E53',
+                showCancelButton: true,
+                background: '#fff url(/image/swalBackground.png)',
+                timer: 5000,
+            });
+            //회원가입 성공창은 임시로 post 전 유효성 검사만 완료하면 뜨게 함
             onhandlePost(joinData);
         }
     };

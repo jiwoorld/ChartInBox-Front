@@ -35,4 +35,23 @@
     to {
         transform: rotate(360deg);
     }
+
+}
+
+.swal2-html-container {
+    display: flex;
+    font-weight: 500;
+    font-size: 20px !important;
+    line-height: 31px;
+    text-align: center;
+    margin-top: 60px !important;
+}
+.swal2-actions {
+    margin-bottom: 20px !important;
+    font-size: 15px !important;
+    width: 70px;
+}
+.swal2-popup {
+    height: 250px;
+
 }
