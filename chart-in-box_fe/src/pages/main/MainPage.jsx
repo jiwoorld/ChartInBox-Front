@@ -41,12 +41,15 @@ function MainPage() {
         setLoginOpen(false);
         setChangePasswordOpen(true);
     };
+    const joinClose = () => {
+        setJoinOpen(false);
+    };
     return (
         <div>
             <Button onClick={handleJoinOpen}>회원가입</Button>
             <Modal open={joinOpen} onClose={handleJoinClose}>
                 <Box sx={style}>
-                    <Join clickLogin={clickLogin} />
+                    <Join clickLogin={clickLogin} joinClose={joinClose} />
                 </Box>
             </Modal>
             <Button onClick={handleLoginOpen}>로그인</Button>
