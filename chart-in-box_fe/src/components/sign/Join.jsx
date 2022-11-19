@@ -135,18 +135,6 @@ function Join({ clickLogin, joinClose }) {
     const handleSubmit = event => {
         event.preventDefault();
 
-        joinClose();
-        Swal.fire({
-            width: 460,
-            height: 260,
-            html: '가입하신 이메일로 전송된 링크를 <br> 클릭하면 회원가입이 완료됩니다.',
-            showConfirmButton: false,
-            cancelButtonText: '확인',
-            cancelButtonColor: '#CF5E53',
-            showCancelButton: true,
-            background: '#fff url(/image/swalBackground.png)',
-            timer: 5000,
-        }); //회원가입 성공
         const data = new FormData(event.currentTarget);
         const joinData = {
             id: data.get('id'),
