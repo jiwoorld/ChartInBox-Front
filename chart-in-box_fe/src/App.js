@@ -5,6 +5,7 @@ import Terms from './pages/agree/Terms';
 import PrivatePolicy from './pages/agree/PrivatePolicy';
 import Mypage from './pages/mypage/Mypage';
 import MovieInfo from './pages/movieinfo/MovieInfo';
+import ChangeInfo from './pages/mypage/ChangeInfo';
 
 function App() {
     return (
@@ -19,6 +20,10 @@ function App() {
                         element={<MovieInfo></MovieInfo>}
                     />
                     <Route path="/mypage" element={<Mypage></Mypage>} />
+                    <Route
+                        path="/changeinfo"
+                        element={<ChangeInfo></ChangeInfo>}
+                    />
                 </Routes>
             </Router>
         </div>

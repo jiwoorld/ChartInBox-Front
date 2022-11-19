@@ -15,6 +15,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import MenuBar from '../../components/menubar/MenuBar';
 
 function Mypage() {
     return (
@@ -40,13 +41,8 @@ export default function Album() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <AppBar position="relative">
-                <Toolbar>
-                    {/* <CameraIcon sx={{ mr: 2 }} />*/}
-                    <Typography variant="h6" color="inherit" noWrap>
-                        위에 상단바 들어갈 칸 ~.~
-                    </Typography>
-                </Toolbar>
+            <AppBar position="relative" sx={{ border: '1px solid red' }}>
+                <MenuBar></MenuBar>;
             </AppBar>
             <main>
                 {/* Hero unit */}
