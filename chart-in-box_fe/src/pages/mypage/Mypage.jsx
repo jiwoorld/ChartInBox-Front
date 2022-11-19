@@ -41,9 +41,9 @@ export default function Album() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <AppBar position="relative" sx={{ border: '1px solid red' }}>
-                <MenuBar></MenuBar>;
-            </AppBar>
+            {/* <AppBar position="relative" sx={{ border: '1px solid red' }}> */}
+            <MenuBar></MenuBar>
+            {/* </AppBar> */}
             <main>
                 {/* Hero unit */}
                 <Box
