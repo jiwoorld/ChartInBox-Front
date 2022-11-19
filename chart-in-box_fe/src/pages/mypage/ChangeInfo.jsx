@@ -17,6 +17,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 /* import Link from '@mui/material/Link';
  */ import { createTheme, ThemeProvider } from '@mui/material/styles';
+import MenuBar from '../../components/menubar/MenuBar';
 
 const FormHelperTexts = styled(FormHelperText)`
     width: 100%;
@@ -100,13 +101,14 @@ function ChangeInfo() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <AppBar position="relative">
+            {/* <AppBar position="relative">
                 <Toolbar>
                     <Typography variant="h6" color="inherit" noWrap>
                         위에 상단바 들어갈 칸 ~.~
                     </Typography>
                 </Toolbar>
-            </AppBar>
+            </AppBar> */}
+            <MenuBar></MenuBar>
             <main>
                 <Box
                     sx={{
