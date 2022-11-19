@@ -63,7 +63,7 @@ export default function Album() {
                             align="left"
                             height="50px"
                             color="text.primary"
-                            fontSize="1.75rem"
+                            fontSize="1.3125 rem"
                             fontWeight="1500px"
                             maxWidth="200px"
                             gutterBottom
@@ -84,7 +84,7 @@ export default function Album() {
                                 <Typography
                                     gutterBottom
                                     variant="h5"
-                                    fontSize="1rem"
+                                    fontSize="1.125"
                                     textAlign="left"
                                 >
                                     닉네임
