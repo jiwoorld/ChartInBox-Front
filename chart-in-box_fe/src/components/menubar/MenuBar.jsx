@@ -109,7 +109,7 @@ function MenuBar() {
                             fontFamily: 'Pretendard',
                             fontStyle: 'normal',
                             fontWeight: '400',
-                            fontSize: '18px',
+                            fontSize: '1.125rem',
                             color: 'secondary.main',
                         }}
                     >
@@ -122,7 +122,7 @@ function MenuBar() {
                             fontFamily: 'Pretendard',
                             fontStyle: 'normal',
                             fontWeight: '400',
-                            fontSize: '18px',
+                            fontSize: '1.125rem',
                         }}
                     >
                         {' '}
@@ -135,7 +135,7 @@ function MenuBar() {
                             fontFamily: 'Pretendard',
                             fontStyle: 'normal',
                             fontWeight: '400',
-                            fontSize: '18px',
+                            fontSize: '1.125rem',
                         }}
                     >
                         {' '}
@@ -148,7 +148,7 @@ function MenuBar() {
                             fontFamily: 'Pretendard',
                             fontStyle: 'normal',
                             fontWeight: '400',
-                            fontSize: '18px',
+                            fontSize: '1.125rem',
                         }}
                     >
                         {' '}
@@ -177,7 +177,7 @@ function MenuBar() {
                                 width: '300px',
                                 fontStyle: 'normal',
                                 fontWeight: '300',
-                                fontSize: '15px',
+                                fontSize: '0.938rem',
                             }}
                             placeholder="제목 감독을 검색해보세요"
                             inputProps={{ 'aria-label': 'search google maps' }}
@@ -205,7 +205,7 @@ function MenuBar() {
                         onClick={handleLoginOpen}
                         sx={{
                             fontWeight: '600',
-                            fontSize: '15px',
+                            fontSize: '0.938rem',
                             width: '64px',
                             height: '21px',
                             padding: '0px',
@@ -227,7 +227,7 @@ function MenuBar() {
                         onClick={handleJoinOpen}
                         sx={{
                             fontWeight: '600',
-                            fontSize: '15px',
+                            fontSize: '0.938rem',
                             width: '64px',
                             height: '21px',
                             padding: '0px',
@@ -258,7 +258,7 @@ function MenuBar() {
                     <Button
                         sx={{
                             fontWeight: '600',
-                            fontSize: '15px',
+                            fontSize: '0.938rem',
                             width: '64px',
                             height: '21px',
                             padding: '0px',
