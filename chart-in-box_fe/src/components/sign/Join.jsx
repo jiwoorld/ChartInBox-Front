@@ -67,11 +67,16 @@ function Join({ clickLogin, joinClose }) {
 
     // 이름, 전화번호, 아이디, 패스워드 받기
     const onhandlePost = async data => {
-        const { userEmail, userPassword, userNickname } = data;
+        const { userEmail, userPassword, userNickname, userRePassword } = data;
+        console.log(data, 'data');
         const postData = { userEmail, userPassword, userNickname };
+        postData.userEmail = data.id;
+        postData.userPassword = data.password;
+        postData.userNickname = data.name;
+        console.log(postData, 'postData');
 
         await axios
-            .post('http://localhost:8080/join', { postData })
+            .post('http://localhost:8080/join', postData)
             .then(res => {
                 // submit 버튼 중복클릭 방지
                 let submitBtn = document.getElementById('submit');
@@ -97,8 +102,9 @@ function Join({ clickLogin, joinClose }) {
                 // navigate('/');
             })
             .catch(err => {
-                console.log(err);
-                if (err === 'userNickname') {
+                console.log('error남!!!!!!!!!', err);
+                console.log(err.response.data);
+                if (err.response.data === 'userNickname') {
                     //닉네임 중복으로 인해 회원가입 실패
                     joinClose();
                     Swal.fire({
@@ -113,7 +119,8 @@ function Join({ clickLogin, joinClose }) {
                         background: '#fff url(/image/swalBackground.png)',
                         marginTop: '0px !important!',
                     });
-                } else if (err === 'userEmail') {
+                } else if (err.response.data === 'userEmail') {
+                    console.log('이메일!!!!!!!!!!!!!!!!111');
                     joinClose();
                     Swal.fire({
                         width: 460,
@@ -136,6 +143,7 @@ function Join({ clickLogin, joinClose }) {
         event.preventDefault();
 
         const data = new FormData(event.currentTarget);
+        console.log('data', data);
         const joinData = {
             id: data.get('id'),
             password: data.get('password'),
@@ -143,6 +151,10 @@ function Join({ clickLogin, joinClose }) {
             rePassword: data.get('rePassword'),
         };
         const { id, password, name, rePassword } = joinData;
+        console.log('id', id);
+        console.log('password', password);
+        console.log('name', name);
+        console.log('rePassword', rePassword);
 
         // 아이디 유효성 체크
         const idRegrex =
@@ -184,6 +196,7 @@ function Join({ clickLogin, joinClose }) {
             checked &&
             privateChecked
         ) {
+            console.log('joinData', joinData);
             onhandlePost(joinData);
         }
     };
