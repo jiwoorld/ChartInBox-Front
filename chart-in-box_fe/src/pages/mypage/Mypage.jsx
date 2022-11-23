@@ -71,6 +71,7 @@ export default function Album() {
                         내프로필
                     </Button>
                     <Button
+                        href="/changeinfo"
                         sx={{
                             width: '161px',
                             height: '60px',
