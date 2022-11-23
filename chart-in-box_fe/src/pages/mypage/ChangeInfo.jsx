@@ -120,19 +120,21 @@ function ChangeInfo() {
                     }}
                 >
                     <Container maxWidth="550px">
-                        <Typography
-                            component="h1"
-                            align="left"
-                            height="50px"
-                            color="text.primary"
-                            fontSize="1.75rem"
-                            fontWeight="900"
-                            marginBottom="80px"
-                            maxWidth="200px"
-                            gutterBottom
-                        >
-                            개인정보 변경
-                        </Typography>
+                        <box>
+                            <Typography
+                                component="h1"
+                                align="left"
+                                height="50px"
+                                color="text.primary"
+                                fontSize="1.75rem"
+                                fontWeight="900"
+                                marginBottom="80px"
+                                maxWidth="200px"
+                                gutterBottom
+                            >
+                                개인정보 변경
+                            </Typography>
+                        </box>
                         <Box marginBottom="100px">
                             <Typography
                                 component="h1"

@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Terms from './pages/agree/Terms';
 import PrivatePolicy from './pages/agree/PrivatePolicy';
 import Mypage from './pages/mypage/Mypage';
+import Mypost from './pages/mypage/Mypost';
+import Mycomment from './pages/mypage/Mycomment';
 import MovieInfo from './pages/movieinfo/MovieInfo';
 import ChangeInfo from './pages/mypage/ChangeInfo';
 
@@ -20,6 +22,11 @@ function App() {
                         element={<MovieInfo></MovieInfo>}
                     />
                     <Route path="/mypage" element={<Mypage></Mypage>} />
+                    <Route path="/mypost" element={<Mypost></Mypost>} />
+                    <Route
+                        path="/mycomment"
+                        element={<Mycomment></Mycomment>}
+                    />
                     <Route
                         path="/changeinfo"
                         element={<ChangeInfo></ChangeInfo>}
