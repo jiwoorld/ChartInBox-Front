@@ -39,6 +39,8 @@ function Login({ clickJoin, clickPassword, loginClose }) {
     const onhandlePost = async data => {
         const { userEmail, userPassword } = data;
         const postData = { userEmail, userPassword };
+        postData.userEmail = data.id;
+        postData.userPassword = data.password;
 
         await axios
             .post('http://localhost:8080/log-in', { postData })
@@ -65,7 +67,7 @@ function Login({ clickJoin, clickPassword, loginClose }) {
                 navigate('/');
             })
             .catch(err => {
-                if (err === 'userEmail') {
+                if (err.response.data === 'userEmail') {
                     loginClose();
                     Swal.fire({
                         width: 460,
@@ -80,7 +82,7 @@ function Login({ clickJoin, clickPassword, loginClose }) {
                         marginTop: '0px !important!',
                     });
                     //존재하지 않는 이메일로 로그인 실패
-                } else if (err === 'userPassword') {
+                } else if (err.response.data === 'userPassword') {
                     loginClose();
                     Swal.fire({
                         width: 460,
@@ -95,7 +97,7 @@ function Login({ clickJoin, clickPassword, loginClose }) {
                         marginTop: '0px !important!',
                     });
                 } //잘못된 비밀번호로 로그인 실패
-                else if (err === 'auth') {
+                else if (err.response.data === 'auth') {
                     loginClose();
                     Swal.fire({
                         width: 460,

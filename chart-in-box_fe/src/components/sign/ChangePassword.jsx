@@ -39,8 +39,9 @@ function ChangePassword({ changePasswordClose }) {
 
     // 이름, 전화번호, 아이디, 패스워드 받기
     const onhandlePost = async data => {
-        const { id } = data;
-        const postData = { id };
+        const { userEmail } = data;
+        const postData = { userEmail };
+        postData.userEmail = data.id;
 
         await axios
             .post('http://localhost:8080/log-in/find-pw', { postData })
@@ -67,7 +68,7 @@ function ChangePassword({ changePasswordClose }) {
                 // navigate('/');
             })
             .catch(err => {
-                if (err === 'userEmail') {
+                if (err.response.data === 'userEmail') {
                     changePasswordClose();
 
                     Swal.fire({

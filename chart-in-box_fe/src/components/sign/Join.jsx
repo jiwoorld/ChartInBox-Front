@@ -67,7 +67,7 @@ function Join({ clickLogin, joinClose }) {
 
     // 이름, 전화번호, 아이디, 패스워드 받기
     const onhandlePost = async data => {
-        const { userEmail, userPassword, userNickname, userRePassword } = data;
+        const { userEmail, userPassword, userNickname } = data;
         console.log(data, 'data');
         const postData = { userEmail, userPassword, userNickname };
         postData.userEmail = data.id;
