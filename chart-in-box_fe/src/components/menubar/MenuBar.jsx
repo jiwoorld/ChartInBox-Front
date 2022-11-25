@@ -26,6 +26,9 @@ function MenuBar() {
             third: {
                 main: '#D9D9D9',
             },
+            text: {
+                default: '#fff',
+            },
         },
         typography: {
             fontFamily: "'Pretendard', sans-serif",
