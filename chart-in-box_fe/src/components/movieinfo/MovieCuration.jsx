@@ -1,40 +1,94 @@
+import { Box } from '@mui/material';
 import React from 'react';
 import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 function MovieCuration() {
     const settings = {
-        dots: true,
         infinite: true,
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
-        pauseOnHover: true,
+        speed: 2000,
     };
     return (
-        <div>
-            <h2>Pause On Hover</h2>
+        <Box
+            sx={{
+                display: 'block',
+            }}
+        >
             <Slider {...settings}>
-                <div>
-                    <h3>1</h3>
-                </div>
-                <div>
-                    <h3>2</h3>
-                </div>
-                <div>
-                    <h3>3</h3>
-                </div>
-                <div>
-                    <h3>4</h3>
-                </div>
-                <div>
-                    <h3>5</h3>
-                </div>
-                <div>
-                    <h3>6</h3>
-                </div>
+                <Box
+                    sx={{
+                        width: '15.125rem',
+                        height: '8.875rem',
+                        borderRadius: '0.9rem',
+                        backgroundColor: '#D9D9D9',
+                        marginLeft: '0px',
+                    }}
+                >
+                    1
+                </Box>
+                <Box
+                    sx={{
+                        width: '15.125rem',
+                        height: '8.875rem',
+                        borderRadius: '0.9rem',
+                        backgroundColor: '#D9D9D9',
+                        marginLeft: '30px !important',
+                    }}
+                >
+                    2
+                </Box>
+                <Box
+                    sx={{
+                        width: '15.125rem',
+                        height: '8.875rem',
+                        borderRadius: '0.9rem',
+                        backgroundColor: '#D9D9D9',
+                        marginLeft: '60px !important',
+                    }}
+                >
+                    3
+                </Box>
+                <Box
+                    sx={{
+                        width: '15.125rem',
+                        height: '8.875rem',
+                        borderRadius: '0.9rem',
+                        backgroundColor: '#D9D9D9',
+                        marginLeft: '90px !important',
+                    }}
+                >
+                    4
+                </Box>
+                <Box
+                    sx={{
+                        width: '15.125rem',
+                        height: '8.875rem',
+                        borderRadius: '0.9rem',
+                        backgroundColor: '#D9D9D9',
+                        marginLeft: '120px !important',
+                    }}
+                >
+                    5
+                </Box>
+                <Box
+                    sx={{
+                        width: '15.125rem',
+                        height: '8.875rem',
+                        borderRadius: '0.9rem',
+                        backgroundColor: '#D9D9D9',
+                        marginLeft: '150px !important',
+                    }}
+                >
+                    6
+                </Box>
+                <Box></Box>
             </Slider>
-        </div>
+        </Box>
     );
 }
 

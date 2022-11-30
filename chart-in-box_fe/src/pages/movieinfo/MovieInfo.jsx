@@ -9,6 +9,7 @@ import {
 import { Box } from '@mui/system';
 import * as React from 'react';
 import MenuBar from '../../components/menubar/MenuBar';
+import MovieCuration from '../../components/movieinfo/MovieCuration';
 import MovieTable from '../../components/movieinfo/MovieTable';
 
 function MovieInfo() {
@@ -261,9 +262,21 @@ function MovieInfo() {
                     sx={{
                         height: '12.6rem',
                         width: '100%',
-                        border: '1px solid red',
                     }}
-                ></Box>
+                >
+                    <Box
+                        sx={{
+                            width: '8rem',
+                            height: '2.5rem',
+                            fontSize: '1.3rem',
+                            borderBottom: '1px solid white',
+                            marginBottom: '1rem',
+                        }}
+                    >
+                        큐레이션
+                    </Box>
+                    <MovieCuration></MovieCuration>
+                </Box>
                 <MovieTable
                     tableName={'Review'}
                     buttonName={'리뷰쓰러가기'}
