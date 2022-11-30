@@ -7,7 +7,7 @@ import TextField from '@mui/material/TextField';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import axios from 'axios';
-/* import Grid from '@mui/material/Grid'; */
+import Grid from '@mui/material/Grid';
 import styled from 'styled-components';
 import { useState } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -27,7 +27,29 @@ const FormHelperTexts = styled(FormHelperText)`
 `;
 
 function ChangeInfo() {
-    const theme = createTheme();
+    const theme = createTheme({
+        // palette: {
+        //     primary: {
+        //         main: '#fff',
+        //     },
+        //     secondary: {
+        //         main: '#CF5E53',
+        //     },
+        //     third: {
+        //         main: '#001F28',
+        //     },
+        //     background: {
+        //         default: '#001F28',
+        //     },
+        //     text: {
+        //         primary: '#fff',
+        //     },
+        // },
+        typography: {
+            fontFamily: "'Pretendard', sans-serif",
+        },
+    });
+
     const [checked, setChecked] = useState(false);
     const [idError, setIdError] = useState('');
     const [passwordState, setPasswordState] = useState(''); //비밀번호 입력
@@ -101,49 +123,74 @@ function ChangeInfo() {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            {/* <AppBar position="relative">
-                <Toolbar>
-                    <Typography variant="h6" color="inherit" noWrap>
-                        위에 상단바 들어갈 칸 ~.~
-                    </Typography>
-                </Toolbar>
-            </AppBar> */}
             <MenuBar></MenuBar>
             <main>
                 <Box
                     sx={{
                         bgcolor: 'background.paper',
-                        pt: 8,
-                        pb: 6,
-                        paddingLeft: '25%',
-                        paddingRight: '25%',
+                        px: 32,
+                        mt: 10,
+                        direction: 'column',
+                        align: 'center',
+                        justifyContent: 'space-around',
                     }}
                 >
-                    <Container maxWidth="550px">
-                        <box>
+                    <Button
+                        sx={{
+                            align: 'left',
+                            width: '8.313rem',
+                            height: '2.063rem',
+                            fontFamily: 'Pretendard',
+                            fontWeight: '400',
+                            fontSize: '1.313rem',
+                            lineHeight: '25px',
+                            color: 'text.primary',
+                            ml: '-30em',
+                        }}
+                    >
+                        개인정보 수정
+                    </Button>
+                    <Button
+                        href="/changeinfo"
+                        sx={{
+                            height: '1.375rem',
+                            width: '5.303rem',
+                            fontFamily: 'Pretendard',
+                            fontStyle: 'normal',
+                            fontWeight: '400',
+                            fontSize: '1.125rem',
+                            color: '#757575',
+                        }}
+                    >
+                        {' '}
+                        탈퇴하기{' '}
+                    </Button>
+                </Box>
+
+                <Container
+                    sx={{
+                        mt: 8,
+                        width: '42.875rem',
+                        height: '100%',
+                        flexDirection: 'column',
+                    }}
+                >
+                    <Box marginBottom="20px">
+                        <Box
+                            sx={{
+                                width: '42.875rem',
+                                display: 'flex',
+                                height: '100%',
+                                flexDirection: 'column',
+                            }}
+                        >
                             <Typography
                                 component="h1"
                                 align="left"
-                                height="50px"
+                                height="30px"
                                 color="text.primary"
-                                fontSize="1.75rem"
-                                fontWeight="900"
-                                marginBottom="80px"
-                                maxWidth="200px"
-                                gutterBottom
-                            >
-                                개인정보 변경
-                            </Typography>
-                        </box>
-                        <Box marginBottom="100px">
-                            <Typography
-                                component="h1"
-                                align="left"
-                                height="50px"
-                                color="text.primary"
-                                fontSize="1.2rem"
+                                fontSize="0.75rem"
                                 fontWeight="600px"
-                                maxWidth="200px"
                                 gutterBottom
                             >
                                 닉네임 변경
@@ -159,43 +206,50 @@ function ChangeInfo() {
                                 error={nameError !== '' || false}
                             />
                             <FormHelperTexts>{nameError}</FormHelperTexts>
-                        </Box>
-                        <Box marginBottom="100px">
-                            <Typography
-                                component="h1"
-                                align="left"
-                                height="50px"
-                                color="text.primary"
-                                fontSize="1.2rem"
-                                fontWeight="600px"
-                                maxWidth="200px"
-                                gutterBottom
+                            <Box
+                                sx={{
+                                    height: '3.125rem',
+                                    display: 'flex',
+                                    justifyContent: 'flex-end',
+                                    mt: 3.5,
+                                }}
                             >
-                                이메일(아이디) 변경
-                            </Typography>
-                            <TextField
-                                variant="standard"
-                                required
-                                fullWidth
-                                id="id"
-                                name="id"
-                                autoComplete="id" //자동완성 기능
-                                placeholder="chartinbox@gmail.com"
-                                autoFocus
-                                error={idError !== '' || false}
-                            />
-                            <FormHelperTexts>{nameError}</FormHelperTexts>
+                                <Button
+                                    variant="contained"
+                                    size="small"
+                                    sx={{
+                                        width: '3.2rem',
+                                        height: '1.3rem',
+                                        padding: '0px',
+                                        backgroundColor: '#E0E0E0',
+                                        color: '#333D41',
+                                        fontWeight: '600',
+                                        fontSize: '0.7rem',
+                                    }}
+                                >
+                                    변경하기
+                                </Button>
+                            </Box>
                         </Box>
-                        <Box marginBottom="50px">
+                    </Box>
+
+                    <Box marginBottom="30px">
+                        <Box
+                            sx={{
+                                width: '42.875rem',
+                                display: 'flex',
+                                height: '100%',
+                                flexDirection: 'column',
+                            }}
+                        >
                             <Typography
                                 component="h1"
                                 align="left"
                                 height="50px"
                                 color="text.primary"
-                                fontSize="1.2rem"
+                                fontSize="0.75rem"
                                 fontWeight="600px"
                                 maxWidth="200px"
-                                gutterBottom
                             >
                                 비밀번호 변경
                             </Typography>
@@ -212,7 +266,16 @@ function ChangeInfo() {
                             />
                             <FormHelperTexts>{passwordState}</FormHelperTexts>
                         </Box>
-                        <Box marginBottom="50px">
+                    </Box>
+                    <Box marginBottom="30px">
+                        <Box
+                            sx={{
+                                width: '42.875rem',
+                                display: 'flex',
+                                height: '100%',
+                                flexDirection: 'column',
+                            }}
+                        >
                             <TextField
                                 variant="standard"
                                 required
@@ -226,6 +289,15 @@ function ChangeInfo() {
                             />
                             <FormHelperTexts>{passwordError}</FormHelperTexts>
                         </Box>
+                    </Box>
+                    <Box
+                        sx={{
+                            width: '42.875rem',
+                            display: 'flex',
+                            height: '100%',
+                            flexDirection: 'column',
+                        }}
+                    >
                         <TextField
                             variant="standard"
                             required
@@ -238,14 +310,66 @@ function ChangeInfo() {
                             error={passwordError !== '' || false}
                         />
                         <FormHelperTexts>{passwordError}</FormHelperTexts>
-                    </Container>
-                </Box>
-                <Button id="submit" type="submit" size="medium">
-                    탈퇴하기
-                </Button>
-                <Button id="submit" type="submit" size="medium">
-                    수정하기
-                </Button>
+
+                        <Box
+                            sx={{
+                                height: '3.125rem',
+                                display: 'flex',
+                                justifyContent: 'flex-end',
+                                mt: 3.5,
+                            }}
+                        >
+                            <Button
+                                variant="contained"
+                                size="small"
+                                sx={{
+                                    width: '3.2rem',
+                                    height: '1.3rem',
+                                    padding: '0px',
+                                    backgroundColor: '#E0E0E0',
+                                    color: '#333D41',
+                                    fontWeight: '600',
+                                    fontSize: '0.7rem',
+                                }}
+                            >
+                                변경하기
+                            </Button>
+                        </Box>
+                    </Box>
+                    <Box
+                        sx={{
+                            height: '3.125rem',
+                            display: 'flex',
+                            justifyContent: 'flex-start',
+                        }}
+                    >
+                        <Button
+                            id="submit"
+                            type="submit"
+                            size="medium"
+                            sx={{
+                                color: 'black',
+                                ml: 0,
+                            }}
+                        >
+                            뒤로가기
+                        </Button>
+                    </Box>
+                </Container>
+                {/* </Box> */}
+
+                {/* <Box
+                    sx={{
+                        height: '3.125rem',
+                        display: 'flex',
+                        justifyContent: 'flex-start',
+                        mt: 3.5,
+                    }}
+                >
+                    <Button id="submit" type="submit" size="medium">
+                        뒤로가기
+                    </Button>
+                </Box> */}
             </main>
             {/* Footer */}
             <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
