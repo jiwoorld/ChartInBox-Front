@@ -100,7 +100,6 @@ function ChangePassword({ changePasswordClose }) {
 
     return (
         <ThemeProvider theme={theme}>
-            <CssBaseline />
             <Box
                 sx={{
                     display: 'flex',

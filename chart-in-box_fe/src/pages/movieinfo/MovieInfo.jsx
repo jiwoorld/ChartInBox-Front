@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import { Box } from '@mui/system';
 import * as React from 'react';
-import MenuBar from '../../components/menubar/MenuBar';
+import MenuBarMovie from '../../components/menubar/MenuBarMovie';
 import MovieCuration from '../../components/movieinfo/MovieCuration';
 import MovieTable from '../../components/movieinfo/MovieTable';
 
@@ -16,7 +16,7 @@ function MovieInfo() {
     const theme = createTheme({
         palette: {
             primary: {
-                main: '#fff',
+                main: '#333D41',
             },
             secondary: {
                 main: '#CF5E53',
@@ -37,7 +37,7 @@ function MovieInfo() {
     });
     return (
         <ThemeProvider theme={theme}>
-            <MenuBar />
+            <MenuBarMovie />
             <Paper
                 sx={{
                     width: '54rem',
