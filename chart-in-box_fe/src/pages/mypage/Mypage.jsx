@@ -140,11 +140,11 @@ function Mypage() {
                 </Container>
 
                 <Container
-                    sx={{ py: 10, leftMargin: '200%' }}
+                    sx={{ py: 10, leftMargin: '300%' }}
                     paddingLeft="20%"
                 >
-                    <Box sx={{ p: '10px', ml: '10%' }}>
-                        <Grid container spacing={4} sx={{ ml: '2em' }}>
+                    <Box sx={{ p: '10px', ml: '13%' }}>
+                        <Grid container spacing={4} sx={{}}>
                             <Grid
                                 card
                                 xs={5}
@@ -229,7 +229,7 @@ function Mypage() {
                                     </Button>
                                 </CardActions>
                             </Grid>
-
+                            <Grid card xs={1}></Grid>
                             <Grid
                                 card
                                 xs={5}
@@ -246,7 +246,7 @@ function Mypage() {
                                             fontSize="1.313rem"
                                             fontWeight="400"
                                         >
-                                            내 글 >
+                                            내 댓글 >
                                         </Typography>
                                     </Box>
                                     <Box
@@ -497,35 +497,6 @@ function Mypage() {
                         </Typography>
                     </Box>
                 </Container>
-
-                {/* <Box sx={{ flexGrow: 1, ml: 27 }}>
-                    <Grid container spacing={2}>
-                        <Grid
-                            item
-                            xs={2}
-                            sx={{
-                                width: '5rem',
-                                height: '13rem',
-                                border: '4rem',
-                                borderColor: 'black',
-                            }}
-                        >
-                            <Typography>11111</Typography>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <Typography>22222222</Typography>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <any>3333333</any>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <any>4444444</any>
-                        </Grid>
-                        <Grid item xs={2}>
-                            <any>4444444</any>
-                        </Grid>
-                    </Grid>
-                </Box> */}
             </Box>
             <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
                 <Typography variant="h6" align="center" gutterBottom>

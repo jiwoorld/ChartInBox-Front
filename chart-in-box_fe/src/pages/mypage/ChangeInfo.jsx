@@ -18,6 +18,7 @@ import Container from '@mui/material/Container';
 /* import Link from '@mui/material/Link';
  */ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
+import Swal from 'sweetalert2';
 
 const FormHelperTexts = styled(FormHelperText)`
     width: 100%;
@@ -26,7 +27,7 @@ const FormHelperTexts = styled(FormHelperText)`
     color: #d32f2f !important;
 `;
 
-function ChangeInfo() {
+function ChangeInfo({ changeClose }) {
     const theme = createTheme({
         // palette: {
         //     primary: {
@@ -57,8 +58,13 @@ function ChangeInfo() {
     const [nameError, setNameError] = useState('');
 
     const onhandlePost = async data => {
-        const { id, password, name } = data;
-        const postData = { id, password, name };
+        const { userPassword, userNickname } = data;
+        console.log(data, 'data');
+        const postData = { userPassword, userNickname };
+        postData.userPassword = data.password;
+        postData.userNickname = data.name;
+        console.log(postData, 'postData');
+
         await axios
             .post('http://localhost:8080/changeinfo', { postData })
             .then(res => {
@@ -68,13 +74,26 @@ function ChangeInfo() {
                     this.setAttribute('disabled', 'true');
                     this.setAttribute('disabledElevation', 'true');
                     this.setAttribute('disabledRipple', 'true');
+                    console.log('성공');
                 });
                 // navigate('/');
             })
             .catch(err => {
-                console.log(err);
-                if (err === 'userNickname') {
-                    //닉네임 중복으로 인해 회원가입 실패
+                console.log('error남', err);
+                if (err.response.data === 'userNickname') {
+                    changeClose();
+                    Swal.fire({
+                        width: 460,
+                        height: 260,
+                        title: '닉네임 변경 실패',
+                        html: '이미 존재하는 닉네임입니다',
+                        showConfirmButton: false,
+                        cancelButtonText: '확인',
+                        cancelButtonColor: '#CF5E53',
+                        showCancelButton: true,
+                        background: '#fff url(/image/swalBackground.png)',
+                        marginTop: '0px !important!',
+                    });
                 }
             });
     };
@@ -82,19 +101,16 @@ function ChangeInfo() {
     const handleSubmit = event => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
+        console.log('data', data);
         const reviseData = {
-            id: data.get('id'),
             password: data.get('password'),
             name: data.get('name'),
             rePassword: data.get('rePassword'),
         };
-        const { id, password, rePassword } = reviseData;
-
-        // 아이디 유효성 체크
-        const idRegrex =
-            /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-        if (!idRegrex.test(id)) setIdError('이메일 형식이 올바르지 않습니다');
-        else setIdError('');
+        const { name, password, rePassword } = reviseData;
+        console.log('password', password);
+        console.log('name', name);
+        console.log('rePassword', rePassword);
 
         // 비밀번호 유효성 체크
         const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
@@ -109,15 +125,13 @@ function ChangeInfo() {
         else setPasswordError('');
 
         // 모두 통과하면 post되는 코드 실행
-        if (
-            // nameRegex.test(name) &&
-            idRegrex.test(id) &&
-            passwordRegex.test(password) &&
-            password === rePassword &&
-            checked
-        ) {
-            onhandlePost(reviseData);
-        }
+        // if (
+        //     nameRegex.test(name) &&
+        //     passwordRegex.test(password) &&
+        //     password === rePassword
+        // ) {
+        //     onhandlePost(reviseData);
+        // }
     };
 
     return (
