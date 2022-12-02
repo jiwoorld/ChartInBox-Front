@@ -203,7 +203,6 @@ function Join({ clickLogin, joinClose }) {
 
     return (
         <ThemeProvider theme={theme}>
-            <CssBaseline />
             <Box
                 sx={{
                     display: 'flex',

@@ -130,7 +130,6 @@ function Login({ clickJoin, clickPassword, loginClose }) {
 
     return (
         <ThemeProvider theme={theme}>
-            <CssBaseline />
             <Box
                 sx={{
                     display: 'flex',
