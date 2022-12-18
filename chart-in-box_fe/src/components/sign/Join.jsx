@@ -15,7 +15,6 @@ import { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-
 // mui의 css 우선순위가 높기때문에 important를 설정 - 실무하다 보면 종종 발생 우선순위 문제
 const FormHelperTexts = styled(FormHelperText)`
     width: 100%;
@@ -421,8 +420,9 @@ function Join({ clickLogin, joinClose }) {
                     {/* 로그인 링크 */}
                     <Grid container justifyContent="flex-end">
                         <Grid item>
-                            <Button onClick={clickLogin} variant="body2">
-                                이미 계정이 있으신가요? <b>로그인 하기</b>
+                            <Button onClick={clickLogin}>
+                                이미 계정이 있으신가요?&nbsp;&nbsp;&nbsp;
+                                <b> 로그인 하기</b>
                             </Button>
                         </Grid>
                     </Grid>

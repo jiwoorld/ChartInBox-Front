@@ -210,7 +210,6 @@ function Login({ clickJoin, clickPassword, loginClose }) {
                             <Grid item>
                                 <Button
                                     onClick={clickPassword}
-                                    variant="body2"
                                     sx={{
                                         fontWeight: 'normal',
                                         fontSize: 15,
@@ -250,7 +249,6 @@ function Login({ clickJoin, clickPassword, loginClose }) {
                         >
                             <Button
                                 onClick={clickJoin}
-                                variant="body2"
                                 sx={{
                                     fontWeight: 'bold',
                                     fontSize: 16,
