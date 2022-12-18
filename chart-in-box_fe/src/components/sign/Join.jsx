@@ -214,47 +214,25 @@ function Join({ clickLogin, joinClose }) {
                 }}
             >
                 {/* 아이콘 */}
-                <Box sx={{ m: 1, width: 142, height: 37 }}>
-                    <Button
-                        fullWidth
-                        variant="contained"
-                        sx={{
-                            mt: 3,
-                            mb: 2,
-                            fontSize: 16,
-                            fontWeight: 500,
-                        }}
-                        size="medium"
-                        color="secondary"
-                    >
-                        로고
-                    </Button>
+                <Box
+                    sx={{
+                        m: 1,
+                        width: 218,
+                        height: 71,
+                    }}
+                >
+                    <img
+                        src="../../image/logo_mouseon.png"
+                        alt="로고"
+                        width="218px"
+                        height="71px"
+                    ></img>
                 </Box>
-                {/* <Box
-            sx={{
-              m: 1,
-              width: 142,
-              height: 37,
-              backgroundColor: 'secondary.main',
-            }}
-          >
-            <Typography
-              sx={{
-                color: 'white',
-                fontSize: 20,
-                fontWeight: 'bold',
-                textAlign: 'center',
-              }}
-            >
-              로고
-            </Typography>
-          </Box> */}
-                {/* 메인 제목 */}
                 <Boxs
                     component="form"
                     noValidate
                     onSubmit={handleSubmit}
-                    sx={{ mt: 9 }}
+                    sx={{ mt: 3 }}
                 >
                     <FormControl component="fieldset" variant="standard">
                         {/* 아이디 입력 폼 */}

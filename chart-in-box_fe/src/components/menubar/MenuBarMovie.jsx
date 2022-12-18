@@ -46,6 +46,15 @@ function MenuBarMovie() {
     const navigate = useNavigate();
     //navigate 함수  -> 페이지 이동
 
+    const [logo, setLogo] = React.useState(null);
+    const handlePopoverOpen = event => {
+        setLogo(event.currentTarget);
+    };
+
+    const handlePopoverClose = () => {
+        setLogo(null);
+    };
+    const popoverOpen = Boolean(logo);
     const [joinOpen, setJoinOpen] = React.useState(false);
     const handleJoinOpen = () => setJoinOpen(true);
     const handleJoinClose = () => setJoinOpen(false);
@@ -103,7 +112,7 @@ function MenuBarMovie() {
                         justifyContent: 'space-around',
                     }}
                 >
-                    <Button
+                    <Box
                         sx={{
                             width: '161px',
                             height: '60px',
@@ -112,10 +121,28 @@ function MenuBarMovie() {
                             fontWeight: '400',
                             fontSize: '1.125rem',
                             color: 'secondary.main',
+                            padding: '0',
                         }}
+                        aria-haspopup="true"
+                        onMouseEnter={handlePopoverOpen}
+                        onMouseLeave={handlePopoverClose}
                     >
-                        티켓모양로고
-                    </Button>
+                        {popoverOpen ? (
+                            <img
+                                src="../../image/logo_mouseon.png"
+                                alt="로고"
+                                width="162px"
+                                height="63px"
+                            ></img>
+                        ) : (
+                            <img
+                                src="../../image/logo_mouseoff.png"
+                                alt="로고"
+                                width="161px"
+                                height="60px"
+                            ></img>
+                        )}
+                    </Box>
                     <Button
                         sx={{
                             width: '161px',

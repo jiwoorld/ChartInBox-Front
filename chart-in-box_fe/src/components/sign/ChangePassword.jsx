@@ -28,6 +28,9 @@ function ChangePassword({ changePasswordClose }) {
             secondary: {
                 main: '#CF5E53',
             },
+            third: {
+                main: '#FFFF',
+            },
         },
         typography: {
             fontFamily: "'Noto Sans KR', sans-serif",
@@ -108,32 +111,29 @@ function ChangePassword({ changePasswordClose }) {
                     width: 470,
                     paddingLeft: 2,
                     paddingRight: 2,
+                    mt: 3,
                 }}
             >
                 {/* 아이콘 */}
-                <Box sx={{ m: 1, width: 142, height: 37 }}>
-                    <Button
-                        fullWidth="false"
-                        variant="contained"
-                        sx={{
-                            mt: 3,
-                            fontSize: 16,
-                            fontWeight: 500,
-                            width: 142,
-                            height: 37,
-                        }}
-                        size="medium"
-                        color="secondary"
-                    >
-                        로고
-                    </Button>
+                <Box
+                    sx={{
+                        width: 218,
+                        height: 71,
+                    }}
+                >
+                    <img
+                        src="../../image/logo_mouseon.png"
+                        alt="로고"
+                        width="218px"
+                        height="71px"
+                    ></img>
                 </Box>
                 {/* 메인 제목 */}
                 <Boxs
                     component="form"
                     noValidate
                     onSubmit={handleSubmit}
-                    sx={{ mt: 13 }}
+                    sx={{ mt: 7 }}
                 >
                     <Grid>
                         <Typography
