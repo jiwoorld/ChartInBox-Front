@@ -141,28 +141,20 @@ function Login({ clickJoin, clickPassword, loginClose }) {
                 }}
             >
                 {/* 아이콘 */}
-                <Box sx={{ m: 1, width: 142, height: 37 }}>
-                    <Button
-                        fullWidth
-                        variant="contained"
-                        sx={{
-                            mt: 3,
-                            mb: 2,
-                            fontSize: 16,
-                            fontWeight: 500,
-                        }}
-                        size="medium"
-                        color="secondary"
-                    >
-                        로고
-                    </Button>
+                <Box sx={{ m: 1, width: 218, height: 71 }}>
+                    <img
+                        src="../../image/logo_mouseon.png"
+                        alt="로고"
+                        width="218px"
+                        height="71px"
+                    ></img>
                 </Box>
                 {/* 메인 제목 */}
                 <Boxs
                     component="form"
                     noValidate
                     onSubmit={handleSubmit}
-                    sx={{ mt: 6.25 }}
+                    sx={{ mt: 2 }}
                 >
                     <FormControl component="fieldset" variant="standard">
                         {/* 아이디 입력 폼 */}
@@ -218,7 +210,6 @@ function Login({ clickJoin, clickPassword, loginClose }) {
                             <Grid item>
                                 <Button
                                     onClick={clickPassword}
-                                    variant="body2"
                                     sx={{
                                         fontWeight: 'normal',
                                         fontSize: 15,
@@ -258,7 +249,6 @@ function Login({ clickJoin, clickPassword, loginClose }) {
                         >
                             <Button
                                 onClick={clickJoin}
-                                variant="body2"
                                 sx={{
                                     fontWeight: 'bold',
                                     fontSize: 16,
