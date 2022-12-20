@@ -8,12 +8,14 @@ import Mypost from './pages/mypage/Mypost';
 import Mycomment from './pages/mypage/Mycomment';
 import MovieInfo from './pages/movieinfo/MovieInfo';
 import ChangeInfo from './pages/mypage/ChangeInfo';
+import MainPage from './pages/main/MainPage';
 
 function App() {
     return (
         <div className="App">
             <Router>
                 <Routes>
+                    <Route path="/" element={<MainPage></MainPage>} />
                     <Route path="/terms" element={<Terms></Terms>} />
                     <Route path="/privatepolicy" element={<PrivatePolicy />} />
                     <Route path="/mypage" element={<Mypage />} />
