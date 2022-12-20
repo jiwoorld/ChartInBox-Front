@@ -11,6 +11,7 @@ import * as React from 'react';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
 import MovieCuration from '../../components/movieinfo/MovieCuration';
 import MovieTable from '../../components/movieinfo/MovieTable';
+import Review from '../../components/movieinfo/Review';
 
 function MovieInfo() {
     const theme = createTheme({
@@ -35,11 +36,12 @@ function MovieInfo() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-    const [reviewButton, setReviewButton] = React.useState(0);
+    const [reviewButton, setReviewButton] = React.useState(1);
 
     const handleReview = () => {
         setReviewButton(reviewButton + 1);
     };
+
     return (
         <ThemeProvider theme={theme}>
             <MenuBarMovie />
@@ -153,25 +155,67 @@ function MovieInfo() {
                                 </Box>
                             </Box>
 
-                            <Box
-                                sx={{
-                                    height: '1.5rem',
-                                    width: '9rem',
-                                    display: 'flex',
-                                    marginTop: '0.8rem',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'center',
-                                    alignContent: 'center',
-                                }}
-                            >
-                                {reviewButton % 2 === 0 ? undefined : (
-                                    <Box sx={{ display: 'flex' }}>
+                            {reviewButton % 2 === 0 ? (
+                                <Box
+                                    sx={{
+                                        height: '1.5rem',
+                                        display: 'flex',
+                                        marginTop: '0.8rem',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center',
+                                        alignContent: 'center',
+                                    }}
+                                >
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            mr: '0.7rem',
+                                        }}
+                                    >
+                                        <Review></Review>
+                                        <Review></Review>
+                                        <Review></Review>
+                                        <Review></Review>
+                                        <Review></Review>
+                                    </Box>
+                                    <Button
+                                        sx={{
+                                            width: '3.2rem',
+                                            height: '1.3rem',
+                                            padding: '0px',
+                                            backgroundColor: '#FFE171',
+                                            color: '#333D41',
+                                            fontWeight: '600',
+                                            fontSize: '0.7rem',
+                                        }}
+                                        onClick={handleReview}
+                                    >
+                                        평점등록
+                                    </Button>
+                                </Box>
+                            ) : (
+                                <Box
+                                    sx={{
+                                        height: '1.5rem',
+                                        display: 'flex',
+                                        marginTop: '0.8rem',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center',
+                                        alignContent: 'center',
+                                    }}
+                                >
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            mr: '0.7rem',
+                                            alignItems: 'center',
+                                        }}
+                                    >
                                         <img
                                             src="../../image/good.png"
                                             alt="좋아요"
                                             width="20px"
                                             height="18px"
-                                            margin-top="2px"
                                         ></img>
                                         <Typography
                                             sx={{
@@ -185,22 +229,22 @@ function MovieInfo() {
                                             3.4
                                         </Typography>
                                     </Box>
-                                )}
-                                <Button
-                                    sx={{
-                                        width: '3.2rem',
-                                        height: '1.3rem',
-                                        padding: '0px',
-                                        backgroundColor: 'white',
-                                        color: '#333D41',
-                                        fontWeight: '600',
-                                        fontSize: '0.7rem',
-                                    }}
-                                    onClick={handleReview}
-                                >
-                                    평점주기
-                                </Button>
-                            </Box>
+                                    <Button
+                                        sx={{
+                                            width: '3.2rem',
+                                            height: '1.3rem',
+                                            padding: '0px',
+                                            backgroundColor: 'white',
+                                            color: '#333D41',
+                                            fontWeight: '600',
+                                            fontSize: '0.7rem',
+                                        }}
+                                        onClick={handleReview}
+                                    >
+                                        평점주기
+                                    </Button>
+                                </Box>
+                            )}
                         </Box>
                         <Box
                             sx={{
