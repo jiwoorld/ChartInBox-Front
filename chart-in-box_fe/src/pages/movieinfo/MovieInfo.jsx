@@ -35,6 +35,11 @@ function MovieInfo() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
+    const [reviewButton, setReviewButton] = React.useState(0);
+
+    const handleReview = () => {
+        setReviewButton(reviewButton + 1);
+    };
     return (
         <ThemeProvider theme={theme}>
             <MenuBarMovie />
@@ -147,10 +152,11 @@ function MovieInfo() {
                                     </Typography>
                                 </Box>
                             </Box>
+
                             <Box
                                 sx={{
                                     height: '1.5rem',
-                                    width: '8rem',
+                                    width: '9rem',
                                     display: 'flex',
                                     marginTop: '0.8rem',
                                     justifyContent: 'space-between',
@@ -158,23 +164,28 @@ function MovieInfo() {
                                     alignContent: 'center',
                                 }}
                             >
-                                <img
-                                    src="../../image/good.png"
-                                    alt="좋아요"
-                                    width="20px"
-                                    height="18px"
-                                ></img>
-                                <Typography
-                                    sx={{
-                                        width: '2rem',
-
-                                        fontWeight: 600,
-                                        fontSize: '1.3rem',
-                                        color: '#F2CB05',
-                                    }}
-                                >
-                                    3.4
-                                </Typography>
+                                {reviewButton % 2 === 0 ? undefined : (
+                                    <Box sx={{ display: 'flex' }}>
+                                        <img
+                                            src="../../image/good.png"
+                                            alt="좋아요"
+                                            width="20px"
+                                            height="18px"
+                                            margin-top="2px"
+                                        ></img>
+                                        <Typography
+                                            sx={{
+                                                marginLeft: '0.4rem',
+                                                width: '2rem',
+                                                fontWeight: 600,
+                                                fontSize: '1.3rem',
+                                                color: '#F2CB05',
+                                            }}
+                                        >
+                                            3.4
+                                        </Typography>
+                                    </Box>
+                                )}
                                 <Button
                                     sx={{
                                         width: '3.2rem',
@@ -185,6 +196,7 @@ function MovieInfo() {
                                         fontWeight: '600',
                                         fontSize: '0.7rem',
                                     }}
+                                    onClick={handleReview}
                                 >
                                     평점주기
                                 </Button>
