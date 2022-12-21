@@ -21,6 +21,7 @@
 .swal2-title {
     padding-top: 45px !important;
 }
-.css-1aoigll-MuiTypography-root {
+
+.MuiFormControlLabel-label {
     color: #333d41;
 }
