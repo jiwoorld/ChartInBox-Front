@@ -129,7 +129,7 @@ function MenuBarMovie() {
                     >
                         {popoverOpen ? (
                             <img
-                                src="../../image/logo_mouseon.png"
+                                src="../../image/logo_header.png"
                                 alt="로고"
                                 width="162px"
                                 height="63px"
@@ -138,8 +138,8 @@ function MenuBarMovie() {
                             <img
                                 src="../../image/logo_mouseoff.png"
                                 alt="로고"
-                                width="161px"
-                                height="60px"
+                                width="162px"
+                                height="63px"
                             ></img>
                         )}
                     </Box>
