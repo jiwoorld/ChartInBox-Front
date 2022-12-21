@@ -92,6 +92,10 @@ function MenuBarMovie() {
     const handleMypage = () => {
         navigate('/mypage');
     };
+
+    const handleMainpage = () => {
+        navigate('/');
+    };
     //my 클릭시 mypage url로 이동
     return (
         <ThemeProvider theme={theme}>
@@ -133,6 +137,7 @@ function MenuBarMovie() {
                                 alt="로고"
                                 width="162px"
                                 height="63px"
+                                onClick={handleMainpage}
                             ></img>
                         ) : (
                             <img
@@ -140,6 +145,7 @@ function MenuBarMovie() {
                                 alt="로고"
                                 width="162px"
                                 height="63px"
+                                onClick={handleMainpage}
                             ></img>
                         )}
                     </Box>
