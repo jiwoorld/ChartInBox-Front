@@ -1,6 +1,7 @@
 import { createTheme, CssBaseline, Paper, ThemeProvider } from '@mui/material';
 import { Box } from '@mui/system';
 import * as React from 'react';
+import MainCuration from '../../components/curation/MainCuration';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
 
 function MainPage() {
@@ -35,14 +36,14 @@ function MainPage() {
             <MenuBarMovie />
             <Paper
                 sx={{
-                    width: '100%',
+                    width: '100vw',
                     height: '52.125rem',
                     backgroundColor: 'background.default',
                 }}
             >
                 <Box
                     sx={{
-                        width: '100%',
+                        width: '100vw',
                         height: '33.6875rem',
                         mt: '2.2rem',
                     }}
@@ -62,7 +63,7 @@ function MainPage() {
 
                     <Box
                         sx={{
-                            width: '100%',
+                            width: '100vw',
                             height: '26.3125rem',
                             display: 'flex',
                             flexDirection: 'column',
@@ -71,7 +72,7 @@ function MainPage() {
                     >
                         <Box
                             sx={{
-                                width: '100%',
+                                width: '100vw',
                                 height: '2.75rem',
                                 borderBottom: '3px solid white',
                                 display: 'flex',
@@ -87,7 +88,7 @@ function MainPage() {
                         </Box>
                         <Box
                             sx={{
-                                width: '100%',
+                                width: '100vw',
                                 height: '100%',
                                 display: 'flex',
                                 alignItems: 'center',
@@ -95,26 +96,20 @@ function MainPage() {
                         >
                             <Box
                                 sx={{
-                                    width: '12.875rem',
+                                    width: '10vw',
                                     height: '17.5625rem',
                                     border: '1px solid pink',
                                 }}
                             >
                                 글자 들어갈 칸
                             </Box>
-                            <Box
-                                sx={{
-                                    width: '100%',
-                                    height: '16.9rem',
-                                    border: '1px solid red',
-                                }}
-                            >
-                                영화이미지
+                            <Box sx={{ width: '88vw' }}>
+                                <MainCuration></MainCuration>
                             </Box>
                         </Box>
                         <Box
                             sx={{
-                                width: '100%',
+                                width: '100vw',
                                 height: '2.75rem',
                                 borderTop: '3px solid white',
                                 display: 'flex',
