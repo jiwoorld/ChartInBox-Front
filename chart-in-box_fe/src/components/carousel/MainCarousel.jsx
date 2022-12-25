@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-function MainCuration() {
+function MainCarousel() {
     const settings = {
         infinite: true,
         slidesToShow: 6,
@@ -141,4 +141,4 @@ function MainCuration() {
     );
 }
 
-export default MainCuration;
+export default MainCarousel;
