@@ -5,11 +5,11 @@ import {
     Paper,
     ThemeProvider,
     Typography,
+    Box,
 } from '@mui/material';
-import { Box } from '@mui/system';
 import * as React from 'react';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
-import MovieCuration from '../../components/curation/MovieCuration';
+import MovieCuration from '../../components/carousel/MovieCuration';
 import MovieTable from '../../components/movieinfo/MovieTable';
 import Review from '../../components/movieinfo/Review';
 

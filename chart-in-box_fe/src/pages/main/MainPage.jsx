@@ -1,7 +1,8 @@
 import { createTheme, CssBaseline, Paper, ThemeProvider } from '@mui/material';
 import { Box } from '@mui/system';
 import * as React from 'react';
-import MainCuration from '../../components/curation/MainCuration';
+import MainCarousel from '../../components/carousel/MainCarousel';
+import MainCuration from '../../components/mainpage/MainCuration';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
 
 function MainPage() {
@@ -98,13 +99,18 @@ function MainPage() {
                                 sx={{
                                     width: '10vw',
                                     height: '17.5625rem',
-                                    border: '1px solid pink',
+                                    display: 'flex',
+                                    alignItems: 'center',
                                 }}
                             >
-                                글자 들어갈 칸
+                                <img
+                                    src="../../image/ott_chart.png"
+                                    width="100%"
+                                    alt="ott_chart"
+                                ></img>
                             </Box>
                             <Box sx={{ width: '88vw' }}>
-                                <MainCuration></MainCuration>
+                                <MainCarousel></MainCarousel>
                             </Box>
                         </Box>
                         <Box
@@ -128,14 +134,19 @@ function MainPage() {
             </Paper>
             <Paper
                 sx={{
-                    width: '100%',
+                    width: '100vw',
                     height: '19.375rem',
                     backgroundColor: 'primary.main',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                 }}
-            ></Paper>
+            >
+                <MainCuration></MainCuration>
+            </Paper>
             <Paper
                 sx={{
-                    width: '100%',
+                    width: '100vw',
                     height: '49rem',
                     backgroundColor: '#EDEBDE',
                 }}

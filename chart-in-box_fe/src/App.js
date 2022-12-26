@@ -9,6 +9,7 @@ import Mycomment from './pages/mypage/Mycomment';
 import MovieInfo from './pages/movieinfo/MovieInfo';
 import ChangeInfo from './pages/mypage/ChangeInfo';
 import MainPage from './pages/main/MainPage';
+import CurationPage from './pages/CurationPage/CurationPage';
 
 function App() {
     return (
@@ -32,6 +33,10 @@ function App() {
                     <Route
                         path="/changeinfo"
                         element={<ChangeInfo></ChangeInfo>}
+                    />
+                    <Route
+                        path="/curation"
+                        element={<CurationPage></CurationPage>}
                     />
                 </Routes>
             </Router>
