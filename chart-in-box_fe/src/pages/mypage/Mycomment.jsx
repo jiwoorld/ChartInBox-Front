@@ -16,6 +16,7 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
+import MypageTable from './MypageTable';
 
 function Mycomment() {
     return (
@@ -69,6 +70,7 @@ export default function Album() {
                             fontFamily: 'Pretendard',
                             fontStyle: 'normal',
                             lineHeight: '25px',
+                            textDecoration: 'underline',
                             fontWeight: '600',
                             fontSize: '1.313rem',
                             color: '#CF5E53',
@@ -78,138 +80,8 @@ export default function Album() {
                         내댓글{' '}
                     </Button>
                 </Box>
-                <Box
-                    sx={{
-                        align: 'center',
-                    }}
-                >
-                    <Box
-                        sx={{
-                            bgcolor: 'background.paper',
-                            borderTopColor: 'black',
-                            mx: 38,
-                            height: '2.5em',
-                            mt: 4,
-                            align: 'center',
-                            borderTop: 1,
-                        }}
-                    >
-                        제목
-                    </Box>
-                    <Box
-                        sx={{
-                            bgcolor: 'background.paper',
 
-                            mt: 0,
-                            height: '2.5em',
-                            mx: 38,
-                            align: 'center',
-                            borderTop: 1,
-                            borderBotton: 1,
-                            borderTopColor: 'grey.500',
-                            borderBottomColor: 'grey.500',
-                        }}
-                    >
-                        댓글이 들어갈 칸입니다.
-                    </Box>
-                    <Box
-                        sx={{
-                            bgcolor: 'background.paper',
-
-                            mt: 0,
-                            mx: 38,
-                            height: '2.5em',
-                            align: 'center',
-                            borderTop: 1,
-                            borderBotton: 1,
-                            borderTopColor: 'grey.500',
-                            borderBottomColor: 'grey.500',
-                        }}
-                    >
-                        댓글이 들어갈 칸입니다.
-                    </Box>
-                    <Box
-                        sx={{
-                            bgcolor: 'background.paper',
-                            mt: 0,
-                            mx: 38,
-                            height: '2.5em',
-                            align: 'center',
-                            borderTop: 1,
-                            borderBotton: 1,
-                            borderTopColor: 'grey.500',
-                            borderBottomColor: 'grey.500',
-                        }}
-                    >
-                        댓글이 들어갈 칸입니다.
-                    </Box>
-                    <Box
-                        sx={{
-                            bgcolor: 'background.paper',
-                            mt: 0,
-                            height: '2.5em',
-                            mx: 38,
-                            align: 'center',
-                            borderTop: 1,
-                            borderBotton: 1,
-                            borderTopColor: 'grey.500',
-                            borderBottomColor: 'grey.500',
-                        }}
-                    >
-                        댓글이 들어갈 칸입니다.
-                    </Box>
-                    <Box
-                        sx={{
-                            bgcolor: 'background.paper',
-                            mt: 0,
-                            height: '2.5em',
-                            mx: 38,
-                            align: 'center',
-                            borderTop: 1,
-                            borderBotton: 1,
-                            borderTopColor: 'grey.500',
-                            borderBottomColor: 'grey.500',
-                        }}
-                    >
-                        댓글이 들어갈 칸입니다.
-                    </Box>
-                    <Box
-                        sx={{
-                            bgcolor: 'background.paper',
-                            mt: 0,
-                            height: '2.5em',
-                            mx: 38,
-                            align: 'center',
-                            borderTop: 1,
-                            borderBotton: 1,
-                            borderTopColor: 'grey.500',
-                            borderBottomColor: 'grey.500',
-                        }}
-                    >
-                        댓글이 들어갈 칸입니다.
-                    </Box>
-                    <Box
-                        sx={{
-                            bgcolor: 'background.paper',
-                            mt: 0,
-                            height: '2.5em',
-                            mx: 38,
-                            align: 'center',
-                            borderTop: 1,
-                            borderBotton: 1,
-                            borderTopColor: 'grey.500',
-                            borderBottomColor: 'grey.500',
-                        }}
-                    ></Box>
-                </Box>
-                <Button
-                    size="medium"
-                    sx={{
-                        color: 'black',
-                    }}
-                >
-                    삭제하기
-                </Button>
+                <MypageTable></MypageTable>
             </main>
 
             <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">

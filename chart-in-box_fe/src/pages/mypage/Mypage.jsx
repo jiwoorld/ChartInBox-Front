@@ -161,7 +161,7 @@ function Mypage() {
                                             fontSize="1.313rem"
                                             fontWeight="400"
                                         >
-                                            내 글 >
+                                            내 글
                                         </Typography>
                                     </Box>
                                     <Box
@@ -246,7 +246,7 @@ function Mypage() {
                                             fontSize="1.313rem"
                                             fontWeight="400"
                                         >
-                                            내 댓글 >
+                                            내 댓글
                                         </Typography>
                                     </Box>
                                     <Box
