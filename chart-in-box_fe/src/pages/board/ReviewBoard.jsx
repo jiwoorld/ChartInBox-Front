@@ -14,6 +14,7 @@ import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
 import { Paper } from '@mui/material';
+import BoardTable from './BoardTable';
 
 function ReviewBoard() {
     const theme = createTheme({
@@ -335,13 +336,13 @@ function ReviewBoard() {
                     <Box
                         sx={{
                             width: '59.5rem',
-                            height: '65rem',
-                            border: 2,
+                            height: '50rem',
+                            //border: 2,
                             display: 'flex',
                             p: 1,
                         }}
                     >
-                        aaaa
+                        <BoardTable tableName={'Reivew'}></BoardTable>
                     </Box>
                 </Container>
             </main>

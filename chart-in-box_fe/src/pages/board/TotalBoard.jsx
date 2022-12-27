@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
 import { Paper } from '@mui/material';
 import { borderBottom } from '@mui/system';
+import BoardTable from './BoardTable';
 
 function TotalBoard() {
     const theme = createTheme({
@@ -336,13 +337,13 @@ function TotalBoard() {
                     <Box
                         sx={{
                             width: '59.5rem',
-                            height: '65rem',
-                            border: 2,
+                            height: '50rem',
+                            //border: 2,
                             display: 'flex',
                             p: 1,
                         }}
                     >
-                        aaaa
+                        <BoardTable tableName={'전체글'}></BoardTable>
                     </Box>
                 </Container>
             </main>
