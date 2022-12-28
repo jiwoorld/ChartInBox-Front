@@ -14,6 +14,7 @@ import TotalBoard from './pages/board/TotalBoard';
 import FreeBoard from './pages/board/FreeBoard';
 import QnaBoard from './pages/board/QnaBoard';
 import ReviewBoard from './pages/board/ReviewBoard';
+import Posting from './pages/board/Posting';
 
 function App() {
     return (
@@ -28,6 +29,7 @@ function App() {
                     <Route path="/freeboard" element={<FreeBoard />} />
                     <Route path="/qnaboard" element={<QnaBoard />} />
                     <Route path="/totalboard" element={<TotalBoard />} />
+                    <Route path="/posting" element={<Posting />} />
                     <Route
                         path="/movieinfo"
                         element={<MovieInfo></MovieInfo>}
