@@ -3,6 +3,7 @@ import { Box } from '@mui/system';
 import * as React from 'react';
 import MainCarousel from '../../components/carousel/MainCarousel';
 import MainCuration from '../../components/mainpage/MainCuration';
+import MainTable from '../../components/mainpage/MainTable';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
 
 function MainPage() {
@@ -150,7 +151,9 @@ function MainPage() {
                     height: '49rem',
                     backgroundColor: '#EDEBDE',
                 }}
-            ></Paper>
+            >
+                <MainTable></MainTable>
+            </Paper>
         </ThemeProvider>
     );
 }
