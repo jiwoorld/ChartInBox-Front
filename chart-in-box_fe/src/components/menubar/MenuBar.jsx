@@ -97,6 +97,9 @@ function MenuBar() {
         navigate('/');
     };
     //my 클릭시 mypage url로 이동
+    const handleTotalpage = () => {
+        navigate('/totalboard');
+    };
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -159,6 +162,7 @@ function MenuBar() {
                             fontWeight: '400',
                             fontSize: '1.125rem',
                         }}
+                        onClick={handleTotalpage}
                     >
                         {' '}
                         자유게시판{' '}

@@ -97,6 +97,9 @@ function MenuBarMovie() {
         navigate('/');
     };
     //my 클릭시 mypage url로 이동
+    const handleTotalpage = () => {
+        navigate('/mypage');
+    };
     return (
         <ThemeProvider theme={theme}>
             <Box
@@ -158,6 +161,7 @@ function MenuBarMovie() {
                             fontWeight: '400',
                             fontSize: '1.125rem',
                         }}
+                        onClick={handleTotalpage}
                     >
                         {' '}
                         자유게시판{' '}
