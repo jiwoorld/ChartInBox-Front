@@ -58,13 +58,19 @@ function MainTable(props) {
         <ThemeProvider theme={theme}>
             <Box
                 sx={{
-                    height: '27.5rem',
-                    width: '24.6875rem',
+                    height: '30.375rem',
+                    width: '24.75rem',
                     display: 'flex',
                     flexDirection: 'column',
+                    justifyContent: 'space-between',
                 }}
             >
-                <Box>
+                <Box
+                    sx={{
+                        width: '24.6875rem',
+                        height: '27.5rem',
+                    }}
+                >
                     <TableContainer component={Paper}>
                         <Table
                             sx={{
@@ -134,7 +140,7 @@ function MainTable(props) {
                 </Box>
                 <Box
                     sx={{
-                        height: '3.125rem',
+                        height: '1.75rem',
                         display: 'flex',
                         justifyContent: 'flex-end',
                         mt: '0.2rem',
@@ -142,10 +148,9 @@ function MainTable(props) {
                 >
                     <Button
                         sx={{
-                            backgroundColor: 'primary.main',
+                            backgroundColor: 'text.primary',
                             color: 'black',
                             borderRadius: '0.9rem',
-                            opacity: '70%',
                         }}
                     >
                         {tableName}
