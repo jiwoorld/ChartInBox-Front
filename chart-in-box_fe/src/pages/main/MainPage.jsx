@@ -1,8 +1,15 @@
-import { createTheme, CssBaseline, Paper, ThemeProvider } from '@mui/material';
+import {
+    createTheme,
+    CssBaseline,
+    Paper,
+    ThemeProvider,
+    Typography,
+} from '@mui/material';
 import { Box } from '@mui/system';
 import * as React from 'react';
 import MainCarousel from '../../components/carousel/MainCarousel';
 import MainCuration from '../../components/mainpage/MainCuration';
+import MainTable from '../../components/mainpage/MainTable';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
 
 function MainPage() {
@@ -149,8 +156,35 @@ function MainPage() {
                     width: '100vw',
                     height: '49rem',
                     backgroundColor: '#EDEBDE',
+                    display: 'flex',
+                    alignItems: 'center',
                 }}
-            ></Paper>
+            >
+                <Box
+                    sx={{
+                        width: '76rem',
+                        height: '31.9375rem',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        border: '1px solid red',
+                    }}
+                >
+                    <Typography>커뮤니티</Typography>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'row',
+                            width: '76rem',
+                            height: '30.375rem',
+                            border: '1px solid blue',
+                        }}
+                    >
+                        <MainTable></MainTable>
+                        <MainTable></MainTable>
+                        <MainTable></MainTable>
+                    </Box>
+                </Box>
+            </Paper>
         </ThemeProvider>
     );
 }
