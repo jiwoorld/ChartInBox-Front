@@ -158,6 +158,7 @@ function MainPage() {
                     backgroundColor: '#EDEBDE',
                     display: 'flex',
                     alignItems: 'center',
+                    justifyContent: 'center',
                 }}
             >
                 <Box
@@ -166,22 +167,31 @@ function MainPage() {
                         height: '31.9375rem',
                         display: 'flex',
                         flexDirection: 'column',
-                        border: '1px solid red',
                     }}
                 >
-                    <Typography>커뮤니티</Typography>
+                    <Typography
+                        sx={{
+                            color: 'primary.main',
+                            width: '76rem',
+                            display: 'flex',
+                            justifyContent: 'flex-start',
+                        }}
+                    >
+                        커뮤니티
+                    </Typography>
+
                     <Box
                         sx={{
                             display: 'flex',
                             flexDirection: 'row',
+                            justifyContent: 'space-between',
                             width: '76rem',
                             height: '30.375rem',
-                            border: '1px solid blue',
                         }}
                     >
-                        <MainTable></MainTable>
-                        <MainTable></MainTable>
-                        <MainTable></MainTable>
+                        <MainTable tableName="자유게시판"></MainTable>
+                        <MainTable tableName="영화리뷰"></MainTable>
+                        <MainTable tableName="n팟 구함"></MainTable>
                     </Box>
                 </Box>
             </Paper>
