@@ -189,9 +189,18 @@ function MainPage() {
                             height: '30.375rem',
                         }}
                     >
-                        <MainTable tableName="자유게시판"></MainTable>
-                        <MainTable tableName="영화리뷰"></MainTable>
-                        <MainTable tableName="n팟 구함"></MainTable>
+                        <MainTable
+                            tableName="자유게시판"
+                            tableLink="/freeboard"
+                        ></MainTable>
+                        <MainTable
+                            tableName="영화리뷰"
+                            tableLink="/reviewboard"
+                        ></MainTable>
+                        <MainTable
+                            tableName="n팟 구함"
+                            tableLink="/"
+                        ></MainTable>
                     </Box>
                 </Box>
             </Paper>

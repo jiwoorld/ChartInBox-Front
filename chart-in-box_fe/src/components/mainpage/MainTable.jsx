@@ -13,13 +13,19 @@ import {
     ThemeProvider,
     Typography,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 function MainTable(props) {
     function createData(title, view) {
         return { title, view };
     }
+    const navigate = useNavigate();
     const tableName = props.tableName;
+    const link = props.tableLink;
 
+    const handlePage = () => {
+        navigate(link);
+    };
     const rows = [
         createData('알리딘 포디엑스 본 사람?', 7),
         createData('알리딘 포디엑스 본 사람?', 7),
@@ -167,6 +173,7 @@ function MainTable(props) {
                             fontSize: '0.9rem',
                             fontWeight: '500',
                         }}
+                        onClick={handlePage}
                     >
                         {tableName}
                     </Button>
@@ -179,6 +186,7 @@ function MainTable(props) {
                             fontSize: '0.875rem',
                             fontWeight: '500',
                         }}
+                        onClick={handlePage}
                     >
                         더보기
                     </Typography>
