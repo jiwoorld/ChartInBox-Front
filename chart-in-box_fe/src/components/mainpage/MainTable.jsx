@@ -13,13 +13,19 @@ import {
     ThemeProvider,
     Typography,
 } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 function MainTable(props) {
     function createData(title, view) {
         return { title, view };
     }
+    const navigate = useNavigate();
     const tableName = props.tableName;
+    const link = props.tableLink;
 
+    const handlePage = () => {
+        navigate(link);
+    };
     const rows = [
         createData('알리딘 포디엑스 본 사람?', 7),
         createData('알리딘 포디엑스 본 사람?', 7),
@@ -48,6 +54,7 @@ function MainTable(props) {
             },
             text: {
                 primary: '#1a1a1a',
+                default: '#616161',
             },
         },
         typography: {
@@ -58,7 +65,7 @@ function MainTable(props) {
         <ThemeProvider theme={theme}>
             <Box
                 sx={{
-                    height: '30.375rem',
+                    height: '29.25rem',
                     width: '24.75rem',
                     display: 'flex',
                     flexDirection: 'column',
@@ -87,11 +94,14 @@ function MainTable(props) {
                                 <TableRow>
                                     <TableCell
                                         sx={{
+                                            height: '2.75rem',
                                             width: '20rem',
                                             textAlign: 'center',
                                             fontSize: '0.8rem',
                                             fontWeight: '400',
                                             border: '0px',
+                                            paddingBottom: '0',
+                                            paddingTop: '0',
                                         }}
                                     >
                                         제목
@@ -99,9 +109,12 @@ function MainTable(props) {
                                     <TableCell
                                         align="right"
                                         sx={{
+                                            height: '2.75rem',
                                             fontSize: '0.8rem',
                                             fontWeight: '400',
                                             border: '0px',
+                                            paddingTop: '0',
+                                            paddingBottom: '0',
                                         }}
                                     >
                                         조회
@@ -117,8 +130,11 @@ function MainTable(props) {
                                             component="th"
                                             scope="row"
                                             sx={{
+                                                height: '2.75rem',
                                                 fontSize: '0.8rem',
                                                 fontWeight: '400',
+                                                paddingTop: '0',
+                                                paddingBottom: '0',
                                             }}
                                         >
                                             {row.title}
@@ -126,8 +142,11 @@ function MainTable(props) {
                                         <TableCell
                                             align="right"
                                             sx={{
+                                                height: '2.75rem',
                                                 fontSize: '0.8rem',
                                                 fontWeight: '400',
+                                                paddingTop: '0',
+                                                paddingBottom: '0',
                                             }}
                                         >
                                             {row.view}
@@ -140,21 +159,37 @@ function MainTable(props) {
                 </Box>
                 <Box
                     sx={{
-                        height: '1.75rem',
+                        height: '1.25rem',
                         display: 'flex',
-                        justifyContent: 'flex-end',
                         mt: '0.2rem',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
                     }}
                 >
                     <Button
                         sx={{
-                            backgroundColor: 'text.primary',
                             color: 'black',
-                            borderRadius: '0.9rem',
+                            heght: '1.1875rem',
+                            fontSize: '0.9rem',
+                            fontWeight: '500',
                         }}
+                        onClick={handlePage}
                     >
                         {tableName}
                     </Button>
+                    <Typography
+                        sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            height: '1.0625rem',
+                            color: 'text.default',
+                            fontSize: '0.875rem',
+                            fontWeight: '500',
+                        }}
+                        onClick={handlePage}
+                    >
+                        더보기
+                    </Typography>
                 </Box>
             </Box>
         </ThemeProvider>
