@@ -1,5 +1,6 @@
 import {
     Box,
+    Button,
     createTheme,
     CssBaseline,
     Grid,
@@ -8,6 +9,7 @@ import {
     Typography,
 } from '@mui/material';
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import CurationPageMovie from '../../components/curationpage/CurationPageMoive';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
 
@@ -39,6 +41,10 @@ function CurationPage() {
     });
     const [moives, setMovies] = React.useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
     const [likes, setLikes] = React.useState([]);
+    const navigate = useNavigate();
+    const handlePage = () => {
+        navigate('/');
+    };
 
     return (
         <ThemeProvider theme={theme}>
@@ -91,6 +97,7 @@ function CurationPage() {
                     height: '50.3125rem',
                     backgroundColor: 'background.default',
                     display: 'flex',
+                    flexDirection: 'column',
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}
@@ -111,6 +118,19 @@ function CurationPage() {
                         ))}
                     </Grid>
                 </Box>
+                <Button
+                    onClick={handlePage}
+                    sx={{
+                        mr: 180,
+                        position: 'fixed',
+                        top: '50rem',
+                    }}
+                >
+                    <img
+                        src="../../image/curationButton.png"
+                        alt="뒤로가기"
+                    ></img>
+                </Button>
                 <CssBaseline />
             </Paper>
         </ThemeProvider>
