@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 function MainCarousel() {
     const settings = {
         infinite: true,
-        slidesToShow: 6,
+        slidesToShow: 5,
         slidesToScroll: 1,
         autoplay: false,
         speed: 5000,
@@ -17,7 +17,7 @@ function MainCarousel() {
 
     return (
         <Slider {...settings}>
-            <Box sx={{ width: '208px' }}>
+            <Box sx={{ width: '170px' }}>
                 <Box
                     sx={{
                         width: '11.75rem',
@@ -29,7 +29,7 @@ function MainCarousel() {
                     1
                 </Box>
             </Box>
-            <Box sx={{ width: '208px' }}>
+            <Box sx={{ width: '170px' }}>
                 <Box
                     sx={{
                         width: '11.75rem',
@@ -41,7 +41,7 @@ function MainCarousel() {
                     2
                 </Box>
             </Box>
-            <Box sx={{ width: '208px' }}>
+            <Box sx={{ width: '170px' }}>
                 <Box
                     sx={{
                         width: '11.75rem',
@@ -53,7 +53,7 @@ function MainCarousel() {
                     3
                 </Box>
             </Box>
-            <Box sx={{ width: '208px' }}>
+            <Box sx={{ width: '170px' }}>
                 <Box
                     sx={{
                         width: '11.75rem',
@@ -65,7 +65,7 @@ function MainCarousel() {
                     4
                 </Box>
             </Box>
-            <Box sx={{ width: '208px' }}>
+            <Box sx={{ width: '170px' }}>
                 <Box
                     sx={{
                         width: '11.75rem',
@@ -77,7 +77,7 @@ function MainCarousel() {
                     5
                 </Box>
             </Box>
-            <Box sx={{ width: '208px' }}>
+            <Box sx={{ width: '170px' }}>
                 <Box
                     sx={{
                         width: '11.75rem',
@@ -89,7 +89,7 @@ function MainCarousel() {
                     6
                 </Box>
             </Box>
-            <Box sx={{ width: '208px' }}>
+            <Box sx={{ width: '170px' }}>
                 <Box
                     sx={{
                         width: '11.75rem',
@@ -101,7 +101,7 @@ function MainCarousel() {
                     7
                 </Box>
             </Box>
-            <Box sx={{ width: '208px' }}>
+            <Box sx={{ width: '170px' }}>
                 <Box
                     sx={{
                         width: '11.75rem',
@@ -113,7 +113,7 @@ function MainCarousel() {
                     8
                 </Box>
             </Box>
-            <Box sx={{ width: '208px' }}>
+            <Box sx={{ width: '170px' }}>
                 <Box
                     sx={{
                         width: '11.75rem',
@@ -125,7 +125,7 @@ function MainCarousel() {
                     9
                 </Box>
             </Box>
-            <Box sx={{ width: '208px' }}>
+            <Box sx={{ width: '170px' }}>
                 <Box
                     sx={{
                         width: '11.75rem',

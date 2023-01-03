@@ -100,6 +100,7 @@ function MainPage() {
                                 height: '100%',
                                 display: 'flex',
                                 alignItems: 'center',
+                                justifyContent: 'space-between',
                             }}
                         >
                             <Box
@@ -108,6 +109,8 @@ function MainPage() {
                                     height: '17.5625rem',
                                     display: 'flex',
                                     alignItems: 'center',
+                                    justifyContent: 'center',
+                                    ml: 6,
                                 }}
                             >
                                 <img
@@ -116,7 +119,7 @@ function MainPage() {
                                     alt="ott_chart"
                                 ></img>
                             </Box>
-                            <Box sx={{ width: '88vw' }}>
+                            <Box sx={{ width: '83vw' }}>
                                 <MainCarousel></MainCarousel>
                             </Box>
                         </Box>
