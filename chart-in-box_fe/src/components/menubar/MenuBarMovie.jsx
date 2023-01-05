@@ -98,7 +98,7 @@ function MenuBarMovie() {
     };
     //my 클릭시 mypage url로 이동
     const handleTotalpage = () => {
-        navigate('/mypage');
+        navigate('/totalboard');
     };
     return (
         <ThemeProvider theme={theme}>
