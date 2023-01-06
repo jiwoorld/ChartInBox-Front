@@ -65,7 +65,134 @@ function TotalNBoard() {
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <MenuBar></MenuBar>
-            <NBoardBar></NBoardBar>
+            <Box
+                sx={{
+                    height: '60px',
+                    width: '100%',
+                    alignItems: 'left',
+                    justifyContent: 'space-around',
+                    borderTop: '0.063rem solid #D9D9D9',
+                    borderBottom: '0.063rem solid #D9D9D9',
+                }}
+            >
+                <Box
+                    sx={{
+                        ml: '8rem',
+                        display: 'flex',
+                        width: '55rem',
+                        height: '60px',
+                        justifyContent: 'space-around',
+                    }}
+                >
+                    <Button
+                        href="../totalnboard"
+                        sx={{
+                            width: '31.25rem',
+                            height: '60px',
+                            fontFamily: 'Pretendard',
+                            fontStyle: 'normal',
+                            fontWeight: '500',
+                            borderBottom: 3.5,
+                            fontSize: '0.875rem',
+                            color: 'primary.main',
+                        }}
+                    >
+                        {' '}
+                        전체글{' '}
+                    </Button>
+                    <Button
+                        href="../netflexnboard"
+                        sx={{
+                            width: '31.25rem',
+                            mr: '1rem',
+                            height: '60px',
+                            fontFamily: 'Pretendard',
+                            //fontStyle: 'normal',
+                            fontWeight: '500',
+                            fontSize: '0.875rem',
+                            color: 'secondary.main',
+                        }}
+                    >
+                        {' '}
+                        넷플릭스{' '}
+                    </Button>
+                    <Button
+                        href="../watchanboard"
+                        sx={{
+                            width: '31.25rem',
+                            height: '60px',
+                            fontFamily: 'Pretendard',
+                            fontStyle: 'normal',
+                            fontWeight: '4500',
+                            fontSize: '0.875rem',
+                            color: 'secondary.main',
+                        }}
+                    >
+                        {' '}
+                        왓차{' '}
+                    </Button>
+                    <Button
+                        href="../tivingnboard"
+                        sx={{
+                            width: '31.25rem',
+                            height: '60px',
+                            fontFamily: 'Pretendard',
+                            fontStyle: 'normal',
+                            fontWeight: '500',
+                            color: 'secondary.main',
+                            fontSize: '0.875rem',
+                        }}
+                    >
+                        {' '}
+                        티빙{' '}
+                    </Button>
+                    <Button
+                        href="../wavenboard"
+                        sx={{
+                            width: '31.25rem',
+                            height: '60px',
+                            fontFamily: 'Pretendard',
+                            fontStyle: 'normal',
+                            fontWeight: '500',
+                            color: 'secondary.main',
+                            fontSize: '0.875rem',
+                        }}
+                    >
+                        {' '}
+                        웨이브{' '}
+                    </Button>
+                    <Button
+                        href="../disneynboard"
+                        sx={{
+                            width: '31.25rem',
+                            height: '60px',
+                            fontFamily: 'Pretendard',
+                            fontStyle: 'normal',
+                            fontWeight: '500',
+                            color: 'secondary.main',
+                            fontSize: '0.875rem',
+                        }}
+                    >
+                        {' '}
+                        디즈니{' '}
+                    </Button>
+                    <Button
+                        href="../etcnboard"
+                        sx={{
+                            width: '31.25rem',
+                            height: '60px',
+                            fontFamily: 'Pretendard',
+                            fontStyle: 'normal',
+                            fontWeight: '500',
+                            color: 'secondary.main',
+                            fontSize: '0.875rem',
+                        }}
+                    >
+                        {' '}
+                        기타{' '}
+                    </Button>
+                </Box>
+            </Box>
             <main>
                 <Container
                     maxWidth="70rem"
@@ -207,6 +334,7 @@ function TotalNBoard() {
                                         pl: '0.6rem',
                                         fontWeight: 500,
                                         fontSize: '1rem',
+                                        color: '#424242',
                                     }}
                                 >
                                     전체글
@@ -230,7 +358,7 @@ function TotalNBoard() {
                                         fontSize: '0.875rem',
                                     }}
                                 >
-                                    넷플릭스
+                                    넷플릭스{' '}
                                 </Button>
                             </Box>
                             <Box

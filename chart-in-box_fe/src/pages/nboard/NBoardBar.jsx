@@ -12,7 +12,7 @@ function NBoardBar() {
                 darker: '#1A1A1A',
             },
             secondary: {
-                main: '#CF5E53',
+                main: '#757575',
             },
             third: {
                 main: '#D9D9D9',
@@ -56,6 +56,7 @@ function NBoardBar() {
                             fontFamily: 'Pretendard',
                             fontStyle: 'normal',
                             fontWeight: '400',
+                            borderBottom: 3.5,
                             fontSize: '1.125rem',
                             color: 'primary.main',
                         }}
@@ -80,7 +81,7 @@ function NBoardBar() {
                         넷플릭스{' '}
                     </Button>
                     <Button
-                        href="../disneynboard"
+                        href="../watchanboard"
                         sx={{
                             width: '31.25rem',
                             height: '60px',
@@ -125,7 +126,7 @@ function NBoardBar() {
                         웨이브{' '}
                     </Button>
                     <Button
-                        href="../watchanboard"
+                        href="../disneynboard"
                         sx={{
                             width: '31.25rem',
                             height: '60px',

@@ -68,9 +68,10 @@ function TotalBoard() {
                                 height: '60px',
                                 fontFamily: 'Pretendard',
                                 fontStyle: 'normal',
-                                fontWeight: '400',
-                                fontSize: '1.125rem',
+                                fontWeight: '500',
+                                fontSize: '0.875rem',
                                 color: 'primary.main',
+                                borderBottom: 3.5,
                             }}
                         >
                             {' '}
@@ -84,8 +85,8 @@ function TotalBoard() {
                                 height: '60px',
                                 fontFamily: 'Pretendard',
                                 //fontStyle: 'normal',
-                                fontWeight: '400',
-                                fontSize: '1.125rem',
+                                fontWeight: '500',
+                                fontSize: '0.875rem',
                                 color: 'secondary.main',
                             }}
                         >
@@ -99,8 +100,8 @@ function TotalBoard() {
                                 height: '60px',
                                 fontFamily: 'Pretendard',
                                 fontStyle: 'normal',
-                                fontWeight: '400',
-                                fontSize: '1.125rem',
+                                fontWeight: '500',
+                                fontSize: '0.875rem',
                                 color: 'secondary.main',
                             }}
                         >
@@ -114,9 +115,9 @@ function TotalBoard() {
                                 height: '60px',
                                 fontFamily: 'Pretendard',
                                 fontStyle: 'normal',
-                                fontWeight: '400',
+                                fontWeight: '500',
                                 color: 'secondary.main',
-                                fontSize: '1.125rem',
+                                fontSize: '0.875rem',
                             }}
                         >
                             {' '}

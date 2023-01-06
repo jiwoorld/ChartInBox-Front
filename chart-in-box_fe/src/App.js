@@ -18,7 +18,7 @@ import Posting from './pages/board/Posting';
 import TotalNBoard from './pages/nboard/TotalNBoard';
 import NetflexNBoard from './pages/nboard/NetflexNBoard';
 import DisneyNBoard from './pages/nboard/DisneyNBoard';
-import TivingNBoard from './pages/nboard/TotalNBoard';
+import TivingNBoard from './pages/nboard/TvingNBoard';
 import WaveNBoard from './pages/nboard/WaveNBoard';
 import WatchaNBoard from './pages/nboard/WatchaNBoard';
 import EtcNBoard from './pages/nboard/EtcNBoard';
