@@ -202,7 +202,7 @@ function MainPage() {
                         ></MainTable>
                         <MainTable
                             tableName="n팟 구함"
-                            tableLink="/"
+                            tableLink="/totalnboard"
                         ></MainTable>
                     </Box>
                 </Box>
