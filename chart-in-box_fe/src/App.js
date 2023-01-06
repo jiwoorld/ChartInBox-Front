@@ -15,6 +15,13 @@ import FreeBoard from './pages/board/FreeBoard';
 import QnaBoard from './pages/board/QnaBoard';
 import ReviewBoard from './pages/board/ReviewBoard';
 import Posting from './pages/board/Posting';
+import TotalNBoard from './pages/nboard/TotalNBoard';
+import NetflexNBoard from './pages/nboard/NetflexNBoard';
+import DisneyNBoard from './pages/nboard/DisneyNBoard';
+import TivingNBoard from './pages/nboard/TotalNBoard';
+import WaveNBoard from './pages/nboard/WaveNBoard';
+import WatchaNBoard from './pages/nboard/WatchaNBoard';
+import EtcNBoard from './pages/nboard/EtcNBoard';
 
 function App() {
     return (
@@ -30,6 +37,13 @@ function App() {
                     <Route path="/qnaboard" element={<QnaBoard />} />
                     <Route path="/totalboard" element={<TotalBoard />} />
                     <Route path="/posting" element={<Posting />} />
+                    <Route path="/totalnboard" element={<TotalNBoard />} />
+                    <Route path="/netflexnboard" element={<NetflexNBoard />} />
+                    <Route path="/disneynboard" element={<DisneyNBoard />} />
+                    <Route path="/tivingnboard" element={<TivingNBoard />} />
+                    <Route path="/wavenboard" element={<WaveNBoard />} />
+                    <Route path="/watchanboard" element={<WatchaNBoard />} />
+                    <Route path="/etcnboard" element={<EtcNBoard />} />
                     <Route
                         path="/movieinfo"
                         element={<MovieInfo></MovieInfo>}
