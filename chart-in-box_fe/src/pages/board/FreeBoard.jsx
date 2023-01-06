@@ -67,8 +67,8 @@ function FreeBoard() {
                                 height: '60px',
                                 fontFamily: 'Pretendard',
                                 fontStyle: 'normal',
-                                fontWeight: '400',
-                                fontSize: '1.125rem',
+                                fontWeight: '500',
+                                fontSize: '0.875rem',
                                 color: 'secondary.main',
                             }}
                         >
@@ -83,8 +83,9 @@ function FreeBoard() {
                                 height: '60px',
                                 fontFamily: 'Pretendard',
                                 //fontStyle: 'normal',
-                                fontWeight: '400',
-                                fontSize: '1.125rem',
+                                fontWeight: '500',
+                                fontSize: '0.875rem',
+                                borderBottom: 3.5,
                                 color: 'primary.main',
                             }}
                         >
@@ -98,8 +99,8 @@ function FreeBoard() {
                                 height: '60px',
                                 fontFamily: 'Pretendard',
                                 fontStyle: 'normal',
-                                fontWeight: '400',
-                                fontSize: '1.125rem',
+                                fontWeight: '500',
+                                fontSize: '0.875rem',
                                 color: 'secondary.main',
                             }}
                         >
@@ -113,9 +114,9 @@ function FreeBoard() {
                                 height: '60px',
                                 fontFamily: 'Pretendard',
                                 fontStyle: 'normal',
-                                fontWeight: '400',
+                                fontWeight: '500',
                                 color: 'secondary.main',
-                                fontSize: '1.125rem',
+                                fontSize: '0.875rem',
                             }}
                         >
                             {' '}

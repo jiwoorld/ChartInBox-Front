@@ -19,6 +19,9 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
 
 function BoardTable(props) {
     function createData(title, author, date, view, like) {
@@ -68,16 +71,19 @@ function BoardTable(props) {
     const handleScopeChange = event => {
         setScope(event.target.value);
     };
+
+    const label = { inputProps: { 'aria-label': 'Switch demo' } };
+
     return (
         <ThemeProvider theme={theme}>
             <Box
                 sx={{
                     //height: '45rem',
-                    textAlign: 'center',
-                    justifyContent: 'center',
-                    alignItems: 'center',
+                    //textAlign: 'center',
+                    //justifyContent: 'center',
+                    //alignItems: 'center',
                     display: 'flex',
-                    alignItems: 'flex-start',
+                    //alignItems: 'flex-start',
                     flexDirection: 'column',
                 }}
             >
@@ -86,6 +92,8 @@ function BoardTable(props) {
                         height: '1.75rem',
                         display: 'flex',
                         justifyContent: 'space-between',
+                        flexDirection: 'row',
+                        alignItems: 'flex-start',
                         mb: 1,
                     }}
                 >
@@ -97,7 +105,45 @@ function BoardTable(props) {
                     >
                         {tableName}
                     </Typography>
+                    <Box
+                        sx={{
+                            maxWidth: '10rem',
+                            Height: '3rem',
+                            flexDirection: 'row',
+                            alignItems: 'flex-start',
+                        }}
+                    >
+                        <FormGroup>
+                            <FormControlLabel
+                                control={<Switch defaultChecked />}
+                                label="스포포함"
+                            />
+                        </FormGroup>
+                        <Box sx={{ m: '0.3rem', mt: -1.5 }}>
+                            <FormControl fullWidth>
+                                <Select
+                                    displayEmpty
+                                    inputProps={{
+                                        'aria-label': 'Without label',
+                                    }}
+                                    value={time}
+                                    label="Time"
+                                    onChange={handleTimeChange}
+                                >
+                                    <MenuItem value="">
+                                        <em>전체기간</em>
+                                    </MenuItem>
+                                    <MenuItem value={10}>1일</MenuItem>
+                                    <MenuItem value={20}>1주</MenuItem>
+                                    <MenuItem value={30}>한 달</MenuItem>
+                                    <MenuItem value={40}>6개월</MenuItem>
+                                    <MenuItem value={50}>1년</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
+                    </Box>
                 </Box>
+
                 <Box>
                     <TableContainer>
                         <Table
@@ -274,21 +320,19 @@ function BoardTable(props) {
                         }}
                     >
                         <Box sx={{ height: '2.18rem', m: '0.3rem' }}>
-                            <FormControl
-                                fullWidth
-                                sx={{ width: '8.45rem', height: '2.18rem' }}
-                            >
-                                <InputLabel id="demo-simple-select-label">
-                                    전체기간
-                                </InputLabel>
+                            <FormControl fullWidth sx={{ width: '7.45rem' }}>
                                 <Select
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
+                                    displayEmpty
+                                    inputProps={{
+                                        'aria-label': 'Without label',
+                                    }}
                                     value={time}
                                     label="Time"
                                     onChange={handleTimeChange}
                                 >
-                                    <MenuItem value={0}>전체기간</MenuItem>
+                                    <MenuItem value="">
+                                        <em>전체기간</em>
+                                    </MenuItem>
                                     <MenuItem value={10}>1일</MenuItem>
                                     <MenuItem value={20}>1주</MenuItem>
                                     <MenuItem value={30}>한 달</MenuItem>
@@ -298,21 +342,19 @@ function BoardTable(props) {
                             </FormControl>
                         </Box>
                         <Box sx={{ height: '2.18rem', m: '0.3rem' }}>
-                            <FormControl
-                                fullWidth
-                                sx={{ width: '8.45rem', height: '2.18rem' }}
-                            >
-                                <InputLabel id="demo-simple-select-label">
-                                    제목+내용
-                                </InputLabel>
+                            <FormControl fullWidth sx={{ width: '7.45rem' }}>
                                 <Select
-                                    labelId="demo-simple-select-label"
-                                    id="demo-simple-select"
                                     value={scope}
                                     label="Scope"
+                                    displayEmpty
+                                    inputProps={{
+                                        'aria-label': 'Without label',
+                                    }}
                                     onChange={handleScopeChange}
                                 >
-                                    <MenuItem value={10}>제목+내용</MenuItem>
+                                    <MenuItem value="">
+                                        <em>제목+내용</em>
+                                    </MenuItem>
                                     <MenuItem value={10}>제목만</MenuItem>
                                     <MenuItem value={20}>본문만</MenuItem>
                                     <MenuItem value={30}>댓글만</MenuItem>

@@ -100,6 +100,10 @@ function MenuBarMovie() {
     const handleTotalpage = () => {
         navigate('/totalboard');
     };
+    const handleTotalNpage = () => {
+        navigate('/totalnboard');
+    };
+
     return (
         <ThemeProvider theme={theme}>
             <Box
@@ -175,6 +179,7 @@ function MenuBarMovie() {
                             fontWeight: '400',
                             fontSize: '1.125rem',
                         }}
+                        onClick={handleTotalNpage}
                     >
                         {' '}
                         N팟 구함{' '}
