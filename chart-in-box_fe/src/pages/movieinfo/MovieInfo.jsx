@@ -47,6 +47,7 @@ function MovieInfo() {
     useEffect(() => {
         setInfo(dummydata);
     }, []);
+
     let mvRating = '';
     if (typeof info.mvRating === 'string') {
         mvRating = info.mvRating.slice(0, -3);
