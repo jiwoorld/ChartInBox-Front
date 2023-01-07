@@ -12,6 +12,8 @@ import MenuBarMovie from '../../components/menubar/MenuBarMovie';
 import MovieCuration from '../../components/carousel/MovieCuration';
 import MovieTable from '../../components/movieinfo/MovieTable';
 import Review from '../../components/movieinfo/Review';
+import dummydata from '../../dummydata/movieInfo.json';
+import { useEffect } from 'react';
 
 function MovieInfo() {
     const theme = createTheme({
@@ -37,10 +39,20 @@ function MovieInfo() {
         },
     });
     const [reviewButton, setReviewButton] = React.useState(1);
+    const [info, setInfo] = React.useState({});
 
     const handleReview = () => {
         setReviewButton(reviewButton + 1);
     };
+    useEffect(() => {
+        setInfo(dummydata);
+    }, []);
+    let mvRating = '';
+    if (typeof info.mvRating === 'string') {
+        mvRating = info.mvRating.slice(0, -3);
+    } else {
+        console.log('string 아님');
+    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -72,7 +84,11 @@ function MovieInfo() {
                             marginRight: '0.75rem',
                         }}
                     >
-                        이미지 칸
+                        <img
+                            src={info.mvPoster}
+                            alt="영화이미지"
+                            width="256px"
+                        ></img>
                     </Box>
                     <Box
                         sx={{
@@ -95,7 +111,7 @@ function MovieInfo() {
                             <Box
                                 sx={{
                                     height: '100%',
-                                    width: '14.5rem',
+
                                     display: 'flex',
                                     flexDirection: 'column',
                                     justifyContent: 'space-between',
@@ -110,7 +126,7 @@ function MovieInfo() {
                                         height: '1.9rem',
                                     }}
                                 >
-                                    소년시절의 너
+                                    {info.mvTitle}
                                 </Typography>
                                 <Box
                                     sx={{
@@ -121,14 +137,14 @@ function MovieInfo() {
                                 >
                                     <Typography
                                         sx={{
-                                            width: '3.6rem',
                                             height: '0.9rem',
                                             fontWeight: '400',
                                             fontSize: '0.75rem',
+                                            pr: 1,
                                             borderRight: '1px solid white',
                                         }}
                                     >
-                                        로맨스
+                                        {info.mvGenre}
                                     </Typography>
                                     <Typography
                                         sx={{
@@ -139,7 +155,7 @@ function MovieInfo() {
                                             borderRight: '1px solid white',
                                         }}
                                     >
-                                        125분
+                                        {info.mvRuntime + '분'}
                                     </Typography>
                                     <Typography
                                         sx={{
@@ -150,7 +166,7 @@ function MovieInfo() {
                                             borderRight: '1px solid white',
                                         }}
                                     >
-                                        15세
+                                        {mvRating}
                                     </Typography>
                                 </Box>
                             </Box>
@@ -256,16 +272,7 @@ function MovieInfo() {
                                 textAlign: 'left',
                             }}
                         >
-                            “넌 세상을 지켜, 난 너를 지킬게”<br></br> 시험만 잘
-                            치면 멋진 인생을 살 수 있다고 가르치는 세상에서 기댈
-                            곳 없이 세상에 내몰린 우등생 소녀 ‘첸니엔’과 양아치
-                            소년 ‘베이’. 비슷한 상처와 외로움에 끌려 서로에게
-                            의지하게 된 두 사람은 수능을 하루 앞둔 어느 날,
-                            ‘첸니엔’의 삶을 뒤바꿔버릴 거대한 사건에 휘말리게
-                            된다. ‘첸니엔’만은 평범하고 행복하게 살길 바라는
-                            ‘베이’는 그녀의 그림자가 되어 모든 것을 해결하기로
-                            마음 먹는데... “고마워. 내 세상의 전부, 소년시절의
-                            너.”
+                            {info.mvPlot}
                         </Box>
                         <Box
                             sx={{
@@ -282,7 +289,9 @@ function MovieInfo() {
                                     display: 'flex',
                                 }}
                             >
-                                원제 dkdkdkd
+                                {info.mvTitleOrg
+                                    ? '원제 ' + info.mvTitleOrg
+                                    : '원제 -'}
                             </Typography>
                             <Typography
                                 sx={{
@@ -291,7 +300,10 @@ function MovieInfo() {
                                     display: 'flex',
                                 }}
                             >
-                                개요 중국 , 2020년
+                                {'개요 ' +
+                                    info.mvNation +
+                                    ' ' +
+                                    info.mvProdYear}
                             </Typography>
                             <Typography
                                 sx={{
@@ -300,7 +312,7 @@ function MovieInfo() {
                                     display: 'flex',
                                 }}
                             >
-                                감독 , 중국상
+                                {'감독 ' + info.mvDirector}
                             </Typography>
                             <Typography
                                 sx={{
@@ -309,7 +321,7 @@ function MovieInfo() {
                                     display: 'flex',
                                 }}
                             >
-                                출연 주동우 이양찬새
+                                {'출연 ' + info.mvActor}
                             </Typography>
                         </Box>
                     </Box>
