@@ -47,7 +47,7 @@ function MovieInfo() {
     useEffect(() => {
         setInfo(dummydata);
     }, []);
-    //얘는 어차피 딴 파일에서 가져오는거니까 상관이 없나??
+
     let mvRating = '';
     if (typeof info.mvRating === 'string') {
         mvRating = info.mvRating.slice(0, -3);
