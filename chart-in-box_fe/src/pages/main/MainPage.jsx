@@ -11,6 +11,7 @@ import MainCarousel from '../../components/carousel/MainCarousel';
 import MainCuration from '../../components/mainpage/MainCuration';
 import MainTable from '../../components/mainpage/MainTable';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
+import dummyData from '../../dummydata/mainMovie.json';
 
 function MainPage() {
     const theme = createTheme({
@@ -84,7 +85,6 @@ function MainPage() {
                                 height: '2.75rem',
                                 borderBottom: '3px solid white',
                                 display: 'flex',
-
                                 alignItems: 'center',
                             }}
                         >
