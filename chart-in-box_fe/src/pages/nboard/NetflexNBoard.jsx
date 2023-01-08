@@ -331,8 +331,8 @@ function NetflexNBoard() {
                                         pt: '0.5rem',
                                         width: '15.125rem',
                                         pl: '0.6rem',
-                                        fontWeight: 500,
-                                        fontSize: '1rem',
+                                        fontWeight: 400,
+                                        fontSize: '0.875rem',
                                     }}
                                 >
                                     전체글
@@ -352,8 +352,8 @@ function NetflexNBoard() {
                                         pl: '1rem',
                                         pt: '0.5rem',
                                         width: '15.125rem',
-                                        fontWeight: 400,
-                                        fontSize: '0.875rem',
+                                        fontWeight: 500,
+                                        fontSize: '1rem',
                                     }}
                                 >
                                     넷플릭스

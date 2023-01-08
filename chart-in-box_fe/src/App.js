@@ -22,6 +22,7 @@ import TivingNBoard from './pages/nboard/TvingNBoard';
 import WaveNBoard from './pages/nboard/WaveNBoard';
 import WatchaNBoard from './pages/nboard/WatchaNBoard';
 import EtcNBoard from './pages/nboard/EtcNBoard';
+import Writing from './pages/Writing/Writing';
 
 function App() {
     return (
@@ -62,6 +63,7 @@ function App() {
                         path="/curation"
                         element={<CurationPage></CurationPage>}
                     />
+                    <Route path="/writing" element={<Writing></Writing>} />
                 </Routes>
             </Router>
         </div>

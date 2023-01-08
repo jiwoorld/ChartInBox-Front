@@ -169,7 +169,7 @@ function MenuBar() {
                         onClick={handleTotalpage}
                     >
                         {' '}
-                        자유게시판{' '}
+                        영화TALK{' '}
                     </Button>
                     <Button
                         sx={{
