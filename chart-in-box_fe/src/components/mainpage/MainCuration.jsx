@@ -67,7 +67,10 @@ function MainCuration() {
                                     height: '0.875rem',
                                     fontSize: '0.7rem',
                                     fontWeight: 300,
-                                    textDecoration: 'underline',
+                                    '&:hover,&.Mui-focusVisible': {
+                                        textDecoration: 'underline',
+                                        fontSize: '0.8rem',
+                                    },
                                 }}
                                 onClick={handlePage}
                             >

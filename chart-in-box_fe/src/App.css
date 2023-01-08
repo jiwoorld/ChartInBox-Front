@@ -30,3 +30,7 @@
     z-index: 30;
     height: 23.75rem;
 }
+.movieInfo:hover {
+    width: 266px;
+    height: 120%;
+}

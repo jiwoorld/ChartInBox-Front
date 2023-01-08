@@ -89,6 +89,7 @@ function MovieInfo() {
                             src={info.mvPoster}
                             alt="영화이미지"
                             width="256px"
+                            class="movieInfo"
                         ></img>
                     </Box>
                     <Box
