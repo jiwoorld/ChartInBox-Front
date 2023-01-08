@@ -63,13 +63,18 @@ function BoardTable(props) {
         },
     });
     const [time, setTime] = React.useState('');
-
     const handleTimeChange = event => {
         setTime(event.target.value);
     };
+
     const [scope, setScope] = React.useState('');
     const handleScopeChange = event => {
         setScope(event.target.value);
+    };
+
+    const [lineup, setLineup] = React.useState('');
+    const handleLineupChange = event => {
+        setLineup(event.target.value);
     };
 
     const label = { inputProps: { 'aria-label': 'Switch demo' } };
@@ -91,20 +96,34 @@ function BoardTable(props) {
                     sx={{
                         height: '1.75rem',
                         display: 'flex',
-                        justifyContent: 'space-between',
+                        //justifyContent: 'space-between',
                         flexDirection: 'row',
                         alignItems: 'flex-start',
                         mb: 1,
                     }}
                 >
-                    <Typography
+                    <Box
                         sx={{
-                            fontWeight: '600',
-                            fontSize: '1.313rem',
+                            width: '76%',
+                            justifyContent: 'space-between',
                         }}
                     >
-                        {tableName}
-                    </Typography>
+                        <Typography
+                            sx={{
+                                fontWeight: '600',
+                                textAlign: 'left',
+                                fontSize: '1.313rem',
+                            }}
+                        >
+                            {tableName}
+                        </Typography>
+                    </Box>
+                    <FormGroup>
+                        <FormControlLabel
+                            control={<Switch defaultChecked />}
+                            label="스포포함"
+                        />
+                    </FormGroup>
                     <Box
                         sx={{
                             maxWidth: '10rem',
@@ -113,12 +132,6 @@ function BoardTable(props) {
                             alignItems: 'flex-start',
                         }}
                     >
-                        <FormGroup>
-                            <FormControlLabel
-                                control={<Switch defaultChecked />}
-                                label="스포포함"
-                            />
-                        </FormGroup>
                         <Box sx={{ m: '0.3rem', mt: -1.5 }}>
                             <FormControl fullWidth>
                                 <Select
@@ -126,18 +139,14 @@ function BoardTable(props) {
                                     inputProps={{
                                         'aria-label': 'Without label',
                                     }}
-                                    value={time}
-                                    label="Time"
-                                    onChange={handleTimeChange}
+                                    value={lineup}
+                                    label="Lineup"
+                                    onChange={handleLineupChange}
                                 >
-                                    <MenuItem value="">
-                                        <em>전체기간</em>
-                                    </MenuItem>
-                                    <MenuItem value={10}>1일</MenuItem>
-                                    <MenuItem value={20}>1주</MenuItem>
-                                    <MenuItem value={30}>한 달</MenuItem>
-                                    <MenuItem value={40}>6개월</MenuItem>
-                                    <MenuItem value={50}>1년</MenuItem>
+                                    <MenuItem value="">최신순</MenuItem>
+                                    <MenuItem value={10}>조회순</MenuItem>
+                                    <MenuItem value={20}>좋아요순</MenuItem>
+                                    <MenuItem value={30}>댓글순</MenuItem>
                                 </Select>
                             </FormControl>
                         </Box>
@@ -330,9 +339,7 @@ function BoardTable(props) {
                                     label="Time"
                                     onChange={handleTimeChange}
                                 >
-                                    <MenuItem value="">
-                                        <em>전체기간</em>
-                                    </MenuItem>
+                                    <MenuItem value="">전체기간</MenuItem>
                                     <MenuItem value={10}>1일</MenuItem>
                                     <MenuItem value={20}>1주</MenuItem>
                                     <MenuItem value={30}>한 달</MenuItem>
@@ -352,9 +359,7 @@ function BoardTable(props) {
                                     }}
                                     onChange={handleScopeChange}
                                 >
-                                    <MenuItem value="">
-                                        <em>제목+내용</em>
-                                    </MenuItem>
+                                    <MenuItem value="">제목+내용</MenuItem>
                                     <MenuItem value={10}>제목만</MenuItem>
                                     <MenuItem value={20}>본문만</MenuItem>
                                     <MenuItem value={30}>댓글만</MenuItem>
