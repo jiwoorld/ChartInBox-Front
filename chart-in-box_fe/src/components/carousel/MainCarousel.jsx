@@ -3,9 +3,9 @@ import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import dummydata from '../../dummydata/mainMovie.json';
+// import dummydata from '../../dummydata/mainMovie.json';
 
-function MainCarousel() {
+function MainCarousel(props) {
     const settings = {
         infinite: true,
         slidesToShow: 5,
@@ -18,8 +18,8 @@ function MainCarousel() {
     const [movies, setMovies] = React.useState([]);
 
     useEffect(() => {
-        setMovies(dummydata);
-    }, []);
+        setMovies(props.dummydata);
+    }, [props.dummydata]);
     //배열안에 props.dummydata를 넣기
 
     return (

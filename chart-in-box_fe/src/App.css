@@ -34,3 +34,9 @@
     width: 266px;
     height: 120%;
 }
+.MuiMenuItem-root {
+    color: #424242 !important;
+    font-size: 0.7rem !important;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.8) !important;
+}

@@ -39,6 +39,10 @@ function MainPage() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
+    const [dummydata, setDummyData] = React.useState([]);
+    React.useEffect(() => {
+        setDummyData(dummyData);
+    }, []);
 
     return (
         <ThemeProvider theme={theme}>
@@ -120,7 +124,9 @@ function MainPage() {
                                 ></img>
                             </Box>
                             <Box sx={{ width: '83vw' }}>
-                                <MainCarousel></MainCarousel>
+                                <MainCarousel
+                                    dummydata={dummydata}
+                                ></MainCarousel>
                             </Box>
                         </Box>
                         <Box

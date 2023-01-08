@@ -103,6 +103,9 @@ function MenuBarMovie() {
     const handleTotalNpage = () => {
         navigate('/totalnboard');
     };
+    const handleMovieSearch = () => {
+        navigate('/moviesearch');
+    };
 
     return (
         <ThemeProvider theme={theme}>
@@ -193,6 +196,7 @@ function MenuBarMovie() {
                             fontWeight: '400',
                             fontSize: '1.125rem',
                         }}
+                        onClick={handleMovieSearch}
                     >
                         {' '}
                         작품탐색{' '}
