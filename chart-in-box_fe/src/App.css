@@ -25,3 +25,8 @@
 .MuiFormControlLabel-label {
     color: #333d41;
 }
+.chartImg:hover {
+    width: 16.875rem;
+    z-index: 30;
+    height: 23.75rem;
+}
