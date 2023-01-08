@@ -19,20 +19,28 @@ function MainCarousel() {
 
     useEffect(() => {
         setMovies(dummydata);
-        console.log(dummydata);
     }, []);
     //배열안에 props.dummydata를 넣기
 
     return (
         <Slider {...settings}>
             {movies.map(item => (
-                <Box key={item.mvChartId} sx={{ width: '170px' }}>
+                <Box
+                    key={item.mvChartId}
+                    sx={{
+                        width: '10.625rem',
+                        height: '21.875rem',
+                        display: 'flex !important',
+                        alignItems: 'center !important',
+                        justifyContent: 'center',
+                        position: 'relative',
+                    }}
+                >
                     <Box
                         sx={{
-                            ml: '9px',
+                            ml: '0.5625rem',
                             width: '11.75rem',
                             height: '16.8438rem',
-                            position: 'relative',
                         }}
                     >
                         <Box
@@ -40,6 +48,7 @@ function MainCarousel() {
                                 position: 'absolute',
                                 width: '3.8125rem',
                                 height: '3.4rem',
+                                zIndex: '10',
                             }}
                         >
                             <Box
@@ -123,12 +132,13 @@ function MainCarousel() {
                                 width: '132px',
                                 height: '2rem',
                                 backgroundColor: '#EDEBDE',
-                                top: '235px',
-                                left: '23px',
+                                top: '17.5rem',
+                                left: '4.6875rem',
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'center',
                                 flexWrap: 'wrap',
+                                zIndex: '10',
                             }}
                         >
                             <Typography
@@ -144,14 +154,19 @@ function MainCarousel() {
                         <Box
                             sx={{
                                 width: '175px',
-                                background:
-                                    '  radial-gradient(60.19% 60.19% at 50% 50%, rgba(217, 217, 217, 0) 0%, rgba(217, 217, 217, 0) 30.73%, rgba(211, 208, 192, 0.33) 72.4%, rgba(205, 200, 168, 0.55) 100%)',
+                                position: 'absolute',
+                                '&:hover,&.Mui-focusVisible': {
+                                    zIndex: '20',
+                                    right: '6.25rem',
+                                    top: '0.0625rem',
+                                },
                             }}
                         >
                             <img
                                 width="175px"
                                 src={item.mvChartImg}
-                                alt="영화 이미지"
+                                alt="이미지"
+                                class="chartImg"
                             ></img>
                         </Box>
                     </Box>

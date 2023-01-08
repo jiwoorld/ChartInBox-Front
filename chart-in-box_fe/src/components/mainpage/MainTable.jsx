@@ -172,6 +172,9 @@ function MainTable(props) {
                             heght: '1.1875rem',
                             fontSize: '0.9rem',
                             fontWeight: '500',
+                            '&:hover,&.Mui-focusVisible': {
+                                fontSize: '1rem',
+                            },
                         }}
                         onClick={handlePage}
                     >
@@ -185,6 +188,10 @@ function MainTable(props) {
                             color: 'text.default',
                             fontSize: '0.875rem',
                             fontWeight: '500',
+                            '&:hover,&.Mui-focusVisible': {
+                                textDecoration: 'underline',
+                                fontSize: '0.92rem',
+                            },
                         }}
                         onClick={handlePage}
                     >
