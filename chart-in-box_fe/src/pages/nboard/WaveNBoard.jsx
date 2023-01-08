@@ -331,8 +331,8 @@ function WaveNBoard() {
                                         pt: '0.5rem',
                                         width: '15.125rem',
                                         pl: '0.6rem',
-                                        fontWeight: 500,
-                                        fontSize: '1rem',
+                                        fontWeight: 400,
+                                        fontSize: '0.875rem',
                                     }}
                                 >
                                     전체글
@@ -413,10 +413,10 @@ function WaveNBoard() {
                                     onClick={handleWaveNBoard}
                                     sx={{
                                         pl: '1rem',
-                                        fontWeight: 400,
+                                        fontWeight: 500,
                                         width: '15.125rem',
                                         pt: '0.5rem',
-                                        fontSize: '0.875rem',
+                                        fontSize: '1rem',
                                     }}
                                 >
                                     웨이브

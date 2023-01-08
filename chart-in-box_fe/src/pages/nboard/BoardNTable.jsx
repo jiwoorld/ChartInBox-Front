@@ -98,7 +98,7 @@ function BoardNTable(props) {
                 >
                     <Box
                         sx={{
-                            width: '76%',
+                            width: '74%',
                             justifyContent: 'space-between',
                         }}
                     >
@@ -124,26 +124,26 @@ function BoardNTable(props) {
                             Height: '3rem',
                             flexDirection: 'row',
                             alignItems: 'flex-start',
+                            m: '0.3rem',
+                            mt: -1.5,
                         }}
                     >
-                        <Box sx={{ m: '0.3rem', mt: -1.5 }}>
-                            <FormControl fullWidth>
-                                <Select
-                                    displayEmpty
-                                    inputProps={{
-                                        'aria-label': 'Without label',
-                                    }}
-                                    value={lineup}
-                                    label="Lineup"
-                                    onChange={handleLineupChange}
-                                >
-                                    <MenuItem value="">최신순</MenuItem>
-                                    <MenuItem value={10}>조회순</MenuItem>
-                                    <MenuItem value={20}>좋아요순</MenuItem>
-                                    <MenuItem value={30}>댓글순</MenuItem>
-                                </Select>
-                            </FormControl>
-                        </Box>
+                        <FormControl fullWidth>
+                            <Select
+                                displayEmpty
+                                inputProps={{
+                                    'aria-label': 'Without label',
+                                }}
+                                value={lineup}
+                                label="Lineup"
+                                onChange={handleLineupChange}
+                            >
+                                <MenuItem value="">최신순</MenuItem>
+                                <MenuItem value={10}>조회순</MenuItem>
+                                <MenuItem value={20}>좋아요순</MenuItem>
+                                <MenuItem value={30}>댓글순</MenuItem>
+                            </Select>
+                        </FormControl>
                     </Box>
                 </Box>
                 <Box>
