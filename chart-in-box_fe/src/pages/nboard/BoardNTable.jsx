@@ -3,7 +3,6 @@ import {
     Box,
     Button,
     createTheme,
-    Paper,
     Table,
     TableBody,
     TableCell,
@@ -12,8 +11,10 @@ import {
     TableRow,
     ThemeProvider,
     Typography,
-    SelectChangeEvent,
 } from '@mui/material';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
 import InputBase from '@mui/material/InputBase';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -68,16 +69,20 @@ function BoardNTable(props) {
     const handleScopeChange = event => {
         setScope(event.target.value);
     };
+    const [lineup, setLineup] = React.useState('');
+    const handleLineupChange = event => {
+        setLineup(event.target.value);
+    };
     return (
         <ThemeProvider theme={theme}>
             <Box
                 sx={{
                     //height: '45rem',
-                    textAlign: 'center',
-                    justifyContent: 'center',
-                    alignItems: 'center',
+                    //textAlign: 'center',
+                    //justifyContent: 'center',
+                    //alignItems: 'center',
                     display: 'flex',
-                    alignItems: 'flex-start',
+                    //alignItems: 'flex-start',
                     flexDirection: 'column',
                 }}
             >
@@ -85,18 +90,61 @@ function BoardNTable(props) {
                     sx={{
                         height: '1.75rem',
                         display: 'flex',
-                        justifyContent: 'space-between',
+                        //justifyContent: 'space-between',
+                        flexDirection: 'row',
+                        alignItems: 'flex-start',
                         mb: 1,
                     }}
                 >
-                    <Typography
+                    <Box
                         sx={{
-                            fontWeight: '600',
-                            fontSize: '1.313rem',
+                            width: '76%',
+                            justifyContent: 'space-between',
                         }}
                     >
-                        {tableName}
-                    </Typography>
+                        <Typography
+                            sx={{
+                                fontWeight: '600',
+                                textAlign: 'left',
+                                fontSize: '1.313rem',
+                            }}
+                        >
+                            {tableName}
+                        </Typography>
+                    </Box>
+                    <FormGroup>
+                        <FormControlLabel
+                            control={<Switch defaultChecked />}
+                            label="스포포함"
+                        />
+                    </FormGroup>
+                    <Box
+                        sx={{
+                            maxWidth: '10rem',
+                            Height: '3rem',
+                            flexDirection: 'row',
+                            alignItems: 'flex-start',
+                        }}
+                    >
+                        <Box sx={{ m: '0.3rem', mt: -1.5 }}>
+                            <FormControl fullWidth>
+                                <Select
+                                    displayEmpty
+                                    inputProps={{
+                                        'aria-label': 'Without label',
+                                    }}
+                                    value={lineup}
+                                    label="Lineup"
+                                    onChange={handleLineupChange}
+                                >
+                                    <MenuItem value="">최신순</MenuItem>
+                                    <MenuItem value={10}>조회순</MenuItem>
+                                    <MenuItem value={20}>좋아요순</MenuItem>
+                                    <MenuItem value={30}>댓글순</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
+                    </Box>
                 </Box>
                 <Box>
                     <TableContainer>
