@@ -1,6 +1,5 @@
 import {
     createTheme,
-    CssBaseline,
     FormControl,
     InputLabel,
     MenuItem,
@@ -9,19 +8,19 @@ import {
 import * as React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-function Selected() {
+function Selected(props) {
     const theme = createTheme({
         palette: {
             primary: {
-                main: '#ffff',
+                main: '#fff',
             },
 
             third: {
-                main: '#001F28',
+                main: '#fff',
             },
 
             text: {
-                primary: '#001F28',
+                primary: '#fff',
             },
         },
         typography: {
@@ -30,15 +29,16 @@ function Selected() {
         components: {
             MuiMenuItem: {
                 styleOverrides: {
-                    root: { '&.Mui-selected': { backgroundColor: '#ffff' } },
+                    root: { '&.Mui-selected': { backgroundColor: '#fff' } },
                 },
             },
         },
     });
-    const [age, setAge] = React.useState('');
-
+    const [value, setValue] = React.useState('');
+    const title = props.title;
+    const items = props.items;
     const handleChange = event => {
-        setAge(event.target.value);
+        setValue(event.target.value);
     };
 
     return (
@@ -47,35 +47,40 @@ function Selected() {
                 sx={{
                     m: 1,
                     minWidth: 120,
-                    color: '#ffff',
+                    color: 'text.primary',
                 }}
                 size="small"
                 variant="standard"
             >
                 <InputLabel
                     sx={{
-                        color: '#ffff',
+                        color: 'text.primary',
                         fontSize: '0.875rem',
                         fontWeight: '600',
                     }}
                     variant="standard"
                 >
-                    Age
+                    {title}
                 </InputLabel>
                 <Select
-                    value={age}
-                    label="Age"
+                    value={value}
+                    label={value}
                     onChange={handleChange}
                     sx={{
+                        color: 'text.primary',
                         fontSize: '14px',
-                        color: '#ffff',
                         borderBottom: '1px solid white',
                     }}
                     variant="standard"
                 >
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    <MenuItem value={''}>
+                        <em>None</em>
+                    </MenuItem>
+                    {items.map(item => (
+                        <MenuItem key={item} value={item}>
+                            {item}
+                        </MenuItem>
+                    ))}
                 </Select>
             </FormControl>
         </ThemeProvider>

@@ -39,6 +39,9 @@ function CurationPageMovie() {
                     display: 'flex',
                     justifyContent: 'flex-end',
                     alignItems: 'flex-end',
+                    '&:hover': {
+                        boxShadow: '3px 3px 20px  #616161',
+                    },
                 }}
             >
                 <Box
@@ -49,7 +52,15 @@ function CurationPageMovie() {
                         alignContent: 'flex-start',
                     }}
                 >
-                    <Typography>라스트 크리스마스</Typography>
+                    <Typography
+                        sx={{
+                            '&:hover,&.Mui-focusVisible': {
+                                textDecoration: 'underline',
+                            },
+                        }}
+                    >
+                        라스트 크리스마스
+                    </Typography>
                     <Box
                         sx={{
                             display: 'flex',

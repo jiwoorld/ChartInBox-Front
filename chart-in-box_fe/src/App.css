@@ -40,3 +40,9 @@
     font-weight: 500;
     background: rgba(255, 255, 255, 0.8) !important;
 }
+.MuiSelect-icon {
+    color: #fff !important;
+}
+.mainMovieImg:hover {
+    width: 105%;
+}
