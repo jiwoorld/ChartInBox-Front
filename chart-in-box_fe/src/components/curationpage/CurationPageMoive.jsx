@@ -25,6 +25,7 @@ function CurationPageMovie() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
+
     return (
         <ThemeProvider theme={theme}>
             <Box
@@ -39,9 +40,6 @@ function CurationPageMovie() {
                     display: 'flex',
                     justifyContent: 'flex-end',
                     alignItems: 'flex-end',
-                    '&:hover': {
-                        boxShadow: '3px 3px 20px  #616161',
-                    },
                 }}
             >
                 <Box
