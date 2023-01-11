@@ -205,6 +205,9 @@ function MovieInfo() {
                                             color: '#333D41',
                                             fontWeight: '600',
                                             fontSize: '0.7rem',
+                                            '&:hover': {
+                                                backgroundColor: '#f2cb05',
+                                            },
                                         }}
                                         onClick={handleReview}
                                     >
@@ -256,6 +259,9 @@ function MovieInfo() {
                                             color: '#333D41',
                                             fontWeight: '600',
                                             fontSize: '0.7rem',
+                                            '&:hover': {
+                                                backgroundColor: '#fff',
+                                            },
                                         }}
                                         onClick={handleReview}
                                     >

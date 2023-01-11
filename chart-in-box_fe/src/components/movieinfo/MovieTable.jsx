@@ -227,6 +227,10 @@ function MovieTable(props) {
                             color: 'black',
                             borderRadius: '0.9rem',
                             opacity: '70%',
+                            '&:hover': {
+                                backgroundColor: '#fff',
+                                opacity: '90%',
+                            },
                         }}
                     >
                         {buttonName}
