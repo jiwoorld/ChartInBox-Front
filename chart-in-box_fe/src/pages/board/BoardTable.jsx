@@ -3,7 +3,6 @@ import {
     Box,
     Button,
     createTheme,
-    Paper,
     Table,
     TableBody,
     TableCell,
@@ -12,10 +11,8 @@ import {
     TableRow,
     ThemeProvider,
     Typography,
-    SelectChangeEvent,
 } from '@mui/material';
 import InputBase from '@mui/material/InputBase';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';

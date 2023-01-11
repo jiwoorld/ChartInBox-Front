@@ -23,6 +23,7 @@ import WaveNBoard from './pages/nboard/WaveNBoard';
 import WatchaNBoard from './pages/nboard/WatchaNBoard';
 import EtcNBoard from './pages/nboard/EtcNBoard';
 import Writing from './pages/Writing/Writing';
+import NWriting from './pages/Writing/NWriting';
 import MovieSearch from './pages/search/MovieSearch';
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
                         element={<CurationPage></CurationPage>}
                     />
                     <Route path="/writing" element={<Writing></Writing>} />
+                    <Route path="/nwriting" element={<NWriting></NWriting>} />
                     <Route
                         path="/moviesearch"
                         element={<MovieSearch></MovieSearch>}

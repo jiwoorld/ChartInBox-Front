@@ -297,6 +297,7 @@ function WatchaNBoard() {
                             </Box>
                         </Box>
                         <Button
+                            href="../nwriting"
                             sx={{
                                 width: '15.125rem',
                                 fontSize: '0.938rem',

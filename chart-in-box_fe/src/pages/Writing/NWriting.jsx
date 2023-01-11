@@ -34,7 +34,7 @@ import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 //import ReactHtmlParser from 'react-html-parser';
 
-function Writing() {
+function NWriting() {
     const theme = createTheme({
         palette: {
             primary: {
@@ -55,9 +55,9 @@ function Writing() {
         },
     });
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-    const [board, setBoard] = React.useState('');
-    const handleBoardChange = event => {
-        setBoard(event.target.value);
+    const [ott, setOtt] = React.useState('');
+    const handleOttChange = event => {
+        setOtt(event.target.value);
     };
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -66,14 +66,6 @@ function Writing() {
         textAlign: 'center',
         color: theme.palette.text.secondary,
     }));
-    const a = (
-        <img
-            width="12px"
-            height="11px"
-            src="../../image/good.png"
-            alt="좋아요"
-        ></img>
-    );
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -92,13 +84,13 @@ function Writing() {
                     sx={{
                         ml: '8rem',
                         display: 'flex',
-                        width: '31.25rem',
+                        width: '55rem',
                         height: '60px',
                         justifyContent: 'space-around',
                     }}
                 >
                     <Button
-                        href="../totalboard"
+                        href="../totalnboard"
                         sx={{
                             width: '31.25rem',
                             height: '60px',
@@ -113,50 +105,94 @@ function Writing() {
                         전체글{' '}
                     </Button>
                     <Button
-                        href="../freeboard"
+                        href="../netflexnboard"
                         sx={{
                             width: '31.25rem',
-                            mr: '1rem',
                             height: '60px',
                             fontFamily: 'Pretendard',
-                            //fontStyle: 'normal',
-                            fontWeight: '500',
+                            fontStyle: 'normal',
+                            fontWeight: '4500',
                             fontSize: '0.875rem',
                             color: 'secondary.main',
                         }}
                     >
                         {' '}
-                        자유게시판{' '}
+                        넷플릭스{' '}
                     </Button>
                     <Button
-                        href="../reviewboard"
+                        href="../watchanboard"
+                        sx={{
+                            width: '31.25rem',
+                            height: '60px',
+                            fontFamily: 'Pretendard',
+                            fontStyle: 'normal',
+                            fontWeight: '4500',
+                            fontSize: '0.875rem',
+                            color: 'secondary.main',
+                        }}
+                    >
+                        {' '}
+                        왓차{' '}
+                    </Button>
+                    <Button
+                        href="../tivingnboard"
                         sx={{
                             width: '31.25rem',
                             height: '60px',
                             fontFamily: 'Pretendard',
                             fontStyle: 'normal',
                             fontWeight: '500',
-                            fontSize: '0.875rem',
                             color: 'secondary.main',
+                            fontSize: '0.875rem',
                         }}
                     >
                         {' '}
-                        리뷰게시판{' '}
+                        티빙{' '}
                     </Button>
                     <Button
-                        href="../qnaboard"
+                        href="../wavenboard"
                         sx={{
                             width: '31.25rem',
                             height: '60px',
                             fontFamily: 'Pretendard',
                             fontStyle: 'normal',
                             fontWeight: '500',
-                            fontSize: '0.875rem',
                             color: 'secondary.main',
+                            fontSize: '0.875rem',
                         }}
                     >
                         {' '}
-                        Q&A{' '}
+                        웨이브{' '}
+                    </Button>
+                    <Button
+                        href="../disneynboard"
+                        sx={{
+                            width: '31.25rem',
+                            height: '60px',
+                            fontFamily: 'Pretendard',
+                            fontStyle: 'normal',
+                            fontWeight: '500',
+                            color: 'secondary.main',
+                            fontSize: '0.875rem',
+                        }}
+                    >
+                        {' '}
+                        디즈니{' '}
+                    </Button>
+                    <Button
+                        href="../etcnboard"
+                        sx={{
+                            width: '31.25rem',
+                            height: '60px',
+                            fontFamily: 'Pretendard',
+                            fontStyle: 'normal',
+                            fontWeight: '500',
+                            color: 'secondary.main',
+                            fontSize: '0.875rem',
+                        }}
+                    >
+                        {' '}
+                        기타{' '}
                     </Button>
                 </Box>
             </Box>
@@ -175,7 +211,7 @@ function Writing() {
                 >
                     <Typography
                         sx={{
-                            width: '70%',
+                            width: '92%',
                             fontSize: '1.5rem',
                             fontWeight: '500',
                             textAlign: 'left',
@@ -183,16 +219,6 @@ function Writing() {
                     >
                         글쓰기
                     </Typography>
-                    <div>
-                        <Checkbox {...label} defaultChecked />
-                        익명으로 작성하기
-                    </div>
-                    <FormGroup>
-                        <FormControlLabel
-                            control={<Switch defaultChecked />}
-                            label="스포포함"
-                        />
-                    </FormGroup>
                     <Button variant="outlined">등록</Button>
                 </Box>
                 <Container
@@ -244,15 +270,16 @@ function Writing() {
                                         inputProps={{
                                             'aria-label': 'Without label',
                                         }}
-                                        value={board}
-                                        label="Board"
-                                        onChange={handleBoardChange}
+                                        value={ott}
+                                        label="Ott"
+                                        onChange={handleOttChange}
                                     >
-                                        <MenuItem value="">리뷰게시판</MenuItem>
-                                        <MenuItem value={10}>
-                                            자유게시판
-                                        </MenuItem>
-                                        <MenuItem value={20}>Q&A</MenuItem>
+                                        <MenuItem value="">넷플릭스</MenuItem>
+                                        <MenuItem value={10}>왓챠</MenuItem>
+                                        <MenuItem value={20}>티빙</MenuItem>
+                                        <MenuItem value={30}>웨이브</MenuItem>
+                                        <MenuItem value={40}>디즈니</MenuItem>
+                                        <MenuItem value={50}>기타</MenuItem>
                                     </Select>
                                 </FormControl>
                             </Box>
@@ -303,7 +330,7 @@ function Writing() {
                                     border: 1,
                                     display: 'flex',
                                     flexDirection: 'column',
-                                    //alignItems: 'flex-end',
+                                    alignItems: 'flex-end',
                                     width: '18.8rem',
                                     p: '20px 15px 40px 7px',
                                     gap: '8px',
@@ -314,10 +341,12 @@ function Writing() {
                                 }}
                             >
                                 <Typography color={'#616161'}>
-                                    • 제목에는 영화 스포를 지양해주세요.
-                                </Typography>
+                                    • 차트인박스는 OTT 파티원을 구하기 위한
+                                    게시판만 제공하며 회원 간 거래에 대하여
+                                    일체의 책임을 지지 않습니다.{' '}
+                                </Typography>{' '}
                                 <Typography color={'#616161'}>
-                                    • 타인에게 불쾌감을 주는 욕설, 성적인 발언
+                                    •타인에게 불쾌감을 주는 욕설, 성적인 발언
                                     등이 포함된 글은 추후 운영진에 의해 삭제
                                     조치될 수 있습니다.
                                 </Typography>
@@ -381,4 +410,4 @@ function Writing() {
         </ThemeProvider>
     );
 }
-export default Writing;
+export default NWriting;
