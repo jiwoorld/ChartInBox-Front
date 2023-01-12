@@ -228,6 +228,7 @@ function ReviewBoard() {
                             </Box>
                         </Box>
                         <Button
+                            href="../writing"
                             sx={{
                                 width: '15.125rem',
                                 fontSize: '0.938rem',
