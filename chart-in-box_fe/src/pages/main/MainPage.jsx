@@ -47,171 +47,173 @@ function MainPage() {
     return (
         <ThemeProvider theme={theme}>
             <MenuBarMovie />
-            <Paper
-                sx={{
-                    width: '100vw',
-                    height: '52.125rem',
-                    backgroundColor: 'background.default',
-                }}
-            >
-                <Box
+            <Paper>
+                <Paper
                     sx={{
                         width: '100vw',
-                        height: '33.6875rem',
-                        mt: '2.2rem',
+                        height: '52.125rem',
+                        backgroundColor: 'background.default',
                     }}
                 >
                     <Box
                         sx={{
-                            height: '6.75rem',
-                            width: '100%',
-                            overflow: 'hidden',
-                        }}
-                    >
-                        <img
-                            src="../../image/MovieChart.png"
-                            alt="무비차트"
-                        ></img>
-                    </Box>
-
-                    <Box
-                        sx={{
                             width: '100vw',
-                            height: '26.3125rem',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            backgroundColor: 'box.default',
+                            height: '33.6875rem',
+                            mt: '2.2rem',
                         }}
                     >
                         <Box
                             sx={{
-                                width: '100vw',
-                                height: '2.75rem',
-                                borderBottom: '3px solid white',
-                                display: 'flex',
-                                alignItems: 'center',
+                                height: '6.75rem',
+                                width: '100%',
+                                overflow: 'hidden',
                             }}
                         >
                             <img
-                                src="../../image/rectangle.png"
-                                width="100%"
-                                alt="사각형"
+                                src="../../image/MovieChart.png"
+                                alt="무비차트"
                             ></img>
                         </Box>
+
                         <Box
                             sx={{
                                 width: '100vw',
-                                height: '100%',
+                                height: '26.3125rem',
                                 display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'space-between',
+                                flexDirection: 'column',
+                                backgroundColor: 'box.default',
                             }}
                         >
                             <Box
                                 sx={{
-                                    width: '10vw',
-                                    height: '17.5625rem',
+                                    width: '100vw',
+                                    height: '2.75rem',
+                                    borderBottom: '3px solid white',
                                     display: 'flex',
                                     alignItems: 'center',
-                                    justifyContent: 'center',
-                                    ml: 6,
                                 }}
                             >
                                 <img
-                                    src="../../image/ott_chart.png"
+                                    src="../../image/rectangle.png"
                                     width="100%"
-                                    alt="ott_chart"
+                                    alt="사각형"
                                 ></img>
                             </Box>
-                            <Box sx={{ width: '83vw' }}>
-                                <MainCarousel
-                                    dummydata={dummydata}
-                                ></MainCarousel>
+                            <Box
+                                sx={{
+                                    width: '100vw',
+                                    height: '100%',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                }}
+                            >
+                                <Box
+                                    sx={{
+                                        width: '10vw',
+                                        height: '17.5625rem',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        ml: 6,
+                                    }}
+                                >
+                                    <img
+                                        src="../../image/ott_chart.png"
+                                        width="100%"
+                                        alt="ott_chart"
+                                    ></img>
+                                </Box>
+                                <Box sx={{ width: '83vw' }}>
+                                    <MainCarousel
+                                        dummydata={dummydata}
+                                    ></MainCarousel>
+                                </Box>
+                            </Box>
+                            <Box
+                                sx={{
+                                    width: '100vw',
+                                    height: '2.75rem',
+                                    borderTop: '3px solid white',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <img
+                                    src="../../image/rectangle.png"
+                                    width="100%"
+                                    alt="사각형"
+                                ></img>
                             </Box>
                         </Box>
-                        <Box
-                            sx={{
-                                width: '100vw',
-                                height: '2.75rem',
-                                borderTop: '3px solid white',
-                                display: 'flex',
-                                alignItems: 'center',
-                            }}
-                        >
-                            <img
-                                src="../../image/rectangle.png"
-                                width="100%"
-                                alt="사각형"
-                            ></img>
-                        </Box>
                     </Box>
-                </Box>
-                <CssBaseline />
-            </Paper>
-            <Paper
-                sx={{
-                    width: '100vw',
-                    height: '19.375rem',
-                    backgroundColor: 'primary.main',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                }}
-            >
-                <MainCuration></MainCuration>
-            </Paper>
-            <Paper
-                sx={{
-                    width: '100vw',
-                    height: '49rem',
-                    backgroundColor: '#EDEBDE',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                }}
-            >
-                <Box
+                    <CssBaseline />
+                </Paper>
+                <Paper
                     sx={{
-                        width: '76rem',
-                        height: '31.9375rem',
+                        width: '100vw',
+                        height: '19.375rem',
+                        backgroundColor: 'primary.main',
                         display: 'flex',
-                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
                     }}
                 >
-                    <Typography
-                        sx={{
-                            color: 'primary.main',
-                            width: '76rem',
-                            display: 'flex',
-                            justifyContent: 'flex-start',
-                        }}
-                    >
-                        커뮤니티
-                    </Typography>
-
+                    <MainCuration></MainCuration>
+                </Paper>
+                <Paper
+                    sx={{
+                        width: '100vw',
+                        height: '49rem',
+                        backgroundColor: '#EDEBDE',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                >
                     <Box
                         sx={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            justifyContent: 'space-between',
                             width: '76rem',
-                            height: '30.375rem',
+                            height: '31.9375rem',
+                            display: 'flex',
+                            flexDirection: 'column',
                         }}
                     >
-                        <MainTable
-                            tableName="자유게시판"
-                            tableLink="/freeboard"
-                        ></MainTable>
-                        <MainTable
-                            tableName="영화리뷰"
-                            tableLink="/reviewboard"
-                        ></MainTable>
-                        <MainTable
-                            tableName="n팟 구함"
-                            tableLink="/totalnboard"
-                        ></MainTable>
+                        <Typography
+                            sx={{
+                                color: 'primary.main',
+                                width: '76rem',
+                                display: 'flex',
+                                justifyContent: 'flex-start',
+                            }}
+                        >
+                            커뮤니티
+                        </Typography>
+
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                justifyContent: 'space-between',
+                                width: '76rem',
+                                height: '30.375rem',
+                            }}
+                        >
+                            <MainTable
+                                tableName="자유게시판"
+                                tableLink="/freeboard"
+                            ></MainTable>
+                            <MainTable
+                                tableName="영화리뷰"
+                                tableLink="/reviewboard"
+                            ></MainTable>
+                            <MainTable
+                                tableName="n팟 구함"
+                                tableLink="/totalnboard"
+                            ></MainTable>
+                        </Box>
                     </Box>
-                </Box>
+                </Paper>
             </Paper>
         </ThemeProvider>
     );
