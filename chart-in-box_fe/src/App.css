@@ -29,6 +29,18 @@
     width: 16.875rem;
     z-index: 30;
     height: 23.75rem;
+    background: radial-gradient(
+        50% 50% at 50% 50%,
+        rgba(0, 0, 0, 0.45) 0%,
+        rgba(0, 0, 0, 0.135) 100%
+    );
+}
+.cahrtImg {
+    background: radial-gradient(
+        50% 50% at 50% 50%,
+        rgba(0, 0, 0, 0.45) 0%,
+        rgba(0, 0, 0, 0.135) 100%
+    );
 }
 .movieInfo:hover {
     width: 266px;

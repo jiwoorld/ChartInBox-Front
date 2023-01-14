@@ -12,7 +12,7 @@ import Login from '../sign/Login';
 import ChangePassword from '../sign/ChangePassword';
 import { useNavigate } from 'react-router-dom';
 
-function MenuBarMovie() {
+function MenuBarMovie(props) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -105,6 +105,11 @@ function MenuBarMovie() {
     };
     const handleMovieSearch = () => {
         navigate('/moviesearch');
+    };
+    const setIsDisplay = props.setIsDisplay;
+    const handleSearch = () => {
+        setIsDisplay('none');
+        console.log('실행');
     };
 
     return (
@@ -216,6 +221,7 @@ function MenuBarMovie() {
                             backgroundColor: 'third.main',
                             opacity: '29%',
                         }}
+                        onClick={handleSearch}
                     >
                         <InputBase
                             sx={{
@@ -225,7 +231,9 @@ function MenuBarMovie() {
                                 fontStyle: 'normal',
                                 fontWeight: '300',
                                 fontSize: '0.938rem',
+                                color: 'primary.darker',
                             }}
+                            disabled="true"
                             placeholder="제목 감독을 검색해보세요"
                             inputProps={{ 'aria-label': 'search google maps' }}
                         />
