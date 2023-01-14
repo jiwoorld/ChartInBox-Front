@@ -40,7 +40,7 @@ function MainCarousel(props) {
                         sx={{
                             ml: '0.5625rem',
                             width: '11.75rem',
-                            height: '16.8438rem',
+                            height: '18rem',
                         }}
                     >
                         <Box
@@ -126,7 +126,7 @@ function MainCarousel(props) {
                                 )}
                             </Box>
                         </Box>
-                        <Box
+                        {/* <Box
                             sx={{
                                 position: 'absolute',
                                 width: '132px',
@@ -150,7 +150,7 @@ function MainCarousel(props) {
                             >
                                 {item.mvChartName}
                             </Typography>
-                        </Box>
+                        </Box> */}
                         <Box
                             sx={{
                                 width: '175px',
@@ -163,7 +163,8 @@ function MainCarousel(props) {
                             }}
                         >
                             <img
-                                width="175px"
+                                width="200px"
+                                height="280px"
                                 src={item.mvChartImg}
                                 alt="이미지"
                                 class="chartImg"
