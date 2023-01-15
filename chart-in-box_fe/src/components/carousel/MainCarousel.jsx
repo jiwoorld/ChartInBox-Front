@@ -1,11 +1,12 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 // import dummydata from '../../dummydata/mainMovie.json';
+import dummydata from '../../dummydata/mainMovie.json';
 
-function MainCarousel(props) {
+function MainCarousel() {
     const settings = {
         infinite: true,
         slidesToShow: 5,
@@ -16,11 +17,19 @@ function MainCarousel(props) {
         focusOnSelect: true,
     };
     const [movies, setMovies] = React.useState([]);
+    React.useEffect(() => {
+        setMovies(dummydata);
+    }, []);
 
-    useEffect(() => {
-        setMovies(props.dummydata);
-    }, [props.dummydata]);
-    //배열안에 props.dummydata를 넣기
+    // const [movies, setMovies] = React.useState([]);
+    // React.useEffect(()=>{
+    //     axios.get('http://localhost:8080/').then(function(response){
+    //     setMovies(response.data);
+    // })
+    // .catch(function(error){
+    //     console.log(error);
+    // })
+    // },[]);
 
     return (
         <Slider {...settings}>
@@ -162,13 +171,15 @@ function MainCarousel(props) {
                                 },
                             }}
                         >
-                            <img
-                                width="200px"
-                                height="280px"
-                                src={item.mvChartImg}
-                                alt="이미지"
-                                class="chartImg"
-                            ></img>
+                            <a href={`/diary/${item.movieId}`}>
+                                <img
+                                    width="200px"
+                                    height="280px"
+                                    src={item.mvChartImg}
+                                    alt="이미지"
+                                    class="chartImg"
+                                ></img>
+                            </a>
                         </Box>
                     </Box>
                 </Box>
