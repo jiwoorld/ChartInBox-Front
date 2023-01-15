@@ -113,7 +113,9 @@ function CurationPage() {
                     <Grid container spacing={2}>
                         {moives.map(movie => (
                             <Grid key={movie.id} item={5}>
-                                <CurationPageMovie></CurationPageMovie>
+                                <CurationPageMovie
+                                    movie={movie}
+                                ></CurationPageMovie>
                             </Grid>
                         ))}
                     </Grid>

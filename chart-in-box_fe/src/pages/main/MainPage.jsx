@@ -6,12 +6,12 @@ import {
     Typography,
 } from '@mui/material';
 import { Box } from '@mui/system';
+import axios from 'axios';
 import * as React from 'react';
 import MainCarousel from '../../components/carousel/MainCarousel';
 import MainCuration from '../../components/mainpage/MainCuration';
 import MainTable from '../../components/mainpage/MainTable';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
-import dummyData from '../../dummydata/mainMovie.json';
 
 function MainPage() {
     const theme = createTheme({
@@ -39,10 +39,6 @@ function MainPage() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-    const [dummydata, setDummyData] = React.useState([]);
-    React.useEffect(() => {
-        setDummyData(dummyData);
-    }, []);
 
     return (
         <ThemeProvider theme={theme}>
@@ -125,9 +121,7 @@ function MainPage() {
                                     ></img>
                                 </Box>
                                 <Box sx={{ width: '83vw' }}>
-                                    <MainCarousel
-                                        dummydata={dummydata}
-                                    ></MainCarousel>
+                                    <MainCarousel></MainCarousel>
                                 </Box>
                             </Box>
                             <Box
