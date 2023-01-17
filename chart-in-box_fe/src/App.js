@@ -25,6 +25,8 @@ import EtcNBoard from './pages/nboard/EtcNBoard';
 import Writing from './pages/Writing/Writing';
 import NWriting from './pages/Writing/NWriting';
 import MovieSearch from './pages/search/MovieSearch';
+import ShowingBoard from './pages/board/ShowingBoard';
+import ScrapMovie from './pages/scrap/ScrapMovie';
 
 function App() {
     return (
@@ -47,11 +49,16 @@ function App() {
                     <Route path="/wavenboard" element={<WaveNBoard />} />
                     <Route path="/watchanboard" element={<WatchaNBoard />} />
                     <Route path="/etcnboard" element={<EtcNBoard />} />
+                    <Route path="/scrapmovie" element={<ScrapMovie />} />
                     <Route
                         path="/movieinfo"
                         element={<MovieInfo></MovieInfo>}
                     />
                     <Route path="/mypage" element={<Mypage></Mypage>} />
+                    <Route
+                        path="/showingboard"
+                        element={<ShowingBoard></ShowingBoard>}
+                    />
                     <Route path="/mypost" element={<Mypost></Mypost>} />
                     <Route
                         path="/mycomment"
