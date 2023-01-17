@@ -14,6 +14,8 @@ import MovieTable from '../../components/movieinfo/MovieTable';
 import Review from '../../components/movieinfo/Review';
 import dummydata from '../../dummydata/movieInfo.json';
 import { useEffect } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 function MovieInfo() {
     const theme = createTheme({
@@ -54,6 +56,19 @@ function MovieInfo() {
     } else {
         console.log('string 아님');
     }
+    // const { movieId } = useParams();
+    // console.log(movieId);
+    // const url = `/movie-info/${movieId}`;
+    // useEffect(() => {
+    //   axios
+    //     .get(url)
+    //     .then(function (response) {
+    //       setInfo(response.data);
+    //     })
+    //     .catch(function (error) {
+    //       console.log(error);
+    //     });
+    // }, [url]);
 
     return (
         <ThemeProvider theme={theme}>

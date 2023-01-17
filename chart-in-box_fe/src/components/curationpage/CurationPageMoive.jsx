@@ -1,7 +1,8 @@
 import { ThemeProvider, Typography } from '@mui/material';
 import { Box, createTheme } from '@mui/system';
+import * as React from 'react';
 
-function CurationPageMovie() {
+function CurationPageMovie(props) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -25,6 +26,8 @@ function CurationPageMovie() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
+
+    const [movie, setMovie] = React.useState({});
 
     return (
         <ThemeProvider theme={theme}>
