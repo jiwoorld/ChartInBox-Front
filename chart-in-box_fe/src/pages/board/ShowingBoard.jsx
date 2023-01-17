@@ -6,6 +6,7 @@ import CardContent from '@mui/material/CardContent';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
+import TextField from '@mui/material';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -16,6 +17,7 @@ import MenuBar from '../../components/menubar/MenuBar';
 import { Paper } from '@mui/material';
 import { borderBottom } from '@mui/system';
 import BoardTable from './BoardTable';
+import ShowingBoardTable from './ShowingBoardTable';
 
 function ShowingBoard() {
     const theme = createTheme({
@@ -126,7 +128,6 @@ function ShowingBoard() {
                     </Box>
                 </Box>
                 <Container
-                    maxWidth="70rem"
                     sx={{
                         ml: '8rem',
                         mt: '1.4rem',
@@ -339,30 +340,13 @@ function ShowingBoard() {
                     <Box
                         sx={{
                             width: '59.5rem',
-                            height: '50rem',
-                            //border: 2,
                             display: 'flex',
-                            p: 1,
                         }}
                     >
-                        <BoardTable tableName={'Reivew'}></BoardTable>
+                        <ShowingBoardTable></ShowingBoardTable>
                     </Box>
                 </Container>
             </main>
-
-            <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-                <Typography variant="h6" align="center" gutterBottom>
-                    Footer
-                </Typography>
-                <Typography
-                    variant="subtitle1"
-                    align="center"
-                    color="text.secondary"
-                    component="p"
-                >
-                    푸터가 들어갈 칸입니다
-                </Typography>
-            </Box>
         </ThemeProvider>
     );
 }
