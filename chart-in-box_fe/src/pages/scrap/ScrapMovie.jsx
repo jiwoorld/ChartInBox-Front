@@ -65,7 +65,7 @@ function ScrapMovie() {
                             mb: 8,
                         }}
                     >
-                        스크랩한 영화
+                        〈 스크랩한 영화
                     </Typography>
                     {
                         <Box
@@ -91,13 +91,28 @@ function ScrapMovie() {
                                     <Grid key={movie.id} item={5}>
                                         <Box>
                                             <CurationPageMovie></CurationPageMovie>
-                                            <Box
+                                            <Button
+                                                sx={{
+                                                    backgroundColor: '#E0E0E0',
+                                                    fontWeight: '500',
+                                                    fontSize: '0.75rem',
+                                                    mt: 1,
+                                                    color: '#1A1A1A',
+                                                    width: '3.906rem',
+                                                    height: '1.563rem',
+                                                    borderRadius: '0.25rem',
+                                                    opacity: '70%',
+                                                }}
+                                            >
+                                                취소하기
+                                            </Button>
+                                            {/* <Box
                                                 sx={{
                                                     m: 1,
                                                 }}
                                             >
                                                 <Button> 버튼 구현 예정</Button>
-                                            </Box>
+                                            </Box> */}
                                         </Box>
                                     </Grid>
                                 ))}
