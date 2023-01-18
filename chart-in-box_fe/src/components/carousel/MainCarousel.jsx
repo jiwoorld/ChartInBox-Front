@@ -46,20 +46,21 @@ function MainCarousel({ movies = [] }) {
                         >
                             <Box
                                 sx={{
-                                    background:
-                                        ' linear-gradient(180deg, #EFECD9 0%, #E8E5D5 24.48%, #EEEBD7 51.04%, #DAD7C2 74.48%, #DFDCC7 100%), conic-gradient(from 43.15deg at 50% 50%, #EDEBDE 0deg, #ECE8D0 360deg), conic-gradient(from 180deg at 50% 50%, #E2DFCB 0deg, #EDEBDE 346.88deg, #E2DFCB 360deg)',
+                                    backgroundImage:
+                                        'url(../../image/rectangle2.png)',
                                     transform: 'rotate(-28.24deg)',
                                     position: 'absolute',
-                                    width: '1.75rem',
-                                    height: '2.3125rem',
+                                    width: '2.25rem',
+                                    height: '3rem',
                                     top: '0.625rem',
+                                    backgroundSize: 'cover',
                                 }}
                             >
                                 {item.mvChartRank === 1 ? (
                                     <Typography
                                         sx={{
                                             fontWeight: 700,
-                                            fontSize: '1.6875rem',
+                                            fontSize: '2rem',
 
                                             color: '#82251F',
                                         }}
@@ -70,7 +71,7 @@ function MainCarousel({ movies = [] }) {
                                     <Typography
                                         sx={{
                                             fontWeight: 700,
-                                            fontSize: '1.6875rem',
+                                            fontSize: '2rem',
 
                                             color: '#1a1a1a',
                                         }}
@@ -82,21 +83,22 @@ function MainCarousel({ movies = [] }) {
 
                             <Box
                                 sx={{
-                                    background:
-                                        ' linear-gradient(180deg, #EFECD9 0%, #E8E5D5 24.48%, #EEEBD7 51.04%, #DAD7C2 74.48%, #DFDCC7 100%), conic-gradient(from 43.15deg at 50% 50%, #EDEBDE 0deg, #ECE8D0 360deg), conic-gradient(from 180deg at 50% 50%, #E2DFCB 0deg, #EDEBDE 346.88deg, #E2DFCB 360deg)',
+                                    backgroundImage:
+                                        'url(../../image/rectangle2.png)',
                                     transform: 'rotate(1.45deg)',
                                     position: 'absolute',
-                                    width: '1.75rem',
-                                    height: '2.3125rem',
+                                    width: '2.25rem',
+                                    height: '3rem',
                                     left: '1.875rem',
-                                    bottom: '0.9375rem',
+                                    bottom: '0.2rem',
+                                    backgroundSize: 'cover',
                                 }}
                             >
                                 {item.mvChartRank === 1 ? (
                                     <Typography
                                         sx={{
                                             fontWeight: 700,
-                                            fontSize: '1.6875rem',
+                                            fontSize: '2rem',
 
                                             color: '#82251F',
                                         }}
@@ -107,7 +109,7 @@ function MainCarousel({ movies = [] }) {
                                     <Typography
                                         sx={{
                                             fontWeight: 700,
-                                            fontSize: '1.6875rem',
+                                            fontSize: '2rem',
 
                                             color: '#1a1a1a',
                                         }}
