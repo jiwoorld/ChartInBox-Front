@@ -233,7 +233,6 @@ function MenuBarMovie(props) {
                                 fontSize: '0.938rem',
                                 color: 'primary.darker',
                             }}
-                            disabled="true"
                             placeholder="제목 감독을 검색해보세요"
                             inputProps={{ 'aria-label': 'search google maps' }}
                         />

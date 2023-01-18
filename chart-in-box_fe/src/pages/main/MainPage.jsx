@@ -39,7 +39,22 @@ function MainPage() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
+    const [allData, setAllData] = React.useState({});
+    React.useEffect(() => {
+        axios
+            .get('/dummydata/mainpage.json')
+            .then(function (response) {
+                setAllData(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, []);
 
+    const movies = allData?.mvCharts;
+    //옵셔널체이닝
+
+    console.log(movies);
     return (
         <ThemeProvider theme={theme}>
             <MenuBarMovie />
@@ -121,7 +136,10 @@ function MainPage() {
                                     ></img>
                                 </Box>
                                 <Box sx={{ width: '83vw' }}>
-                                    <MainCarousel></MainCarousel>
+                                    <MainCarousel
+                                        movies={movies}
+                                    ></MainCarousel>
+                                    {/* <MainCarousel ></MainCarousel> */}
                                 </Box>
                             </Box>
                             <Box

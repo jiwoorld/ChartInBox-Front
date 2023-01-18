@@ -51,7 +51,7 @@ function App() {
                     <Route path="/etcnboard" element={<EtcNBoard />} />
                     <Route path="/scrapmovie" element={<ScrapMovie />} />
                     <Route
-                        path="/movieinfo"
+                        path="/movie-info/:id"
                         element={<MovieInfo></MovieInfo>}
                     />
                     <Route path="/mypage" element={<Mypage></Mypage>} />
