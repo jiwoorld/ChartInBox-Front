@@ -1,4 +1,5 @@
 import {
+    Button,
     createTheme,
     CssBaseline,
     Grid,
@@ -8,8 +9,8 @@ import {
 } from '@mui/material';
 import { Box } from '@mui/system';
 import * as React from 'react';
-import ScrapMovies from '../../components/scrap/ScrapMovies';
 import MenuBar from '../../components/menubar/MenuBar';
+import CurationPageMovie from '../../components/curationpage/CurationPageMoive';
 
 function ScrapMovie() {
     const theme = createTheme({
@@ -88,7 +89,16 @@ function ScrapMovie() {
                             >
                                 {moives.map(movie => (
                                     <Grid key={movie.id} item={5}>
-                                        <ScrapMovies></ScrapMovies>
+                                        <Box>
+                                            <CurationPageMovie></CurationPageMovie>
+                                            <Box
+                                                sx={{
+                                                    m: 1,
+                                                }}
+                                            >
+                                                <Button> 버튼 구현 예정</Button>
+                                            </Box>
+                                        </Box>
                                     </Grid>
                                 ))}
                             </Grid>

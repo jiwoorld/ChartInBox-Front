@@ -58,6 +58,7 @@ function CurationPageMovie(props) {
                             '&:hover,&.Mui-focusVisible': {
                                 textDecoration: 'underline',
                             },
+                            color: 'primary.main',
                         }}
                     >
                         라스트 크리스마스

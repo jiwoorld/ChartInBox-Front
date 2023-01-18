@@ -3,10 +3,8 @@ import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-// import dummydata from '../../dummydata/mainMovie.json';
-import dummydata from '../../dummydata/mainMovie.json';
 
-function MainCarousel() {
+function MainCarousel({ movies = [] }) {
     const settings = {
         infinite: true,
         slidesToShow: 5,
@@ -16,20 +14,6 @@ function MainCarousel() {
         arrows: false,
         focusOnSelect: true,
     };
-    const [movies, setMovies] = React.useState([]);
-    React.useEffect(() => {
-        setMovies(dummydata);
-    }, []);
-
-    // const [movies, setMovies] = React.useState([]);
-    // React.useEffect(()=>{
-    //     axios.get('http://localhost:8080/').then(function(response){
-    //     setMovies(response.data);
-    // })
-    // .catch(function(error){
-    //     console.log(error);
-    // })
-    // },[]);
 
     return (
         <Slider {...settings}>
@@ -171,7 +155,7 @@ function MainCarousel() {
                                 },
                             }}
                         >
-                            <a href={`/diary/${item.movieId}`}>
+                            <a href={`/movie-info/${item.movieId}`}>
                                 <img
                                     width="200px"
                                     height="280px"
