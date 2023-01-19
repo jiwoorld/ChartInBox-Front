@@ -22,6 +22,7 @@ import { borderBottom } from '@mui/system';
 import BoardTable from './BoardTable';
 import MovietalkMenuBar from '../../components/menubar/MovietalkMenuBar';
 import MovietalkSubBar from '../../components/menubar/MovietalkSubBar';
+import MyInformation from '../../components/board/MyInformation';
 
 const data = {
     totalboard: {
@@ -41,6 +42,14 @@ const data = {
 function TotalBoard({ match }) {
     const { boardname } = useParams();
     const board = data[boardname];
+    /*  const newArrayData = freeboarddata.map((item, index) => {
+        return (
+          <li key={index}>
+            {item.postTitle}({item.age}) from {item.country}
+          </li>
+        );
+      }); */
+
     const theme = createTheme({
         palette: {
             primary: {
@@ -77,7 +86,8 @@ function TotalBoard({ match }) {
                     }}
                 >
                     <Box sx={{ p: 1 }}>
-                        <Box
+                        <MyInformation></MyInformation>
+                        {/* <Box
                             sx={{
                                 width: '15.125rem',
                                 height: '14rem',
@@ -86,91 +96,8 @@ function TotalBoard({ match }) {
                                 mb: 3,
                             }}
                         >
-                            <Box
-                                sx={{
-                                    height: '9rem',
-                                    p: '2rem',
-                                    borderColor: 'line.main',
-                                    borderWidth: '0.031rem',
-                                }}
-                            >
-                                <Typography
-                                    sx={{
-                                        color: 'black',
-                                        fontSize: '0.938rem',
-                                        textAlign: 'left',
-                                        fontWeight: 600,
-                                        mb: '1rem',
-                                    }}
-                                >
-                                    잇타2피님, 오늘도 좋은 하루 되세요 :)
-                                    {boardname}은 ({board.name})입니다
-                                </Typography>
-                                <Button
-                                    size="small"
-                                    href="../changeinfo"
-                                    sx={{
-                                        ml: '-2.2rem',
-                                        color: '#9E9E9E',
-                                        textDecoration: 'underline',
-                                    }}
-                                >
-                                    회원정보 수정
-                                </Button>
-                                <Button
-                                    size="small"
-                                    href="../Mypost"
-                                    sx={{
-                                        color: '#9E9E9E',
-                                        textDecoration: 'underline',
-                                    }}
-                                >
-                                    로그아웃
-                                </Button>
-                            </Box>
-                            <Box
-                                sx={{
-                                    height: '2.5rem',
-                                    borderTop: 0.4,
-                                    textAlign: 'left',
-                                    borderColor: 'line.main',
-                                }}
-                            >
-                                <Button
-                                    href="../mypost"
-                                    sx={{
-                                        color: 'black',
-                                        fontWeight: 400,
-                                        pl: 2.2,
-                                        fontSize: '0.938rem',
-                                        textAlign: 'left',
-                                    }}
-                                >
-                                    작성한 글
-                                </Button>
-                            </Box>
-                            <Box
-                                sx={{
-                                    height: '2.5rem',
-                                    textAlign: 'left',
-                                    borderTop: 0.4,
-                                    borderColor: 'line.main',
-                                }}
-                            >
-                                <Button
-                                    href="../mycomment"
-                                    sx={{
-                                        color: 'black',
-                                        fontSize: '0.938rem',
-                                        fontWeight: 400,
-                                        pl: 2.2,
-                                        textAlign: 'left',
-                                    }}
-                                >
-                                    작성한 댓글
-                                </Button>
-                            </Box>
-                        </Box>
+                            
+                        </Box> */}
                         <Button
                             href="../writing"
                             sx={{
@@ -195,6 +122,7 @@ function TotalBoard({ match }) {
                             <MovietalkSubBar></MovietalkSubBar>
                         </Box>
                     </Box>
+
                     <Box
                         sx={{
                             width: '59.5rem',
@@ -208,20 +136,6 @@ function TotalBoard({ match }) {
                     </Box>
                 </Container>
             </main>
-
-            <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-                <Typography variant="h6" align="center" gutterBottom>
-                    Footer
-                </Typography>
-                <Typography
-                    variant="subtitle1"
-                    align="center"
-                    color="text.secondary"
-                    component="p"
-                >
-                    푸터가 들어갈 칸입니다
-                </Typography>
-            </Box>
         </ThemeProvider>
     );
 }
