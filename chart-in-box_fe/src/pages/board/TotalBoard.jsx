@@ -1,5 +1,9 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -16,8 +20,27 @@ import MenuBar from '../../components/menubar/MenuBar';
 import { Paper } from '@mui/material';
 import { borderBottom } from '@mui/system';
 import BoardTable from './BoardTable';
+import MovietalkMenuBar from '../../components/menubar/MovietalkMenuBar';
+import MovietalkSubBar from '../../components/menubar/MovietalkSubBar';
 
-function TotalBoard() {
+const data = {
+    totalboard: {
+        name: '전체글',
+    },
+    freeboard: {
+        name: '자유',
+    },
+    reviewboard: {
+        name: '리뷰',
+    },
+    qnaboard: {
+        name: 'Q&A',
+    },
+};
+
+function TotalBoard({ match }) {
+    const { boardname } = useParams();
+    const board = data[boardname];
     const theme = createTheme({
         palette: {
             primary: {
@@ -37,94 +60,13 @@ function TotalBoard() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <MenuBar></MenuBar>
+            <MovietalkMenuBar></MovietalkMenuBar>
             <main>
-                <Box
-                    sx={{
-                        height: '60px',
-                        width: '100%',
-                        alignItems: 'left',
-                        justifyContent: 'space-around',
-                        borderTop: '0.063rem solid #D9D9D9',
-                        borderBottom: '0.063rem solid #D9D9D9',
-                    }}
-                >
-                    <Box
-                        sx={{
-                            ml: '8rem',
-                            display: 'flex',
-                            width: '31.25rem',
-                            height: '60px',
-                            justifyContent: 'space-around',
-                        }}
-                    >
-                        <Button
-                            href="../totalboard"
-                            sx={{
-                                width: '31.25rem',
-                                height: '60px',
-                                fontFamily: 'Pretendard',
-                                fontStyle: 'normal',
-                                fontWeight: '500',
-                                fontSize: '0.875rem',
-                                color: 'primary.main',
-                                borderBottom: 3.5,
-                            }}
-                        >
-                            {' '}
-                            전체글{' '}
-                        </Button>
-                        <Button
-                            href="../freeboard"
-                            sx={{
-                                width: '31.25rem',
-                                mr: '1rem',
-                                height: '60px',
-                                fontFamily: 'Pretendard',
-                                //fontStyle: 'normal',
-                                fontWeight: '500',
-                                fontSize: '0.875rem',
-                                color: 'secondary.main',
-                            }}
-                        >
-                            {' '}
-                            자유게시판{' '}
-                        </Button>
-                        <Button
-                            href="../reviewboard"
-                            sx={{
-                                width: '31.25rem',
-                                height: '60px',
-                                fontFamily: 'Pretendard',
-                                fontStyle: 'normal',
-                                fontWeight: '500',
-                                fontSize: '0.875rem',
-                                color: 'secondary.main',
-                            }}
-                        >
-                            {' '}
-                            리뷰게시판{' '}
-                        </Button>
-                        <Button
-                            href="../qnaboard"
-                            sx={{
-                                width: '31.25rem',
-                                height: '60px',
-                                fontFamily: 'Pretendard',
-                                fontStyle: 'normal',
-                                fontWeight: '500',
-                                color: 'secondary.main',
-                                fontSize: '0.875rem',
-                            }}
-                        >
-                            {' '}
-                            Q&A{' '}
-                        </Button>
-                    </Box>
-                </Box>
                 <Container
                     maxWidth="70rem"
                     sx={{
@@ -162,6 +104,7 @@ function TotalBoard() {
                                     }}
                                 >
                                     잇타2피님, 오늘도 좋은 하루 되세요 :)
+                                    {boardname}은 ({board.name})입니다
                                 </Typography>
                                 <Button
                                     size="small"
@@ -249,91 +192,7 @@ function TotalBoard() {
                                 //border: 2,
                             }}
                         >
-                            <Box
-                                sx={{
-                                    width: '15.125rem',
-                                    height: '3rem',
-                                    borderTop: '1px solid #C2C2C2',
-                                    borderBottom: '1px solid #C2C2C2',
-                                    textAlign: 'left',
-                                }}
-                            >
-                                <Button
-                                    href="../totalboard"
-                                    sx={{
-                                        pt: '0.5rem',
-                                        width: '15.125rem',
-                                        pl: '0.6rem',
-                                        fontWeight: 500,
-                                        fontSize: '1rem',
-                                    }}
-                                >
-                                    전체글
-                                </Button>
-                            </Box>
-                            <Box
-                                sx={{
-                                    width: '15.125rem',
-                                    height: '2.5rem',
-                                    borderBottom: '1px solid #C2C2C2',
-                                    textAlign: 'left',
-                                }}
-                            >
-                                <Button
-                                    href="../freeboard"
-                                    sx={{
-                                        pl: '1rem',
-                                        pt: '0.5rem',
-                                        width: '15.125rem',
-                                        fontWeight: 400,
-                                        fontSize: '0.875rem',
-                                    }}
-                                >
-                                    자유
-                                </Button>
-                            </Box>
-                            <Box
-                                sx={{
-                                    width: '15.125rem',
-                                    height: '2.5rem',
-                                    borderBottom: '1px solid #C2C2C2',
-                                    textAlign: 'left',
-                                }}
-                            >
-                                <Button
-                                    href="../reviewboard"
-                                    sx={{
-                                        pl: '1rem',
-                                        fontWeight: 400,
-                                        pt: '0.5rem',
-                                        width: '15.125rem',
-                                        fontSize: '0.875rem',
-                                    }}
-                                >
-                                    리뷰
-                                </Button>
-                            </Box>
-                            <Box
-                                sx={{
-                                    width: '15.125rem',
-                                    height: '2.5rem',
-                                    borderBottom: '1px solid #C2C2C2',
-                                    textAlign: 'left',
-                                }}
-                            >
-                                <Button
-                                    href="../qnaboard"
-                                    sx={{
-                                        pl: '1rem',
-                                        fontWeight: 400,
-                                        width: '15.125rem',
-                                        pt: '0.5rem',
-                                        fontSize: '0.875rem',
-                                    }}
-                                >
-                                    Q&A
-                                </Button>
-                            </Box>
+                            <MovietalkSubBar></MovietalkSubBar>
                         </Box>
                     </Box>
                     <Box
@@ -345,7 +204,7 @@ function TotalBoard() {
                             p: 1,
                         }}
                     >
-                        <BoardTable tableName={'전체글'}></BoardTable>
+                        <BoardTable tableName={board.name}></BoardTable>
                     </Box>
                 </Container>
             </main>
