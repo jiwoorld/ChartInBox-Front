@@ -51,6 +51,19 @@ function MenuBarMovie(props) {
         setLogo(event.currentTarget);
     };
 
+    const [searchValue, setSearchValue] = React.useState('');
+    const onChangeSearch = e => {
+        e.preventDefault();
+        console.log('들어오?');
+        setSearchValue(e.target.value);
+    };
+    const onKeySearch = e => {
+        if (e.key === 'Enter') {
+            navigate(`/findmovie/${searchValue}`);
+            return;
+        }
+    };
+
     const handlePopoverClose = () => {
         setLogo(null);
     };
@@ -105,11 +118,6 @@ function MenuBarMovie(props) {
     };
     const handleMovieSearch = () => {
         navigate('/moviesearch');
-    };
-    const setIsDisplay = props.setIsDisplay;
-    const handleSearch = () => {
-        setIsDisplay('none');
-        console.log('실행');
     };
 
     return (
@@ -218,10 +226,8 @@ function MenuBarMovie(props) {
                             width: '300px',
                             borderRadius: '22px',
                             height: '40px',
-                            backgroundColor: 'third.main',
-                            opacity: '29%',
+                            background: 'rgba(217, 217, 217, 0.29)',
                         }}
-                        onClick={handleSearch}
                     >
                         <InputBase
                             sx={{
@@ -231,14 +237,19 @@ function MenuBarMovie(props) {
                                 fontStyle: 'normal',
                                 fontWeight: '300',
                                 fontSize: '0.938rem',
-                                color: 'primary.darker',
+                                color: 'rgba(255, 255, 255, 0.7)',
                             }}
+                            value={searchValue}
+                            onChange={onChangeSearch}
+                            onKeyPress={onKeySearch}
                             placeholder="제목 감독을 검색해보세요"
-                            inputProps={{ 'aria-label': 'search google maps' }}
                         />
                         <IconButton
                             type="button"
-                            sx={{ p: '10px', color: 'primary.darker' }}
+                            sx={{
+                                p: '10px',
+                                color: 'rgba(255, 255, 255, 0.7)',
+                            }}
                             aria-label="search"
                         >
                             <SearchIcon />
