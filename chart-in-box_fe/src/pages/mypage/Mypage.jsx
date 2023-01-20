@@ -242,6 +242,7 @@ function Mypage() {
                             스크랩한 영화{' '}
                         </Button>
                         <Button
+                            href="/ScrapMovie"
                             sx={{
                                 ml: -3,
                                 fontWeight: '500',

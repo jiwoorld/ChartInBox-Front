@@ -20,13 +20,14 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import freeboarddata from '../../testdata/freeboarddata.json';
 
 function BoardNTable(props) {
-    function createData(title, author, date, view, like) {
+    /*  function createData(title, author, date, view, like) {
         return { title, author, date, view, like };
-    }
+    } */
     const tableName = props.tableName;
-    const rows = [
+    /* const rows = [
         createData('알리딘 포디엑스 본 사람?', '양윤서', '22.01.03', 34, 7),
         createData('알리딘 포디엑스 본 사람?', '김다은', '22.01.03', 34, 7),
         createData('알리딘 포디엑스 본 사람?', '이지현', '22.01.03', 34, 7),
@@ -37,7 +38,7 @@ function BoardNTable(props) {
         createData('알리딘 포디엑스 본 사람?', '이지현', '22.01.03', 34, 7),
         createData('알리딘 포디엑스 본 사람?', '곽지우', '22.01.03', 34, 7),
         createData('알리딘 포디엑스 본 사람?', '박가현', '22.01.03', 34, 7),
-    ];
+    ]; */
     const theme = createTheme({
         palette: {
             primary: {
@@ -168,7 +169,7 @@ function BoardNTable(props) {
                                 <TableRow>
                                     <TableCell
                                         sx={{
-                                            width: '40.4rem',
+                                            width: '35.4rem',
                                             textAlign: 'center',
                                             fontSize: '0.8rem',
                                             fontWeight: '400',
@@ -178,8 +179,9 @@ function BoardNTable(props) {
                                         제목
                                     </TableCell>
                                     <TableCell
-                                        align="right"
+                                        align="center"
                                         sx={{
+                                            width: '8.4rem',
                                             fontSize: '0.8rem',
                                             fontWeight: '400',
                                             border: '0px',
@@ -188,8 +190,9 @@ function BoardNTable(props) {
                                         작성자
                                     </TableCell>
                                     <TableCell
-                                        align="right"
+                                        align="center"
                                         sx={{
+                                            width: '11.4rem',
                                             fontSize: '0.8rem',
                                             fontWeight: '400',
                                             border: '0px',
@@ -198,8 +201,9 @@ function BoardNTable(props) {
                                         작성일
                                     </TableCell>
                                     <TableCell
-                                        align="right"
+                                        align="center"
                                         sx={{
+                                            width: '4.4rem',
                                             fontSize: '0.8rem',
                                             fontWeight: '400',
                                             border: '0px',
@@ -208,8 +212,9 @@ function BoardNTable(props) {
                                         조회
                                     </TableCell>
                                     <TableCell
-                                        align="right"
+                                        align="center"
                                         sx={{
+                                            width: '4.4rem',
                                             fontSize: '0.8rem',
                                             fontWeight: '400',
                                             border: '0px',
@@ -222,9 +227,10 @@ function BoardNTable(props) {
                             <TableBody
                                 sx={{ borderBottom: '0.063rem solid #D9D9D9' }}
                             >
-                                {rows.map(row => (
-                                    <TableRow key={row.author}>
+                                {freeboarddata.boardList.map(postId => (
+                                    <TableRow>
                                         <TableCell
+                                            key={postId.postTitle}
                                             component="th"
                                             scope="row"
                                             sx={{
@@ -235,10 +241,12 @@ function BoardNTable(props) {
                                                     '0.063rem solid #D9D9D9',
                                             }}
                                         >
-                                            {row.title}
+                                            {postId.postTitle}
                                         </TableCell>
                                         <TableCell
-                                            align="right"
+                                            key={postId.postUserNickname}
+                                            component="th"
+                                            scope="row"
                                             sx={{
                                                 fontSize: '0.8rem',
                                                 fontWeight: '400',
@@ -247,10 +255,12 @@ function BoardNTable(props) {
                                                     '0.063rem solid #D9D9D9',
                                             }}
                                         >
-                                            {row.author}
+                                            {postId.postUserNickname}
                                         </TableCell>
                                         <TableCell
-                                            align="right"
+                                            key={postId.postDate}
+                                            component="th"
+                                            scope="row"
                                             sx={{
                                                 fontSize: '0.8rem',
                                                 fontWeight: '400',
@@ -259,10 +269,12 @@ function BoardNTable(props) {
                                                     '0.063rem solid #D9D9D9',
                                             }}
                                         >
-                                            {row.date}
+                                            {postId.postDate}
                                         </TableCell>
                                         <TableCell
-                                            align="right"
+                                            key={postId.countVisit}
+                                            component="th"
+                                            scope="row"
                                             sx={{
                                                 fontSize: '0.8rem',
                                                 fontWeight: '400',
@@ -271,10 +283,12 @@ function BoardNTable(props) {
                                                     '0.063rem solid #D9D9D9',
                                             }}
                                         >
-                                            {row.view}
+                                            {postId.countVisit}
                                         </TableCell>
                                         <TableCell
-                                            align="right"
+                                            key={postId.postLike}
+                                            component="th"
+                                            scope="row"
                                             sx={{
                                                 fontSize: '0.8rem',
                                                 fontWeight: '400',
@@ -283,7 +297,7 @@ function BoardNTable(props) {
                                                     '0.063rem solid #D9D9D9',
                                             }}
                                         >
-                                            {row.like}
+                                            {postId.postLike}
                                         </TableCell>
                                     </TableRow>
                                 ))}
