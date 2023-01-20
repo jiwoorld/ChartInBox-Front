@@ -213,15 +213,15 @@ function MainPage() {
                         >
                             <MainTable
                                 tableName="자유게시판"
-                                tableLink="/freeboard"
+                                tableLink="/movie-talk/freeboard"
                             ></MainTable>
                             <MainTable
                                 tableName="영화리뷰"
-                                tableLink="/reviewboard"
+                                tableLink="/movie-talk/reviewboard"
                             ></MainTable>
                             <MainTable
                                 tableName="n팟 구함"
-                                tableLink="/totalnboard"
+                                tableLink="/nboard/total"
                             ></MainTable>
                         </Box>
                     </Box>

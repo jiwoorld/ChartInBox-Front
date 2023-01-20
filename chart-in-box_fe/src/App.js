@@ -82,6 +82,10 @@ function App() {
                         path="/movie-talk/:boardname"
                         element={<TotalBoard></TotalBoard>}
                     />
+                    <Route
+                        path="/nboard/:nboardname"
+                        element={<TotalNBoard></TotalNBoard>}
+                    />
                 </Routes>
             </Router>
         </div>
