@@ -17,6 +17,9 @@ import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
 import { Paper } from '@mui/material';
+import MyPageTable from '../../components/mypage/MyPageTable';
+import MyScrapMovie from '../../components/mypage/MyScrapMovie';
+
 function Mypage() {
     const theme = createTheme({
         // palette: {
@@ -40,6 +43,7 @@ function Mypage() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
+    const [moives, setMovies] = React.useState([1, 2, 3, 4, 5]);
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -49,11 +53,10 @@ function Mypage() {
                     sx={{
                         bgcolor: 'background.paper',
                         px: 32,
-                        pb: 10,
+                        pb: 5,
                         mt: 10,
                         direction: 'column',
                         width: '70rem',
-                        borderBottom: 1,
                         borderBottomColor: '#757575',
                         align: 'center',
                         justifyContent: 'space-around',
@@ -95,7 +98,7 @@ function Mypage() {
                             <Box
                                 sx={{
                                     ml: '7em',
-                                    mt: '5em',
+                                    mt: '3em',
                                 }}
                             >
                                 <Typography
@@ -117,7 +120,7 @@ function Mypage() {
                             </Box>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <Box sx={{ ml: '0em', mt: '5em' }}>
+                            <Box sx={{ ml: '0em', mt: '3em' }}>
                                 <Typography
                                     gutterBottom
                                     fontSize="1.125rem"
@@ -137,12 +140,22 @@ function Mypage() {
                             </Box>
                         </Grid>
                     </Grid>
+                    <Box
+                        sx={{
+                            height: '1rem',
+                            width: '60rem',
+                            borderColor: 'black',
+                            align: 'center',
+                            borderBottom: 1,
+                            display: 'flex',
+                            mt: 5,
+                            ml: 13,
+                            borderBottom: '1px solid #757575',
+                        }}
+                    ></Box>
                 </Container>
 
-                <Container
-                    sx={{ py: 10, leftMargin: '300%' }}
-                    paddingLeft="20%"
-                >
+                <Container sx={{ py: 5, leftMargin: '300%' }} paddingLeft="20%">
                     <Box sx={{ p: '10px', ml: '13%' }}>
                         <Grid container spacing={4} sx={{}}>
                             <Grid
@@ -154,80 +167,20 @@ function Mypage() {
                                 }}
                             >
                                 <CardContent sx={{ flexGrow: 1 }}>
-                                    <Box sx={{ paddingBottom: '30px' }}>
-                                        <Typography
-                                            gutterBottom
-                                            textAlign="left"
-                                            fontSize="1.313rem"
-                                            fontWeight="400"
-                                        >
-                                            내 글
-                                        </Typography>
-                                    </Box>
-                                    <Box
-                                        sx={{
-                                            borderBottom: 1,
-                                            borderColor: '#E0E0E0',
-                                        }}
-                                    >
-                                        <Typography
-                                            textAlign="left"
-                                            margin="20px"
-                                        >
-                                            각 내용이 들어갈 칸!
-                                        </Typography>
-                                    </Box>
-                                    <Box
-                                        sx={{
-                                            borderBottom: 1,
-                                            borderColor: '#E0E0E0',
-                                        }}
-                                    >
-                                        <Typography
-                                            textAlign="left"
-                                            margin="20px"
-                                        >
-                                            각 내용이 들어갈 칸!
-                                        </Typography>
-                                    </Box>
-                                    <Box
-                                        sx={{
-                                            borderBottom: 1,
-                                            borderColor: '#E0E0E0',
-                                        }}
-                                    >
-                                        <Typography
-                                            margin="20px"
-                                            textAlign="left"
-                                        >
-                                            각 내용이 들어갈 칸!
-                                        </Typography>
-                                    </Box>
-                                    <Box
-                                        sx={{
-                                            borderBottom: 1,
-                                            borderColor: '#E0E0E0',
-                                        }}
-                                    >
-                                        <Typography
-                                            margin="20px"
-                                            textAlign="left"
-                                        >
-                                            각 내용이 들어갈 칸!
-                                        </Typography>
-                                    </Box>
+                                    {
+                                        <Box sx={{ paddingBottom: '30px' }}>
+                                            <Typography
+                                                gutterBottom
+                                                textAlign="left"
+                                                fontSize="1.313rem"
+                                                fontWeight="400"
+                                            >
+                                                내 글 〉
+                                            </Typography>
+                                        </Box>
+                                    }
+                                    <MyPageTable tableName="자유게시판"></MyPageTable>
                                 </CardContent>
-                                <CardActions>
-                                    <Button
-                                        href="/mypost"
-                                        size="medium"
-                                        sx={{
-                                            color: '#CF5E53',
-                                        }}
-                                    >
-                                        See more
-                                    </Button>
-                                </CardActions>
                             </Grid>
                             <Grid card xs={1}></Grid>
                             <Grid
@@ -246,73 +199,11 @@ function Mypage() {
                                             fontSize="1.313rem"
                                             fontWeight="400"
                                         >
-                                            내 댓글
+                                            내 댓글 〉
                                         </Typography>
                                     </Box>
-                                    <Box
-                                        sx={{
-                                            borderBottom: 1,
-                                            borderColor: '#E0E0E0',
-                                        }}
-                                    >
-                                        <Typography
-                                            textAlign="left"
-                                            margin="20px"
-                                        >
-                                            각 내용이 들어갈 칸!
-                                        </Typography>
-                                    </Box>
-                                    <Box
-                                        sx={{
-                                            borderBottom: 1,
-                                            borderColor: '#E0E0E0',
-                                        }}
-                                    >
-                                        <Typography
-                                            textAlign="left"
-                                            margin="20px"
-                                        >
-                                            각 내용이 들어갈 칸!
-                                        </Typography>
-                                    </Box>
-                                    <Box
-                                        sx={{
-                                            borderBottom: 1,
-                                            borderColor: '#E0E0E0',
-                                        }}
-                                    >
-                                        <Typography
-                                            margin="20px"
-                                            textAlign="left"
-                                        >
-                                            각 내용이 들어갈 칸!
-                                        </Typography>
-                                    </Box>
-                                    <Box
-                                        sx={{
-                                            borderBottom: 1,
-                                            borderColor: '#E0E0E0',
-                                        }}
-                                    >
-                                        <Typography
-                                            margin="20px"
-                                            textAlign="left"
-                                        >
-                                            각 내용이 들어갈 칸!
-                                        </Typography>
-                                    </Box>
+                                    <MyPageTable tableName="자유게시판"></MyPageTable>
                                 </CardContent>
-                                <CardActions>
-                                    <Button
-                                        size="medium"
-                                        href="/mycomment"
-                                        sx={{
-                                            color: '#CF5E53',
-                                        }}
-                                    >
-                                        See more
-                                    </Button>
-                                </CardActions>
                             </Grid>
                         </Grid>
                     </Box>
@@ -321,195 +212,68 @@ function Mypage() {
             <Box
                 sx={{
                     height: '30rem',
-                    width: '100%',
                     border: '1px solid black',
                     backgroundColor: '#1A1A1A',
                 }}
             >
-                <Box
-                    sx={{
-                        mt: 4,
-                    }}
-                >
-                    <Button
-                        href="/changeinfo"
-                        sx={{
-                            height: '1.375rem',
-                            width: '8.303rem',
-                            mr: 100,
-                            fontFamily: 'Pretendard',
-                            fontStyle: 'normal',
-                            fontWeight: '400',
-                            fontSize: '1.125rem',
-                            color: 'white',
-                        }}
-                    >
-                        {' '}
-                        스크랩한 영화{' '}
-                    </Button>
-                    <Button
-                        sx={{
-                            fontWeight: '500',
-                            fontSize: '1.063rem',
-                            color: '#F5F5F5',
-                        }}
-                    >
-                        전체보기
-                    </Button>
-                </Box>
-                <Container
-                    sx={{
-                        height: '20rem',
-                        width: '77%',
-                        border: '1px solid black',
-
-                        display: 'flex',
-                    }}
-                >
+                <Container>
                     <Box
                         sx={{
-                            mt: 3,
-                            mx: 2,
-                            height: '17rem',
-                            width: '12rem',
-                            border: '1px solid black',
+                            ml: -4,
+                            mt: 5,
+                            width: '70rem',
                         }}
                     >
-                        <Box
+                        <Button
+                            href="/changeinfo"
                             sx={{
-                                width: '12rem',
-                                height: '80%',
-                                marginRight: '0.75rem',
-                                border: '1px solid black',
+                                height: '1.375rem',
+                                width: '8.303rem',
+                                mr: 107,
+                                fontFamily: 'Pretendard',
+                                textAlign: 'left',
+                                fontStyle: 'normal',
+                                fontWeight: '400',
+                                fontSize: '1.125rem',
+                                color: 'white',
                             }}
                         >
-                            이미지 칸
-                        </Box>
-                        <Typography textAlign="center" color="white">
-                            라스트 크리스마스
-                        </Typography>
-                        <Typography textAlign="center" color="#D9D9D9">
-                            평점 4.2/5
-                        </Typography>
+                            {' '}
+                            스크랩한 영화{' '}
+                        </Button>
+                        <Button
+                            href="/ScrapMovie"
+                            sx={{
+                                ml: -3,
+                                fontWeight: '500',
+                                fontSize: '1.063rem',
+                                textAlign: 'right',
+                                color: '#F5F5F5',
+                            }}
+                        >
+                            전체보기
+                        </Button>
                     </Box>
                     <Box
                         sx={{
-                            mt: 3,
-                            mx: 2,
-                            height: '17rem',
-                            width: '12rem',
-                            border: '1px solid black',
+                            ml: 3,
+                            width: '66.4375rem',
+                            height: '37.625rem',
+                            display: 'flex',
+                            align: 'center',
+                            justifyContent: 'space-between',
+                            mt: 1,
                         }}
                     >
-                        <Box
-                            sx={{
-                                width: '12rem',
-                                height: '80%',
-                                marginRight: '0.75rem',
-                                border: '1px solid black',
-                            }}
-                        >
-                            이미지 칸
-                        </Box>
-                        <Typography textAlign="center" color="white">
-                            이터널 선샤인
-                        </Typography>
-                        <Typography textAlign="center" color="#D9D9D9">
-                            평점 4.2/5
-                        </Typography>
-                    </Box>
-                    <Box
-                        sx={{
-                            mt: 3,
-                            mx: 2,
-                            height: '17rem',
-                            width: '12rem',
-                            border: '1px solid black',
-                        }}
-                    >
-                        <Box
-                            sx={{
-                                width: '12rem',
-                                height: '80%',
-                                marginRight: '0.75rem',
-                                border: '1px solid black',
-                            }}
-                        >
-                            이미지 칸
-                        </Box>
-                        <Typography textAlign="center" color="white">
-                            러브 액츄얼리
-                        </Typography>
-                        <Typography textAlign="center" color="#D9D9D9">
-                            평점 4.2/5
-                        </Typography>
-                    </Box>
-                    <Box
-                        sx={{
-                            mt: 3,
-                            mx: 2,
-                            height: '17rem',
-                            width: '12rem',
-                            border: '1px solid black',
-                        }}
-                    >
-                        <Box
-                            sx={{
-                                width: '12rem',
-                                height: '80%',
-                                marginRight: '0.75rem',
-                                border: '1px solid black',
-                            }}
-                        >
-                            이미지 칸
-                        </Box>
-                        <Typography textAlign="center" color="white">
-                            퀸카로 살아남는 법
-                        </Typography>
-                        <Typography textAlign="center" color="#D9D9D9">
-                            평점 4.2/5
-                        </Typography>
-                    </Box>
-                    <Box
-                        sx={{
-                            mt: 3,
-                            mx: 2,
-                            height: '17rem',
-                            width: '12rem',
-                            border: '1px solid black',
-                        }}
-                    >
-                        <Box
-                            sx={{
-                                width: '12rem',
-                                height: '80%',
-                                marginRight: '0.75rem',
-                                border: '1px solid black',
-                            }}
-                        >
-                            이미지 칸
-                        </Box>
-                        <Typography textAlign="center" color="white">
-                            라라랜드
-                        </Typography>
-                        <Typography textAlign="center" color="#D9D9D9">
-                            평점 4.2/5
-                        </Typography>
+                        <Grid container spacing={2}>
+                            {moives.map(movie => (
+                                <Grid key={movie.id} item={5}>
+                                    <MyScrapMovie movie={movie}></MyScrapMovie>
+                                </Grid>
+                            ))}
+                        </Grid>
                     </Box>
                 </Container>
-            </Box>
-            <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-                <Typography variant="h6" align="center" gutterBottom>
-                    Footer
-                </Typography>
-                <Typography
-                    variant="subtitle1"
-                    align="center"
-                    color="text.secondary"
-                    component="p"
-                >
-                    푸터가 들어갈 칸입니다
-                </Typography>
             </Box>
         </ThemeProvider>
     );
