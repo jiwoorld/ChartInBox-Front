@@ -91,14 +91,14 @@ function MenuBar() {
     //모달창 창끄고 여는 state
 
     const handleMypage = () => {
-        navigate('/mypage');
+        navigate('/my-page');
     };
     const handleMainpage = () => {
         navigate('/');
     };
     //my 클릭시 mypage url로 이동
     const handleTotalpage = () => {
-        navigate('/totalboard');
+        navigate('/movie-talk/totalboard');
     };
     const handleTotalNpage = () => {
         navigate('/totalnboard');

@@ -61,7 +61,7 @@ function QnaBoard() {
                         }}
                     >
                         <Button
-                            href="../totalboard"
+                            href="../movie-talk"
                             sx={{
                                 width: '31.25rem',
                                 height: '60px',

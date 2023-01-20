@@ -40,7 +40,7 @@ function App() {
                     <Route path="/reviewboard" element={<ReviewBoard />} />
                     <Route path="/freeboard" element={<FreeBoard />} />
                     <Route path="/qnaboard" element={<QnaBoard />} />
-                    <Route path="/totalboard" element={<TotalBoard />} />
+                    <Route path="/movie-talk" element={<TotalBoard />} />
                     <Route path="/posting" element={<Posting />} />
                     <Route path="/totalnboard" element={<TotalNBoard />} />
                     <Route path="/netflexnboard" element={<NetflexNBoard />} />
@@ -54,7 +54,7 @@ function App() {
                         path="/movie-info/:id"
                         element={<MovieInfo></MovieInfo>}
                     />
-                    <Route path="/mypage" element={<Mypage></Mypage>} />
+                    <Route path="/my-page" element={<Mypage></Mypage>} />
                     <Route
                         path="/showingboard"
                         element={<ShowingBoard></ShowingBoard>}
@@ -77,6 +77,10 @@ function App() {
                     <Route
                         path="/moviesearch"
                         element={<MovieSearch></MovieSearch>}
+                    />
+                    <Route
+                        path="/movie-talk/:boardname"
+                        element={<TotalBoard></TotalBoard>}
                     />
                 </Routes>
             </Router>
