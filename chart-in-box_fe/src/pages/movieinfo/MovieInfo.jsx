@@ -11,7 +11,6 @@ import * as React from 'react';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
 import MovieCuration from '../../components/carousel/MovieCuration';
 import MovieTable from '../../components/movieinfo/MovieTable';
-import Review from '../../components/movieinfo/Review';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
@@ -39,7 +38,6 @@ function MovieInfo() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-    const [reviewButton, setReviewButton] = React.useState(1);
     const [info, setInfo] = React.useState({});
 
     const movieId = useParams();
@@ -55,9 +53,6 @@ function MovieInfo() {
                 console.log(error);
             });
     }, [url]);
-    const handleReview = () => {
-        setReviewButton(reviewButton + 1);
-    };
 
     let mvRating = '';
     if (typeof info.mvRating === 'string') {
@@ -183,104 +178,36 @@ function MovieInfo() {
                                     </Typography>
                                 </Box>
                             </Box>
-
-                            {reviewButton % 2 === 0 ? (
-                                <Box
+                            <Button
+                                sx={{
+                                    border: '1px solid red',
+                                    width: '95px',
+                                    height: '32px',
+                                    backgroundColor: '#C2C2C2',
+                                    display: 'flex',
+                                }}
+                            >
+                                <img
+                                    src="../../image/notScrap.png"
+                                    alt="스크랩"
+                                    width="11px"
+                                    height="15px"
+                                ></img>
+                                <Typography
                                     sx={{
-                                        height: '1.5rem',
-                                        display: 'flex',
-                                        marginTop: '0.8rem',
-                                        justifyContent: 'space-between',
-                                        alignItems: 'center',
-                                        alignContent: 'center',
+                                        width: '3.125rem',
+                                        height: '1.25rem',
+                                        fontSize: '0.75rem',
+                                        fontWeight: '500',
+                                        ml: '0.375rem',
+                                        mt: '0.0938rem',
                                     }}
                                 >
-                                    <Box
-                                        sx={{
-                                            display: 'flex',
-                                            mr: '0.7rem',
-                                        }}
-                                    >
-                                        <Review></Review>
-                                        <Review></Review>
-                                        <Review></Review>
-                                        <Review></Review>
-                                        <Review></Review>
-                                    </Box>
-                                    <Button
-                                        sx={{
-                                            width: '3.2rem',
-                                            height: '1.3rem',
-                                            padding: '0px',
-                                            backgroundColor: '#FFE171',
-                                            color: '#333D41',
-                                            fontWeight: '600',
-                                            fontSize: '0.7rem',
-                                            '&:hover': {
-                                                backgroundColor: '#f2cb05',
-                                            },
-                                        }}
-                                        onClick={handleReview}
-                                    >
-                                        평점등록
-                                    </Button>
-                                </Box>
-                            ) : (
-                                <Box
-                                    sx={{
-                                        height: '1.5rem',
-                                        display: 'flex',
-                                        marginTop: '0.8rem',
-                                        justifyContent: 'space-between',
-                                        alignItems: 'center',
-                                        alignContent: 'center',
-                                    }}
-                                >
-                                    <Box
-                                        sx={{
-                                            display: 'flex',
-                                            mr: '0.7rem',
-                                            alignItems: 'center',
-                                        }}
-                                    >
-                                        <img
-                                            src="../../image/good.png"
-                                            alt="좋아요"
-                                            width="20px"
-                                            height="18px"
-                                        ></img>
-                                        <Typography
-                                            sx={{
-                                                marginLeft: '0.4rem',
-                                                width: '2rem',
-                                                fontWeight: 600,
-                                                fontSize: '1.3rem',
-                                                color: '#F2CB05',
-                                            }}
-                                        >
-                                            3.4
-                                        </Typography>
-                                    </Box>
-                                    <Button
-                                        sx={{
-                                            width: '3.2rem',
-                                            height: '1.3rem',
-                                            padding: '0px',
-                                            backgroundColor: 'white',
-                                            color: '#333D41',
-                                            fontWeight: '600',
-                                            fontSize: '0.7rem',
-                                            '&:hover': {
-                                                backgroundColor: '#fff',
-                                            },
-                                        }}
-                                        onClick={handleReview}
-                                    >
-                                        평점주기
-                                    </Button>
-                                </Box>
-                            )}
+                                    스크랩 34
+                                </Typography>
+                            </Button>
                         </Box>
+
                         <Box
                             sx={{
                                 color: 'white',

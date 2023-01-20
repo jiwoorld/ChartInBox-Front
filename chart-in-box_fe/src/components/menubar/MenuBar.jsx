@@ -52,6 +52,19 @@ function MenuBar() {
         setLogo(event.currentTarget);
     };
 
+    const [searchValue, setSearchValue] = React.useState('');
+    const onChangeSearch = e => {
+        e.preventDefault();
+        console.log('들어오?');
+        setSearchValue(e.target.value);
+    };
+    const onKeySearch = e => {
+        if (e.key === 'Enter') {
+            navigate(`/movieSearch/${searchValue}`);
+            return;
+        }
+    };
+
     const handlePopoverClose = () => {
         setLogo(null);
     };
@@ -171,8 +184,7 @@ function MenuBar() {
                         }}
                         onClick={handleTotalpage}
                     >
-                        {' '}
-                        영화TALK{' '}
+                        영화TALK
                     </Button>
                     <Button
                         sx={{
@@ -185,8 +197,7 @@ function MenuBar() {
                         }}
                         onClick={handleTotalNpage}
                     >
-                        {' '}
-                        N팟 구함{' '}
+                        N팟 구함
                     </Button>
                     <Button
                         sx={{
@@ -199,8 +210,7 @@ function MenuBar() {
                         }}
                         onClick={handleMovieSearch}
                     >
-                        {' '}
-                        작품탐색{' '}
+                        작품탐색
                     </Button>
                 </Box>
                 {/* 메인서비스 */}
@@ -214,8 +224,7 @@ function MenuBar() {
                             width: '300px',
                             borderRadius: '22px',
                             height: '40px',
-                            backgroundColor: 'third.main',
-                            opacity: '29%',
+                            background: ' rgba(217, 217, 217, 0.29)',
                         }}
                     >
                         <InputBase
@@ -226,13 +235,16 @@ function MenuBar() {
                                 fontStyle: 'normal',
                                 fontWeight: '300',
                                 fontSize: '0.938rem',
+                                color: 'rgba(26, 26, 26, 0.7)',
                             }}
+                            value={searchValue}
+                            onChange={onChangeSearch}
+                            onKeyPress={onKeySearch}
                             placeholder="제목 감독을 검색해보세요"
-                            inputProps={{ 'aria-label': 'search google maps' }}
                         />
                         <IconButton
                             type="button"
-                            sx={{ p: '10px', color: 'primary.darker' }}
+                            sx={{ p: '10px', color: '#666664' }}
                             aria-label="search"
                         >
                             <SearchIcon />
