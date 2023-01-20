@@ -27,6 +27,7 @@ import NWriting from './pages/Writing/NWriting';
 import MovieSearch from './pages/search/MovieSearch';
 import ShowingBoard from './pages/board/ShowingBoard';
 import ScrapMovie from './pages/scrap/ScrapMovie';
+import FindMovie from './pages/findMovie/FindMovie';
 
 function App() {
     return (
@@ -85,6 +86,10 @@ function App() {
                     <Route
                         path="/nboard/:nboardname"
                         element={<TotalNBoard></TotalNBoard>}
+                    />
+                    <Route
+                        path="/findmovie/:searchValue"
+                        element={<FindMovie></FindMovie>}
                     />
                 </Routes>
             </Router>

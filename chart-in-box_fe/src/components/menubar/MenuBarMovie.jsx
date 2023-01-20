@@ -59,7 +59,7 @@ function MenuBarMovie(props) {
     };
     const onKeySearch = e => {
         if (e.key === 'Enter') {
-            navigate(`/movieSearch/${searchValue}`);
+            navigate(`/findmovie/${searchValue}`);
             return;
         }
     };
