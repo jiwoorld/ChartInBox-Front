@@ -1,25 +1,25 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Button from '@mui/material/Button';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import { Button, TextField } from '@mui/material';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
-import { Paper } from '@mui/material';
-import { borderBottom } from '@mui/system';
-import BoardTable from './BoardTable';
+import MovietalkMenuBar from '../../components/menubar/MovietalkMenuBar';
+import MovietalkSubBar from '../../components/menubar/MovietalkSubBar';
+import MyInformation from '../../components/board/MyInformation';
 import ShowingBoardTable from './ShowingBoardTable';
+import { useEffect } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import IconButton from '@mui/material/IconButton';
+import ShortTable from './ShortTable';
+import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-function ShowingBoard() {
+function ShowingBoard(props) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -39,94 +39,37 @@ function ShowingBoard() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
+    const [detail, setdetail] = React.useState({});
+    const [comment, setcomment] = React.useState({});
+    const [name, setname] = React.useState({});
+
+    const postId = useParams();
+    const url = postId.id;
+
+    useEffect(() => {
+        axios
+            .get('/dummydata/showingboarddata.json')
+            .then(function (response) {
+                setdetail(response.data.postDetail);
+                setcomment(response.data.comments);
+                setname(response.data.userNickname);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, []);
+
+    const [value, setValue] = React.useState('Controlled');
+
+    const handleChange = event => {
+        setValue(event.target.value);
+    };
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <MenuBar></MenuBar>
+            <MovietalkMenuBar></MovietalkMenuBar>
             <main>
-                <Box
-                    sx={{
-                        height: '60px',
-                        width: '100%',
-                        alignItems: 'left',
-                        justifyContent: 'space-around',
-                        borderTop: '0.063rem solid #D9D9D9',
-                        borderBottom: '0.063rem solid #D9D9D9',
-                    }}
-                >
-                    <Box
-                        sx={{
-                            ml: '8rem',
-                            display: 'flex',
-                            width: '31.25rem',
-                            height: '60px',
-                            justifyContent: 'space-around',
-                        }}
-                    >
-                        <Button
-                            href="../totalboard"
-                            sx={{
-                                width: '31.25rem',
-                                height: '60px',
-                                fontFamily: 'Pretendard',
-                                fontStyle: 'normal',
-                                fontWeight: '500',
-                                fontSize: '0.875rem',
-                                color: 'primary.main',
-                                borderBottom: 3.5,
-                            }}
-                        >
-                            {' '}
-                            전체글{' '}
-                        </Button>
-                        <Button
-                            href="../freeboard"
-                            sx={{
-                                width: '31.25rem',
-                                mr: '1rem',
-                                height: '60px',
-                                fontFamily: 'Pretendard',
-                                //fontStyle: 'normal',
-                                fontWeight: '500',
-                                fontSize: '0.875rem',
-                                color: 'secondary.main',
-                            }}
-                        >
-                            {' '}
-                            자유게시판{' '}
-                        </Button>
-                        <Button
-                            href="../reviewboard"
-                            sx={{
-                                width: '31.25rem',
-                                height: '60px',
-                                fontFamily: 'Pretendard',
-                                fontStyle: 'normal',
-                                fontWeight: '500',
-                                fontSize: '0.875rem',
-                                color: 'secondary.main',
-                            }}
-                        >
-                            {' '}
-                            리뷰게시판{' '}
-                        </Button>
-                        <Button
-                            href="../qnaboard"
-                            sx={{
-                                width: '31.25rem',
-                                height: '60px',
-                                fontFamily: 'Pretendard',
-                                fontStyle: 'normal',
-                                fontWeight: '500',
-                                color: 'secondary.main',
-                                fontSize: '0.875rem',
-                            }}
-                        >
-                            {' '}
-                            Q&A{' '}
-                        </Button>
-                    </Box>
-                </Box>
                 <Container
                     sx={{
                         ml: '8rem',
@@ -135,100 +78,9 @@ function ShowingBoard() {
                         flexDirection: 'row',
                     }}
                 >
+                    {/* {detail.postTitle} */}
                     <Box sx={{ p: 1 }}>
-                        <Box
-                            sx={{
-                                width: '15.125rem',
-                                height: '14rem',
-                                border: 0.4,
-                                borderColor: 'line.main',
-                                mb: 3,
-                            }}
-                        >
-                            <Box
-                                sx={{
-                                    height: '9rem',
-                                    p: '2rem',
-                                    borderColor: 'line.main',
-                                    borderWidth: '0.031rem',
-                                }}
-                            >
-                                <Typography
-                                    sx={{
-                                        color: 'black',
-                                        fontSize: '0.938rem',
-                                        textAlign: 'left',
-                                        fontWeight: 600,
-                                        mb: '1rem',
-                                    }}
-                                >
-                                    잇타2피님, 오늘도 좋은 하루 되세요 :)
-                                </Typography>
-                                <Button
-                                    size="small"
-                                    href="../changeinfo"
-                                    sx={{
-                                        ml: '-2.2rem',
-                                        color: '#9E9E9E',
-                                        textDecoration: 'underline',
-                                    }}
-                                >
-                                    회원정보 수정
-                                </Button>
-                                <Button
-                                    size="small"
-                                    href="../Mypost"
-                                    sx={{
-                                        color: '#9E9E9E',
-                                        textDecoration: 'underline',
-                                    }}
-                                >
-                                    로그아웃
-                                </Button>
-                            </Box>
-                            <Box
-                                sx={{
-                                    height: '2.5rem',
-                                    borderTop: 0.4,
-                                    textAlign: 'left',
-                                    borderColor: 'line.main',
-                                }}
-                            >
-                                <Button
-                                    href="../mypost"
-                                    sx={{
-                                        color: 'black',
-                                        fontWeight: 400,
-                                        pl: 2.2,
-                                        fontSize: '0.938rem',
-                                        textAlign: 'left',
-                                    }}
-                                >
-                                    작성한 글
-                                </Button>
-                            </Box>
-                            <Box
-                                sx={{
-                                    height: '2.5rem',
-                                    textAlign: 'left',
-                                    borderTop: 0.4,
-                                    borderColor: 'line.main',
-                                }}
-                            >
-                                <Button
-                                    href="../mycomment"
-                                    sx={{
-                                        color: 'black',
-                                        fontSize: '0.938rem',
-                                        fontWeight: 400,
-                                        pl: 2.2,
-                                        textAlign: 'left',
-                                    }}
-                                >
-                                    작성한 댓글
-                                </Button>
-                            </Box>
-                        </Box>
+                        <MyInformation></MyInformation>
                         <Button
                             href="../writing"
                             sx={{
@@ -250,91 +102,7 @@ function ShowingBoard() {
                                 //border: 2,
                             }}
                         >
-                            <Box
-                                sx={{
-                                    width: '15.125rem',
-                                    height: '3rem',
-                                    borderTop: '1px solid #C2C2C2',
-                                    borderBottom: '1px solid #C2C2C2',
-                                    textAlign: 'left',
-                                }}
-                            >
-                                <Button
-                                    href="../totalboard"
-                                    sx={{
-                                        pt: '0.5rem',
-                                        width: '15.125rem',
-                                        pl: '0.6rem',
-                                        fontWeight: 500,
-                                        fontSize: '1rem',
-                                    }}
-                                >
-                                    전체글
-                                </Button>
-                            </Box>
-                            <Box
-                                sx={{
-                                    width: '15.125rem',
-                                    height: '2.5rem',
-                                    borderBottom: '1px solid #C2C2C2',
-                                    textAlign: 'left',
-                                }}
-                            >
-                                <Button
-                                    href="../freeboard"
-                                    sx={{
-                                        pl: '1rem',
-                                        pt: '0.5rem',
-                                        width: '15.125rem',
-                                        fontWeight: 400,
-                                        fontSize: '0.875rem',
-                                    }}
-                                >
-                                    자유
-                                </Button>
-                            </Box>
-                            <Box
-                                sx={{
-                                    width: '15.125rem',
-                                    height: '2.5rem',
-                                    borderBottom: '1px solid #C2C2C2',
-                                    textAlign: 'left',
-                                }}
-                            >
-                                <Button
-                                    href="../reviewboard"
-                                    sx={{
-                                        pl: '1rem',
-                                        fontWeight: 400,
-                                        pt: '0.5rem',
-                                        width: '15.125rem',
-                                        fontSize: '0.875rem',
-                                    }}
-                                >
-                                    리뷰
-                                </Button>
-                            </Box>
-                            <Box
-                                sx={{
-                                    width: '15.125rem',
-                                    height: '2.5rem',
-                                    borderBottom: '1px solid #C2C2C2',
-                                    textAlign: 'left',
-                                }}
-                            >
-                                <Button
-                                    href="../qnaboard"
-                                    sx={{
-                                        pl: '1rem',
-                                        fontWeight: 400,
-                                        width: '15.125rem',
-                                        pt: '0.5rem',
-                                        fontSize: '0.875rem',
-                                    }}
-                                >
-                                    Q&A
-                                </Button>
-                            </Box>
+                            <MovietalkSubBar></MovietalkSubBar>
                         </Box>
                     </Box>
                     <Box
@@ -343,7 +111,316 @@ function ShowingBoard() {
                             display: 'flex',
                         }}
                     >
-                        <ShowingBoardTable></ShowingBoardTable>
+                        <Box //글
+                            sx={{
+                                //alignItems: 'flex-start',
+                                minHeight: '50rem',
+                                display: 'flex',
+                                flexDirection: 'column',
+                            }}
+                        >
+                            <Box
+                                sx={{
+                                    width: '59.5rem',
+                                    pb: 2,
+                                    borderBottom: '1px solid #0000001A',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: '1.5rem',
+                                        fontWeight: '500',
+                                        textAlign: 'left',
+                                    }}
+                                >
+                                    {detail.postTitle}
+                                </Typography>
+                            </Box>
+                            <Box
+                                sx={{
+                                    width: '59.5rem',
+                                    pb: 2,
+                                    borderBottom: '1px solid #0000001A',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: '1.5rem',
+                                        fontWeight: '500',
+                                        textAlign: 'left',
+                                    }}
+                                >
+                                    {detail.postUserNickname}
+                                    {detail.postDate}
+                                    {detail.countVisit}
+                                </Typography>
+                            </Box>
+                            <Box //본문
+                                sx={{
+                                    width: '59.5rem',
+                                    minHeight: '30rem',
+                                    pb: 5,
+                                    borderBottom: '2px solid #0000001A',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    flexDirection: 'column',
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        height: '70%',
+                                        pt: 3,
+                                        fontSize: '1.5rem',
+                                        fontWeight: '500',
+                                        textAlign: 'left',
+                                    }}
+                                >
+                                    {detail.postContent}
+                                </Typography>
+                                <Box sx={{ width: '100%', height: '107px' }}>
+                                    영화정보
+                                </Box>
+                                <Button
+                                    align="left"
+                                    variant="contained"
+                                    endIcon={<ThumbUpAltIcon />}
+                                    sx={{
+                                        backgroundColor: 'black',
+                                    }}
+                                >
+                                    좋아요
+                                </Button>
+                            </Box>
+
+                            <Box //댓글
+                                sx={{
+                                    //alignItems: 'flex-start',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    mt: 10,
+                                }}
+                            >
+                                <Typography
+                                    sx={{
+                                        fontSize: '0.75rem',
+                                        fontWeight: '600',
+                                        textAlign: 'left',
+                                        fontStyle: 'noraml',
+                                        borderBottom: '2px solid #0000001A',
+                                        pb: 2,
+                                    }}
+                                >
+                                    댓글
+                                </Typography>
+                                <Box
+                                    sx={{
+                                        borderBottom: '2px solid #0000001A',
+                                    }}
+                                >
+                                    <Box
+                                        sx={{
+                                            alignItems: 'center',
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                        }}
+                                    >
+                                        <Box
+                                            sx={{
+                                                fontSize: '0.875rem',
+                                                fontWeight: '600',
+                                                textAlign: 'left',
+                                                fontStyle: 'noraml',
+                                                width: '80%',
+                                                color: '#1A1A1A',
+                                                pt: 2,
+                                                pb: 1,
+                                            }}
+                                        >
+                                            {comment.cmtUserNickname}
+                                        </Box>
+                                        <Box
+                                            sx={{
+                                                fontSize: '0.875rem',
+                                                fontWeight: '600',
+                                                textAlign: 'left',
+                                                fontStyle: 'noraml',
+                                                color: '#757575',
+                                                mr: -5,
+                                                pt: 2,
+                                            }}
+                                        >
+                                            {comment.cmtDate} |
+                                        </Box>
+                                        <IconButton
+                                            aria-label="delete"
+                                            sx={{ pt: 3 }}
+                                        >
+                                            <MoreVertIcon />
+                                        </IconButton>
+                                    </Box>
+                                    <Typography
+                                        sx={{
+                                            fontSize: '0.875rem',
+                                            fontWeight: '400',
+                                            textAlign: 'left',
+                                            fontStyle: 'noraml',
+                                            color: '#1A1A1A',
+                                            pt: 2,
+                                            pb: 3,
+                                        }}
+                                    >
+                                        {comment.cmtContent}
+                                    </Typography>
+                                    <Box
+                                        sx={{
+                                            textAlign: 'right',
+                                        }}
+                                    >
+                                        <Button
+                                            size="small"
+                                            sx={{
+                                                alignContent: 'left',
+                                                fontSize: '0.75rem',
+                                                fontWeight: '400',
+                                                color: '#424242',
+                                            }}
+                                        >
+                                            답글 달기
+                                        </Button>
+                                    </Box>
+                                </Box>
+                                {/* <Box
+                                    sx={{
+                                        borderBottom: '2px solid #0000001A',
+                                        pb: 1,
+                                    }}
+                                >
+                                    <Box
+                                        sx={{
+                                            alignItems: 'center',
+                                            display: 'flex',
+                                            justifyContent: 'space-between',
+                                        }}
+                                    >
+                                        <Box
+                                            sx={{
+                                                fontSize: '0.875rem',
+                                                fontWeight: '600',
+                                                textAlign: 'left',
+                                                fontStyle: 'noraml',
+                                                width: '80%',
+                                                color: '#1A1A1A',
+                                                pt: 2,
+                                            }}
+                                        >
+                                            {comment.cmtUserNickname}
+                                        </Box>
+                                        <Box
+                                            sx={{
+                                                fontSize: '0.875rem',
+                                                fontWeight: '600',
+                                                textAlign: 'left',
+                                                fontStyle: 'noraml',
+                                                color: '#757575',
+                                                mr: -5,
+                                                pt: 2,
+                                            }}
+                                        >
+                                            {comment.cmtDate} |
+                                        </Box>
+                                        <IconButton
+                                            aria-label="delete"
+                                            sx={{ pt: 3 }}
+                                        >
+                                            <MoreVertIcon />
+                                        </IconButton>
+                                    </Box>
+                                    <Typography
+                                        sx={{
+                                            fontSize: '0.875rem',
+                                            fontWeight: '400',
+                                            textAlign: 'left',
+                                            fontStyle: 'noraml',
+                                            color: '#1A1A1A',
+                                            pt: 2,
+                                            pb: 3,
+                                        }}
+                                    >
+                                        {comment.cmtDate}
+                                    </Typography>
+                                    <Box
+                                        sx={{
+                                            textAlign: 'right',
+                                        }}
+                                    >
+                                        <Button
+                                            size="small"
+                                            sx={{
+                                                alignContent: 'left',
+                                                fontSize: '0.75rem',
+                                                fontWeight: '400',
+                                                color: '#424242',
+                                            }}
+                                        >
+                                            답글 달기
+                                        </Button>
+                                    </Box>
+                                </Box> */}
+                            </Box>
+                            <Box //댓글쓰기
+                                component="form"
+                                sx={{
+                                    '& > :not(style)': {
+                                        mt: 3,
+                                        mb: 1,
+                                        width: '59.5rem',
+                                        //height: '5rem',
+                                    },
+                                }}
+                                noValidate
+                                autoComplete="off"
+                            >
+                                <TextField
+                                    multiline
+                                    maxRows={4}
+                                    value={value}
+                                    onChange={handleChange}
+                                    label="댓글을 입력해주세요"
+                                    variant="outlined"
+                                    sx={{
+                                        width: '59.5rem',
+                                    }}
+                                />
+                            </Box>
+                            <Box
+                                sx={{
+                                    textAlign: 'right',
+                                    mb: 8,
+                                }}
+                            >
+                                <Button
+                                    variant="outlined"
+                                    size="small"
+                                    sx={{
+                                        alignContent: 'left',
+                                        fontSize: '0.75rem',
+                                        fontWeight: '500',
+                                        backgroundColor: '#F2CB05',
+                                        borderRadius: '0.5rem',
+                                        border: 0,
+                                        color: '#1D192B',
+                                        fontSize: '0.875rem',
+                                    }}
+                                >
+                                    등록
+                                </Button>
+                            </Box>
+                            <ShortTable></ShortTable>
+                        </Box>
                     </Box>
                 </Container>
             </main>

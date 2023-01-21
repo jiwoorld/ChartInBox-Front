@@ -23,22 +23,8 @@ import Select from '@mui/material/Select';
 import freeboarddata from '../../testdata/freeboarddata.json';
 
 function BoardNTable(props) {
-    /*  function createData(title, author, date, view, like) {
-        return { title, author, date, view, like };
-    } */
     const tableName = props.tableName;
-    /* const rows = [
-        createData('알리딘 포디엑스 본 사람?', '양윤서', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '김다은', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '이지현', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '곽지우', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '박가현', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '양윤서', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '김다은', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '이지현', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '곽지우', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '박가현', '22.01.03', 34, 7),
-    ]; */
+
     const theme = createTheme({
         palette: {
             primary: {

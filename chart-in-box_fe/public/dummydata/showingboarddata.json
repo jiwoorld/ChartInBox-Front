@@ -1,0 +1,24 @@
+{
+    "postDetail": {
+        "postId": 1,
+        "postTitle": "알라딘 포디엑스 본 사람?",
+        "postContent": "개재밌더라",
+        "postDate": "2023-01-02T20:25:29",
+        "postUserNickname": "잇타2피",
+        "countVisit": 7,
+        "postCategory": "Q&A",
+        "postLike": 0,
+        "postComment": 2,
+        "postSpoiler": "false",
+        "postAnonym": "false"
+    },
+    "comments": {
+        "cmtId": 4,
+        "cmtPostId": 1,
+        "cmtContent": "댓글내용~~~!!!",
+        "cmtUserNickname": "가나다라마바사아",
+        "cmtReply": 0,
+        "cmtDate": "2023-01-18T11:45:42"
+    },
+    "userNickname": "가나다라마바사아"
+}

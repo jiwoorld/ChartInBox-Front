@@ -22,47 +22,7 @@ import Switch from '@mui/material/Switch';
 import freeboarddata from '../../testdata/freeboarddata.json';
 
 function BoardTable(props) {
-    /* function createData(title, author, date, view, like) {
-        return { title, author, date, view, like };
-    } */
     const tableName = props.tableName;
-    /* const rows = [
-        createData('알리딘 포디엑스 본 사람?', '양윤서', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '김다은', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '이지현', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '곽지우', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '박가현', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '양윤서', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '김다은', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '이지현', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '곽지우', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '박가현', '22.01.03', 34, 7),
-    ]; */
-
-    {
-        /* <div className="list_day">
-        {freeboarddata.boardList.map(postTitle => (
-            <li key={postTitle.postId}>Day {postTitle.postTitle}</li>
-        ))}
-    </div>; */
-    }
-
-    /* const postIddata = freeboarddata.map((item, index) => {
-        return <div key={index}>{item.boardList.postId}</div>;
-    });
-
-    const postIddatapostTitle = freeboarddata.map((item, index) => {
-        return <div key={index}>{item.postTitle}</div>;
-    });
-
-    const postIddatapostDate = freeboarddata.map((item, index) => {
-        return <div key={index}>{item.postDate}</div>;
-    });
-
-    const postIddatacountVisit = freeboarddata.map((item, index) => {
-        return <div key={index}>{item.countVisit}</div>;
-    }); */
-
     const theme = createTheme({
         palette: {
             primary: {
@@ -99,8 +59,6 @@ function BoardTable(props) {
     const handleLineupChange = event => {
         setLineup(event.target.value);
     };
-
-    const label = { inputProps: { 'aria-label': 'Switch demo' } };
 
     return (
         <ThemeProvider theme={theme}>
@@ -270,7 +228,11 @@ function BoardTable(props) {
                                                     '0.063rem solid #D9D9D9',
                                             }}
                                         >
-                                            {postId.postTitle}
+                                            <a
+                                                href={`/movie-talk/${postId.postId}`}
+                                            >
+                                                {postId.postTitle}
+                                            </a>
                                         </TableCell>
                                         <TableCell
                                             key={postId.postUserNickname}
