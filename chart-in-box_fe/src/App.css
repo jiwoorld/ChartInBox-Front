@@ -42,10 +42,6 @@
         rgba(0, 0, 0, 0.135) 100%
     );
 }
-.movieInfo:hover {
-    width: 266px;
-    height: 120%;
-}
 .MuiMenuItem-root {
     color: #424242 !important;
     font-size: 0.7rem !important;

@@ -40,7 +40,6 @@ function FindMovie() {
                     fontWeight: '500',
                     fontSize: '1.3125rem',
                     height: '1.5625rem',
-                    border: '1px solid red',
                     display: 'flex',
                     justifyContent: 'flex-start',
                     ml: '7rem',
