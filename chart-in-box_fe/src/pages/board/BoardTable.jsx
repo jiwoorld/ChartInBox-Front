@@ -60,8 +60,6 @@ function BoardTable(props) {
         setLineup(event.target.value);
     };
 
-    //const label = { inputProps: { 'aria-label': 'Switch demo' } };
-
     return (
         <ThemeProvider theme={theme}>
             <Box
@@ -218,17 +216,7 @@ function BoardTable(props) {
                             >
                                 {freeboarddata.boardList.map(postId => (
                                     <TableRow>
-                                        {/* <a href={`/movie-info/${item.movieId}`}>
-                                            <img
-                                                width="200px"
-                                                height="280px"
-                                                src={item.mvChartImg}
-                                                alt="이미지"
-                                                class="chartImg"
-                                            ></img>
-                                        </a> */}
                                         <TableCell
-                                            /* href={`/movie-talk/${postId.postId}`} */
                                             key={postId.postTitle}
                                             component="th"
                                             scope="row"

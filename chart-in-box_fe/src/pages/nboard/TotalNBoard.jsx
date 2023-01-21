@@ -70,27 +70,6 @@ function TotalNBoard({ match }) {
         },
     });
     const navigate = useNavigate();
-    const handleTotalNBoard = () => {
-        navigate('/totalnboard');
-    };
-    const handleNetflexNBoard = () => {
-        navigate('/netflexnboard');
-    };
-    const handledisneyNBoard = () => {
-        navigate('/disneynboard');
-    };
-    const handleTivingNBoard = () => {
-        navigate('/tivingnboard');
-    };
-    const handleWaveNBoard = () => {
-        navigate('/wavenboard');
-    };
-    const handleWatchaNBoard = () => {
-        navigate('/watchanboard');
-    };
-    const handleEtcNBoard = () => {
-        navigate('/etcnboard');
-    };
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />

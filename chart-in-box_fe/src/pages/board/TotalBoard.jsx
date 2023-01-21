@@ -42,13 +42,6 @@ const data = {
 function TotalBoard({ match }) {
     const { boardname } = useParams();
     const board = data[boardname];
-    /*  const newArrayData = freeboarddata.map((item, index) => {
-        return (
-          <li key={index}>
-            {item.postTitle}({item.age}) from {item.country}
-          </li>
-        );
-      }); */
 
     const theme = createTheme({
         palette: {

@@ -14,45 +14,29 @@ import ShortTable from './ShortTable';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import showingboarddata from '../../testdata/showingboarddata.json';
 
 function ShowingBoardTable(props) {
-    //const tableName = props.tableName;
     const theme = createTheme({
-        /*         palette: {
-            primary: {
-                main: '#fff',
-            },
-            secondary: {
-                main: '#CF5E53',
-            },
-            third: {
-                main: '#001F28',
-            },
-            background: {
-                default: 'white',
-            },
-            text: {
-                primary: '#001F28',
-            },
-        }, */
         typography: {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
 
-    const [postDetail, setpostDetail] = React.useState({});
-    const [comments, setcomments] = React.useState({});
-    const [userNickname, setuserNickname] = React.useState({});
+    const [detail, setdetail] = React.useState({});
+    const [comment, setcomment] = React.useState({});
+    const [name, setname] = React.useState({});
 
     const postId = useParams();
     const url = postId.id;
+
     useEffect(() => {
         axios
             .get('../../testdata/showingboard.json')
             .then(function (response) {
-                setpostDetail(response.data.postDetail);
-                setcomments(response.data.comments);
-                setuserNickname(response.data.userNickname);
+                setdetail(response.data.postDetail);
+                setcomment(response.data.comments);
+                setname(response.data.userNickname);
             })
             .catch(function (error) {
                 console.log(error);
@@ -64,6 +48,7 @@ function ShowingBoardTable(props) {
     const handleChange = event => {
         setValue(event.target.value);
     };
+
     return (
         <ThemeProvider theme={theme}>
             <Box //글
@@ -90,7 +75,7 @@ function ShowingBoardTable(props) {
                             textAlign: 'left',
                         }}
                     >
-                        {postDetail.postTitle}
+                        {detail.postTitle}
                     </Typography>
                 </Box>
                 <Box
@@ -109,9 +94,9 @@ function ShowingBoardTable(props) {
                             textAlign: 'left',
                         }}
                     >
-                        {postDetail.postUserNickname}
-                        {postDetail.postDate}
-                        {postDetail.countVisit}
+                        {detail.postUserNickname}
+                        {detail.postDate}
+                        {detail.countVisit}
                     </Typography>
                 </Box>
                 <Box //본문
@@ -134,7 +119,7 @@ function ShowingBoardTable(props) {
                             textAlign: 'left',
                         }}
                     >
-                        {postDetail.postContent}
+                        {detail.postContent}
                     </Typography>
                     <Box sx={{ width: '100%', height: '107px' }}>영화정보</Box>
                     <Button
@@ -193,7 +178,7 @@ function ShowingBoardTable(props) {
                                     pb: 1,
                                 }}
                             >
-                                {comments.cmtContent}
+                                {comment.cmtContent}
                             </Box>
                             <Box
                                 sx={{
@@ -206,7 +191,7 @@ function ShowingBoardTable(props) {
                                     pt: 2,
                                 }}
                             >
-                                {comments.cmtDate} |
+                                {comment.cmtDate} |
                             </Box>
                             <IconButton aria-label="delete" sx={{ pt: 3 }}>
                                 <MoreVertIcon />
@@ -223,7 +208,7 @@ function ShowingBoardTable(props) {
                                 pb: 3,
                             }}
                         >
-                            {comments.cmtContent}
+                            {comment.cmtContent}
                         </Typography>
                         <Box
                             sx={{
@@ -267,7 +252,7 @@ function ShowingBoardTable(props) {
                                     pt: 2,
                                 }}
                             >
-                                {comments.cmtUserNickname}
+                                {comment.cmtUserNickname}
                             </Box>
                             <Box
                                 sx={{
@@ -280,7 +265,7 @@ function ShowingBoardTable(props) {
                                     pt: 2,
                                 }}
                             >
-                                {comments.cmtDate} |
+                                {comment.cmtDate} |
                             </Box>
                             <IconButton aria-label="delete" sx={{ pt: 3 }}>
                                 <MoreVertIcon />
@@ -297,7 +282,7 @@ function ShowingBoardTable(props) {
                                 pb: 3,
                             }}
                         >
-                            {comments.cmtDate}
+                            {comment.cmtDate}
                         </Typography>
                         <Box
                             sx={{

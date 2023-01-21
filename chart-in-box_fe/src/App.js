@@ -17,6 +17,7 @@ import Writing from './pages/Writing/Writing';
 import NWriting from './pages/Writing/NWriting';
 import MovieSearch from './pages/search/MovieSearch';
 import ShowingBoard from './pages/board/ShowingBoard';
+import ShowingBoardTable from './pages/board/ShowingBoardTable';
 import ScrapMovie from './pages/scrap/ScrapMovie';
 import FindMovie from './pages/findMovie/FindMovie';
 
@@ -62,6 +63,10 @@ function App() {
                     />
                     <Route
                         path="/movie-talk/:id"
+                        element={<ShowingBoard></ShowingBoard>}
+                    />
+                    <Route
+                        path="/showingboard"
                         element={<ShowingBoard></ShowingBoard>}
                     />
                     <Route
