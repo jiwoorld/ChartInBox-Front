@@ -39,6 +39,7 @@ function MovieInfo() {
         },
     });
     const [info, setInfo] = React.useState({});
+    const [scrap, setScrap] = React.useState(false);
 
     const movieId = useParams();
     const url = movieId.id;
@@ -47,7 +48,8 @@ function MovieInfo() {
             // .get(`/movie-info/${url}`)
             .get('/dummydata/movieinfo.json')
             .then(function (response) {
-                setInfo(response.data);
+                setInfo(response.data.movieDetail);
+                setScrap(response.data.movieScrap);
             })
             .catch(function (error) {
                 console.log(error);
@@ -178,34 +180,76 @@ function MovieInfo() {
                                     </Typography>
                                 </Box>
                             </Box>
-                            <Button
-                                sx={{
-                                    border: '1px solid red',
-                                    width: '95px',
-                                    height: '32px',
-                                    backgroundColor: '#C2C2C2',
-                                    display: 'flex',
-                                }}
-                            >
-                                <img
-                                    src="../../image/notScrap.png"
-                                    alt="스크랩"
-                                    width="11px"
-                                    height="15px"
-                                ></img>
-                                <Typography
+                            {scrap ? (
+                                <Button
                                     sx={{
-                                        width: '3.125rem',
-                                        height: '1.25rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '500',
-                                        ml: '0.375rem',
-                                        mt: '0.0938rem',
+                                        width: '95px',
+                                        height: '32px',
+                                        backgroundColor: '#CF5E53',
+                                        display: 'flex',
+                                        '&:hover,&.Mui-focusVisible': {
+                                            backgroundColor: '#C2C2C2',
+                                        },
                                     }}
                                 >
-                                    스크랩 34
-                                </Typography>
-                            </Button>
+                                    <img
+                                        src="../../image/scrap.png"
+                                        alt="스크랩"
+                                        width="11px"
+                                        height="15px"
+                                    ></img>
+                                    <Typography
+                                        sx={{
+                                            width: '3.125rem',
+                                            height: '1.25rem',
+                                            fontSize: '0.75rem',
+                                            fontWeight: '500',
+                                            ml: '0.375rem',
+                                            mt: '0.0938rem',
+                                            color: '#ffff',
+                                            '&:hover,&.Mui-focusVisible': {
+                                                color: ' #616161',
+                                            },
+                                        }}
+                                    >
+                                        스크랩 34
+                                    </Typography>
+                                </Button>
+                            ) : (
+                                <Button
+                                    sx={{
+                                        width: '95px',
+                                        height: '32px',
+                                        backgroundColor: '#C2C2C2',
+                                        display: 'flex',
+                                        '&:hover,&.Mui-focusVisible': {
+                                            backgroundColor: '#CF5E53',
+                                        },
+                                    }}
+                                >
+                                    <img
+                                        src="../../image/notScrap.png"
+                                        alt="스크랩"
+                                        width="11px"
+                                        height="15px"
+                                    ></img>
+                                    <Typography
+                                        sx={{
+                                            width: '3.125rem',
+                                            height: '1.25rem',
+                                            fontSize: '0.75rem',
+                                            fontWeight: '500',
+                                            ml: '0.375rem',
+                                            mt: '0.0938rem',
+                                            '&:hover,&.Mui-focusVisible': {
+                                                color: ' #ffff',
+                                            },
+                                        }}
+                                    >
+                                        스크랩 34
+                                    </Typography>
+                                </Button>
+                            )}
                         </Box>
 
                         <Box
@@ -216,6 +260,8 @@ function MovieInfo() {
                                 fontWeight: '400',
                                 fontSize: '0.8rem',
                                 textAlign: 'left',
+                                overflow: 'hidden',
+                                textOverflow: 'ellipsis',
                             }}
                         >
                             {info.mvPlot}
