@@ -59,23 +59,6 @@ function MyScrapMovie(props) {
                     ></Box>
                 </Box> */}
             {/* <Typography key={item.mvId}>{item.mvTitle}</Typography> */}
-
-
-
-            {mypagedata.scrapList.map(item => (
-                <Typography
-                    key={item.mvId}
-                    sx={{
-                        pt: 1,
-                        '&:hover,&.Mui-focusVisible': {
-                            textDecoration: 'underline',
-                        },
-                        color: 'white',
-                    }}
-                >
-                    {item.mvTitle}
-                </Typography>
-            ))} */}
             <Box>
                 {mypagedata.scrapList.map(item => (
                     <Box key={item.postId}>

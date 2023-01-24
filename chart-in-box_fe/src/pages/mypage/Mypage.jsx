@@ -262,41 +262,16 @@ function Mypage() {
                     </Box>
                     <Box
                         sx={{
-                            ml: 3,
-                            width: '66.4375rem',
-                            height: '20.625rem',
                             display: 'flex',
-                            align: 'center',
-                            alignItems: 'row',
-                            justifyContent: 'space-between',
-                            direction: 'row',
-                            border: 1,
-                            mt: 1,
+                            width: '1040px',
+                            height: '300px',
                         }}
                     >
-                        <Grid
-                            container
-                            spacing={2}
-                            direction="row"
-                            justifyContent="center"
-                            alignItems="center"
-                            sx={{
-                                border: '1px solid red',
-                            }}
-                        >
-                            {moives.map(movie => (
-                                <Grid
-                                    key={movie.id}
-                                    item={5}
-                                    sx={{
-                                        border: '1px solid red',
-                                        display: 'flex',
-                                    }}
-                                >
-                                    <MyScrapMovie movie={movie}></MyScrapMovie>
-                                </Grid>
-                            ))}
-                        </Grid>
+                        <MyScrapMovie></MyScrapMovie>
+                        <MyScrapMovie></MyScrapMovie>
+                        {/* {moives.map(movie => (
+                            <MyScrapMovie movie={movie}></MyScrapMovie>
+                        ))} */}
                     </Box>
                 </Container>
             </Box>

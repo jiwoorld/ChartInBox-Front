@@ -108,6 +108,7 @@ function CurationPage() {
                         height: '37.625rem',
                         display: 'flex',
                         justifyContent: 'space-between',
+                        border: '1px solid red',
                     }}
                 >
                     <Grid container spacing={2}>
