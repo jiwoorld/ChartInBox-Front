@@ -1,24 +1,13 @@
 import * as React from 'react';
-import { useEffect } from 'react';
-import AppBar from '@mui/material/AppBar';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
-import { Paper } from '@mui/material';
-import { borderBottom } from '@mui/system';
 import BoardTable from './BoardTable';
 import MovietalkMenuBar from '../../components/menubar/MovietalkMenuBar';
 import MovietalkSubBar from '../../components/menubar/MovietalkSubBar';
@@ -125,7 +114,7 @@ function TotalBoard({ match }) {
                             p: 1,
                         }}
                     >
-                        <BoardTable tableName={board.name}></BoardTable>
+                        <BoardTable tableName="전체체"></BoardTable>
                     </Box>
                 </Container>
             </main>

@@ -38,7 +38,7 @@ function MovieInfo() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-    const [info, setInfo] = React.useState({});
+    const [allData, setAllData] = React.useState({});
     const [scrap, setScrap] = React.useState(false);
 
     const movieId = useParams();
@@ -48,7 +48,8 @@ function MovieInfo() {
             // .get(`/movie-info/${url}`)
             .get('/dummydata/movieinfo.json')
             .then(function (response) {
-                setInfo(response.data.movieDetail);
+                setAllData(response.data);
+                console.log('rr' + response.data);
                 setScrap(response.data.movieScrap);
             })
             .catch(function (error) {
@@ -56,6 +57,9 @@ function MovieInfo() {
             });
     }, [url]);
 
+    const info = allData?.movieDetail ?? [];
+    const reviewBoard = allData?.reviewBoardList ?? [];
+    const qnaBoard = allData?.qnaBoardList ?? [];
     let mvRating = '';
     if (typeof info.mvRating === 'string') {
         mvRating = info.mvRating.slice(0, -3);
@@ -340,10 +344,12 @@ function MovieInfo() {
                 <MovieTable
                     tableName={'Review'}
                     buttonName={'리뷰쓰러가기'}
+                    Board={reviewBoard}
                 ></MovieTable>
                 <MovieTable
                     tableName={'Q&A'}
                     buttonName={'Q&A 쓰러가기'}
+                    Board={qnaBoard}
                 ></MovieTable>
             </Paper>
             <CssBaseline />

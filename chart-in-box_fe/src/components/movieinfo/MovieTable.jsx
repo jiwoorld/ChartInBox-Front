@@ -14,21 +14,16 @@ import {
     Typography,
 } from '@mui/material';
 
-function MovieTable(props) {
-    function createData(title, author, date, view, like) {
-        return { title, author, date, view, like };
-    }
-    const tableName = props.tableName;
-    const buttonName = props.buttonName;
-
-    const rows = [
-        createData('알리딘 포디엑스 본 사람?', '양윤서', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '김다은', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '이지현', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '곽지우', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '박가현', '22.01.03', 34, 7),
-        //이 정보들을 백엔드구현하면 받아올 예정
-    ];
+function MovieTable({ tableName, buttonName, Board }) {
+    const rows = Board.map(item => {
+        return {
+            title: item.postTitle,
+            author: item.postUserNickname,
+            date: item.postDate,
+            view: item.countVisit,
+            like: item.postLike,
+        };
+    });
     const theme = createTheme({
         palette: {
             primary: {
@@ -103,7 +98,7 @@ function MovieTable(props) {
                                 <TableRow>
                                     <TableCell
                                         sx={{
-                                            width: '520px',
+                                            width: '32.5rem',
                                             textAlign: 'center',
                                             fontSize: '0.8rem',
                                             fontWeight: '400',
@@ -117,6 +112,7 @@ function MovieTable(props) {
                                             fontSize: '0.8rem',
                                             fontWeight: '400',
                                             border: '0px',
+                                            maxWidth: '6.875rem',
                                         }}
                                     >
                                         작성자
@@ -163,6 +159,10 @@ function MovieTable(props) {
                                                 fontSize: '0.8rem',
                                                 fontWeight: '400',
                                                 border: '0px',
+                                                maxWidth: '32.5rem',
+                                                whiteSpace: 'nowrap',
+                                                overflow: 'hidden',
+                                                textOverflow: 'ellipsis',
                                             }}
                                         >
                                             {row.title}
@@ -173,6 +173,10 @@ function MovieTable(props) {
                                                 fontSize: '0.8rem',
                                                 fontWeight: '400',
                                                 border: '0px',
+                                                maxWidth: '6.875rem',
+                                                whiteSpace: 'nowrap',
+                                                overflow: 'hidden',
+                                                textOverflow: 'ellipsis',
                                             }}
                                         >
                                             {row.author}
@@ -183,6 +187,10 @@ function MovieTable(props) {
                                                 fontSize: '0.8rem',
                                                 fontWeight: '400',
                                                 border: '0px',
+                                                maxWidth: '5.625rem',
+                                                whiteSpace: 'nowrap',
+                                                overflow: 'hidden',
+                                                textOverflow: 'ellipsis',
                                             }}
                                         >
                                             {row.date}

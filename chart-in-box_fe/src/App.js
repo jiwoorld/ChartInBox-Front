@@ -58,15 +58,11 @@ function App() {
                         element={<MovieSearch></MovieSearch>}
                     />
                     <Route
-                        path="/movie-talk/:boardname"
+                        path="/movie-talk"
                         element={<TotalBoard></TotalBoard>}
                     />
                     <Route
                         path="/movie-talk/:id"
-                        element={<ShowingBoard></ShowingBoard>}
-                    />
-                    <Route
-                        path="/showingboard"
                         element={<ShowingBoard></ShowingBoard>}
                     />
                     <Route

@@ -15,29 +15,15 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-function MainTable(props) {
-    function createData(title, view) {
-        return { title, view };
-    }
+function MainTable({ tableName, tableLink, Board }) {
     const navigate = useNavigate();
-    const tableName = props.tableName;
-    const link = props.tableLink;
 
     const handlePage = () => {
-        navigate(link);
+        navigate(tableLink);
     };
-    const rows = [
-        createData('알리딘 포디엑스 본 사람?', 7),
-        createData('알리딘 포디엑스 본 사람?', 7),
-        createData('알리딘 포디엑스 본 사람?', 7),
-        createData('알리딘 포디엑스 본 사람?', 7),
-        createData('알리딘 포디엑스 본 사람?', 7),
-        createData('알리딘 포디엑스 본 사람?', 7),
-        createData('알리딘 포디엑스 본 사람?', 7),
-        createData('알리딘 포디엑스 본 사람?', 7),
-        createData('알리딘 포디엑스 본 사람?', 7),
-        //이 정보들을 백엔드구현하면 받아올 예정
-    ];
+    const rows = Board.map(item => {
+        return { title: item.postTitle, view: item.countVisit };
+    });
     const theme = createTheme({
         palette: {
             primary: {
@@ -130,11 +116,16 @@ function MainTable(props) {
                                             component="th"
                                             scope="row"
                                             sx={{
+                                                width: '20rem',
                                                 height: '2.75rem',
                                                 fontSize: '0.8rem',
                                                 fontWeight: '400',
                                                 paddingTop: '0',
                                                 paddingBottom: '0',
+                                                maxWidth: '20rem', // percentage also works
+                                                whiteSpace: 'nowrap',
+                                                overflow: 'hidden',
+                                                textOverflow: 'ellipsis',
                                             }}
                                         >
                                             {row.title}
