@@ -18,6 +18,9 @@ import { Paper } from '@mui/material';
 import { borderBottom } from '@mui/system';
 import BoardNTable from './BoardNTable';
 import { useNavigate } from 'react-router-dom';
+import NBoardMenuBar from '../../components/menubar/NBoardMenuBar';
+import NBoardSubBar from '../../components/menubar/NBoardSubBar';
+import MyInformation from '../../components/board/MyInformation';
 
 function EtcNBoard() {
     const theme = createTheme({
