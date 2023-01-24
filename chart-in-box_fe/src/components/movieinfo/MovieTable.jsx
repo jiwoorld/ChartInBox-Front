@@ -242,7 +242,7 @@ function MovieTable({ tableName, buttonName, Board }) {
                         sx={{
                             backgroundColor: 'white',
                             color: 'black',
-                            borderRadius: '0.9rem',
+                            borderRadiugits: '0.9rem',
                             opacity: '70%',
                             '&:hover': {
                                 backgroundColor: '#fff',
