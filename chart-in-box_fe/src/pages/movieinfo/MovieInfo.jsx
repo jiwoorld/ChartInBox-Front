@@ -14,6 +14,7 @@ import MovieTable from '../../components/movieinfo/MovieTable';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function MovieInfo() {
     const theme = createTheme({
@@ -57,6 +58,28 @@ function MovieInfo() {
             });
     }, [url]);
 
+    const handleScrap = () => {
+        axios
+            // .get(`/movie-info/${url}`)
+            .post(`http://localhost:80808/movie-info${url}/scrap`)
+            .then(function (response) {
+                setScrap(!scrap);
+            })
+            .catch(function (error) {
+                if (error.response.data === false) {
+                    Swal.fire({
+                        width: 460,
+                        height: 260,
+                        title: '스크랩 실패',
+                        html: '로그인 후 진행해주세요',
+                        showConfirmButton: false,
+                        cancelButtonText: '확인',
+                        cancelButtonColor: '#CF5E53',
+                        showCancelButton: true,
+                    });
+                }
+            });
+    };
     const info = allData?.movieDetail ?? [];
     const reviewBoard = allData?.reviewBoardList ?? [];
     const qnaBoard = allData?.qnaBoardList ?? [];
@@ -195,6 +218,7 @@ function MovieInfo() {
                                             backgroundColor: '#C2C2C2',
                                         },
                                     }}
+                                    onClick={handleScrap}
                                 >
                                     <img
                                         src="../../image/scrap.png"

@@ -22,7 +22,11 @@ function MainTable({ tableName, tableLink, Board }) {
         navigate(tableLink);
     };
     const rows = Board.map(item => {
-        return { title: item.postTitle, view: item.countVisit };
+        return {
+            postId: item.postId,
+            title: item.postTitle,
+            view: item.countVisit,
+        };
     });
     const theme = createTheme({
         palette: {
@@ -126,9 +130,16 @@ function MainTable({ tableName, tableLink, Board }) {
                                                 whiteSpace: 'nowrap',
                                                 overflow: 'hidden',
                                                 textOverflow: 'ellipsis',
+                                                '&:hover,&.Mui-focusVisible': {
+                                                    textDecoration: 'underline',
+                                                },
                                             }}
                                         >
-                                            {row.title}
+                                            <a
+                                                href={`movie-talk/${row.postId}`}
+                                            >
+                                                {row.title}
+                                            </a>
                                         </TableCell>
                                         <TableCell
                                             align="right"
