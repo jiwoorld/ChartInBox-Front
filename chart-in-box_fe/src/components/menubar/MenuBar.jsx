@@ -114,7 +114,7 @@ function MenuBar() {
         navigate('/movie-talk/');
     };
     const handleTotalNpage = () => {
-        navigate('/nboard/total');
+        navigate('/n-party/total');
     };
     const handleMovieSearch = () => {
         navigate('/moviesearch');
