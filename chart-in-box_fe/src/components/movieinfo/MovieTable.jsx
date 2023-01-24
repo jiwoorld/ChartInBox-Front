@@ -17,6 +17,7 @@ import {
 function MovieTable({ tableName, buttonName, Board }) {
     const rows = Board.map(item => {
         return {
+            postId: item.postId,
             title: item.postTitle,
             author: item.postUserNickname,
             date: item.postDate,
@@ -163,9 +164,17 @@ function MovieTable({ tableName, buttonName, Board }) {
                                                 whiteSpace: 'nowrap',
                                                 overflow: 'hidden',
                                                 textOverflow: 'ellipsis',
+                                                '&:hover,&.Mui-focusVisible': {
+                                                    textDecoration: 'underline',
+                                                },
                                             }}
                                         >
-                                            {row.title}
+                                            <a
+                                                class="movieInfoA"
+                                                href={`/movie-talk/${row.postId}`}
+                                            >
+                                                {row.title}
+                                            </a>
                                         </TableCell>
                                         <TableCell
                                             align="right"

@@ -108,29 +108,26 @@ function Join({ clickLogin, joinClose }) {
                     Swal.fire({
                         width: 460,
                         height: 260,
-                        title: '회원가입 실패',
-                        html: '이미 존재하는 닉네임입니다',
+                        html: '<b> 회원가입 실패</b><br><br>이미 존재하는 닉네임입니다',
                         showConfirmButton: false,
                         cancelButtonText: '확인',
                         cancelButtonColor: '#CF5E53',
                         showCancelButton: true,
                         background: '#fff url(/image/swalBackground.png)',
-                        marginTop: '0px !important!',
+                        timer: 5000,
                     });
                 } else if (err.response.data === 'userEmail') {
-                    console.log('이메일!!!!!!!!!!!!!!!!111');
                     joinClose();
                     Swal.fire({
                         width: 460,
                         height: 260,
-                        title: '회원가입 실패',
-                        html: '이미 존재하는 이메일입니다',
+                        html: '<b> 회원가입 실패</b><br><br>이미 존재하는 이메일입니다',
                         showConfirmButton: false,
                         cancelButtonText: '확인',
                         cancelButtonColor: '#CF5E53',
                         showCancelButton: true,
                         background: '#fff url(/image/swalBackground.png)',
-                        marginTop: '0px !important!',
+                        timer: 5000,
                     });
                 } //중복된 이메일로 회원가입 실패
             });

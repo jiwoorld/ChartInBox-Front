@@ -44,10 +44,10 @@ function Login({ clickJoin, clickPassword, loginClose }) {
         await axios
             .post('http://localhost:8080/log-in', { postData })
             .then(res => {
-                const { accessToken } = res.data;
-                axios.defaults.headers.common[
-                    'Authorization'
-                ] = `Bearer ${accessToken}`;
+                // const { accessToken } = res.data;
+                // axios.defaults.headers.common[
+                //     'Authorization'
+                // ] = `Bearer ${accessToken}`;
 
                 // submit 버튼 중복클릭 방지
                 let submitBtn = document.getElementById('submit');
@@ -76,14 +76,13 @@ function Login({ clickJoin, clickPassword, loginClose }) {
                     Swal.fire({
                         width: 460,
                         height: 260,
-                        title: '로그인 실패',
-                        html: '잘못된 이메일입니다',
+                        html: '<b> 로그인 실패</b><br><br>잘못된 이메일입니다',
                         showConfirmButton: false,
                         cancelButtonText: '확인',
                         cancelButtonColor: '#CF5E53',
                         showCancelButton: true,
                         background: '#fff url(/image/swalBackground.png)',
-                        marginTop: '0px !important!',
+                        timer: 5000,
                     });
                     //존재하지 않는 이메일로 로그인 실패
                 } else if (err.response.data === 'userPassword') {
@@ -91,14 +90,13 @@ function Login({ clickJoin, clickPassword, loginClose }) {
                     Swal.fire({
                         width: 460,
                         height: 260,
-                        title: '로그인 실패',
-                        html: '잘못된 비밀번호입니다',
+                        html: '<b> 로그인 실패</b><br><br>잘못된 비밀번호입니다',
                         showConfirmButton: false,
                         cancelButtonText: '확인',
                         cancelButtonColor: '#CF5E53',
                         showCancelButton: true,
                         background: '#fff url(/image/swalBackground.png)',
-                        marginTop: '0px !important!',
+                        timer: 5000,
                     });
                 } //잘못된 비밀번호로 로그인 실패
                 else if (err.response.data === 'auth') {
@@ -106,14 +104,13 @@ function Login({ clickJoin, clickPassword, loginClose }) {
                     Swal.fire({
                         width: 460,
                         height: 260,
-                        title: '로그인 실패',
-                        html: '이메일 인증을 해주세요',
+                        html: '<b> 로그인 실패</b><br><br>이메일 인증을 해주세요',
                         showConfirmButton: false,
                         cancelButtonText: '확인',
                         cancelButtonColor: '#CF5E53',
                         showCancelButton: true,
                         background: '#fff url(/image/swalBackground.png)',
-                        marginTop: '0px !important!',
+                        timer: 5000,
                     });
                 }
                 //회원가입 메일 인증을 안해서 로그인 실패
