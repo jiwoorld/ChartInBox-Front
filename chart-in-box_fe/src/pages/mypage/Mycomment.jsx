@@ -16,7 +16,7 @@ import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
-import MypageTable from './MypageTable';
+import MycommentTable from './MycommentTable';
 
 function Mycomment() {
     return (
@@ -81,7 +81,7 @@ export default function Album() {
                     </Button>
                 </Box>
 
-                <MypageTable></MypageTable>
+                <MycommentTable></MycommentTable>
             </main>
 
             <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">

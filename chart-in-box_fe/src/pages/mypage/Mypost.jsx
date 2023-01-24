@@ -17,7 +17,7 @@ import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
 import MovieTable from '../../components/movieinfo/MovieTable';
-import MypageTable from './MypageTable';
+import MypageTable from './MyPostTable';
 
 function Mypost() {
     return (
@@ -84,19 +84,6 @@ export default function Album() {
 
                 <MypageTable></MypageTable>
             </main>
-            <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-                <Typography variant="h6" align="center" gutterBottom>
-                    Footer
-                </Typography>
-                <Typography
-                    variant="subtitle1"
-                    align="center"
-                    color="text.secondary"
-                    component="p"
-                >
-                    푸터가 들어갈 칸입니다
-                </Typography>
-            </Box>
         </ThemeProvider>
     );
 }
