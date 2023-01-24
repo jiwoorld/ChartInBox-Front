@@ -4,8 +4,12 @@ import {
     ThemeProvider,
     Typography,
 } from '@mui/material';
+import { Box } from '@mui/system';
+import axios from 'axios';
 import * as React from 'react';
+import { useParams } from 'react-router-dom';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
+import CurationPageMovie from '../../components/curationpage/CurationPageMoive';
 
 function FindMovie() {
     const theme = createTheme({
@@ -30,11 +34,25 @@ function FindMovie() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-
+    const [data, setData] = React.useState({});
+    const mvTitle = useParams();
+    const url = mvTitle.url;
+    React.useEffect(() => {
+        axios
+            // .get(`/movie-search/${url}`)
+            .get('/dummydata/moviesearch.json')
+            .then(function (response) {
+                setData(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, [url]);
+    const searchList = data?.searchList ?? [];
+    const searchTitle = data?.searchTitle ?? '';
     return (
         <ThemeProvider theme={theme}>
             <MenuBarMovie />
-
             <Typography
                 sx={{
                     fontWeight: '500',
@@ -46,8 +64,48 @@ function FindMovie() {
                     mt: '7rem',
                 }}
             >
-                '퀸카로 살아남는 법' 검색 결과
+                {`'${searchTitle}'  검색결과`}
             </Typography>
+            {searchList === [] ? (
+                <Box
+                    sx={{
+                        maxWidth: '68rem',
+                        height: '16.4rem',
+                        ml: '11rem',
+                        mt: '4rem',
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        justifyContent: 'space-evenly',
+                    }}
+                >
+                    {searchList.map(movie => (
+                        <CurationPageMovie
+                            mvTitle={movie.mvTitle}
+                            mvPoster={movie.mvPoster}
+                            mvId={movie.mvId}
+                        ></CurationPageMovie>
+                    ))}
+                </Box>
+            ) : (
+                <Box
+                    sx={{
+                        maxWidth: '68rem',
+                        height: '16.4rem',
+                        ml: '11rem',
+                        mt: '10rem',
+                    }}
+                >
+                    <Typography
+                        sx={{
+                            fontWeight: '500',
+                            fontSize: '1.6rem',
+                        }}
+                    >
+                        찾아보신 내용이 존재하지 않습니다
+                    </Typography>
+                </Box>
+            )}
+
             <CssBaseline />
         </ThemeProvider>
     );

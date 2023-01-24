@@ -217,12 +217,12 @@ function MainPage() {
                         >
                             <MainTable
                                 tableName="자유게시판"
-                                tableLink="/movie-talk/freeboard"
+                                tableLink="/movie-talk/"
                                 Board={freeBoard}
                             ></MainTable>
                             <MainTable
                                 tableName="영화리뷰"
-                                tableLink="/movie-talk/reviewboard"
+                                tableLink="/movie-talk/"
                                 Board={reviewBoard}
                             ></MainTable>
                             <MainTable

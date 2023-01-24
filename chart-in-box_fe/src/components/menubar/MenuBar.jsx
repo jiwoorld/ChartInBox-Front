@@ -240,7 +240,7 @@ function MenuBar() {
                             value={searchValue}
                             onChange={onChangeSearch}
                             onKeyPress={onKeySearch}
-                            placeholder="제목 감독을 검색해보세요"
+                            placeholder="제목을 검색해보세요"
                         />
                         <IconButton
                             type="button"
