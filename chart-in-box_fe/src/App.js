@@ -69,7 +69,7 @@ function App() {
                         element={<TotalNBoard></TotalNBoard>}
                     />
                     <Route
-                        path="/findmovie/:searchValue"
+                        path="/movie-search/:mvTitle"
                         element={<FindMovie></FindMovie>}
                     />
                 </Routes>

@@ -2,7 +2,7 @@ import { ThemeProvider, Typography } from '@mui/material';
 import { Box, createTheme } from '@mui/system';
 import * as React from 'react';
 
-function CurationPageMovie(props) {
+function CurationPageMovie({ mvTitle, mvPoster, mvId }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -27,16 +27,14 @@ function CurationPageMovie(props) {
         },
     });
 
-    const [movie, setMovie] = React.useState({});
-
+    console.log(mvTitle);
     return (
         <ThemeProvider theme={theme}>
             <Box
                 sx={{
                     width: '12.125rem',
                     height: '266px',
-                    background:
-                        'linear-gradient(180deg, rgba(217, 217, 217, 0) 41.67%, rgba(0, 0, 0, 0.4) 67.19%, rgba(0, 0, 0, 0.8) 100%), url(../../image/movieExample.png)',
+                    background: `linear-gradient(180deg, rgba(217, 217, 217, 0) 41.67%, rgba(0, 0, 0, 0.4) 67.19%, rgba(0, 0, 0, 0.8) 100%), url(${mvPoster})`,
                     mr: 0.5,
                     mt: 1,
                     borderRadius: '0.75rem',
@@ -53,41 +51,19 @@ function CurationPageMovie(props) {
                         alignContent: 'flex-start',
                     }}
                 >
-                    <Typography
-                        sx={{
-                            '&:hover,&.Mui-focusVisible': {
-                                textDecoration: 'underline',
-                            },
-                            color: 'primary.main',
-                        }}
-                    >
-                        라스트 크리스마스
-                    </Typography>
-                    <Box
-                        sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'flex-end',
-                        }}
-                    >
-                        <img
-                            width="12px"
-                            height="11px"
-                            src="../../image/good.png"
-                            alt="좋아요"
-                        ></img>
+                    <a href={`/movie-info/${mvId}`}>
                         <Typography
                             sx={{
-                                ml: '0.375rem',
-                                color: 'text.default',
-                                fontSize: '0.875rem',
-                                fontWeight: '400',
-                                mr: 1,
+                                '&:hover,&.Mui-focusVisible': {
+                                    textDecoration: 'underline',
+                                },
+                                color: 'primary.main',
+                                mb: '1rem',
                             }}
                         >
-                            3.7
+                            {mvTitle}
                         </Typography>
-                    </Box>
+                    </a>
                 </Box>
             </Box>
         </ThemeProvider>
