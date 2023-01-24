@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 
-function MovietalkSubBar() {
+function MovietalkSubBar({ setBoardName }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -27,7 +27,18 @@ function MovietalkSubBar() {
 
     const navigate = useNavigate();
     //navigate 함수  -> 페이지 이동
-
+    const handlefreeBoard = () => {
+        setBoardName('자유 게시판');
+    };
+    const handletotalBoard = () => {
+        setBoardName('전체글');
+    };
+    const handleReviewBoard = () => {
+        setBoardName('리뷰 게시판');
+    };
+    const handleQnaBoard = () => {
+        setBoardName(' Q&A');
+    };
     return (
         <ThemeProvider theme={theme}>
             <Box
@@ -47,7 +58,6 @@ function MovietalkSubBar() {
                     }}
                 >
                     <Button
-                        href="../movie-talk/totalboard"
                         sx={{
                             pl: '1rem',
                             pt: '0.5rem',
@@ -55,6 +65,7 @@ function MovietalkSubBar() {
                             fontWeight: 400,
                             fontSize: '0.875rem',
                         }}
+                        onClick={handletotalBoard}
                     >
                         전체글
                     </Button>
@@ -68,7 +79,6 @@ function MovietalkSubBar() {
                     }}
                 >
                     <Button
-                        href="../movie-talk/freeboard"
                         sx={{
                             pl: '1rem',
                             pt: '0.5rem',
@@ -76,6 +86,7 @@ function MovietalkSubBar() {
                             fontWeight: 400,
                             fontSize: '0.875rem',
                         }}
+                        onClick={handlefreeBoard}
                     >
                         자유
                     </Button>
@@ -89,7 +100,6 @@ function MovietalkSubBar() {
                     }}
                 >
                     <Button
-                        href="../movie-talk/reviewboard"
                         sx={{
                             pl: '1rem',
                             fontWeight: 400,
@@ -97,6 +107,7 @@ function MovietalkSubBar() {
                             width: '15.125rem',
                             fontSize: '0.875rem',
                         }}
+                        onClick={handleReviewBoard}
                     >
                         리뷰
                     </Button>
@@ -110,7 +121,6 @@ function MovietalkSubBar() {
                     }}
                 >
                     <Button
-                        href="../movie-talk/qnaboard"
                         sx={{
                             pl: '1rem',
                             fontWeight: 400,
@@ -118,6 +128,7 @@ function MovietalkSubBar() {
                             pt: '0.5rem',
                             fontSize: '0.875rem',
                         }}
+                        onClick={handleQnaBoard}
                     >
                         Q&A
                     </Button>

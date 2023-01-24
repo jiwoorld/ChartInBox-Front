@@ -111,7 +111,7 @@ function MenuBarMovie(props) {
     };
     //my 클릭시 mypage url로 이동
     const handleTotalpage = () => {
-        navigate('/movie-talk/totalboard');
+        navigate('/movie-talk/');
     };
     const handleTotalNpage = () => {
         navigate('/nboard/total');

@@ -180,5 +180,66 @@
             "mvChartCategory": "박스오피스-주간",
             "movieId": "K32369"
         }
+    ],
+    "freeBoardList": [
+        {
+            "postId": 12,
+            "postCategory": "자유",
+            "postTitle": "제목테스트",
+            "postComment": 0,
+            "postUserNickname": "가나다라마바사아",
+            "postAnonym": "true",
+            "postDate": "2023-01-23T12:40:36",
+            "countVisit": 1,
+            "postLike": 0
+        },
+        {
+            "postId": 2,
+            "postCategory": "자유",
+            "postTitle": "아바타2 너무 보고싶어아바타2 너무 보고싶어아바타2 너무 보고싶어아바타2 너무 보고싶어아바타2 너무 보고싶어아바타2 너무 보고싶어아바타2 너무 보고싶어아바타2 너무 보고싶어아바타2",
+            "postComment": 0,
+            "postUserNickname": "잇타2피",
+            "postAnonym": "false",
+            "postDate": "2023-01-02T20:27:05",
+            "countVisit": 1,
+            "postLike": 0
+        }
+    ],
+    "reviewBoardList": [
+        {
+            "postId": 5,
+            "postCategory": "리뷰",
+            "postTitle": "모가디슈 본 사람?????",
+            "postComment": 0,
+            "postUserNickname": "가나다라마바사아",
+            "postAnonym": "false",
+            "postDate": "2023-01-16T18:05:38",
+            "countVisit": 0,
+            "postLike": 0
+        }
+    ],
+    "npartyBoardList": [
+        {
+            "postId": 2,
+            "postCategory": "티빙",
+            "postTitle": "제목수정",
+            "postComment": 0,
+            "postUserNickname": "가나다라마바사아",
+            "postAnonym": "false",
+            "postDate": "2023-01-23T15:52:12",
+            "countVisit": 1,
+            "postLike": 0
+        },
+        {
+            "postId": 1,
+            "postCategory": "넷플릭스",
+            "postTitle": "넷플릭스 같이 볼 사람",
+            "postComment": 1,
+            "postUserNickname": "잇타2피",
+            "postAnonym": "false",
+            "postDate": "2023-01-23T07:02:13",
+            "countVisit": 9,
+            "postLike": 1
+        }
     ]
 }

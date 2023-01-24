@@ -21,8 +21,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import freeboarddata from '../../testdata/freeboarddata.json';
 
-function BoardTable(props) {
-    const tableName = props.tableName;
+function BoardTable({ boardName }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -96,7 +95,7 @@ function BoardTable(props) {
                                 fontSize: '1.313rem',
                             }}
                         >
-                            {tableName}
+                            {boardName}
                         </Typography>
                     </Box>
                     <FormGroup>
@@ -214,10 +213,9 @@ function BoardTable(props) {
                             <TableBody
                                 sx={{ borderBottom: '0.063rem solid #D9D9D9' }}
                             >
-                                {freeboarddata.boardList.map(postId => (
-                                    <TableRow>
+                                {freeboarddata.boardList.map(item => (
+                                    <TableRow key={item.postId}>
                                         <TableCell
-                                            key={postId.postTitle}
                                             component="th"
                                             scope="row"
                                             sx={{
@@ -229,13 +227,12 @@ function BoardTable(props) {
                                             }}
                                         >
                                             <a
-                                                href={`/movie-talk/${postId.postId}`}
+                                                href={`/movie-talk/${item.postId}`}
                                             >
-                                                {postId.postTitle}
+                                                {item.postTitle}
                                             </a>
                                         </TableCell>
                                         <TableCell
-                                            key={postId.postUserNickname}
                                             component="th"
                                             scope="row"
                                             sx={{
@@ -246,10 +243,9 @@ function BoardTable(props) {
                                                     '0.063rem solid #D9D9D9',
                                             }}
                                         >
-                                            {postId.postUserNickname}
+                                            {item.postUserNickname}
                                         </TableCell>
                                         <TableCell
-                                            key={postId.postDate}
                                             component="th"
                                             scope="row"
                                             sx={{
@@ -260,10 +256,9 @@ function BoardTable(props) {
                                                     '0.063rem solid #D9D9D9',
                                             }}
                                         >
-                                            {postId.postDate}
+                                            {item.postDate}
                                         </TableCell>
                                         <TableCell
-                                            key={postId.countVisit}
                                             component="th"
                                             scope="row"
                                             sx={{
@@ -274,10 +269,9 @@ function BoardTable(props) {
                                                     '0.063rem solid #D9D9D9',
                                             }}
                                         >
-                                            {postId.countVisit}
+                                            {item.countVisit}
                                         </TableCell>
                                         <TableCell
-                                            key={postId.postLike}
                                             component="th"
                                             scope="row"
                                             sx={{
@@ -288,7 +282,7 @@ function BoardTable(props) {
                                                     '0.063rem solid #D9D9D9',
                                             }}
                                         >
-                                            {postId.postLike}
+                                            {item.postLike}
                                         </TableCell>
                                     </TableRow>
                                 ))}

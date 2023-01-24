@@ -1,24 +1,13 @@
 import * as React from 'react';
-import { useEffect } from 'react';
-import AppBar from '@mui/material/AppBar';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
-import { Paper } from '@mui/material';
-import { borderBottom } from '@mui/system';
 import BoardTable from './BoardTable';
 import MovietalkMenuBar from '../../components/menubar/MovietalkMenuBar';
 import MovietalkSubBar from '../../components/menubar/MovietalkSubBar';
@@ -39,10 +28,8 @@ const data = {
     },
 };
 
-function TotalBoard({ match }) {
-    const { boardname } = useParams();
-    const board = data[boardname];
-
+function TotalBoard() {
+    const [boardName, setBoardName] = React.useState('전체글');
     const theme = createTheme({
         palette: {
             primary: {
@@ -67,7 +54,7 @@ function TotalBoard({ match }) {
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <MenuBar></MenuBar>
-            <MovietalkMenuBar></MovietalkMenuBar>
+            <MovietalkMenuBar setBoardName={setBoardName}></MovietalkMenuBar>
             <main>
                 <Container
                     maxWidth="70rem"
@@ -76,21 +63,11 @@ function TotalBoard({ match }) {
                         mt: '1.4rem',
                         display: 'flex',
                         flexDirection: 'row',
+                        border: '1px solid red',
                     }}
                 >
                     <Box sx={{ p: 1 }}>
                         <MyInformation></MyInformation>
-                        {/* <Box
-                            sx={{
-                                width: '15.125rem',
-                                height: '14rem',
-                                border: 0.4,
-                                borderColor: 'line.main',
-                                mb: 3,
-                            }}
-                        >
-                            
-                        </Box> */}
                         <Button
                             href="../writing"
                             sx={{
@@ -112,7 +89,9 @@ function TotalBoard({ match }) {
                                 //border: 2,
                             }}
                         >
-                            <MovietalkSubBar></MovietalkSubBar>
+                            <MovietalkSubBar
+                                setBoardName={setBoardName}
+                            ></MovietalkSubBar>
                         </Box>
                     </Box>
 
@@ -120,12 +99,12 @@ function TotalBoard({ match }) {
                         sx={{
                             width: '59.5rem',
                             height: '50rem',
-                            //border: 2,
                             display: 'flex',
                             p: 1,
+                            border: '1px solid red',
                         }}
                     >
-                        <BoardTable tableName={board.name}></BoardTable>
+                        <BoardTable boardName={boardName}></BoardTable>
                     </Box>
                 </Container>
             </main>

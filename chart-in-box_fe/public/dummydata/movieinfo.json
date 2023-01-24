@@ -20,5 +20,31 @@
         "mvDirector": ["제임스 카메론"]
     },
 
-    "movieScrap": false
+    "movieScrap": false,
+    "reviewBoardList": [
+        {
+            "postId": 5,
+            "postCategory": "리뷰",
+            "postTitle": "모가디슈 본 사람?????",
+            "postComment": 0,
+            "postUserNickname": "가나다라마바사아",
+            "postAnonym": "false",
+            "postDate": "2023-01-16T18:05:38",
+            "countVisit": 0,
+            "postLike": 0
+        }
+    ],
+    "qnaBoardList": [
+        {
+            "postId": 1,
+            "postCategory": "Q&A",
+            "postTitle": "알라딘 포디엑스 본 사람?",
+            "postComment": 2,
+            "postUserNickname": "잇타2피",
+            "postAnonym": "false",
+            "postDate": "2023-01-02T20:25:29",
+            "countVisit": 28,
+            "postLike": 1
+        }
+    ]
 }

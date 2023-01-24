@@ -44,6 +44,11 @@ function Login({ clickJoin, clickPassword, loginClose }) {
         await axios
             .post('http://localhost:8080/log-in', { postData })
             .then(res => {
+                const { accessToken } = res.data;
+                axios.defaults.headers.common[
+                    'Authorization'
+                ] = `Bearer ${accessToken}`;
+
                 // submit 버튼 중복클릭 방지
                 let submitBtn = document.getElementById('submit');
                 submitBtn.addEventListener('click', function (e) {

@@ -50,6 +50,7 @@ function ShowingBoard(props) {
         axios
             .get('/dummydata/showingboarddata.json')
             .then(function (response) {
+                console.log('RRr' + response.data);
                 setdetail(response.data.postDetail);
                 setcomment(response.data.comments);
                 setname(response.data.userNickname);
@@ -57,7 +58,7 @@ function ShowingBoard(props) {
             .catch(function (error) {
                 console.log(error);
             });
-    }, []);
+    }, [url]);
 
     const [value, setValue] = React.useState('Controlled');
 
