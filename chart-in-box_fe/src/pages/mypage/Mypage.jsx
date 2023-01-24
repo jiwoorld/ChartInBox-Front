@@ -78,7 +78,7 @@ function Mypage() {
                         내 프로필
                     </Button>
                     <Button
-                        href="/changeinfo"
+                        href="/my-page/edit"
                         sx={{
                             height: '1.375rem',
                             width: '8.303rem',

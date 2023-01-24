@@ -4,12 +4,6 @@ import {
     Button,
     createTheme,
     TextField,
-    Table,
-    TableBody,
-    TableCell,
-    TableContainer,
-    TableHead,
-    TableRow,
     ThemeProvider,
     Typography,
 } from '@mui/material';
@@ -17,52 +11,44 @@ import IconButton from '@mui/material/IconButton';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ShortTable from './ShortTable';
+import { useEffect } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import showingboarddata from '../../testdata/showingboarddata.json';
 
 function ShowingBoardTable(props) {
-    function createData(type, title, author, date, view, like, reple, context) {
-        return { type, title, author, date, view, like, reple, context };
-    }
-    //const tableName = props.tableName;
-    const rows = [
-        createData(
-            '리뷰',
-            '맘마미아2 재밌더라',
-            '익명',
-            '2022.01.03 13:01',
-            34,
-            2,
-            7,
-            '개재밌더라',
-        ),
-    ];
     const theme = createTheme({
-        /*         palette: {
-            primary: {
-                main: '#fff',
-            },
-            secondary: {
-                main: '#CF5E53',
-            },
-            third: {
-                main: '#001F28',
-            },
-            background: {
-                default: 'white',
-            },
-            text: {
-                primary: '#001F28',
-            },
-        }, */
         typography: {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-    const label = { inputProps: { 'aria-label': 'Switch demo' } };
+
+    const [detail, setdetail] = React.useState({});
+    const [comment, setcomment] = React.useState({});
+    const [name, setname] = React.useState({});
+
+    const postId = useParams();
+    const url = postId.id;
+
+    useEffect(() => {
+        axios
+            .get('../../testdata/showingboard.json')
+            .then(function (response) {
+                setdetail(response.data.postDetail);
+                setcomment(response.data.comments);
+                setname(response.data.userNickname);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, [url]);
+
     const [value, setValue] = React.useState('Controlled');
 
     const handleChange = event => {
         setValue(event.target.value);
     };
+
     return (
         <ThemeProvider theme={theme}>
             <Box //글
@@ -89,7 +75,7 @@ function ShowingBoardTable(props) {
                             textAlign: 'left',
                         }}
                     >
-                        아마도 제목..
+                        {detail.postTitle}
                     </Typography>
                 </Box>
                 <Box
@@ -108,7 +94,9 @@ function ShowingBoardTable(props) {
                             textAlign: 'left',
                         }}
                     >
-                        writer, 날짜, 조회수 등이 들어갈 칸
+                        {detail.postUserNickname}
+                        {detail.postDate}
+                        {detail.countVisit}
                     </Typography>
                 </Box>
                 <Box //본문
@@ -131,7 +119,7 @@ function ShowingBoardTable(props) {
                             textAlign: 'left',
                         }}
                     >
-                        본문이 들어갈 칸
+                        {detail.postContent}
                     </Typography>
                     <Box sx={{ width: '100%', height: '107px' }}>영화정보</Box>
                     <Button
@@ -190,7 +178,7 @@ function ShowingBoardTable(props) {
                                     pb: 1,
                                 }}
                             >
-                                글쓴이
+                                {comment.cmtContent}
                             </Box>
                             <Box
                                 sx={{
@@ -203,7 +191,7 @@ function ShowingBoardTable(props) {
                                     pt: 2,
                                 }}
                             >
-                                2022.12.19 17:00 |
+                                {comment.cmtDate} |
                             </Box>
                             <IconButton aria-label="delete" sx={{ pt: 3 }}>
                                 <MoreVertIcon />
@@ -220,7 +208,7 @@ function ShowingBoardTable(props) {
                                 pb: 3,
                             }}
                         >
-                            댓글내용
+                            {comment.cmtContent}
                         </Typography>
                         <Box
                             sx={{
@@ -264,7 +252,7 @@ function ShowingBoardTable(props) {
                                     pt: 2,
                                 }}
                             >
-                                글쓴이
+                                {comment.cmtUserNickname}
                             </Box>
                             <Box
                                 sx={{
@@ -277,7 +265,7 @@ function ShowingBoardTable(props) {
                                     pt: 2,
                                 }}
                             >
-                                2022.12.19 17:00 |
+                                {comment.cmtDate} |
                             </Box>
                             <IconButton aria-label="delete" sx={{ pt: 3 }}>
                                 <MoreVertIcon />
@@ -294,7 +282,7 @@ function ShowingBoardTable(props) {
                                 pb: 3,
                             }}
                         >
-                            댓글내용
+                            {comment.cmtDate}
                         </Typography>
                         <Box
                             sx={{
