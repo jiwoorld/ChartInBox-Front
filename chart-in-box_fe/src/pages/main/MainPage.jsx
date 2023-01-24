@@ -42,6 +42,7 @@ function MainPage() {
     const [allData, setAllData] = React.useState({});
     React.useEffect(() => {
         axios
+            // .get('http://localhost:8080/')
             .get('/dummydata/mainpage.json')
             .then(function (response) {
                 setAllData(response.data);

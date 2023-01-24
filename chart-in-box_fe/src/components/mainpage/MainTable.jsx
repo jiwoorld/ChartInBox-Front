@@ -24,7 +24,6 @@ function MainTable({ tableName, tableLink, Board }) {
     const rows = Board.map(item => {
         return { title: item.postTitle, view: item.countVisit };
     });
-    //이 정보들을 백엔드구현하면 받아올 예정
     const theme = createTheme({
         palette: {
             primary: {
