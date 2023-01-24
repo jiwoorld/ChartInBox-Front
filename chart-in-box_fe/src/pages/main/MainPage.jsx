@@ -51,10 +51,13 @@ function MainPage() {
             });
     }, []);
 
-    const movies = allData?.mvCharts;
+    const movies = allData?.mvCharts ?? [];
+    const freeBoard = allData?.freeBoardList ?? [];
+    const reviewBoard = allData?.reviewBoardList ?? [];
+    const npartyBoard = allData?.npartyBoardList ?? [];
+
     //옵셔널체이닝
 
-    console.log(movies);
     return (
         <ThemeProvider theme={theme}>
             <MenuBarMovie />
@@ -214,14 +217,17 @@ function MainPage() {
                             <MainTable
                                 tableName="자유게시판"
                                 tableLink="/movie-talk/freeboard"
+                                Board={freeBoard}
                             ></MainTable>
                             <MainTable
                                 tableName="영화리뷰"
                                 tableLink="/movie-talk/reviewboard"
+                                Board={reviewBoard}
                             ></MainTable>
                             <MainTable
                                 tableName="n팟 구함"
                                 tableLink="/nboard/total"
+                                Board={npartyBoard}
                             ></MainTable>
                         </Box>
                     </Box>
