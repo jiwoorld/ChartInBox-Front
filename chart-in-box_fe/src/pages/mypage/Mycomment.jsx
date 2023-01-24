@@ -51,7 +51,7 @@ export default function Album() {
                     }}
                 >
                     <Button
-                        href="/mypost"
+                        href="post"
                         sx={{
                             align: 'left',
                             fontFamily: 'Pretendard',

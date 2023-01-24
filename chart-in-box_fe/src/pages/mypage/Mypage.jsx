@@ -17,8 +17,11 @@ import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
 import { Paper } from '@mui/material';
-import MyPageTable from '../../components/mypage/MyPageTable';
+import MyPageTable from '../../components/mypage/MyCommentTable';
 import MyScrapMovie from '../../components/mypage/MyScrapMovie';
+import MyPostTable from '../../components/mypage/MyPostTable';
+import MyCommentTable from '../../components/mypage/MyCommentTable';
+import mypagedata from '../../testdata/mypagedata.json';
 
 function Mypage() {
     const theme = createTheme({
@@ -111,11 +114,12 @@ function Mypage() {
                                     닉네임
                                 </Typography>
                                 <Typography
+                                    key={mypagedata.userNickname}
                                     textAlign="left"
                                     fontSize="1.5rem"
                                     fontWeight="600"
                                 >
-                                    잇타2피
+                                    {mypagedata.userNickname}
                                 </Typography>
                             </Box>
                         </Grid>
@@ -131,11 +135,12 @@ function Mypage() {
                                     이메일
                                 </Typography>
                                 <Typography
+                                    key={mypagedata.userEmail}
                                     textAlign="left"
                                     fontSize="1.5rem"
                                     fontWeight="600"
                                 >
-                                    chartinbox@gmail.com
+                                    {mypagedata.userEmail}
                                 </Typography>
                             </Box>
                         </Grid>
@@ -179,7 +184,7 @@ function Mypage() {
                                             </Typography>
                                         </Box>
                                     }
-                                    <MyPageTable tableName="자유게시판"></MyPageTable>
+                                    <MyPostTable tableName="자유게시판"></MyPostTable>
                                 </CardContent>
                             </Grid>
                             <Grid card xs={1}></Grid>
@@ -202,7 +207,7 @@ function Mypage() {
                                             내 댓글 〉
                                         </Typography>
                                     </Box>
-                                    <MyPageTable tableName="자유게시판"></MyPageTable>
+                                    <MyCommentTable tableName="자유게시판"></MyCommentTable>
                                 </CardContent>
                             </Grid>
                         </Grid>

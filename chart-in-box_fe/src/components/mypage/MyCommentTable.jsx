@@ -14,8 +14,9 @@ import {
     Typography,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import mypagedata from '../../testdata/mypagedata.json';
 
-function MyPageTable(props) {
+function MyCommentTable(props) {
     function createData(board, title) {
         return { board, title };
     }
@@ -26,14 +27,14 @@ function MyPageTable(props) {
     const handlePage = () => {
         navigate(link);
     };
-    const rows = [
+    /* const rows = [
         createData('자유게시판', '알라딘 포디엑스 본 사람?'),
         createData('후기게시판', '알라딘 포디엑스 본 후기'),
         createData('Q&A게시판', '알라딘 포디엑스 본 후기'),
         createData('자유게시판', '알라딘 포디엑스 본 사람?'),
         createData('후기게시판', '알라딘 포디엑스 본 후기'),
         createData('Q&A게시판', '알라딘 포디엑스 본 후기'),
-    ];
+    ]; */
     const theme = createTheme({
         palette: {
             /*  primary: {
@@ -77,8 +78,8 @@ function MyPageTable(props) {
                     <TableContainer component={Paper}>
                         <Table aria-label="simple table">
                             <TableBody>
-                                {rows.map(row => (
-                                    <TableRow key={row.id}>
+                                {mypagedata.commentList.map(item => (
+                                    <TableRow key={item.cmtPostId}>
                                         <TableCell
                                             component="th"
                                             scope="row"
@@ -90,7 +91,7 @@ function MyPageTable(props) {
                                                 paddingBottom: '0',
                                             }}
                                         >
-                                            {row.board}
+                                            {item.cmtContent}
                                         </TableCell>
                                         <TableCell
                                             align="right"
@@ -102,7 +103,7 @@ function MyPageTable(props) {
                                                 paddingBottom: '0',
                                             }}
                                         >
-                                            {row.title}
+                                            {item.boardTitle}
                                         </TableCell>
                                     </TableRow>
                                 ))}
@@ -120,7 +121,7 @@ function MyPageTable(props) {
                     >
                         <Button
                             size="medium"
-                            href="/mycomment"
+                            href="my-page/comment"
                             sx={{
                                 color: '#CF5E53',
                             }}
@@ -134,4 +135,4 @@ function MyPageTable(props) {
     );
 }
 
-export default MyPageTable;
+export default MyCommentTable;

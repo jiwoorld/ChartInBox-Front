@@ -37,8 +37,11 @@ function App() {
                         element={<MovieInfo></MovieInfo>}
                     />
                     <Route path="/my-page" element={<Mypage></Mypage>} />
-                    <Route path="/post" element={<Mypost></Mypost>} />
-                    <Route path="/comment" element={<Mycomment></Mycomment>} />
+                    <Route path="/my-page/post" element={<Mypost></Mypost>} />
+                    <Route
+                        path="/my-page/comment"
+                        element={<Mycomment></Mycomment>}
+                    />
                     <Route
                         path="/my-page/edit"
                         element={<ChangeInfo></ChangeInfo>}
