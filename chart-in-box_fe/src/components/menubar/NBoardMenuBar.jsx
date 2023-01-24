@@ -50,7 +50,7 @@ function NBoardSubBar() {
                     }}
                 >
                     <Button
-                        href="../nboard/total"
+                        href="../n-party/total"
                         sx={{
                             width: '31.25rem',
                             mr: '1rem',
@@ -66,7 +66,7 @@ function NBoardSubBar() {
                         전체글{' '}
                     </Button>
                     <Button
-                        href="../nboard/netflex"
+                        href="../n-party/netflex"
                         sx={{
                             width: '31.25rem',
                             mr: '1rem',
@@ -82,7 +82,7 @@ function NBoardSubBar() {
                         넷플릭스{' '}
                     </Button>
                     <Button
-                        href="../nboard/watcha"
+                        href="../n-party/watcha"
                         sx={{
                             width: '31.25rem',
                             height: '60px',
@@ -97,7 +97,7 @@ function NBoardSubBar() {
                         왓차{' '}
                     </Button>
                     <Button
-                        href="../nboard/tving"
+                        href="../n-party/tving"
                         sx={{
                             width: '31.25rem',
                             height: '60px',
@@ -112,7 +112,7 @@ function NBoardSubBar() {
                         티빙{' '}
                     </Button>
                     <Button
-                        href="../nboard/wave"
+                        href="../n-party/wave"
                         sx={{
                             width: '31.25rem',
                             height: '60px',
@@ -127,7 +127,7 @@ function NBoardSubBar() {
                         웨이브{' '}
                     </Button>
                     <Button
-                        href="../nboard/disney"
+                        href="../n-party/disney"
                         sx={{
                             width: '31.25rem',
                             height: '60px',
@@ -142,7 +142,7 @@ function NBoardSubBar() {
                         디즈니{' '}
                     </Button>
                     <Button
-                        href="../nboard/etc"
+                        href="../n-party/etc"
                         sx={{
                             width: '31.25rem',
                             height: '60px',

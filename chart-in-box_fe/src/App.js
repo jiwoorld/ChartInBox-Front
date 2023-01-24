@@ -37,11 +37,8 @@ function App() {
                         element={<MovieInfo></MovieInfo>}
                     />
                     <Route path="/my-page" element={<Mypage></Mypage>} />
-                    <Route path="/mypost" element={<Mypost></Mypost>} />
-                    <Route
-                        path="/mycomment"
-                        element={<Mycomment></Mycomment>}
-                    />
+                    <Route path="/post" element={<Mypost></Mypost>} />
+                    <Route path="/comment" element={<Mycomment></Mycomment>} />
                     <Route
                         path="/my-page/edit"
                         element={<ChangeInfo></ChangeInfo>}
@@ -65,7 +62,7 @@ function App() {
                         element={<ShowingBoard></ShowingBoard>}
                     />
                     <Route
-                        path="/nboard/:nboardname"
+                        path="/n-party/:nboardname"
                         element={<TotalNBoard></TotalNBoard>}
                     />
                     <Route

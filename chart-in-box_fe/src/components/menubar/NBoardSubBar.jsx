@@ -26,25 +26,25 @@ function NBoardSubBar() {
     }); // 색 지정
     const navigate = useNavigate();
     const handleTotalNBoard = () => {
-        navigate('/nboard/total');
+        navigate('/n-party/total');
     };
     const handleNetflexNBoard = () => {
-        navigate('/nboard/netflex');
+        navigate('/n-party/netflex');
     };
     const handledisneyNBoard = () => {
-        navigate('/nboard/disney');
+        navigate('/n-party/disney');
     };
     const handleTivingNBoard = () => {
-        navigate('/nboard/tving');
+        navigate('/n-party/tving');
     };
     const handleWaveNBoard = () => {
-        navigate('/nboard/wave');
+        navigate('/n-party/wave');
     };
     const handleWatchaNBoard = () => {
-        navigate('/nboard/watcha');
+        navigate('/n-party/watcha');
     };
     const handleEtcNBoard = () => {
-        navigate('/nboard/etc');
+        navigate('/n-party/etc');
     };
     return (
         <ThemeProvider theme={theme}>

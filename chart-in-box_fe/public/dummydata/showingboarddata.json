@@ -8,17 +8,64 @@
         "countVisit": 7,
         "postCategory": "Q&A",
         "postLike": 0,
+        "postLikeList": "[\"가나다라마바사아\"]",
         "postComment": 2,
         "postSpoiler": "false",
-        "postAnonym": "false"
+        "postAnonym": "false",
+        "postReport": "[\"가나다라마바사아\"]"
     },
-    "comments": {
-        "cmtId": 4,
-        "cmtPostId": 1,
-        "cmtContent": "댓글내용~~~!!!",
-        "cmtUserNickname": "가나다라마바사아",
-        "cmtReply": 0,
-        "cmtDate": "2023-01-18T11:45:42"
-    },
-    "userNickname": "가나다라마바사아"
+    "comments": [
+        {
+            "cmtId": 4,
+            "cmtPostId": 1,
+            "cmtContent": "댓글내용~~~!!!",
+            "cmtUserNickname": "가나다라마바사아",
+            "cmtReply": 0,
+            "cmtDate": "2023-01-18T11:45:42"
+        },
+        {
+            "cmtId": 6,
+            "cmtPostId": 1,
+            "cmtContent": "댓글수정함~!!!",
+            "cmtUserNickname": "가나다라마바사아",
+            "cmtReply": 4,
+            "cmtDate": "2023-01-18T11:59:01"
+        }
+    ],
+    "userNickname": "",
+    "postList": [
+        {
+            "postId": 1,
+            "postCategory": "Q&A",
+            "postTitle": "알라딘 포디엑스 본 사람?",
+            "postComment": 2,
+            "postUserNickname": "잇타2피",
+            "postAnonym": "false",
+            "postDate": "2023-01-02T20:25:29",
+            "countVisit": 24,
+            "postLike": 1
+        },
+        {
+            "postId": 2,
+            "postCategory": "자유",
+            "postTitle": "아바타2 너무 보고싶어아바타2 너무 보고싶어아바타2 너무 보고싶어아바타2 너무 보고싶어아바타2 너무 보고싶어아바타2 너무 보고싶어아바타2 너무 보고싶어아바타2 너무 보고싶어아바타2",
+            "postComment": 0,
+            "postUserNickname": "잇타2피",
+            "postAnonym": "false",
+            "postDate": "2023-01-02T20:27:05",
+            "countVisit": 1,
+            "postLike": 0
+        },
+        {
+            "postId": 5,
+            "postCategory": "리뷰",
+            "postTitle": "모가디슈 본 사람?????",
+            "postComment": 0,
+            "postUserNickname": "가나다라마바사아",
+            "postAnonym": "false",
+            "postDate": "2023-01-16T18:05:38",
+            "countVisit": 0,
+            "postLike": 0
+        }
+    ]
 }

@@ -1,0 +1,52 @@
+{
+    "userEmail": "leejihyun0324@gmail.com",
+    "userNickname": "가나다라마바사아",
+    "boardList": [
+        {
+            "postId": 12,
+            "postCategory": "자유",
+            "postTitle": "제목테스트",
+            "postComment": 0,
+            "postDate": "2023-01-18T11:59:01",
+            "countVisit": 1,
+            "postLike": 0
+        },
+        {
+            "postId": 5,
+            "postCategory": "리뷰",
+            "postTitle": "모가디슈 본 사람?????",
+            "postComment": 0,
+            "postDate": "2023-01-18T11:59:01",
+            "countVisit": 0,
+            "postLike": 0
+        }
+    ],
+    "commentList": [
+        {
+            "boardTitle": "알라딘 포디엑스 본 사람?",
+            "cmtPostId": 1,
+            "cmtContent": "댓글수정함~!!!",
+            "cmtDate": "2023-01-18T11:59:01",
+            "cmtId": 6
+        },
+        {
+            "boardTitle": "알라딘 포디엑스 본 사람?",
+            "cmtPostId": 1,
+            "cmtContent": "댓글내용~~~!!!",
+            "cmtDate": "2023-01-18T11:45:42",
+            "cmtId": 4
+        }
+    ],
+    "scrapList": [
+        {
+            "mvTitle": "아바타: 물의 길",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/99/17/90/tn_DPF026439.jpg",
+            "mvId": "F55873"
+        },
+        {
+            "mvTitle": "스위치",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/99/17/90/tn_DPK020041.jpg",
+            "mvId": "K33342"
+        }
+    ]
+}
