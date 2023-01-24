@@ -85,7 +85,7 @@ function MyCommentTable(props) {
                                             scope="row"
                                             sx={{
                                                 height: '2.75rem',
-                                                fontSize: '0.8rem',
+                                                fontSize: '1rem',
                                                 fontWeight: '400',
                                                 paddingTop: '0',
                                                 paddingBottom: '0',
@@ -97,7 +97,7 @@ function MyCommentTable(props) {
                                             align="right"
                                             sx={{
                                                 height: '2.75rem',
-                                                fontSize: '0.8rem',
+                                                fontSize: '0.75rem',
                                                 fontWeight: '400',
                                                 paddingTop: '0',
                                                 paddingBottom: '0',

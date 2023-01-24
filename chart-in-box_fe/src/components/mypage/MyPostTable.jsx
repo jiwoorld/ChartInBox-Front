@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import mypagedata from '../../testdata/mypagedata.json';
+import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 
 function MyPostTable(props) {
     function createData(board, title) {
@@ -85,15 +86,16 @@ function MyPostTable(props) {
                                             scope="row"
                                             sx={{
                                                 height: '2.75rem',
-                                                fontSize: '0.8rem',
+                                                fontSize: '1rem',
                                                 fontWeight: '400',
                                                 paddingTop: '0',
                                                 paddingBottom: '0',
                                             }}
                                         >
-                                            {item.postCategory}
+                                            [{item.postCategory}게시판]
+                                            {item.postTitle}
                                         </TableCell>
-                                        <TableCell
+                                        {/* <TableCell
                                             align="right"
                                             sx={{
                                                 height: '2.75rem',
@@ -104,6 +106,10 @@ function MyPostTable(props) {
                                             }}
                                         >
                                             {item.postTitle}
+                                        </TableCell> */}
+                                        <TableCell sx={{ p: 1 }}>
+                                            <ChatOutlinedIcon fontSize="small" />
+                                            {item.postComment}
                                         </TableCell>
                                     </TableRow>
                                 ))}
