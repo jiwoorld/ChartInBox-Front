@@ -57,3 +57,26 @@
 .ck-editor__editable {
     min-height: 46.125rem;
 }
+a:link {
+    color: black;
+    text-decoration: none;
+}
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    color: black;
+}
+.movieInfoA:link {
+    color: white;
+    text-decoration: none;
+}
+.movieInfoA:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.movieInfoA:hover {
+    color: white;
+}

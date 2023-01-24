@@ -76,14 +76,13 @@ function ChangePassword({ changePasswordClose }) {
                     Swal.fire({
                         width: 460,
                         height: 260,
-                        title: '비밀번호 찾기 실패',
-                        html: '잘못된 이메일입니다',
+                        html: '<b> 비밀번호 찾기 실패</b><br><br>잘못된 이메일입니다',
                         showConfirmButton: false,
                         cancelButtonText: '확인',
                         cancelButtonColor: '#CF5E53',
                         showCancelButton: true,
                         background: '#fff url(/image/swalBackground.png)',
-                        marginTop: '0px !important!',
+                        timer: 5000,
                     });
                 } //잘못된 이메일 비밀번호 찾기 실패
             });
