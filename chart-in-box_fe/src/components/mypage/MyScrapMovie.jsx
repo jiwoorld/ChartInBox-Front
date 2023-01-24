@@ -61,7 +61,7 @@ function MyScrapMovie(props) {
             {/* <Typography key={item.mvId}>{item.mvTitle}</Typography> */}
             {mypagedata.scrapList.map(item => (
                 <Box>
-                    <img src={item.mvPoster}></img>
+                    <img src={item.mvPoster} alt="영화"></img>
                 </Box>
             ))}
             {mypagedata.scrapList.map(item => (

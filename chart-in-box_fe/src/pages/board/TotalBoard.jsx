@@ -101,7 +101,6 @@ function TotalBoard() {
                             height: '50rem',
                             display: 'flex',
                             p: 1,
-                            border: '1px solid red',
                         }}
                     >
                         <BoardTable boardName={boardName}></BoardTable>

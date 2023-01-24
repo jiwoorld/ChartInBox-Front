@@ -40,30 +40,27 @@ function MovieInfo() {
         },
     });
     const [allData, setAllData] = React.useState({});
-    const [scrap, setScrap] = React.useState(false);
-
     const movieId = useParams();
     const url = movieId.id;
+    let scrap = false;
     useEffect(() => {
         axios
             // .get(`/movie-info/${url}`)
             .get('/dummydata/movieinfo.json')
             .then(function (response) {
                 setAllData(response.data);
-                console.log('rr' + response.data);
-                setScrap(response.data.movieScrap);
             })
             .catch(function (error) {
                 console.log(error);
             });
-    }, [url]);
+    }, [url, scrap]);
 
     const handleScrap = () => {
         axios
             // .get(`/movie-info/${url}`)
-            .post(`/movie-info${url}/scrap`)
+            .post(`/movie-info/${url}/scrap`)
             .then(function (response) {
-                setScrap(!scrap);
+                scrap = !scrap;
             })
             .catch(function (error) {
                 if (error.response.data === false) {
@@ -80,9 +77,11 @@ function MovieInfo() {
                 }
             });
     };
+
     const info = allData?.movieDetail ?? [];
     const reviewBoard = allData?.reviewBoardList ?? [];
     const qnaBoard = allData?.qnaBoardList ?? [];
+    scrap = allData?.movieScrap;
     let mvRating = '';
     if (typeof info.mvRating === 'string') {
         mvRating = info.mvRating.slice(0, -3);
@@ -240,7 +239,7 @@ function MovieInfo() {
                                             },
                                         }}
                                     >
-                                        스크랩 34
+                                        스크랩
                                     </Typography>
                                 </Button>
                             ) : (
@@ -275,7 +274,7 @@ function MovieInfo() {
                                             },
                                         }}
                                     >
-                                        스크랩 34
+                                        스크랩
                                     </Typography>
                                 </Button>
                             )}

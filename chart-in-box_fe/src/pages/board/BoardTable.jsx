@@ -167,7 +167,7 @@ function BoardTable({ boardName }) {
                                     <TableCell
                                         align="center"
                                         sx={{
-                                            width: '8.4rem',
+                                            width: '8rem',
                                             fontSize: '0.8rem',
                                             fontWeight: '400',
                                             border: '0px',
@@ -178,7 +178,7 @@ function BoardTable({ boardName }) {
                                     <TableCell
                                         align="center"
                                         sx={{
-                                            width: '11.4rem',
+                                            width: '7rem',
                                             fontSize: '0.8rem',
                                             fontWeight: '400',
                                             border: '0px',
@@ -254,6 +254,10 @@ function BoardTable({ boardName }) {
                                                 border: '0px',
                                                 borderBottom:
                                                     '0.063rem solid #D9D9D9',
+                                                maxWidth: '7rem',
+                                                whiteSpace: 'nowrap',
+                                                overflow: 'hidden',
+                                                textOverflow: 'ellipsis',
                                             }}
                                         >
                                             {item.postDate}
