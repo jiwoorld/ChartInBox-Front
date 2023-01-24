@@ -61,7 +61,7 @@ function MovieInfo() {
     const handleScrap = () => {
         axios
             // .get(`/movie-info/${url}`)
-            .post(`http://localhost:80808/movie-info${url}/scrap`)
+            .post(`/movie-info${url}/scrap`)
             .then(function (response) {
                 setScrap(!scrap);
             })
@@ -70,8 +70,8 @@ function MovieInfo() {
                     Swal.fire({
                         width: 460,
                         height: 260,
-                        title: '스크랩 실패',
-                        html: '로그인 후 진행해주세요',
+                        html: '<b> 스크랩 실패</b><br><br>로그인 후 진행해주세요',
+
                         showConfirmButton: false,
                         cancelButtonText: '확인',
                         cancelButtonColor: '#CF5E53',
@@ -254,6 +254,7 @@ function MovieInfo() {
                                             backgroundColor: '#CF5E53',
                                         },
                                     }}
+                                    onClick={handleScrap}
                                 >
                                     <img
                                         src="../../image/notScrap.png"
