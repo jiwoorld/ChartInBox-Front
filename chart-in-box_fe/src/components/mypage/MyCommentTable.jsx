@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-function MyPageTable(props) {
+function MyCommentTable(props) {
     function createData(board, title) {
         return { board, title };
     }
@@ -120,7 +120,7 @@ function MyPageTable(props) {
                     >
                         <Button
                             size="medium"
-                            href="/mycomment"
+                            href="my-page/comment"
                             sx={{
                                 color: '#CF5E53',
                             }}
@@ -134,4 +134,4 @@ function MyPageTable(props) {
     );
 }
 
-export default MyPageTable;
+export default MyCommentTable;

@@ -66,7 +66,7 @@ export default function Album() {
                         내글
                     </Button>
                     <Button
-                        href="mycomment"
+                        href="comment"
                         sx={{
                             width: '161px',
                             height: '60px',
