@@ -1,27 +1,20 @@
 import * as React from 'react';
-//import CssBaseline from "@material-ui/core/CssBaseline";
-//import { makeStyles } from '@mui/styles';
-import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
-/*import CameraIcon from '@mui/icons-material/PhotoCamera';*/
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CssBaseline from '@mui/material/CssBaseline';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
-import { Paper } from '@mui/material';
-import MyPageTable from '../../components/mypage/MyCommentTable';
 import MyScrapMovie from '../../components/mypage/MyScrapMovie';
 import MyPostTable from '../../components/mypage/MyPostTable';
 import MyCommentTable from '../../components/mypage/MyCommentTable';
 import mypagedata from '../../testdata/mypagedata.json';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 function Mypage() {
     const theme = createTheme({
@@ -46,7 +39,29 @@ function Mypage() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
+    const navigate = useNavigate();
     const [moives, setMovies] = React.useState([1]);
+    const handleLogout = () => {
+        axios
+            // .get('/')
+            .post('/log-out')
+            .then(function (response) {
+                Swal.fire({
+                    width: 460,
+                    height: 260,
+                    title: '로그인 성공',
+                    showConfirmButton: false,
+                    cancelButtonText: '확인',
+                    cancelButtonColor: '#CF5E53',
+                    showCancelButton: true,
+                    background: '#fff url(/image/swalBackground.png)',
+                });
+                navigate('/');
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -95,6 +110,21 @@ function Mypage() {
                     >
                         {' '}
                         개인정보 수정{' '}
+                    </Button>
+                    <Button
+                        sx={{
+                            height: '1.375rem',
+                            width: '8.303rem',
+                            fontFamily: 'Pretendard',
+                            fontStyle: 'normal',
+                            fontWeight: '400',
+                            fontSize: '1.125rem',
+                            color: 'text.primary',
+                            fontColor: 'grey',
+                        }}
+                        onClick={handleLogout}
+                    >
+                        로그아웃
                     </Button>
                     <Grid container spacing={0.5}>
                         <Grid item xs={12} sm={6}>

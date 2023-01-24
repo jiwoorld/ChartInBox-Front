@@ -11,6 +11,7 @@ import Join from '../sign/Join';
 import Login from '../sign/Login';
 import ChangePassword from '../sign/ChangePassword';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function MenuBarMovie(props) {
     const theme = createTheme({
@@ -50,6 +51,7 @@ function MenuBarMovie(props) {
     const handlePopoverOpen = event => {
         setLogo(event.currentTarget);
     };
+    const [isLogin, setIsLogin] = React.useState(false);
 
     const [searchValue, setSearchValue] = React.useState('');
     const onChangeSearch = e => {
@@ -103,7 +105,21 @@ function MenuBarMovie(props) {
     //모달창 창끄고 여는 state
 
     const handleMypage = () => {
-        navigate('/my-page');
+        if (isLogin) {
+            navigate('/my-page');
+        } else {
+            Swal.fire({
+                width: 460,
+                height: 260,
+                html: '로그인 후 이용 가능합니다',
+                showConfirmButton: false,
+                cancelButtonText: '확인',
+                cancelButtonColor: '#CF5E53',
+                showCancelButton: true,
+                background: '#fff url(/image/swalBackground.png)',
+                timer: 5000,
+            });
+        }
     };
 
     const handleMainpage = () => {
@@ -284,6 +300,7 @@ function MenuBarMovie(props) {
                                 clickJoin={clickJoin}
                                 clickPassword={clickPassword}
                                 loginClose={loginClose}
+                                setIsLogin={setIsLogin}
                             />
                         </Box>
                     </Modal>
