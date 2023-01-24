@@ -14,6 +14,7 @@ import {
     Typography,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import mypagedata from '../../testdata/mypagedata.json';
 
 function MyPostTable(props) {
     function createData(board, title) {
@@ -26,14 +27,14 @@ function MyPostTable(props) {
     const handlePage = () => {
         navigate(link);
     };
-    const rows = [
+    /* const rows = [
         createData('자유게시판', '알라딘 포디엑스 본 사람?'),
         createData('후기게시판', '알라딘 포디엑스 본 후기'),
         createData('Q&A게시판', '알라딘 포디엑스 본 후기'),
         createData('자유게시판', '알라딘 포디엑스 본 사람?'),
         createData('후기게시판', '알라딘 포디엑스 본 후기'),
         createData('Q&A게시판', '알라딘 포디엑스 본 후기'),
-    ];
+    ]; */
     const theme = createTheme({
         palette: {
             /*  primary: {
@@ -77,8 +78,8 @@ function MyPostTable(props) {
                     <TableContainer component={Paper}>
                         <Table aria-label="simple table">
                             <TableBody>
-                                {rows.map(row => (
-                                    <TableRow key={row.id}>
+                                {mypagedata.boardList.map(item => (
+                                    <TableRow key={item.postId}>
                                         <TableCell
                                             component="th"
                                             scope="row"
@@ -90,7 +91,7 @@ function MyPostTable(props) {
                                                 paddingBottom: '0',
                                             }}
                                         >
-                                            {row.board}
+                                            {item.postCategory}
                                         </TableCell>
                                         <TableCell
                                             align="right"
@@ -102,7 +103,7 @@ function MyPostTable(props) {
                                                 paddingBottom: '0',
                                             }}
                                         >
-                                            {row.title}
+                                            {item.postTitle}
                                         </TableCell>
                                     </TableRow>
                                 ))}

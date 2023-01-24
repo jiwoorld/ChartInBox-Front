@@ -21,6 +21,7 @@ import MyPageTable from '../../components/mypage/MyCommentTable';
 import MyScrapMovie from '../../components/mypage/MyScrapMovie';
 import MyPostTable from '../../components/mypage/MyPostTable';
 import MyCommentTable from '../../components/mypage/MyCommentTable';
+import mypagedata from '../../testdata/mypagedata.json';
 
 function Mypage() {
     const theme = createTheme({
@@ -113,11 +114,12 @@ function Mypage() {
                                     닉네임
                                 </Typography>
                                 <Typography
+                                    key={mypagedata.userNickname}
                                     textAlign="left"
                                     fontSize="1.5rem"
                                     fontWeight="600"
                                 >
-                                    잇타2피
+                                    {mypagedata.userNickname}
                                 </Typography>
                             </Box>
                         </Grid>
@@ -133,11 +135,12 @@ function Mypage() {
                                     이메일
                                 </Typography>
                                 <Typography
+                                    key={mypagedata.userEmail}
                                     textAlign="left"
                                     fontSize="1.5rem"
                                     fontWeight="600"
                                 >
-                                    chartinbox@gmail.com
+                                    {mypagedata.userEmail}
                                 </Typography>
                             </Box>
                         </Grid>
