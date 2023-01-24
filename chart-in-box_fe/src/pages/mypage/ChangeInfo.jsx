@@ -66,7 +66,7 @@ function ChangeInfo({ changeClose }) {
         console.log(postData, 'postData');
 
         await axios
-            .post('http://localhost:8080/changeinfo', { postData })
+            .post('http://localhost:8080/my-page/edit', { postData })
             .then(res => {
                 // submit 버튼 중복클릭 방지
                 let submitBtn = document.getElementById('submit');
@@ -150,6 +150,7 @@ function ChangeInfo({ changeClose }) {
                     }}
                 >
                     <Button
+                        href="edit"
                         sx={{
                             align: 'left',
                             width: '8.313rem',
@@ -165,7 +166,6 @@ function ChangeInfo({ changeClose }) {
                         개인정보 수정
                     </Button>
                     <Button
-                        href="/changeinfo"
                         sx={{
                             height: '1.375rem',
                             width: '5.303rem',

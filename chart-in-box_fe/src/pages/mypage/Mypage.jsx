@@ -25,9 +25,9 @@ import mypagedata from '../../testdata/mypagedata.json';
 
 function Mypage() {
     const theme = createTheme({
+        //         main: '#fff',
         // palette: {
         //     primary: {
-        //         main: '#fff',
         //     },
         //     secondary: {
         //         main: '#CF5E53',
@@ -46,7 +46,7 @@ function Mypage() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-    const [moives, setMovies] = React.useState([1, 2, 3, 4, 5]);
+    const [moives, setMovies] = React.useState([1]);
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -90,12 +90,12 @@ function Mypage() {
                             fontWeight: '400',
                             fontSize: '1.125rem',
                             color: '#757575',
+                            fontColor: 'grey',
                         }}
                     >
                         {' '}
                         개인정보 수정{' '}
                     </Button>
-
                     <Grid container spacing={0.5}>
                         <Grid item xs={12} sm={6}>
                             <Box
@@ -230,6 +230,7 @@ function Mypage() {
                         }}
                     >
                         <Button
+                            className="movieInfoA"
                             href="/changeinfo"
                             sx={{
                                 height: '1.375rem',
@@ -237,7 +238,6 @@ function Mypage() {
                                 mr: 107,
                                 fontFamily: 'Pretendard',
                                 textAlign: 'left',
-                                fontStyle: 'normal',
                                 fontWeight: '400',
                                 fontSize: '1.125rem',
                                 color: 'white',
@@ -247,6 +247,7 @@ function Mypage() {
                             스크랩한 영화{' '}
                         </Button>
                         <Button
+                            className="movieInfoA"
                             href="/ScrapMovie"
                             sx={{
                                 ml: -3,
@@ -263,16 +264,35 @@ function Mypage() {
                         sx={{
                             ml: 3,
                             width: '66.4375rem',
-                            height: '37.625rem',
+                            height: '20.625rem',
                             display: 'flex',
                             align: 'center',
+                            alignItems: 'row',
                             justifyContent: 'space-between',
+                            direction: 'row',
+                            border: 1,
                             mt: 1,
                         }}
                     >
-                        <Grid container spacing={2}>
+                        <Grid
+                            container
+                            spacing={2}
+                            direction="row"
+                            justifyContent="center"
+                            alignItems="center"
+                            sx={{
+                                border: '1px solid red',
+                            }}
+                        >
                             {moives.map(movie => (
-                                <Grid key={movie.id} item={5}>
+                                <Grid
+                                    key={movie.id}
+                                    item={5}
+                                    sx={{
+                                        border: '1px solid red',
+                                        display: 'flex',
+                                    }}
+                                >
                                     <MyScrapMovie movie={movie}></MyScrapMovie>
                                 </Grid>
                             ))}
