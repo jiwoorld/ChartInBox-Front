@@ -13,9 +13,10 @@ import {
     ThemeProvider,
     Typography,
 } from '@mui/material';
+import postdata from '../../testdata/postdata.json';
 
 function MypageTable(props) {
-    function createData(title, author, date, view, like) {
+    /* function createData(title, author, date, view, like) {
         return { title, author, date, view, like };
     }
 
@@ -30,7 +31,7 @@ function MypageTable(props) {
         createData('알리딘 포디엑스 본 사람?', '이지현', '22.01.03', 34, 7),
         createData('알리딘 포디엑스 본 사람?', '곽지우', '22.01.03', 34, 7),
         createData('알리딘 포디엑스 본 사람?', '박가현', '22.01.03', 34, 7),
-    ];
+    ]; */
     const theme = createTheme({
         palette: {
             primary: {
@@ -140,8 +141,9 @@ function MypageTable(props) {
                             <TableBody
                                 sx={{ borderBottom: '0.063rem solid #D9D9D9' }}
                             >
-                                {rows.map(row => (
-                                    <TableRow key={row.author}>
+                                {/* {freeboarddata.boardList.map(item => ( */}
+                                {postdata.map(item => (
+                                    <TableRow key={item.postId}>
                                         <TableCell
                                             component="th"
                                             scope="row"
@@ -153,7 +155,7 @@ function MypageTable(props) {
                                                     '0.063rem solid #D9D9D9',
                                             }}
                                         >
-                                            {row.title}
+                                            {item.postTitle}
                                         </TableCell>
                                         <TableCell
                                             align="right"
@@ -165,7 +167,7 @@ function MypageTable(props) {
                                                     '0.063rem solid #D9D9D9',
                                             }}
                                         >
-                                            {row.author}
+                                            {item.postCategory}
                                         </TableCell>
                                         <TableCell
                                             align="right"
@@ -177,7 +179,7 @@ function MypageTable(props) {
                                                     '0.063rem solid #D9D9D9',
                                             }}
                                         >
-                                            {row.date}
+                                            {item.postDate}
                                         </TableCell>
                                         <TableCell
                                             align="right"
@@ -189,7 +191,7 @@ function MypageTable(props) {
                                                     '0.063rem solid #D9D9D9',
                                             }}
                                         >
-                                            {row.view}
+                                            {item.countVisit}
                                         </TableCell>
                                         <TableCell
                                             align="right"
@@ -201,7 +203,7 @@ function MypageTable(props) {
                                                     '0.063rem solid #D9D9D9',
                                             }}
                                         >
-                                            {row.like}
+                                            {item.postLike}
                                         </TableCell>
                                     </TableRow>
                                 ))}
