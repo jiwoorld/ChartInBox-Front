@@ -28,10 +28,8 @@ const data = {
     },
 };
 
-function TotalBoard({ match }) {
-    const { boardname } = useParams();
-    const board = data[boardname];
-
+function TotalBoard() {
+    const [boardName, setBoardName] = React.useState('전체글');
     const theme = createTheme({
         palette: {
             primary: {
@@ -56,7 +54,7 @@ function TotalBoard({ match }) {
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <MenuBar></MenuBar>
-            <MovietalkMenuBar></MovietalkMenuBar>
+            <MovietalkMenuBar setBoardName={setBoardName}></MovietalkMenuBar>
             <main>
                 <Container
                     maxWidth="70rem"
@@ -65,21 +63,11 @@ function TotalBoard({ match }) {
                         mt: '1.4rem',
                         display: 'flex',
                         flexDirection: 'row',
+                        border: '1px solid red',
                     }}
                 >
                     <Box sx={{ p: 1 }}>
                         <MyInformation></MyInformation>
-                        {/* <Box
-                            sx={{
-                                width: '15.125rem',
-                                height: '14rem',
-                                border: 0.4,
-                                borderColor: 'line.main',
-                                mb: 3,
-                            }}
-                        >
-                            
-                        </Box> */}
                         <Button
                             href="../writing"
                             sx={{
@@ -101,7 +89,9 @@ function TotalBoard({ match }) {
                                 //border: 2,
                             }}
                         >
-                            <MovietalkSubBar></MovietalkSubBar>
+                            <MovietalkSubBar
+                                setBoardName={setBoardName}
+                            ></MovietalkSubBar>
                         </Box>
                     </Box>
 
@@ -109,12 +99,12 @@ function TotalBoard({ match }) {
                         sx={{
                             width: '59.5rem',
                             height: '50rem',
-                            //border: 2,
                             display: 'flex',
                             p: 1,
+                            border: '1px solid red',
                         }}
                     >
-                        <BoardTable tableName="전체체"></BoardTable>
+                        <BoardTable boardName={boardName}></BoardTable>
                     </Box>
                 </Container>
             </main>

@@ -21,8 +21,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import freeboarddata from '../../testdata/freeboarddata.json';
 
-function BoardTable(props) {
-    const tableName = props.tableName;
+function BoardTable({ boardName }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -96,7 +95,7 @@ function BoardTable(props) {
                                 fontSize: '1.313rem',
                             }}
                         >
-                            {tableName}
+                            {boardName}
                         </Typography>
                     </Box>
                     <FormGroup>
