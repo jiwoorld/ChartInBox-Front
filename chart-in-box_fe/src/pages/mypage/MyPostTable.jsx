@@ -16,22 +16,7 @@ import {
 import postdata from '../../testdata/postdata.json';
 
 function MypageTable(props) {
-    /* function createData(title, author, date, view, like) {
-        return { title, author, date, view, like };
-    }
-
-    const rows = [
-        createData('알리딘 포디엑스 본 사람?', '양윤서', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '김다은', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '이지현', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '곽지우', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '박가현', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '양윤서', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '김다은', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '이지현', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '곽지우', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '박가현', '22.01.03', 34, 7),
-    ]; */
+    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
     const theme = createTheme({
         palette: {
             primary: {
@@ -109,6 +94,7 @@ function MypageTable(props) {
                                     <TableCell
                                         align="right"
                                         sx={{
+                                            textAlign: 'center',
                                             fontSize: '0.8rem',
                                             fontWeight: '400',
                                             border: '0px',
@@ -210,26 +196,6 @@ function MypageTable(props) {
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    <Box
-                        sx={{
-                            height: '3.125rem',
-                            display: 'flex',
-                            //mr: 'auto',
-                            justifyContent: 'flex-end',
-                            mt: '0.2rem',
-                        }}
-                    >
-                        <Button
-                            sx={{
-                                backgroundColor: 'white',
-                                color: 'black',
-                                borderRadius: '0.9rem',
-                                opacity: '70%',
-                            }}
-                        >
-                            삭제하기
-                        </Button>
-                    </Box>
                 </Box>
             </Box>
         </ThemeProvider>

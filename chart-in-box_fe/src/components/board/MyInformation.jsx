@@ -100,7 +100,7 @@ function MyInformation() {
                         }}
                     >
                         <Button
-                            href="../mypost"
+                            href="../my-page/post"
                             sx={{
                                 color: 'black',
                                 fontWeight: 400,
@@ -121,7 +121,7 @@ function MyInformation() {
                         }}
                     >
                         <Button
-                            href="../mycomment"
+                            href="../my-page/comment"
                             sx={{
                                 color: 'black',
                                 fontSize: '0.938rem',
