@@ -15,7 +15,7 @@ const Boxs = styled(Box)`
     padding-bottom: 40px !important;
 `;
 
-function Login({ clickJoin, clickPassword, loginClose }) {
+function Login({ clickJoin, clickPassword, loginClose, setIsLogin }) {
     // color, font 설정
     const theme = createTheme({
         palette: {
@@ -69,6 +69,7 @@ function Login({ clickJoin, clickPassword, loginClose }) {
                     background: '#fff url(/image/swalBackground.png)',
                 });
                 navigate('/');
+                setIsLogin(true);
             })
             .catch(err => {
                 if (err.response.data === 'userEmail') {
