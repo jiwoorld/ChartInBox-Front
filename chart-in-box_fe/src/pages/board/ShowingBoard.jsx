@@ -17,7 +17,9 @@ import { useParams } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
 import ShortTable from './ShortTable';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
+import Swal from 'sweetalert2';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import MovieInformation from '../../components/board/MovieInfomation';
 
 function ShowingBoard(props) {
     const theme = createTheme({
@@ -39,6 +41,7 @@ function ShowingBoard(props) {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
+    const [allData, setAllData] = React.useState({});
     const [detail, setdetail] = React.useState({});
     const [comment, setcomment] = React.useState({});
     const [name, setname] = React.useState({});
@@ -46,11 +49,13 @@ function ShowingBoard(props) {
     const postId = useParams();
     const url = postId.id;
 
+    let like = false;
     useEffect(() => {
         axios
             .get('/dummydata/showingboarddata.json')
             .then(function (response) {
                 console.log('RRr' + response.data);
+                setAllData(response.data);
                 setdetail(response.data.postDetail);
                 setcomment(response.data.comments);
                 setname(response.data.userNickname);
@@ -58,8 +63,29 @@ function ShowingBoard(props) {
             .catch(function (error) {
                 console.log(error);
             });
-    }, [url]);
+    }, [url, like]);
 
+    const handleLike = () => {
+        axios
+            .post(`/movie-info/${url}/like`)
+            .then(function (response) {
+                like = !like;
+            })
+            .catch(function (error) {
+                if (error.response.data === false) {
+                    Swal.fire({
+                        width: 460,
+                        height: 260,
+                        html: '좋아요가 등록되지 않았습니다',
+                        showConfirmButton: false,
+                        cancelButtonText: '확인',
+                        cancelButtonColor: '#CF5E53',
+                        showCancelButton: true,
+                    });
+                }
+            });
+    };
+    like = allData?.movieLike;
     const [value, setValue] = React.useState('Controlled');
     /* const a = detail.postDate;
     const b = a.split('T');
@@ -239,25 +265,43 @@ function ShowingBoard(props) {
                                 >
                                     {detail.postContent}
                                 </Typography>
-                                <Box
-                                    sx={{
-                                        width: '100%',
-                                        height: '107px',
-                                        border: 1,
-                                    }}
-                                >
-                                    영화정보
-                                </Box>
-                                <Button
-                                    width="3rem"
-                                    variant="contained"
-                                    endIcon={<ThumbUpAltIcon />}
-                                    sx={{
-                                        backgroundColor: 'black',
-                                    }}
-                                >
-                                    좋아요
-                                </Button>
+
+                                <MovieInformation></MovieInformation>
+
+                                {like ? (
+                                    {
+                                        /* <Button
+                                        onClick={() => handleLike()}
+                                        variant="contained"
+                                        endIcon={<ThumbUpAltIcon />}
+                                        sx={{
+                                            '&:hover,&.Mui-focusVisible': {
+                                                backgroundColor: '#C2C2C2',
+                                            },
+                                            width: '3rem',
+                                            color: 'white',
+                                            backgroundColor: 'black',
+                                        }}
+                                    >
+                                        좋아요
+                                    </Button> */
+                                    }
+                                ) : (
+                                    <Button
+                                        onClick={() => handleLike()}
+                                        variant="contained"
+                                        endIcon={<ThumbUpAltIcon />}
+                                        sx={{
+                                            '&:hover,&.Mui-focusVisible': {
+                                                backgroundColor: '#C2C2C2',
+                                            },
+                                            color: 'black',
+                                            backgroundColor: 'white',
+                                        }}
+                                    >
+                                        좋아요
+                                    </Button>
+                                )}
                             </Box>
 
                             <Box //댓글
