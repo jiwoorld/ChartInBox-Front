@@ -11,6 +11,7 @@ import Join from '../sign/Join';
 import Login from '../sign/Login';
 import ChangePassword from '../sign/ChangePassword';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import Swal from 'sweetalert2';
 
 function MenuBarMovie({ pageColor }) {
@@ -104,24 +105,6 @@ function MenuBarMovie({ pageColor }) {
     };
     //모달창 창끄고 여는 state
 
-    const handleMypage = () => {
-        if (isLogin) {
-            navigate('/my-page');
-        } else {
-            Swal.fire({
-                width: 460,
-                height: 260,
-                html: '로그인 후 이용 가능합니다',
-                showConfirmButton: false,
-                cancelButtonText: '확인',
-                cancelButtonColor: '#CF5E53',
-                showCancelButton: true,
-                background: '#fff url(/image/swalBackground.png)',
-                timer: 5000,
-            });
-        }
-    };
-
     const handleMainpage = () => {
         navigate('/');
     };
@@ -134,6 +117,30 @@ function MenuBarMovie({ pageColor }) {
     };
     const handleMovieSearch = () => {
         navigate('/moviesearch');
+    };
+    const handleMyPage = () => {
+        navigate('/my-page');
+    };
+    const handleLogout = () => {
+        axios
+            // .get('/')
+            .post('/log-out')
+            .then(function (response) {
+                Swal.fire({
+                    width: 460,
+                    height: 260,
+                    title: '로그아웃 성공',
+                    showConfirmButton: false,
+                    cancelButtonText: '확인',
+                    cancelButtonColor: '#CF5E53',
+                    showCancelButton: true,
+                    background: '#fff url(/image/swalBackground.png)',
+                });
+                navigate('/');
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     };
 
     return (
@@ -292,84 +299,108 @@ function MenuBarMovie({ pageColor }) {
                     </Paper>
                 </Box>
                 {/* 검색창 */}
-                <Box
-                    sx={{
-                        display: 'flex',
-                        width: '291px',
-                        height: '21px',
-                        alignItems: 'center',
-                        justifyContent: 'space-around',
-                    }}
-                >
-                    <Button
-                        onClick={handleLoginOpen}
+
+                {isLogin ? (
+                    <Box
                         sx={{
-                            fontWeight: '600',
-                            fontSize: '0.938rem',
-                            width: '64px',
-                            height: '21px',
-                            padding: '0px',
+                            display: 'flex',
+                            width: '9.475rem',
+                            height: '1.3125rem',
+                            alignItems: 'center',
+                            justifyContent: 'space-around',
                         }}
                     >
-                        로그인
-                    </Button>
-                    <Modal open={loginOpen} onClose={handleLoginClose}>
-                        <Box sx={style}>
-                            <Login
-                                clickJoin={clickJoin}
-                                clickPassword={clickPassword}
-                                loginClose={loginClose}
-                                setIsLogin={setIsLogin}
-                            />
-                        </Box>
-                    </Modal>
-                    {/* 로그인모달 */}
-                    <Button
-                        onClick={handleJoinOpen}
+                        {' '}
+                        <Button
+                            sx={{
+                                fontWeight: '600',
+                                fontSize: '0.938rem',
+                                width: '64px',
+                                height: '21px',
+                                padding: '0px',
+                            }}
+                            onClick={handleLogout}
+                        >
+                            로그아웃
+                        </Button>{' '}
+                        <Button
+                            sx={{
+                                fontWeight: '600',
+                                fontSize: '0.938rem',
+                                width: '64px',
+                                height: '21px',
+                                padding: '0px',
+                            }}
+                            onClick={handleMyPage}
+                        >
+                            MY
+                        </Button>{' '}
+                    </Box>
+                ) : (
+                    <Box
                         sx={{
-                            fontWeight: '600',
-                            fontSize: '0.938rem',
-                            width: '64px',
-                            height: '21px',
-                            padding: '0px',
+                            display: 'flex',
+                            width: '9.475rem',
+                            height: '1.3125rem',
+                            alignItems: 'center',
+                            justifyContent: 'space-around',
                         }}
                     >
-                        회원가입
-                    </Button>
-                    <Modal open={joinOpen} onClose={handleJoinClose}>
-                        <Box sx={style}>
-                            <Join
-                                clickLogin={clickLogin}
-                                joinClose={joinClose}
-                            />
-                        </Box>
-                    </Modal>
-                    {/* 회원가입 모달 */}
-                    <Modal
-                        open={changePasswordOpen}
-                        onClose={handleChangePasswordClose}
-                    >
-                        <Box sx={style}>
-                            <ChangePassword
-                                changePasswordClose={changePasswordClose}
-                            ></ChangePassword>
-                        </Box>
-                    </Modal>
-                    {/* 비밀번호 모달 */}
-                    <Button
-                        sx={{
-                            fontWeight: '600',
-                            fontSize: '0.938rem',
-                            width: '64px',
-                            height: '21px',
-                            padding: '0px',
-                        }}
-                        onClick={handleMypage}
-                    >
-                        MY
-                    </Button>
-                </Box>
-                {/* 마이 */}
+                        <Button
+                            onClick={handleLoginOpen}
+                            sx={{
+                                fontWeight: '600',
+                                fontSize: '0.938rem',
+                                width: '64px',
+                                height: '21px',
+                                padding: '0px',
+                            }}
+                        >
+                            로그인
+                        </Button>
+                        <Modal open={loginOpen} onClose={handleLoginClose}>
+                            <Box sx={style}>
+                                <Login
+                                    clickJoin={clickJoin}
+                                    clickPassword={clickPassword}
+                                    loginClose={loginClose}
+                                    setIsLogin={setIsLogin}
+                                />
+                            </Box>
+                        </Modal>
+
+                        <Button
+                            onClick={handleJoinOpen}
+                            sx={{
+                                fontWeight: '600',
+                                fontSize: '0.938rem',
+                                width: '64px',
+                                height: '21px',
+                                padding: '0px',
+                            }}
+                        >
+                            회원가입
+                        </Button>
+                        <Modal open={joinOpen} onClose={handleJoinClose}>
+                            <Box sx={style}>
+                                <Join
+                                    clickLogin={clickLogin}
+                                    joinClose={joinClose}
+                                />
+                            </Box>
+                        </Modal>
+                        <Modal
+                            open={changePasswordOpen}
+                            onClose={handleChangePasswordClose}
+                        >
+                            <Box sx={style}>
+                                <ChangePassword
+                                    changePasswordClose={changePasswordClose}
+                                ></ChangePassword>
+                            </Box>
+                        </Modal>
+                    </Box>
+                )}
             </Box>
         </ThemeProvider>
     );
