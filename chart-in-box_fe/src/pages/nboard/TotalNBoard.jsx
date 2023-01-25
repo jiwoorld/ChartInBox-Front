@@ -1,22 +1,11 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
 import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useParams } from 'react-router-dom';
-import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
-import NBoardBar from './NBoardBar';
-import { Paper } from '@mui/material';
-import { borderBottom } from '@mui/system';
 import BoardNTable from './BoardNTable';
 import NBoardMenuBar from '../../components/menubar/NBoardMenuBar';
 import NBoardSubBar from '../../components/menubar/NBoardSubBar';
@@ -69,11 +58,14 @@ function TotalNBoard({ match }) {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-    const navigate = useNavigate();
+    let pageColor = {
+        movieTalk: false,
+        nParty: true,
+    };
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <MenuBar></MenuBar>
+            <MenuBar pageColor={pageColor}></MenuBar>
             <NBoardMenuBar></NBoardMenuBar>
             <main>
                 <Container
