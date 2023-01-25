@@ -46,13 +46,12 @@ function TotalBoard({ isLogin, setIsLogin }) {
                         mt: '1.4rem',
                         display: 'flex',
                         flexDirection: 'row',
-                        border: '1px solid red',
                     }}
                 >
                     <Box sx={{ p: 1 }}>
                         <MyInformation></MyInformation>
                         <Button
-                            href="../writing"
+                            href="../write"
                             sx={{
                                 width: '15.125rem',
                                 fontSize: '0.938rem',

@@ -77,7 +77,7 @@ function App() {
                             ></CurationPage>
                         }
                     />
-                    <Route path="/writing" element={<Writing></Writing>} />
+                    <Route path="/write" element={<Writing></Writing>} />
                     <Route path="/nwriting" element={<NWriting></NWriting>} />
                     <Route
                         path="/moviesearch"

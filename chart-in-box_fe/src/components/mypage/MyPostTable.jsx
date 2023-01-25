@@ -28,14 +28,6 @@ function MyPostTable(props) {
     const handlePage = () => {
         navigate(link);
     };
-    /* const rows = [
-        createData('자유게시판', '알라딘 포디엑스 본 사람?'),
-        createData('후기게시판', '알라딘 포디엑스 본 후기'),
-        createData('Q&A게시판', '알라딘 포디엑스 본 후기'),
-        createData('자유게시판', '알라딘 포디엑스 본 사람?'),
-        createData('후기게시판', '알라딘 포디엑스 본 후기'),
-        createData('Q&A게시판', '알라딘 포디엑스 본 후기'),
-    ]; */
     const theme = createTheme({
         palette: {
             /*  primary: {

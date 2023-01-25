@@ -104,7 +104,6 @@ function TotalNBoard({ match }) {
                         sx={{
                             width: '59.5rem',
                             height: '50rem',
-                            //border: 2,
                             display: 'flex',
                             p: 1,
                         }}
