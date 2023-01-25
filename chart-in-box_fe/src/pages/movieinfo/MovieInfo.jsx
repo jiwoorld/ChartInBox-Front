@@ -16,7 +16,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-function MovieInfo() {
+function MovieInfo({ isLogin, setIsLogin }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -91,7 +91,7 @@ function MovieInfo() {
 
     return (
         <ThemeProvider theme={theme}>
-            <MenuBarMovie />
+            <MenuBarMovie isLogin={isLogin} setIsLogin={setIsLogin} />
             <Paper
                 sx={{
                     width: '54rem',

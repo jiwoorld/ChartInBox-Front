@@ -11,7 +11,7 @@ import { useParams } from 'react-router-dom';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
 import CurationPageMovie from '../../components/curationpage/CurationPageMoive';
 
-function FindMovie() {
+function FindMovie({ isLogin, setIsLogin }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -36,7 +36,7 @@ function FindMovie() {
     });
     const [data, setData] = React.useState({});
     const mvTitle = useParams();
-    const url = mvTitle.url;
+    const url = mvTitle.mvTitle;
     React.useEffect(() => {
         axios
             // .get(`/movie-search/${url}`)
@@ -52,7 +52,7 @@ function FindMovie() {
     const searchTitle = data?.searchTitle ?? '';
     return (
         <ThemeProvider theme={theme}>
-            <MenuBarMovie />
+            <MenuBarMovie isLogin={isLogin} setIsLogin={setIsLogin} />
             <Typography
                 sx={{
                     fontWeight: '500',

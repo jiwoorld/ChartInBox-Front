@@ -13,7 +13,7 @@ import MainMovie from '../../components/mainpage/MainMovie';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
 import Selected from '../../components/moviesearch/Selected';
 
-function MovieSearch() {
+function MovieSearch({ isLogin, setIsLogin }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -88,10 +88,9 @@ function MovieSearch() {
     const [moives, setMovies] = React.useState([
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
     ]);
-    let pageColor = true;
     return (
         <ThemeProvider theme={theme}>
-            <MenuBarMovie pageColor={pageColor}></MenuBarMovie>
+            <MenuBarMovie isLogin={isLogin} setIsLogin={setIsLogin} />
             <Box
                 sx={{
                     width: '100vw',

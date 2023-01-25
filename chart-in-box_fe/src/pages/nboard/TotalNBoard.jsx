@@ -58,14 +58,11 @@ function TotalNBoard({ match }) {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-    let pageColor = {
-        movieTalk: false,
-        nParty: true,
-    };
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <MenuBar pageColor={pageColor}></MenuBar>
+            <MenuBar></MenuBar>
             <NBoardMenuBar></NBoardMenuBar>
             <main>
                 <Container

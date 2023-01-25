@@ -11,7 +11,7 @@ import MovietalkMenuBar from '../../components/menubar/MovietalkMenuBar';
 import MovietalkSubBar from '../../components/menubar/MovietalkSubBar';
 import MyInformation from '../../components/board/MyInformation';
 
-function TotalBoard() {
+function TotalBoard({ isLogin, setIsLogin }) {
     const [boardName, setBoardName] = React.useState('전체글');
     const theme = createTheme({
         palette: {
@@ -32,15 +32,11 @@ function TotalBoard() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-    let pageColor = {
-        movieTalk: true,
-        nParty: false,
-    };
 
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <MenuBar pageColor={pageColor}></MenuBar>
+            <MenuBar isLogin={isLogin} setIsLogin={setIsLogin}></MenuBar>
             <MovietalkMenuBar setBoardName={setBoardName}></MovietalkMenuBar>
             <main>
                 <Container

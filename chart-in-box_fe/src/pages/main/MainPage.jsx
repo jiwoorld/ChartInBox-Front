@@ -13,7 +13,7 @@ import MainCuration from '../../components/mainpage/MainCuration';
 import MainTable from '../../components/mainpage/MainTable';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
 
-function MainPage() {
+function MainPage({ isLogin, setIsLogin }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -61,7 +61,7 @@ function MainPage() {
 
     return (
         <ThemeProvider theme={theme}>
-            <MenuBarMovie />
+            <MenuBarMovie isLogin={isLogin} setIsLogin={setIsLogin} />
             <Paper>
                 <Paper
                     sx={{
