@@ -15,7 +15,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-function MenuBar({ pageColor = '' }) {
+function MenuBar({ isLogin, setIsLogin }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -53,7 +53,6 @@ function MenuBar({ pageColor = '' }) {
     const handlePopoverOpen = event => {
         setLogo(event.currentTarget);
     };
-    const [isLogin, setIsLogin] = React.useState(false);
     const [searchValue, setSearchValue] = React.useState('');
     const onChangeSearch = e => {
         e.preventDefault();
@@ -195,66 +194,32 @@ function MenuBar({ pageColor = '' }) {
                             ></img>
                         )}
                     </Box>
-                    {pageColor.movieTalk ? (
-                        <Button
-                            sx={{
-                                width: '161px',
-                                height: '60px',
-                                fontFamily: 'Pretendard',
-                                fontStyle: 'normal',
-                                fontWeight: '400',
-                                fontSize: '1.125rem',
-                                color: 'secondary.main',
-                            }}
-                            onClick={handleTotalpage}
-                        >
-                            영화TALK
-                        </Button>
-                    ) : (
-                        <Button
-                            sx={{
-                                width: '161px',
-                                height: '60px',
-                                fontFamily: 'Pretendard',
-                                fontStyle: 'normal',
-                                fontWeight: '400',
-                                fontSize: '1.125rem',
-                            }}
-                            onClick={handleTotalpage}
-                        >
-                            영화TALK
-                        </Button>
-                    )}
-                    {pageColor.nParty ? (
-                        <Button
-                            sx={{
-                                width: '161px',
-                                height: '60px',
-                                fontFamily: 'Pretendard',
-                                fontStyle: 'normal',
-                                fontWeight: '400',
-                                fontSize: '1.125rem',
-                                color: 'secondary.main',
-                            }}
-                            onClick={handleTotalNpage}
-                        >
-                            N팟 구함
-                        </Button>
-                    ) : (
-                        <Button
-                            sx={{
-                                width: '161px',
-                                height: '60px',
-                                fontFamily: 'Pretendard',
-                                fontStyle: 'normal',
-                                fontWeight: '400',
-                                fontSize: '1.125rem',
-                            }}
-                            onClick={handleTotalNpage}
-                        >
-                            N팟 구함
-                        </Button>
-                    )}
+                    <Button
+                        sx={{
+                            width: '161px',
+                            height: '60px',
+                            fontFamily: 'Pretendard',
+                            fontStyle: 'normal',
+                            fontWeight: '400',
+                            fontSize: '1.125rem',
+                        }}
+                        onClick={handleTotalpage}
+                    >
+                        영화TALK
+                    </Button>
+                    <Button
+                        sx={{
+                            width: '161px',
+                            height: '60px',
+                            fontFamily: 'Pretendard',
+                            fontStyle: 'normal',
+                            fontWeight: '400',
+                            fontSize: '1.125rem',
+                        }}
+                        onClick={handleTotalNpage}
+                    >
+                        N팟 구함
+                    </Button>
 
                     <Button
                         sx={{

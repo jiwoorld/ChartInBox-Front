@@ -13,7 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import CurationPageMovie from '../../components/curationpage/CurationPageMoive';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
 
-function CurationPage() {
+function CurationPage({ isLogin, setIsLogin }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -48,7 +48,7 @@ function CurationPage() {
 
     return (
         <ThemeProvider theme={theme}>
-            <MenuBarMovie></MenuBarMovie>
+            <MenuBarMovie isLogin={isLogin} setIsLogin={setIsLogin} />
             <Box
                 sx={{
                     width: '100vw',
