@@ -84,16 +84,6 @@ function MypageTable(props) {
                                     <TableCell
                                         align="right"
                                         sx={{
-                                            fontSize: '0.8rem',
-                                            fontWeight: '400',
-                                            border: '0px',
-                                        }}
-                                    >
-                                        작성자
-                                    </TableCell>
-                                    <TableCell
-                                        align="right"
-                                        sx={{
                                             textAlign: 'center',
                                             fontSize: '0.8rem',
                                             fontWeight: '400',
@@ -142,18 +132,6 @@ function MypageTable(props) {
                                             }}
                                         >
                                             {item.postTitle}
-                                        </TableCell>
-                                        <TableCell
-                                            align="right"
-                                            sx={{
-                                                fontSize: '0.8rem',
-                                                fontWeight: '400',
-                                                border: '0px',
-                                                borderBottom:
-                                                    '0.063rem solid #D9D9D9',
-                                            }}
-                                        >
-                                            {item.postCategory}
                                         </TableCell>
                                         <TableCell
                                             align="right"

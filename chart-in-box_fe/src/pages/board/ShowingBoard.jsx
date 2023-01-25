@@ -246,11 +246,10 @@ function ShowingBoard(props) {
                             <Box //본문
                                 sx={{
                                     width: '59.5rem',
-                                    minHeight: '30rem',
+                                    minHeight: '35rem',
                                     pb: 5,
                                     borderBottom: '2px solid #0000001A',
                                     //display: 'flex',
-                                    flexDirection: 'column',
                                 }}
                             >
                                 <Typography
@@ -297,6 +296,7 @@ function ShowingBoard(props) {
                                             },
                                             color: 'black',
                                             backgroundColor: 'white',
+                                            mt: 3,
                                         }}
                                     >
                                         좋아요
