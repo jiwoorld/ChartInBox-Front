@@ -14,7 +14,7 @@ import ChangePassword from '../sign/ChangePassword';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-function MenuBar() {
+function MenuBar({ pageColor = '' }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -187,32 +187,67 @@ function MenuBar() {
                             ></img>
                         )}
                     </Box>
-                    <Button
-                        sx={{
-                            width: '161px',
-                            height: '60px',
-                            fontFamily: 'Pretendard',
-                            fontStyle: 'normal',
-                            fontWeight: '400',
-                            fontSize: '1.125rem',
-                        }}
-                        onClick={handleTotalpage}
-                    >
-                        영화TALK
-                    </Button>
-                    <Button
-                        sx={{
-                            width: '161px',
-                            height: '60px',
-                            fontFamily: 'Pretendard',
-                            fontStyle: 'normal',
-                            fontWeight: '400',
-                            fontSize: '1.125rem',
-                        }}
-                        onClick={handleTotalNpage}
-                    >
-                        N팟 구함
-                    </Button>
+                    {pageColor.movieTalk ? (
+                        <Button
+                            sx={{
+                                width: '161px',
+                                height: '60px',
+                                fontFamily: 'Pretendard',
+                                fontStyle: 'normal',
+                                fontWeight: '400',
+                                fontSize: '1.125rem',
+                                color: 'secondary.main',
+                            }}
+                            onClick={handleTotalpage}
+                        >
+                            영화TALK
+                        </Button>
+                    ) : (
+                        <Button
+                            sx={{
+                                width: '161px',
+                                height: '60px',
+                                fontFamily: 'Pretendard',
+                                fontStyle: 'normal',
+                                fontWeight: '400',
+                                fontSize: '1.125rem',
+                            }}
+                            onClick={handleTotalpage}
+                        >
+                            영화TALK
+                        </Button>
+                    )}
+                    {pageColor.nParty ? (
+                        <Button
+                            sx={{
+                                width: '161px',
+                                height: '60px',
+                                fontFamily: 'Pretendard',
+                                fontStyle: 'normal',
+                                fontWeight: '400',
+                                fontSize: '1.125rem',
+                                color: 'secondary.main',
+                            }}
+                            onClick={handleTotalNpage}
+                        >
+                            N팟 구함
+                        </Button>
+                    ) : (
+                        <Button
+                            sx={{
+                                width: '161px',
+                                height: '60px',
+                                fontFamily: 'Pretendard',
+                                fontStyle: 'normal',
+                                fontWeight: '400',
+                                fontSize: '1.125rem',
+                            }}
+                            onClick={handleTotalNpage}
+                        >
+                            N팟 구함
+                        </Button>
+                    )}
+
                     <Button
                         sx={{
                             width: '161px',

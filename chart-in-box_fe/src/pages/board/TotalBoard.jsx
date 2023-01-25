@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
@@ -12,21 +10,6 @@ import BoardTable from './BoardTable';
 import MovietalkMenuBar from '../../components/menubar/MovietalkMenuBar';
 import MovietalkSubBar from '../../components/menubar/MovietalkSubBar';
 import MyInformation from '../../components/board/MyInformation';
-
-const data = {
-    totalboard: {
-        name: '전체글',
-    },
-    freeboard: {
-        name: '자유',
-    },
-    reviewboard: {
-        name: '리뷰',
-    },
-    qnaboard: {
-        name: 'Q&A',
-    },
-};
 
 function TotalBoard() {
     const [boardName, setBoardName] = React.useState('전체글');
@@ -49,11 +32,15 @@ function TotalBoard() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
+    let pageColor = {
+        movieTalk: true,
+        nParty: false,
+    };
 
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <MenuBar></MenuBar>
+            <MenuBar pageColor={pageColor}></MenuBar>
             <MovietalkMenuBar setBoardName={setBoardName}></MovietalkMenuBar>
             <main>
                 <Container

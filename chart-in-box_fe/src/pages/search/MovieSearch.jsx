@@ -88,9 +88,10 @@ function MovieSearch() {
     const [moives, setMovies] = React.useState([
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
     ]);
+    let pageColor = true;
     return (
         <ThemeProvider theme={theme}>
-            <MenuBarMovie></MenuBarMovie>
+            <MenuBarMovie pageColor={pageColor}></MenuBarMovie>
             <Box
                 sx={{
                     width: '100vw',

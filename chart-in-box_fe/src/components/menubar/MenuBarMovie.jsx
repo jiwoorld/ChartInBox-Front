@@ -13,7 +13,7 @@ import ChangePassword from '../sign/ChangePassword';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-function MenuBarMovie(props) {
+function MenuBarMovie({ pageColor }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -188,6 +188,7 @@ function MenuBarMovie(props) {
                             ></img>
                         )}
                     </Box>
+
                     <Button
                         sx={{
                             width: '161px',
@@ -216,20 +217,38 @@ function MenuBarMovie(props) {
                         {' '}
                         N팟 구함{' '}
                     </Button>
-                    <Button
-                        sx={{
-                            width: '161px',
-                            height: '60px',
-                            fontFamily: 'Pretendard',
-                            fontStyle: 'normal',
-                            fontWeight: '400',
-                            fontSize: '1.125rem',
-                        }}
-                        onClick={handleMovieSearch}
-                    >
-                        {' '}
-                        작품탐색{' '}
-                    </Button>
+                    {pageColor ? (
+                        <Button
+                            sx={{
+                                width: '161px',
+                                height: '60px',
+                                fontFamily: 'Pretendard',
+                                fontStyle: 'normal',
+                                fontWeight: '400',
+                                fontSize: '1.125rem',
+                                color: 'secondary.main',
+                            }}
+                            onClick={handleMovieSearch}
+                        >
+                            {' '}
+                            작품탐색{' '}
+                        </Button>
+                    ) : (
+                        <Button
+                            sx={{
+                                width: '161px',
+                                height: '60px',
+                                fontFamily: 'Pretendard',
+                                fontStyle: 'normal',
+                                fontWeight: '400',
+                                fontSize: '1.125rem',
+                            }}
+                            onClick={handleMovieSearch}
+                        >
+                            {' '}
+                            작품탐색{' '}
+                        </Button>
+                    )}
                 </Box>
                 {/* 메인서비스 */}
                 <Box>
