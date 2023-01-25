@@ -22,6 +22,8 @@ import Switch from '@mui/material/Switch';
 import freeboarddata from '../../testdata/freeboarddata.json';
 
 function BoardTable({ boardName }) {
+    const label = { inputProps: { 'aria-label': 'Color switch demo' } };
+
     const theme = createTheme({
         palette: {
             primary: {
@@ -99,11 +101,9 @@ function BoardTable({ boardName }) {
                         </Typography>
                     </Box>
                     <FormGroup>
-                        <FormControlLabel
-                            control={<Switch defaultChecked />}
-                            label="스포포함"
-                        />
+                        <Switch {...label} defaultChecked color="default" />{' '}
                     </FormGroup>
+                    <Box sx={{ width: '4rem', pt: 1 }}>스포포함</Box>
                     <Box
                         sx={{
                             maxWidth: '10rem',
@@ -112,7 +112,7 @@ function BoardTable({ boardName }) {
                             alignItems: 'flex-start',
                         }}
                     >
-                        <Box sx={{ m: '0.3rem', mt: -1.5 }}>
+                        <Box sx={{ ml: 7, mt: -1.5 }}>
                             <FormControl fullWidth>
                                 <Select
                                     displayEmpty
@@ -303,6 +303,7 @@ function BoardTable({ boardName }) {
                         }}
                     >
                         <Button
+                            href="../write"
                             sx={{
                                 backgroundColor: '#EDEDED',
                                 color: 'black',

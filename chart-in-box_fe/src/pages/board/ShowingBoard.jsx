@@ -61,6 +61,11 @@ function ShowingBoard(props) {
     }, [url]);
 
     const [value, setValue] = React.useState('Controlled');
+    /* const a = detail.postDate;
+    const b = a.split('T');
+    const b1 = b[0];
+    const b2 = b[1];
+    const d = b1 + ' ' + b2; */
 
     const handleChange = event => {
         setValue(event.target.value);
@@ -83,7 +88,7 @@ function ShowingBoard(props) {
                     <Box sx={{ p: 1 }}>
                         <MyInformation></MyInformation>
                         <Button
-                            href="../writing"
+                            href="../write"
                             sx={{
                                 width: '15.125rem',
                                 fontSize: '0.938rem',
@@ -123,6 +128,7 @@ function ShowingBoard(props) {
                             <Box
                                 sx={{
                                     width: '59.5rem',
+                                    pt: 1,
                                     pb: 2,
                                     borderBottom: '1px solid #0000001A',
                                     display: 'flex',
@@ -132,7 +138,7 @@ function ShowingBoard(props) {
                                 <Typography
                                     sx={{
                                         fontSize: '1.5rem',
-                                        fontWeight: '500',
+                                        fontWeight: '400',
                                         textAlign: 'left',
                                     }}
                                 >
@@ -142,6 +148,7 @@ function ShowingBoard(props) {
                             <Box
                                 sx={{
                                     width: '59.5rem',
+                                    pt: 1.5,
                                     pb: 2,
                                     borderBottom: '1px solid #0000001A',
                                     display: 'flex',
@@ -150,14 +157,64 @@ function ShowingBoard(props) {
                             >
                                 <Typography
                                     sx={{
+                                        pl: 1,
+                                        width: '36.25rem',
                                         fontSize: '1.5rem',
                                         fontWeight: '500',
                                         textAlign: 'left',
+                                        fontSize: '0.875rem',
+                                        color: '#757575',
                                     }}
                                 >
                                     {detail.postUserNickname}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        width: '9.375rem',
+                                        fontSize: '1.5rem',
+                                        fontWeight: '500',
+                                        textAlign: 'left',
+                                        fontSize: '0.875rem',
+                                        color: '#757575',
+                                    }}
+                                >
                                     {detail.postDate}
-                                    {detail.countVisit}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        width: '3.375rem',
+                                        fontSize: '1.5rem',
+                                        fontWeight: '500',
+                                        textAlign: 'left',
+                                        fontSize: '0.875rem',
+                                        color: '#757575',
+                                    }}
+                                >
+                                    조회 {detail.countVisit}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        width: '4.375rem',
+                                        fontSize: '1.5rem',
+                                        fontWeight: '500',
+                                        textAlign: 'left',
+                                        fontSize: '0.875rem',
+                                        color: '#757575',
+                                    }}
+                                >
+                                    좋아요 {detail.postLike}
+                                </Typography>
+                                <Typography
+                                    sx={{
+                                        width: '4.375rem',
+                                        fontSize: '1.5rem',
+                                        fontWeight: '500',
+                                        textAlign: 'left',
+                                        fontSize: '0.875rem',
+                                        color: '#757575',
+                                    }}
+                                >
+                                    댓글 {detail.postComment}
                                 </Typography>
                             </Box>
                             <Box //본문
@@ -166,27 +223,33 @@ function ShowingBoard(props) {
                                     minHeight: '30rem',
                                     pb: 5,
                                     borderBottom: '2px solid #0000001A',
-                                    display: 'flex',
-                                    alignItems: 'center',
+                                    //display: 'flex',
                                     flexDirection: 'column',
                                 }}
                             >
                                 <Typography
                                     sx={{
                                         height: '70%',
+                                        pl: 1,
                                         pt: 3,
                                         fontSize: '1.5rem',
-                                        fontWeight: '500',
+                                        fontWeight: '400',
                                         textAlign: 'left',
                                     }}
                                 >
                                     {detail.postContent}
                                 </Typography>
-                                <Box sx={{ width: '100%', height: '107px' }}>
+                                <Box
+                                    sx={{
+                                        width: '100%',
+                                        height: '107px',
+                                        border: 1,
+                                    }}
+                                >
                                     영화정보
                                 </Box>
                                 <Button
-                                    align="left"
+                                    width="3rem"
                                     variant="contained"
                                     endIcon={<ThumbUpAltIcon />}
                                     sx={{
