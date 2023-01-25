@@ -48,7 +48,7 @@ function App() {
                         }
                     />
                     <Route path="/posting" element={<Posting />} />
-                    <Route path="/scrapmovie" element={<ScrapMovie />} />
+                    <Route path="/my-page/scrap" element={<ScrapMovie />} />
                     <Route
                         path="/movie-info/:id"
                         element={
