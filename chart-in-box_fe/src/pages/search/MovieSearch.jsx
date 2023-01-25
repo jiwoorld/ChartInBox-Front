@@ -13,7 +13,7 @@ import MainMovie from '../../components/mainpage/MainMovie';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
 import Selected from '../../components/moviesearch/Selected';
 
-function MovieSearch() {
+function MovieSearch({ isLogin, setIsLogin }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -90,7 +90,7 @@ function MovieSearch() {
     ]);
     return (
         <ThemeProvider theme={theme}>
-            <MenuBarMovie></MenuBarMovie>
+            <MenuBarMovie isLogin={isLogin} setIsLogin={setIsLogin} />
             <Box
                 sx={{
                     width: '100vw',

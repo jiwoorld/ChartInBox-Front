@@ -21,20 +21,42 @@ import ScrapMovie from './pages/scrap/ScrapMovie';
 import FindMovie from './pages/findMovie/FindMovie';
 
 function App() {
+    const [isLogin, setIsLogin] = React.useState(false);
     return (
         <div className="App">
             <Router>
                 <Routes>
-                    <Route path="/" element={<MainPage></MainPage>} />
+                    <Route
+                        path="/"
+                        element={
+                            <MainPage
+                                isLogin={isLogin}
+                                setIsLogin={setIsLogin}
+                            ></MainPage>
+                        }
+                    />
                     <Route path="/terms" element={<Terms></Terms>} />
                     <Route path="/privatepolicy" element={<PrivatePolicy />} />
                     <Route path="/mypage" element={<Mypage />} />
-                    <Route path="/movie-talk" element={<TotalBoard />} />
+                    <Route
+                        path="/movie-talk"
+                        element={
+                            <TotalBoard
+                                isLogin={isLogin}
+                                setIsLogin={setIsLogin}
+                            />
+                        }
+                    />
                     <Route path="/posting" element={<Posting />} />
                     <Route path="/my-page/scrap" element={<ScrapMovie />} />
                     <Route
                         path="/movie-info/:id"
-                        element={<MovieInfo></MovieInfo>}
+                        element={
+                            <MovieInfo
+                                isLogin={isLogin}
+                                setIsLogin={setIsLogin}
+                            ></MovieInfo>
+                        }
                     />
                     <Route path="/my-page" element={<Mypage></Mypage>} />
                     <Route path="/my-page/post" element={<Mypost></Mypost>} />
@@ -48,13 +70,23 @@ function App() {
                     />
                     <Route
                         path="/curation"
-                        element={<CurationPage></CurationPage>}
+                        element={
+                            <CurationPage
+                                isLogin={isLogin}
+                                setIsLogin={setIsLogin}
+                            ></CurationPage>
+                        }
                     />
                     <Route path="/write" element={<Writing></Writing>} />
                     <Route path="/nwriting" element={<NWriting></NWriting>} />
                     <Route
                         path="/moviesearch"
-                        element={<MovieSearch></MovieSearch>}
+                        element={
+                            <MovieSearch
+                                isLogin={isLogin}
+                                setIsLogin={setIsLogin}
+                            ></MovieSearch>
+                        }
                     />
                     <Route
                         path="/movie-talk"
@@ -70,7 +102,12 @@ function App() {
                     />
                     <Route
                         path="/movie-search/:mvTitle"
-                        element={<FindMovie></FindMovie>}
+                        element={
+                            <FindMovie
+                                isLogin={isLogin}
+                                setIsLogin={setIsLogin}
+                            ></FindMovie>
+                        }
                     />
                 </Routes>
             </Router>
