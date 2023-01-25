@@ -59,7 +59,7 @@ function MenuBarMovie(props) {
     };
     const onKeySearch = e => {
         if (e.key === 'Enter') {
-            navigate(`/findmovie/${searchValue}`);
+            navigate(`/movie-search/${searchValue}`);
             return;
         }
     };
@@ -242,7 +242,7 @@ function MenuBarMovie(props) {
                             value={searchValue}
                             onChange={onChangeSearch}
                             onKeyPress={onKeySearch}
-                            placeholder="제목 감독을 검색해보세요"
+                            placeholder="제목을 검색해보세요"
                         />
                         <IconButton
                             type="button"
