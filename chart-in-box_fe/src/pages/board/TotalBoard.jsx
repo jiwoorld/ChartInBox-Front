@@ -68,7 +68,7 @@ function TotalBoard() {
                     <Box sx={{ p: 1 }}>
                         <MyInformation></MyInformation>
                         <Button
-                            href="../writing"
+                            href="../write"
                             sx={{
                                 width: '15.125rem',
                                 fontSize: '0.938rem',
