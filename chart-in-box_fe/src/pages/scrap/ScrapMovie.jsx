@@ -10,7 +10,8 @@ import {
 import { Box } from '@mui/system';
 import * as React from 'react';
 import MenuBar from '../../components/menubar/MenuBar';
-import CurationPageMovie from '../../components/curationpage/CurationPageMoive';
+import Scrap from '../../components/scrap/Scrap';
+import scrap from '../../testdata/scrap.json';
 
 function ScrapMovie() {
     const theme = createTheme({
@@ -32,9 +33,9 @@ function ScrapMovie() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-    const [moives, setMovies] = React.useState([
+    /* const [moives, setMovies] = React.useState([
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-    ]);
+    ]); */
     return (
         <ThemeProvider theme={theme}>
             <MenuBar></MenuBar>
@@ -87,10 +88,10 @@ function ScrapMovie() {
                                     textAlign: 'center',
                                 }}
                             >
-                                {moives.map(movie => (
-                                    <Grid key={movie.id} item={5}>
+                                {scrap.map(movie => (
+                                    <Grid key={movie.mvId} item={5}>
                                         <Box>
-                                            <CurationPageMovie></CurationPageMovie>
+                                            <Scrap></Scrap>
                                             <Button
                                                 sx={{
                                                     backgroundColor: '#E0E0E0',
@@ -106,13 +107,6 @@ function ScrapMovie() {
                                             >
                                                 취소하기
                                             </Button>
-                                            {/* <Box
-                                                sx={{
-                                                    m: 1,
-                                                }}
-                                            >
-                                                <Button> 버튼 구현 예정</Button>
-                                            </Box> */}
                                         </Box>
                                     </Grid>
                                 ))}

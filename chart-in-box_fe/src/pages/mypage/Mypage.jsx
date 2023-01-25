@@ -261,7 +261,6 @@ function Mypage() {
                     >
                         <Button
                             className="movieInfoA"
-                            href="/changeinfo"
                             sx={{
                                 height: '1.375rem',
                                 width: '8.303rem',
@@ -278,7 +277,7 @@ function Mypage() {
                         </Button>
                         <Button
                             className="movieInfoA"
-                            href="/ScrapMovie"
+                            href="/my-page/scrap"
                             sx={{
                                 ml: -3,
                                 fontWeight: '500',

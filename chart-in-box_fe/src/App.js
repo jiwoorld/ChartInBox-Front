@@ -31,7 +31,7 @@ function App() {
                     <Route path="/mypage" element={<Mypage />} />
                     <Route path="/movie-talk" element={<TotalBoard />} />
                     <Route path="/posting" element={<Posting />} />
-                    <Route path="/scrapmovie" element={<ScrapMovie />} />
+                    <Route path="/my-page/scrap" element={<ScrapMovie />} />
                     <Route
                         path="/movie-info/:id"
                         element={<MovieInfo></MovieInfo>}
