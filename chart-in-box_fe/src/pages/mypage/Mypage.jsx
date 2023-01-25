@@ -290,19 +290,18 @@ function Mypage() {
                             전체보기
                         </Button>
                     </Box>
-                    <Box
+                    {/* <Box
                         sx={{
                             display: 'flex',
                             width: '1040px',
                             height: '300px',
                         }}
-                    >
-                        <MyScrapMovie></MyScrapMovie>
-                        <MyScrapMovie></MyScrapMovie>
-                        {/* {moives.map(movie => (
+                    > */}
+                    <MyScrapMovie></MyScrapMovie>
+                    {/* {moives.map(movie => (
                             <MyScrapMovie movie={movie}></MyScrapMovie>
                         ))} */}
-                    </Box>
+                    {/* </Box> */}
                 </Container>
             </Box>
         </ThemeProvider>

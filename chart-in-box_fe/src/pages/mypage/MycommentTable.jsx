@@ -13,29 +13,11 @@ import {
     ThemeProvider,
     Typography,
 } from '@mui/material';
-import Checkbox from '@mui/material/Checkbox';
 import commentdata from '../../testdata/commentdata.json';
 
 function MycommentTable(props) {
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-    /* function createData(title, author, date, view, like) {
-        return { title, author, date, view, like };
-    }
-    
-
-    const rows = [
-        createData('알리딘 포디엑스 본 사람?', '양윤서', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '김다은', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '이지현', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '곽지우', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '박가현', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '양윤서', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '김다은', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '이지현', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '곽지우', '22.01.03', 34, 7),
-        createData('알리딘 포디엑스 본 사람?', '박가현', '22.01.03', 34, 7),
-    ]; */
     const theme = createTheme({
         palette: {
             primary: {
@@ -89,7 +71,6 @@ function MycommentTable(props) {
                                 }}
                             >
                                 <TableRow>
-                                    <TableCell></TableCell>
                                     <TableCell
                                         sx={{
                                             width: '42.4rem',
@@ -130,9 +111,6 @@ function MycommentTable(props) {
                                 {/* {freeboarddata.boardList.map(item => ( */}
                                 {commentdata.map(item => (
                                     <TableRow key={item.cmtPostId}>
-                                        <TableCell>
-                                            <Checkbox {...label} />
-                                        </TableCell>
                                         <TableCell
                                             component="th"
                                             scope="row"
@@ -176,26 +154,6 @@ function MycommentTable(props) {
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    <Box
-                        sx={{
-                            height: '3.125rem',
-                            display: 'flex',
-                            //mr: 'auto',
-                            justifyContent: 'flex-end',
-                            mt: '0.2rem',
-                        }}
-                    >
-                        <Button
-                            sx={{
-                                backgroundColor: 'white',
-                                color: 'black',
-                                borderRadius: '0.9rem',
-                                opacity: '70%',
-                            }}
-                        >
-                            삭제하기
-                        </Button>
-                    </Box>
                 </Box>
             </Box>
         </ThemeProvider>

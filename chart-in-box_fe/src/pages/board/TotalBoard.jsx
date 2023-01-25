@@ -63,7 +63,6 @@ function TotalBoard() {
                         mt: '1.4rem',
                         display: 'flex',
                         flexDirection: 'row',
-                        border: '1px solid red',
                     }}
                 >
                     <Box sx={{ p: 1 }}>

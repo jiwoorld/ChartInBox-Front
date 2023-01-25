@@ -27,9 +27,9 @@ function MyScrapMovie(props) {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-    const [moives, setMovies] = React.useState([1, 2]);
+    /* const [moives, setMovies] = React.useState([1, 2]);
     const [likes, setLikes] = React.useState([]);
-    const [movie, setMovie] = React.useState({});
+    const [movie, setMovie] = React.useState({}); */
 
     return (
         <ThemeProvider theme={theme}>
@@ -59,9 +59,19 @@ function MyScrapMovie(props) {
                     ></Box>
                 </Box> */}
             {/* <Typography key={item.mvId}>{item.mvTitle}</Typography> */}
-            <Box>
+            <Box
+                sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                }}
+            >
                 {mypagedata.scrapList.map(item => (
-                    <Box key={item.postId}>
+                    <Box
+                        key={item.postId}
+                        sx={{
+                            m: 4,
+                        }}
+                    >
                         <img src={item.mvPoster}></img>
                         <Typography
                             key={item.mvId}
