@@ -41,27 +41,7 @@ function Mypage() {
     });
     const navigate = useNavigate();
     const [moives, setMovies] = React.useState([1]);
-    const handleLogout = () => {
-        axios
-            // .get('/')
-            .post('/log-out')
-            .then(function (response) {
-                Swal.fire({
-                    width: 460,
-                    height: 260,
-                    title: '로그인 성공',
-                    showConfirmButton: false,
-                    cancelButtonText: '확인',
-                    cancelButtonColor: '#CF5E53',
-                    showCancelButton: true,
-                    background: '#fff url(/image/swalBackground.png)',
-                });
-                navigate('/');
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    };
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -111,21 +91,7 @@ function Mypage() {
                         {' '}
                         개인정보 수정{' '}
                     </Button>
-                    <Button
-                        sx={{
-                            height: '1.375rem',
-                            width: '8.303rem',
-                            fontFamily: 'Pretendard',
-                            fontStyle: 'normal',
-                            fontWeight: '400',
-                            fontSize: '1.125rem',
-                            color: 'text.primary',
-                            fontColor: 'grey',
-                        }}
-                        onClick={handleLogout}
-                    >
-                        로그아웃
-                    </Button>
+
                     <Grid container spacing={0.5}>
                         <Grid item xs={12} sm={6}>
                             <Box
