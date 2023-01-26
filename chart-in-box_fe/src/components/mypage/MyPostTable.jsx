@@ -14,43 +14,23 @@ import {
     Typography,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import mypagedata from '../../testdata/mypagedata.json';
 import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined';
 
-function MyPostTable(props) {
+function MyPostTable({ data }) {
     function createData(board, title) {
         return { board, title };
     }
     const navigate = useNavigate();
-    const tableName = props.tableName;
-    const link = props.tableLink;
-
-    const handlePage = () => {
-        navigate(link);
-    };
+    const tableName = data.tableName;
+    const link = data.tableLink;
+    console.log({ data });
     const theme = createTheme({
-        palette: {
-            /*  primary: {
-                main: '#EDEBDE',
-            },
-            secondary: {
-                main: '#CF5E53',
-            },
-            third: {
-                main: '#001F28',
-            },
-            background: {
-                default: '#001F28',
-            },
-            text: {
-                primary: '#1a1a1a',
-                default: '#616161',
-            }, */
-        },
+        palette: {},
         typography: {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
+
     return (
         <ThemeProvider theme={theme}>
             <Box
@@ -71,40 +51,29 @@ function MyPostTable(props) {
                     <TableContainer component={Paper}>
                         <Table aria-label="simple table">
                             <TableBody>
-                                {mypagedata.boardList.map(item => (
-                                    <TableRow key={item.postId}>
-                                        <TableCell
-                                            component="th"
-                                            scope="row"
-                                            sx={{
-                                                height: '2.75rem',
-                                                fontSize: '1rem',
-                                                fontWeight: '400',
-                                                paddingTop: '0',
-                                                paddingBottom: '0',
-                                            }}
-                                        >
-                                            [{item.postCategory}게시판]
-                                            {item.postTitle}
-                                        </TableCell>
-                                        {/* <TableCell
-                                            align="right"
-                                            sx={{
-                                                height: '2.75rem',
-                                                fontSize: '0.8rem',
-                                                fontWeight: '400',
-                                                paddingTop: '0',
-                                                paddingBottom: '0',
-                                            }}
-                                        >
-                                            {item.postTitle}
-                                        </TableCell> */}
-                                        <TableCell sx={{ p: 1 }}>
-                                            <ChatOutlinedIcon fontSize="small" />
-                                            {item.postComment}
-                                        </TableCell>
-                                    </TableRow>
-                                ))}
+                                {data &&
+                                    data.map(item => (
+                                        <TableRow key={item.postId}>
+                                            <TableCell
+                                                component="th"
+                                                scope="row"
+                                                sx={{
+                                                    height: '2.75rem',
+                                                    fontSize: '1rem',
+                                                    fontWeight: '400',
+                                                    paddingTop: '0',
+                                                    paddingBottom: '0',
+                                                }}
+                                            >
+                                                [{item.postCategory}게시판]
+                                                {item.postTitle}
+                                            </TableCell>
+                                            <TableCell sx={{ p: 1 }}>
+                                                <ChatOutlinedIcon fontSize="small" />
+                                                {item.postComment}
+                                            </TableCell>
+                                        </TableRow>
+                                    ))}
                             </TableBody>
                         </Table>
                     </TableContainer>

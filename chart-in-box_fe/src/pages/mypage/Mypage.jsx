@@ -11,37 +11,37 @@ import MenuBar from '../../components/menubar/MenuBar';
 import MyScrapMovie from '../../components/mypage/MyScrapMovie';
 import MyPostTable from '../../components/mypage/MyPostTable';
 import MyCommentTable from '../../components/mypage/MyCommentTable';
-import mypagedata from '../../testdata/mypagedata.json';
 import axios from 'axios';
-import Swal from 'sweetalert2';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Mypage() {
     const theme = createTheme({
-        //         main: '#fff',
-        // palette: {
-        //     primary: {
-        //     },
-        //     secondary: {
-        //         main: '#CF5E53',
-        //     },
-        //     third: {
-        //         main: '#001F28',
-        //     },
-        //     background: {
-        //         default: '#001F28',
-        //     },
-        //     text: {
-        //         primary: '#fff',
-        //     },
-        // },
         typography: {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
     const navigate = useNavigate();
     const [moives, setMovies] = React.useState([1]);
-
+    useEffect(() => {
+        axios
+            .get('/dummydata/mypagedata.json')
+            .then(function (response) {
+                setEmail(response.data.userEmail);
+                setNickname(response.data.userNickname);
+                setBoardlist(response.data.boardList);
+                setCommentlist(response.data.commentList);
+                setScraplist(response.data.scrapList);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    });
+    const [email, setEmail] = React.useState('');
+    const [nickname, setNickname] = React.useState('');
+    const [boardlist, setBoardlist] = React.useState('');
+    const [commentlist, setCommentlist] = React.useState('');
+    const [scraplist, setScraplist] = React.useState('');
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -110,12 +110,11 @@ function Mypage() {
                                     닉네임
                                 </Typography>
                                 <Typography
-                                    key={mypagedata.userNickname}
                                     textAlign="left"
                                     fontSize="1.5rem"
                                     fontWeight="600"
                                 >
-                                    {mypagedata.userNickname}
+                                    {nickname}
                                 </Typography>
                             </Box>
                         </Grid>
@@ -131,12 +130,12 @@ function Mypage() {
                                     이메일
                                 </Typography>
                                 <Typography
-                                    key={mypagedata.userEmail}
+                                    //key={mypagedata.userEmail}
                                     textAlign="left"
                                     fontSize="1.5rem"
                                     fontWeight="600"
                                 >
-                                    {mypagedata.userEmail}
+                                    {email}
                                 </Typography>
                             </Box>
                         </Grid>
@@ -180,7 +179,10 @@ function Mypage() {
                                             </Typography>
                                         </Box>
                                     }
-                                    <MyPostTable tableName="자유게시판"></MyPostTable>
+                                    <MyPostTable
+                                        data={boardlist}
+                                        tableName="자유게시판"
+                                    ></MyPostTable>
                                 </CardContent>
                             </Grid>
                             <Grid card xs={1}></Grid>
@@ -203,7 +205,10 @@ function Mypage() {
                                             내 댓글 〉
                                         </Typography>
                                     </Box>
-                                    <MyCommentTable tableName="자유게시판"></MyCommentTable>
+                                    <MyCommentTable
+                                        data={commentlist}
+                                        tableName="자유게시판"
+                                    ></MyCommentTable>
                                 </CardContent>
                             </Grid>
                         </Grid>
@@ -262,7 +267,7 @@ function Mypage() {
                             height: '300px',
                         }}
                     > */}
-                    <MyScrapMovie></MyScrapMovie>
+                    <MyScrapMovie data={scraplist}></MyScrapMovie>
                 </Container>
             </Box>
         </ThemeProvider>
