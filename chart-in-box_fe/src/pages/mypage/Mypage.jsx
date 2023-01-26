@@ -263,10 +263,6 @@ function Mypage() {
                         }}
                     > */}
                     <MyScrapMovie></MyScrapMovie>
-                    {/* {moives.map(movie => (
-                            <MyScrapMovie movie={movie}></MyScrapMovie>
-                        ))} */}
-                    {/* </Box> */}
                 </Container>
             </Box>
         </ThemeProvider>

@@ -54,7 +54,7 @@ function ScrapMovie() {
                         mt: '5.6875rem',
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'space-between',
+                        justifyContent: 'flex-start',
                     }}
                 >
                     <Typography
@@ -69,44 +69,27 @@ function ScrapMovie() {
                         〈 스크랩한 영화
                     </Typography>
                     {
-                        <Box
-                            sx={
-                                {
-                                    //height: '64.6875rem',
-                                }
-                            }
-                        >
+                        <Box>
                             <Grid
                                 container
                                 spacing={3}
                                 sx={{
                                     display: 'flex',
                                     justifyItems: 'center',
-                                    justifyContent: 'center',
+                                    justifyContent: 'flex-start',
                                     alignContent: 'center',
                                     alignItems: 'center',
                                     textAlign: 'center',
                                 }}
                             >
-                                {scrap.map(movie => (
-                                    <Grid key={movie.mvId} item={5}>
+                                {scrap.map(item => (
+                                    <Grid key={item.mvId} item={5}>
                                         <Box>
-                                            <Scrap></Scrap>
-                                            <Button
-                                                sx={{
-                                                    backgroundColor: '#E0E0E0',
-                                                    fontWeight: '500',
-                                                    fontSize: '0.75rem',
-                                                    mt: 1,
-                                                    color: '#1A1A1A',
-                                                    width: '3.906rem',
-                                                    height: '1.563rem',
-                                                    borderRadius: '0.25rem',
-                                                    opacity: '70%',
-                                                }}
-                                            >
-                                                취소하기
-                                            </Button>
+                                            <Scrap
+                                                mvTitle={item.mvTitle}
+                                                mvId={item.mvId}
+                                                mvPoster={item.mvPoster}
+                                            ></Scrap>
                                         </Box>
                                     </Grid>
                                 ))}
