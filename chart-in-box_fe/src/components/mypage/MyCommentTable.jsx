@@ -16,44 +16,19 @@ import {
 import { useNavigate } from 'react-router-dom';
 import mypagedata from '../../testdata/mypagedata.json';
 
-function MyCommentTable(props) {
+function MyCommentTable({ data }) {
     function createData(board, title) {
         return { board, title };
     }
     const navigate = useNavigate();
-    const tableName = props.tableName;
-    const link = props.tableLink;
+    const tableName = data.tableName;
+    const link = data.tableLink;
 
     const handlePage = () => {
         navigate(link);
     };
-    /* const rows = [
-        createData('자유게시판', '알라딘 포디엑스 본 사람?'),
-        createData('후기게시판', '알라딘 포디엑스 본 후기'),
-        createData('Q&A게시판', '알라딘 포디엑스 본 후기'),
-        createData('자유게시판', '알라딘 포디엑스 본 사람?'),
-        createData('후기게시판', '알라딘 포디엑스 본 후기'),
-        createData('Q&A게시판', '알라딘 포디엑스 본 후기'),
-    ]; */
     const theme = createTheme({
-        palette: {
-            /*  primary: {
-                main: '#EDEBDE',
-            },
-            secondary: {
-                main: '#CF5E53',
-            },
-            third: {
-                main: '#001F28',
-            },
-            background: {
-                default: '#001F28',
-            },
-            text: {
-                primary: '#1a1a1a',
-                default: '#616161',
-            }, */
-        },
+        palette: {},
         typography: {
             fontFamily: "'Pretendard', sans-serif",
         },
@@ -78,35 +53,36 @@ function MyCommentTable(props) {
                     <TableContainer component={Paper}>
                         <Table aria-label="simple table">
                             <TableBody>
-                                {mypagedata.commentList.map(item => (
-                                    <TableRow key={item.cmtPostId}>
-                                        <TableCell
-                                            component="th"
-                                            scope="row"
-                                            sx={{
-                                                height: '2.75rem',
-                                                fontSize: '1rem',
-                                                fontWeight: '400',
-                                                paddingTop: '0',
-                                                paddingBottom: '0',
-                                            }}
-                                        >
-                                            {item.cmtContent}
-                                        </TableCell>
-                                        <TableCell
-                                            align="right"
-                                            sx={{
-                                                height: '2.75rem',
-                                                fontSize: '0.75rem',
-                                                fontWeight: '400',
-                                                paddingTop: '0',
-                                                paddingBottom: '0',
-                                            }}
-                                        >
-                                            {item.boardTitle}
-                                        </TableCell>
-                                    </TableRow>
-                                ))}
+                                {data &&
+                                    data.map(item => (
+                                        <TableRow key={item.cmtId}>
+                                            <TableCell
+                                                component="th"
+                                                scope="row"
+                                                sx={{
+                                                    height: '2.75rem',
+                                                    fontSize: '1rem',
+                                                    fontWeight: '400',
+                                                    paddingTop: '0',
+                                                    paddingBottom: '0',
+                                                }}
+                                            >
+                                                {item.cmtContent}
+                                            </TableCell>
+                                            <TableCell
+                                                align="right"
+                                                sx={{
+                                                    height: '2.75rem',
+                                                    fontSize: '0.75rem',
+                                                    fontWeight: '400',
+                                                    paddingTop: '0',
+                                                    paddingBottom: '0',
+                                                }}
+                                            >
+                                                {item.boardTitle}
+                                            </TableCell>
+                                        </TableRow>
+                                    ))}
                             </TableBody>
                         </Table>
                     </TableContainer>

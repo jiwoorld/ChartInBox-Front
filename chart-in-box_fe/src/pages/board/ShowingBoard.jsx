@@ -64,6 +64,7 @@ function ShowingBoard(props) {
     const [comment, setcomment] = React.useState({});
     const [name, setname] = React.useState({});
     const [info, setInfo] = React.useState({});
+    const [post, setPost] = React.useState({});
 
     const postId = useParams();
     const url = postId.id;
@@ -80,6 +81,7 @@ function ShowingBoard(props) {
                 setcomment(response.data.comments);
                 setname(response.data.userNickname);
                 setInfo(response.data.movieInfo);
+                setPost(response.data.postList);
             })
             .catch(function (error) {
                 console.log(error);
@@ -629,7 +631,7 @@ function ShowingBoard(props) {
                                     등록
                                 </Button>
                             </Box> */}
-                            <ShortTable></ShortTable>
+                            <ShortTable data={post}></ShortTable>
                             <Box
                                 sx={{
                                     ml: 14,

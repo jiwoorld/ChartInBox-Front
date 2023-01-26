@@ -15,6 +15,7 @@ import {
 import freeboarddata from '../../testdata/freeboarddata.json';
 
 function ShortTable(props) {
+    console.log(props);
     const theme = createTheme({
         palette: {
             primary: {
@@ -197,6 +198,81 @@ function ShortTable(props) {
                                     </TableCell>
                                 </TableRow>
                             ))}
+                            {/* {props.map(props => (
+                                <TableRow key={props.postId}>
+                                    <TableCell
+                                        component="th"
+                                        scope="row"
+                                        sx={{
+                                            fontSize: '0.8rem',
+                                            fontWeight: '400',
+                                            border: '0px',
+                                            borderBottom:
+                                                '0.063rem solid #D9D9D9',
+                                        }}
+                                    >
+                                        <a href={`/movie-talk/${props.postId}`}>
+                                            {props.postTitle}
+                                        </a>
+                                    </TableCell>
+                                    <TableCell
+                                        component="th"
+                                        scope="row"
+                                        sx={{
+                                            fontSize: '0.8rem',
+                                            fontWeight: '400',
+                                            border: '0px',
+                                            borderBottom:
+                                                '0.063rem solid #D9D9D9',
+                                        }}
+                                    >
+                                        {props.postUserNickname}
+                                    </TableCell>
+                                    <TableCell
+                                        component="th"
+                                        scope="row"
+                                        sx={{
+                                            fontSize: '0.8rem',
+                                            fontWeight: '400',
+                                            border: '0px',
+                                            borderBottom:
+                                                '0.063rem solid #D9D9D9',
+                                            maxWidth: '7rem',
+                                            whiteSpace: 'nowrap',
+                                            overflow: 'hidden',
+                                            textOverflow: 'ellipsis',
+                                        }}
+                                    >
+                                        {props.postDate}
+                                    </TableCell>
+                                    <TableCell
+                                        component="th"
+                                        scope="row"
+                                        sx={{
+                                            fontSize: '0.8rem',
+                                            fontWeight: '400',
+                                            border: '0px',
+                                            borderBottom:
+                                                '0.063rem solid #D9D9D9',
+                                        }}
+                                    >
+                                        {props.countVisit}
+                                    </TableCell>
+                                    <TableCell
+                                        component="th"
+                                        scope="row"
+                                        sx={{
+                                            fontSize: '0.8rem',
+                                            fontWeight: '400',
+                                            border: '0px',
+                                            borderBottom:
+                                                '0.063rem solid #D9D9D9',
+                                        }}
+                                    >
+                                        {props.postLike}
+                                    </TableCell>
+                                </TableRow>
+                            ))} */}
                         </TableBody>
                     </Table>
                 </TableContainer>
