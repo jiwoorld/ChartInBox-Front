@@ -44,10 +44,10 @@ function CurationPageMovie({ mvTitle, mvPoster, mvId }) {
             >
                 <Box
                     sx={{
-                        width: '8.4375rem',
                         display: 'flex',
                         flexDirection: 'column',
                         alignContent: 'flex-start',
+                        mr: '1rem',
                     }}
                 >
                     <a href={`/movie-info/${mvId}`}>
@@ -58,6 +58,7 @@ function CurationPageMovie({ mvTitle, mvPoster, mvId }) {
                                 },
                                 color: 'primary.main',
                                 mb: '1rem',
+                                textAlign: 'left',
                             }}
                         >
                             {mvTitle}

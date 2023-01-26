@@ -1,0 +1,96 @@
+{
+    "curationList": [
+        {
+            "curationTitle": "이불 밖은 위험해! 한파에 맞서는 영화",
+            "curationPoster": "http://file.koreafilm.or.kr/thm/02/00/05/24/tn_DPF018682.jpg",
+            "curationUrl": "/curation/cold"
+        },
+        {
+            "curationTitle": "집에서 데이트 할때 달달하게 보고싶은영화",
+            "curationPoster": "http://file.koreafilm.or.kr/thm/02/00/05/24/tn_DPF018682.jpg",
+            "curationUrl": "/curation/homeDate"
+        },
+        {
+            "curationTitle": "영화를 사랑하는 기획자들이 손꼽아 뽑은 인생영화",
+            "curationPoster": "http://file.koreafilm.or.kr/thm/02/00/05/24/tn_DPF018682.jpg",
+            "curationUrl": "/curation/pick1"
+        }
+    ],
+    "movieExploreList": [
+        {
+            "mvTitle": "죽음을 거스른 사나이",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/00/05/26/tn_DPF018786.jpg",
+            "mvId": "F48275"
+        },
+        {
+            "mvTitle": "애드 아스트라",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/00/05/23/tn_DPF018641.jpg",
+            "mvId": "F48274"
+        },
+        {
+            "mvTitle": "정복의 신 징기즈칸",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/00/05/19/tn_DPF018323.jpg",
+            "mvId": "F48019"
+        },
+        {
+            "mvTitle": "막다른 골목의 추억",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/00/05/00/tn_DPK014420.jpg",
+            "mvId": "K17736"
+        },
+        {
+            "mvTitle": "옥수수밭",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/00/05/16/tn_DPF018165.jpg",
+            "mvId": "F47927"
+        },
+        {
+            "mvTitle": "스머글링 헨드릭스",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/00/05/18/tn_DPF018269.jpg",
+            "mvId": "F48012"
+        },
+        {
+            "mvTitle": "아지자",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/00/05/09/tn_DPF017613.jpg",
+            "mvId": "F47696"
+        },
+        {
+            "mvTitle": "미안하다..",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/99/17/81/tn_DPK019541.jpg",
+            "mvId": "K20268"
+        },
+        {
+            "mvTitle": "독",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/00/04/82/tn_DPK014126.jpg",
+            "mvId": "K18890"
+        },
+        {
+            "mvTitle": "테러 시티 22",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/00/05/21/tn_DPF018454.jpg",
+            "mvId": "F48167"
+        },
+        {
+            "mvTitle": "해감",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/00/04/81/tn_DPK014052.jpg",
+            "mvId": "K18393"
+        },
+        {
+            "mvTitle": "차이니즈 봉봉(서울편)",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/00/05/42/tn_DPK015327.jpg",
+            "mvId": "K21316"
+        },
+        {
+            "mvTitle": "스티븐 시걸의 제네럴 커맨더",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/00/05/32/tn_DPF019115.jpg",
+            "mvId": "F48129"
+        },
+        {
+            "mvTitle": "방세옥-천하대전",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/00/05/25/tn_DPF018742.jpg",
+            "mvId": "F48172"
+        },
+        {
+            "mvTitle": "지구공룡대탐험",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/00/05/24/tn_DPF018682.jpg",
+            "mvId": "F48173"
+        }
+    ]
+}
