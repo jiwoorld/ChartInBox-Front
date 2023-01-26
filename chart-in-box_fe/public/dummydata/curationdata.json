@@ -1,0 +1,70 @@
+{
+    "curationMovie": [
+        {
+            "movieId": "F32196",
+            "movieTitle": "겨울왕국",
+            "moviePoster": "http://file.koreafilm.or.kr/thm/02/00/02/12/tn_DPF004274.JPG",
+            "movieAge": "전체관람가"
+        },
+        {
+            "movieId": "K14580",
+            "movieTitle": "뷰티인사이드",
+            "moviePoster": "http://file.koreafilm.or.kr/thm/02/00/04/13/tn_DPK011004.jpg",
+            "movieAge": "12세관람가"
+        },
+        {
+            "movieId": "F28257",
+            "movieTitle": "파퍼씨네 펭귄들",
+            "moviePoster": "http://file.koreafilm.or.kr/thm/02/00/01/46/tn_DPF002101.JPG",
+            "movieAge": "전체관람가"
+        },
+        {
+            "movieId": "K15067",
+            "movieTitle": "히말라야",
+            "moviePoster": "http://file.koreafilm.or.kr/thm/02/00/04/18/tn_DPK011184.jpg",
+            "movieAge": "12세관람가"
+        },
+        {
+            "movieId": "F03380",
+            "movieTitle": "나홀로 집에",
+            "moviePoster": "http://file.koreafilm.or.kr/thm/02/00/03/53/tn_DPF03380A.jpg",
+            "movieAge": "전체관람가"
+        },
+        {
+            "movieId": "F09159",
+            "movieTitle": "투모로우",
+            "moviePoster": "http://file.koreafilm.or.kr/thm/02/00/02/70/tn_DPF006830.JPG",
+            "movieAge": "12세관람가"
+        },
+        {
+            "movieId": "K13368",
+            "movieTitle": "7번방의 선물",
+            "moviePoster": "http://file.koreafilm.or.kr/thm/02/00/01/92/tn_DPK005793.JPG",
+            "movieAge": ""
+        },
+        {
+            "movieId": "K16480",
+            "movieTitle": "아이 캔 스피크",
+            "moviePoster": "http://file.koreafilm.or.kr/thm/02/00/04/48/tn_DPK012603.jpg",
+            "movieAge": ""
+        },
+        {
+            "movieId": "F56636",
+            "movieTitle": "극장판 짱구는 못말려: 수수께끼! 꽃피는 천하떡잎학교",
+            "moviePoster": "http://file.koreafilm.or.kr/thm/02/99/17/79/tn_DPF025775.jpg",
+            "movieAge": ""
+        },
+        {
+            "movieId": "K13349",
+            "movieTitle": "설국열차",
+            "moviePoster": "http://file.koreafilm.or.kr/thm/02/00/01/99/tn_DPK005993.jpg",
+            "movieAge": ""
+        }
+    ],
+    "curationInfo": {
+        "curationLink": "/curation/cold",
+        "curationTitle": "이불 밖은 위험해! 한파에 맞서는 영화",
+        "curationText": "손이 시려워 꽁, 발이 시려워 꽁! 이불 속에서 전기장판 키고 즐기는 겨울에 어울리는 영화를 모아봤어요.",
+        "curationCategory": "개추운날"
+    }
+}

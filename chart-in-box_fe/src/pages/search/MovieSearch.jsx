@@ -126,7 +126,6 @@ function MovieSearch({ isLogin, setIsLogin }) {
                         items={realizeYearItems}
                     ></Selected>
                     <Selected title="국가" items={nationItems}></Selected>
-                    <Selected title="정렬" items={sortItems}></Selected>
                     <Button
                         sx={{
                             width: '2rem',
@@ -145,62 +144,7 @@ function MovieSearch({ isLogin, setIsLogin }) {
                     </Button>
                 </Box>
             </Box>
-            <Box
-                sx={{
-                    width: '100vw',
-                    height: '22rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                }}
-            >
-                <Box
-                    sx={{
-                        mr: 10,
-                        width: '68.5rem',
-                        height: '20rem',
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        flexDirection: 'column',
-                    }}
-                >
-                    <Typography
-                        sx={{
-                            width: '9.3125rem',
-                            height: '1.75rem',
-                            fontSize: '1.3125rem',
-                            fontWeight: '600',
-                        }}
-                    >
-                        오늘의 큐레이션
-                    </Typography>
-                    <Box
-                        sx={{
-                            height: '14.375rem',
-                            width: '68.5rem',
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                        }}
-                    >
-                        <MainMovie
-                            isDisplay="none"
-                            title="캐롤 들으면서 보는 크리스마스 영화 "
-                            subTitle="콘텐츠 10개"
-                        ></MainMovie>
-                        <MainMovie
-                            isDisplay="none"
-                            title="캐롤 들으면서 보는 크리스마스 영화 "
-                            subTitle="콘텐츠 10개"
-                        ></MainMovie>
-                        <MainMovie
-                            isDisplay="none"
-                            title="캐롤 들으면서 보는 크리스마스 영화 "
-                            subTitle="콘텐츠 10개"
-                        ></MainMovie>
-                    </Box>
-                </Box>
-            </Box>
+
             <Paper
                 sx={{
                     height: '76.25rem',

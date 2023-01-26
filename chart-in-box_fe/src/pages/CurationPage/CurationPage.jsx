@@ -8,8 +8,10 @@ import {
     ThemeProvider,
     Typography,
 } from '@mui/material';
+import axios from 'axios';
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import CurationMovie from '../../components/curationpage/CurationMovie';
 import CurationPageMovie from '../../components/curationpage/CurationPageMoive';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
 
@@ -39,12 +41,27 @@ function CurationPage({ isLogin, setIsLogin }) {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-    const [moives, setMovies] = React.useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
     const navigate = useNavigate();
     const handlePage = () => {
         navigate('/');
     };
+    const [allData, setAllData] = React.useState({});
+    const curation = useParams();
+    const url = curation.id;
+    React.useEffect(() => {
+        axios
+            // .get(`/${url}`)
+            .get('/dummydata/curationdata.json')
+            .then(function (response) {
+                setAllData(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, [url]);
 
+    let curationMovie = allData?.curationMovie ?? [];
+    let curationInfo = allData?.curationInfo ?? {};
     return (
         <ThemeProvider theme={theme}>
             <MenuBarMovie isLogin={isLogin} setIsLogin={setIsLogin} />
@@ -63,7 +80,7 @@ function CurationPage({ isLogin, setIsLogin }) {
                         width: '36.1875rem',
                         height: '3.9375rem',
                         ml: '6.87rem',
-                        mb: '1.5rem',
+                        mb: '2rem',
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'space-between',
@@ -77,17 +94,17 @@ function CurationPage({ isLogin, setIsLogin }) {
                             fontWeight: '500',
                         }}
                     >
-                        캐롤 들으면서 보는 크리스마스 영화
+                        {curationInfo.curationTitle}
                     </Typography>
                     <Typography
                         sx={{
                             height: '1.25rem',
                             fontSize: '1.06rem',
                             fontWeight: '300',
+                            textAlign: 'left',
                         }}
                     >
-                        이번 한 해동안의 당신은 어땠나요? 달달한 영화들과 함께
-                        행복한 연말이 되길 바랄게요.
+                        {curationInfo.curationText}
                     </Typography>
                 </Box>
             </Box>
@@ -108,15 +125,12 @@ function CurationPage({ isLogin, setIsLogin }) {
                         height: '37.625rem',
                         display: 'flex',
                         justifyContent: 'space-between',
-                        border: '1px solid red',
                     }}
                 >
                     <Grid container spacing={2}>
-                        {moives.map(movie => (
-                            <Grid key={movie.id} item={5}>
-                                <CurationPageMovie
-                                    movie={movie}
-                                ></CurationPageMovie>
+                        {curationMovie.map(item => (
+                            <Grid key={item.id} item={5}>
+                                <CurationMovie item={item}></CurationMovie>
                             </Grid>
                         ))}
                     </Grid>
