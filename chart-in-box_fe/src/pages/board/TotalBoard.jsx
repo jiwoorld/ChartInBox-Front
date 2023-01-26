@@ -10,6 +10,8 @@ import BoardTable from './BoardTable';
 import MovietalkMenuBar from '../../components/menubar/MovietalkMenuBar';
 import MovietalkSubBar from '../../components/menubar/MovietalkSubBar';
 import MyInformation from '../../components/board/MyInformation';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 function TotalBoard({ isLogin, setIsLogin }) {
     const [boardName, setBoardName] = React.useState('전체글');
@@ -32,7 +34,19 @@ function TotalBoard({ isLogin, setIsLogin }) {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-
+    useEffect(() => {
+        axios
+            .get('/dummydata/freeboarddata.json')
+            .then(function (response) {
+                setBoardlist(response.data.boardList);
+                //setuserNickname(response.data.userNickname);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    });
+    const [boardlist, setBoardlist] = React.useState('');
+    //const [usernickname, setuserNickname] = React.useState('');
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -85,7 +99,10 @@ function TotalBoard({ isLogin, setIsLogin }) {
                             p: 1,
                         }}
                     >
-                        <BoardTable boardName={boardName}></BoardTable>
+                        <BoardTable
+                            boardlist={boardlist}
+                            boardName={boardName}
+                        ></BoardTable>
                     </Box>
                 </Container>
             </main>

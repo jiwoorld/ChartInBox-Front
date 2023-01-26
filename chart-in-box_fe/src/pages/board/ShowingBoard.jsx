@@ -22,8 +22,11 @@ import Select, { getSelectUtilityClasses } from '@mui/material/Select';
 import ShortTable from './ShortTable';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import Swal from 'sweetalert2';
+import Commenttable from '../../components/board/Commenttable';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import MovieInformation from '../../components/board/MovieInfomation';
+import MyCommentTable from '../../components/mypage/MyCommentTable';
+import { CoPresent } from '@mui/icons-material';
 
 function ShowingBoard(props) {
     const [time, setTime] = React.useState('');
@@ -74,8 +77,6 @@ function ShowingBoard(props) {
         axios
             .get('/dummydata/showingboarddata.json')
             .then(function (response) {
-                //console.log(response.data);
-                console.log('RRr' + response.data);
                 setAllData(response.data);
                 setdetail(response.data.postDetail);
                 setcomment(response.data.comments);
@@ -407,8 +408,8 @@ function ShowingBoard(props) {
                                     </Button>
                                 )}
                             </Box>
-
-                            {/* <Box //댓글
+                            {/* <Commenttable data={comment}></Commenttable> */}
+                            {/* Box //댓글
                                 sx={{
                                     //alignItems: 'flex-start',
                                     display: 'flex',
@@ -428,160 +429,89 @@ function ShowingBoard(props) {
                                 >
                                     댓글
                                 </Typography>
-                                <Box
-                                    sx={{
-                                        borderBottom: '2px solid #0000001A',
-                                    }}
-                                >
-                                    <Box
-                                        sx={{
-                                            alignItems: 'center',
-                                            display: 'flex',
-                                            justifyContent: 'space-between',
-                                        }}
-                                    >
+                                {comment &&
+                                    comment.map(item2 => (
                                         <Box
+                                            key={item2.cmtId}
                                             sx={{
-                                                fontSize: '0.875rem',
-                                                fontWeight: '600',
-                                                textAlign: 'left',
-                                                fontStyle: 'noraml',
-                                                width: '80%',
-                                                color: '#1A1A1A',
-                                                pt: 2,
+                                                borderBottom:
+                                                    '2px solid #0000001A',
                                                 pb: 1,
                                             }}
                                         >
-                                            {comment[0].cmtUserNickname}
+                                            <Box
+                                                sx={{
+                                                    alignItems: 'center',
+                                                    display: 'flex',
+                                                    justifyContent:
+                                                        'space-between',
+                                                }}
+                                            >
+                                                <Box
+                                                    sx={{
+                                                        fontSize: '0.875rem',
+                                                        fontWeight: '600',
+                                                        textAlign: 'left',
+                                                        fontStyle: 'noraml',
+                                                        width: '80%',
+                                                        color: '#1A1A1A',
+                                                        pt: 2,
+                                                    }}
+                                                >
+                                                    {item2.cmtUserNickname}
+                                                </Box>
+                                                <Box
+                                                    sx={{
+                                                        fontSize: '0.875rem',
+                                                        fontWeight: '600',
+                                                        textAlign: 'left',
+                                                        fontStyle: 'noraml',
+                                                        color: '#757575',
+                                                        mr: -5,
+                                                        pt: 2,
+                                                    }}
+                                                >
+                                                    {item2.cmtDate} |
+                                                </Box>
+                                                <IconButton
+                                                    aria-label="delete"
+                                                    sx={{ pt: 3, pl: 5 }}
+                                                >
+                                                    <MoreVertIcon />
+                                                </IconButton>
+                                            </Box>
+                                            <Typography
+                                                sx={{
+                                                    fontSize: '0.875rem',
+                                                    fontWeight: '400',
+                                                    textAlign: 'left',
+                                                    fontStyle: 'noraml',
+                                                    color: '#1A1A1A',
+                                                    pt: 2,
+                                                    pb: 3,
+                                                }}
+                                            >
+                                                {item2.cmtDate}
+                                            </Typography>
+                                            <Box
+                                                sx={{
+                                                    textAlign: 'right',
+                                                }}
+                                            >
+                                                <Button
+                                                    size="small"
+                                                    sx={{
+                                                        alignContent: 'left',
+                                                        fontSize: '0.75rem',
+                                                        fontWeight: '400',
+                                                        color: '#424242',
+                                                    }}
+                                                >
+                                                    답글 달기
+                                                </Button>
+                                            </Box>
                                         </Box>
-                                        <Box
-                                            sx={{
-                                                fontSize: '0.875rem',
-                                                fontWeight: '600',
-                                                textAlign: 'left',
-                                                fontStyle: 'noraml',
-                                                color: '#757575',
-                                                mr: -5,
-                                                pt: 2,
-                                            }}
-                                        >
-                                            {comment[0].cmtDate} |
-                                        </Box>
-                                        <IconButton
-                                            aria-label="delete"
-                                            sx={{ pt: 3, pl: 5 }}
-                                        >
-                                            <MoreVertIcon />
-                                        </IconButton>
-                                    </Box>
-                                    <Typography
-                                        sx={{
-                                            fontSize: '0.875rem',
-                                            fontWeight: '400',
-                                            textAlign: 'left',
-                                            fontStyle: 'noraml',
-                                            color: '#1A1A1A',
-                                            pt: 2,
-                                            pb: 3,
-                                        }}
-                                    >
-                                        {comment[0].cmtContent}
-                                    </Typography>
-                                    <Box
-                                        sx={{
-                                            textAlign: 'right',
-                                        }}
-                                    >
-                                        <Button
-                                            size="small"
-                                            sx={{
-                                                alignContent: 'left',
-                                                fontSize: '0.75rem',
-                                                fontWeight: '400',
-                                                color: '#424242',
-                                            }}
-                                        >
-                                            답글 달기
-                                        </Button>
-                                    </Box>
-                                </Box>
-                                <Box
-                                    sx={{
-                                        borderBottom: '2px solid #0000001A',
-                                        pb: 1,
-                                    }}
-                                >
-                                    <Box
-                                        sx={{
-                                            alignItems: 'center',
-                                            display: 'flex',
-                                            justifyContent: 'space-between',
-                                        }}
-                                    >
-                                        <Box
-                                            sx={{
-                                                fontSize: '0.875rem',
-                                                fontWeight: '600',
-                                                textAlign: 'left',
-                                                fontStyle: 'noraml',
-                                                width: '80%',
-                                                color: '#1A1A1A',
-                                                pt: 2,
-                                            }}
-                                        >
-                                            {comment[1].cmtUserNickname}
-                                        </Box>
-                                        <Box
-                                            sx={{
-                                                fontSize: '0.875rem',
-                                                fontWeight: '600',
-                                                textAlign: 'left',
-                                                fontStyle: 'noraml',
-                                                color: '#757575',
-                                                mr: -5,
-                                                pt: 2,
-                                            }}
-                                        >
-                                            {comment[1].cmtDate} |
-                                        </Box>
-                                        <IconButton
-                                            aria-label="delete"
-                                            sx={{ pt: 3, pl: 5 }}
-                                        >
-                                            <MoreVertIcon />
-                                        </IconButton>
-                                    </Box>
-                                    <Typography
-                                        sx={{
-                                            fontSize: '0.875rem',
-                                            fontWeight: '400',
-                                            textAlign: 'left',
-                                            fontStyle: 'noraml',
-                                            color: '#1A1A1A',
-                                            pt: 2,
-                                            pb: 3,
-                                        }}
-                                    >
-                                        {comment[1].cmtDate}
-                                    </Typography>
-                                    <Box
-                                        sx={{
-                                            textAlign: 'right',
-                                        }}
-                                    >
-                                        <Button
-                                            size="small"
-                                            sx={{
-                                                alignContent: 'left',
-                                                fontSize: '0.75rem',
-                                                fontWeight: '400',
-                                                color: '#424242',
-                                            }}
-                                        >
-                                            답글 달기
-                                        </Button>
-                                    </Box>
-                                </Box>
+                                    ))}
                             </Box>
                             <Box //댓글쓰기
                                 component="form"

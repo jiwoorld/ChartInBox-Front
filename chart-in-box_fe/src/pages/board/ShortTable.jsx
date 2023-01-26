@@ -15,7 +15,7 @@ import {
 import freeboarddata from '../../testdata/freeboarddata.json';
 
 function ShortTable(props) {
-    console.log(props);
+    //console.log(props);
     const theme = createTheme({
         palette: {
             primary: {

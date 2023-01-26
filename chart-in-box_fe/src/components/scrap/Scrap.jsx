@@ -1,7 +1,7 @@
 import { ThemeProvider, Typography } from '@mui/material';
 import { Box, createTheme } from '@mui/system';
 import * as React from 'react';
-import scrap from '../../testdata/scrap.json';
+
 function Scrap({ mvTitle, mvPoster, mvId }) {
     const theme = createTheme({
         palette: {
