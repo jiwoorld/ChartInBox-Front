@@ -327,7 +327,7 @@ function Writing() {
                                 variant="contained"
                                 endIcon={<ThumbUpAltIcon />}
                                 sx={{
-                                    backgroundColor: '#F2CB05',
+                                    backgroundColor: '#EDEDED',
                                     ml: -9,
                                     mt: 2.5,
                                 }}
@@ -338,7 +338,7 @@ function Writing() {
                                 variant="contained"
                                 endIcon={<ThumbDownAltIcon />}
                                 sx={{
-                                    backgroundColor: '#CF5E53',
+                                    backgroundColor: '#EDEDED',
                                     ml: -4.2,
                                     mt: 1,
                                 }}

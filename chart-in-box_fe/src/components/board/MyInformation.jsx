@@ -5,16 +5,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function MyInformation() {
@@ -36,6 +29,18 @@ function MyInformation() {
         typography: {
             fontFamily: "'Pretendard', sans-serif",
         },
+    });
+
+    const [allData, setAllData] = React.useState({});
+    useEffect(() => {
+        axios
+            .get('/dummydata/freeboarddata.json')
+            .then(function (response) {
+                setAllData(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     });
 
     return (
@@ -67,11 +72,11 @@ function MyInformation() {
                                 mb: '1rem',
                             }}
                         >
-                            잇타2피님, 오늘도 좋은 하루 되세요 :)
+                            {allData.userNickname}님, 오늘도 좋은 하루 되세요 :)
                         </Typography>
                         <Button
                             size="small"
-                            href="../changeinfo"
+                            href="../my-page/edit"
                             sx={{
                                 ml: '-2.2rem',
                                 color: '#9E9E9E',
