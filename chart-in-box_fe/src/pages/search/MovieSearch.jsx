@@ -1,4 +1,5 @@
 import {
+    Button,
     createTheme,
     CssBaseline,
     Grid,
@@ -104,7 +105,7 @@ function MovieSearch({ isLogin, setIsLogin }) {
                     sx={{
                         fontWeight: '600',
                         fontSize: '1.5rem',
-                        ml: '16rem',
+                        ml: '11rem',
                     }}
                 >
                     필터를 통해 취향에 맞는 영화를 모아보세요
@@ -126,6 +127,22 @@ function MovieSearch({ isLogin, setIsLogin }) {
                     ></Selected>
                     <Selected title="국가" items={nationItems}></Selected>
                     <Selected title="정렬" items={sortItems}></Selected>
+                    <Button
+                        sx={{
+                            width: '2rem',
+                            height: '1.5rem',
+                            backgroundColor: '#F2CB05',
+                            fontWeight: 600,
+                            fontSize: '0.8135rem',
+                            borderRadius: '0.5rem',
+                            mt: 2.8,
+                            '&:hover,&.Mui-focusVisible': {
+                                backgroundColor: '#F2CB05',
+                            },
+                        }}
+                    >
+                        조회{' '}
+                    </Button>
                 </Box>
             </Box>
             <Box

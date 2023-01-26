@@ -15,7 +15,6 @@ function MainMovie(props) {
     };
     const isDisplay = props.isDisplay;
     const title = props.title;
-    const subTitle = props.subTitle;
 
     return (
         <ThemeProvider theme={{ theme }}>
@@ -85,17 +84,6 @@ function MainMovie(props) {
                         align="left"
                     >
                         {title}
-                    </Typography>
-                    <Typography
-                        sx={{
-                            width: '7.6875rem',
-                            fontSize: '1rem',
-                            fontWeight: '400',
-                            opacity: '0.3',
-                        }}
-                        align="left"
-                    >
-                        {subTitle}
                     </Typography>
                 </Box>
             </Box>

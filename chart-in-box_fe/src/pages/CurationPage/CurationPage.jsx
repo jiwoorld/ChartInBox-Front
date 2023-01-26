@@ -53,8 +53,9 @@ function CurationPage({ isLogin, setIsLogin }) {
                 sx={{
                     width: '100vw',
                     height: '12.125rem',
-                    backgroundImage: 'url(../../image/curationExample.png)',
+                    background: `linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("http://file.koreafilm.or.kr/thm/02/00/02/12/tn_DPF004274.JPG")`,
                     display: 'flex',
+                    backgroundSize: 'cover',
                     alignItems: 'flex-end',
                 }}
             >

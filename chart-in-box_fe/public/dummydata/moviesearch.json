@@ -1,4 +1,20 @@
 {
-    "searchTitle": "아바타ㅇㅇ아ㅓㅣ어ㅏㅇㄴ린ㅇ",
-    "searchList": []
+    "searchTitle": "아바타",
+    "searchList": [
+        {
+            "mvTitle": " 아바타",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/00/01/30/tn_DPF001337.jpg",
+            "mvId": "F24464"
+        },
+        {
+            "mvTitle": " 아바타 정글의 비밀",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/00/02/14/tn_DPF004381.JPG",
+            "mvId": "F32494"
+        },
+        {
+            "mvTitle": " 아바타: 물의 길",
+            "mvPoster": "http://file.koreafilm.or.kr/thm/02/99/17/90/tn_DPF026439.jpg",
+            "mvId": "F55873"
+        }
+    ]
 }
