@@ -1,9 +1,10 @@
 import { ThemeProvider, Typography } from '@mui/material';
+import zIndex from '@mui/material/styles/zIndex';
 import { Box, createTheme } from '@mui/system';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function MainMovie(props) {
+function MainMovie({ item }) {
     const theme = createTheme({
         typography: {
             fontFamily: "'Pretendard', sans-serif",
@@ -13,9 +14,22 @@ function MainMovie(props) {
     const handlePage = () => {
         navigate('/curation');
     };
-    const isDisplay = props.isDisplay;
-    const title = props.title;
-
+    let age = '';
+    let ageColor = '';
+    if (typeof item.movieAge === 'string') {
+        if (item.movieAge.length === 5) {
+            age = 'All';
+            ageColor = '#299B2D';
+        } else {
+            age = item.movieAge.slice(0, -4);
+            if (age === '19') {
+                ageColor = '#CF5E53';
+            } else {
+                ageColor = '#F2CB05';
+            }
+        }
+    } else {
+    }
     return (
         <ThemeProvider theme={{ theme }}>
             <Box
@@ -30,6 +44,9 @@ function MainMovie(props) {
                     sx={{
                         width: '16.3125rem',
                         height: '10.5rem',
+                        backgroundImage: `url(${item.moviePoster})`,
+                        borderRadius: '0.75rem',
+                        backgroundSize: '261px 168px',
                     }}
                 >
                     <Box
@@ -38,9 +55,8 @@ function MainMovie(props) {
                             left: '0.625rem',
                             width: '2.5rem',
                             height: '2.875rem',
-                            backgroundColor: '#F2CB05',
+                            backgroundColor: `${ageColor}`,
                             borderRadius: '0px 0px 20px 20px',
-                            display: isDisplay,
                             alignItems: 'center',
                             textAlign: 'center',
                         }}
@@ -55,22 +71,15 @@ function MainMovie(props) {
                                 mr: 0.3,
                             }}
                         >
-                            15
+                            {age}
                         </Typography>
                     </Box>
-                    <img
-                        src="../../image/example.png"
-                        width="100%"
-                        alt="영화 이미지"
-                        class="mainMovieImg"
-                    ></img>
                 </Box>
                 <Box
                     sx={{
                         height: '2.5625rem',
                         display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
+                        alignItems: 'center',
                     }}
                 >
                     <Typography
@@ -83,7 +92,7 @@ function MainMovie(props) {
                         }}
                         align="left"
                     >
-                        {title}
+                        {item.movieTitle}
                     </Typography>
                 </Box>
             </Box>

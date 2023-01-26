@@ -86,7 +86,6 @@ function MovieInfo({ isLogin, setIsLogin }) {
     if (typeof info.mvRating === 'string') {
         mvRating = info.mvRating.slice(0, -3);
     } else {
-        console.log('string 아님');
     }
 
     return (

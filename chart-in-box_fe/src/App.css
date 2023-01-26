@@ -51,9 +51,7 @@
 .MuiSelect-icon {
     color: #fff !important;
 }
-.mainMovieImg:hover {
-    width: 105%;
-}
+
 .ck-editor__editable {
     min-height: 46.125rem;
 }

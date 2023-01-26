@@ -56,6 +56,8 @@ function MainPage({ isLogin, setIsLogin }) {
     const freeBoard = allData?.freeBoardList ?? [];
     const reviewBoard = allData?.reviewBoardList ?? [];
     const npartyBoard = allData?.npartyBoardList ?? [];
+    const curationInfo = allData?.curationInfo ?? {};
+    const curationList = allData?.curationList ?? [];
 
     //옵셔널체이닝
 
@@ -175,7 +177,10 @@ function MainPage({ isLogin, setIsLogin }) {
                         justifyContent: 'center',
                     }}
                 >
-                    <MainCuration></MainCuration>
+                    <MainCuration
+                        curationList={curationList}
+                        curationInfo={curationInfo}
+                    ></MainCuration>
                 </Paper>
                 <Paper
                     sx={{

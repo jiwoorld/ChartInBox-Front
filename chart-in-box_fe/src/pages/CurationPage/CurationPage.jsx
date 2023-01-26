@@ -40,7 +40,6 @@ function CurationPage({ isLogin, setIsLogin }) {
         },
     });
     const [moives, setMovies] = React.useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
-    const [likes, setLikes] = React.useState([]);
     const navigate = useNavigate();
     const handlePage = () => {
         navigate('/');
