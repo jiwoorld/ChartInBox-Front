@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 
-function NBoardSubBar() {
+function NBoardSubBar({ setBoardName }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -25,26 +25,26 @@ function NBoardSubBar() {
         },
     }); // 색 지정
     const navigate = useNavigate();
-    const handleTotalNBoard = () => {
-        navigate('/n-party/total');
+    const handledisneyBoard = () => {
+        setBoardName('디즈니');
     };
-    const handleNetflexNBoard = () => {
-        navigate('/n-party/netflex');
+    const handletotalBoard = () => {
+        setBoardName('전체글');
     };
-    const handledisneyNBoard = () => {
-        navigate('/n-party/disney');
+    const handleetcBoard = () => {
+        setBoardName('기타');
     };
-    const handleTivingNBoard = () => {
-        navigate('/n-party/tving');
+    const handlenetflexBoard = () => {
+        setBoardName('넷플릭스');
     };
-    const handleWaveNBoard = () => {
-        navigate('/n-party/wave');
+    const handletvingBoard = () => {
+        setBoardName('티빙');
     };
-    const handleWatchaNBoard = () => {
-        navigate('/n-party/watcha');
+    const handlewatchaBoard = () => {
+        setBoardName('왓차');
     };
-    const handleEtcNBoard = () => {
-        navigate('/n-party/etc');
+    const handlewaveBoard = () => {
+        setBoardName('웨이브');
     };
     return (
         <ThemeProvider theme={theme}>
@@ -65,7 +65,7 @@ function NBoardSubBar() {
                     }}
                 >
                     <Button
-                        onClick={handleTotalNBoard}
+                        onClick={handletotalBoard}
                         sx={{
                             pl: '1rem',
                             pt: '0.5rem',
@@ -86,7 +86,7 @@ function NBoardSubBar() {
                     }}
                 >
                     <Button
-                        onClick={handleNetflexNBoard}
+                        onClick={handlenetflexBoard}
                         sx={{
                             pl: '1rem',
                             pt: '0.5rem',
@@ -107,7 +107,7 @@ function NBoardSubBar() {
                     }}
                 >
                     <Button
-                        onClick={handleWatchaNBoard}
+                        onClick={handlewatchaBoard}
                         sx={{
                             pl: '1rem',
                             fontWeight: 400,
@@ -128,7 +128,7 @@ function NBoardSubBar() {
                     }}
                 >
                     <Button
-                        onClick={handleTivingNBoard}
+                        onClick={handletvingBoard}
                         sx={{
                             pl: '1rem',
                             fontWeight: 400,
@@ -149,7 +149,7 @@ function NBoardSubBar() {
                     }}
                 >
                     <Button
-                        onClick={handleWaveNBoard}
+                        onClick={handlewaveBoard}
                         sx={{
                             pl: '1rem',
                             fontWeight: 400,
@@ -170,7 +170,7 @@ function NBoardSubBar() {
                     }}
                 >
                     <Button
-                        onClick={handledisneyNBoard}
+                        onClick={handledisneyBoard}
                         sx={{
                             pl: '1rem',
                             fontWeight: 400,
@@ -191,7 +191,7 @@ function NBoardSubBar() {
                     }}
                 >
                     <Button
-                        onClick={handleEtcNBoard}
+                        onClick={handleetcBoard}
                         sx={{
                             pl: '1rem',
                             fontWeight: 400,
