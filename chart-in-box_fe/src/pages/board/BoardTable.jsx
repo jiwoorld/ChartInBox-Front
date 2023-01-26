@@ -230,6 +230,7 @@ function BoardTable({ boardlist, boardName }) {
                                                 component="th"
                                                 scope="row"
                                                 sx={{
+                                                    textAlign: 'center',
                                                     fontSize: '0.8rem',
                                                     fontWeight: '400',
                                                     border: '0px',
@@ -243,6 +244,7 @@ function BoardTable({ boardlist, boardName }) {
                                                 component="th"
                                                 scope="row"
                                                 sx={{
+                                                    textAlign: 'center',
                                                     fontSize: '0.8rem',
                                                     fontWeight: '400',
                                                     border: '0px',
@@ -260,6 +262,7 @@ function BoardTable({ boardlist, boardName }) {
                                                 component="th"
                                                 scope="row"
                                                 sx={{
+                                                    textAlign: 'center',
                                                     fontSize: '0.8rem',
                                                     fontWeight: '400',
                                                     border: '0px',
@@ -273,6 +276,7 @@ function BoardTable({ boardlist, boardName }) {
                                                 component="th"
                                                 scope="row"
                                                 sx={{
+                                                    textAlign: 'center',
                                                     fontSize: '0.8rem',
                                                     fontWeight: '400',
                                                     border: '0px',

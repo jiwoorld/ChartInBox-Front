@@ -24,6 +24,7 @@ import freeboarddata from '../../testdata/freeboarddata.json';
 
 function BoardNTable({ boardlist, boardName }) {
     //const tableName = props.tableName;
+    const label = { inputProps: { 'aria-label': 'Color switch demo' } };
 
     const theme = createTheme({
         palette: {
@@ -77,7 +78,6 @@ function BoardNTable({ boardlist, boardName }) {
                     sx={{
                         height: '1.75rem',
                         display: 'flex',
-                        //justifyContent: 'space-between',
                         flexDirection: 'row',
                         alignItems: 'flex-start',
                         mb: 1,
@@ -85,7 +85,7 @@ function BoardNTable({ boardlist, boardName }) {
                 >
                     <Box
                         sx={{
-                            width: '74%',
+                            width: '76%',
                             justifyContent: 'space-between',
                         }}
                     >
@@ -100,39 +100,38 @@ function BoardNTable({ boardlist, boardName }) {
                         </Typography>
                     </Box>
                     <FormGroup>
-                        <FormControlLabel
-                            control={<Switch defaultChecked />}
-                            label="스포포함"
-                        />
+                        <Switch {...label} defaultChecked color="default" />{' '}
                     </FormGroup>
+                    <Box sx={{ width: '4rem', pt: 1 }}>스포포함</Box>
                     <Box
                         sx={{
                             maxWidth: '10rem',
                             Height: '3rem',
                             flexDirection: 'row',
                             alignItems: 'flex-start',
-                            m: '0.3rem',
-                            mt: -1.5,
                         }}
                     >
-                        <FormControl fullWidth>
-                            <Select
-                                displayEmpty
-                                inputProps={{
-                                    'aria-label': 'Without label',
-                                }}
-                                value={lineup}
-                                label="Lineup"
-                                onChange={handleLineupChange}
-                            >
-                                <MenuItem value="">최신순</MenuItem>
-                                <MenuItem value={10}>조회순</MenuItem>
-                                <MenuItem value={20}>좋아요순</MenuItem>
-                                <MenuItem value={30}>댓글순</MenuItem>
-                            </Select>
-                        </FormControl>
+                        <Box sx={{ ml: 7, mt: -1.5 }}>
+                            <FormControl fullWidth>
+                                <Select
+                                    displayEmpty
+                                    inputProps={{
+                                        'aria-label': 'Without label',
+                                    }}
+                                    value={lineup}
+                                    label="Lineup"
+                                    onChange={handleLineupChange}
+                                >
+                                    <MenuItem value="">최신순</MenuItem>
+                                    <MenuItem value={10}>조회순</MenuItem>
+                                    <MenuItem value={20}>좋아요순</MenuItem>
+                                    <MenuItem value={30}>댓글순</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
                     </Box>
                 </Box>
+
                 <Box>
                     <TableContainer>
                         <Table
