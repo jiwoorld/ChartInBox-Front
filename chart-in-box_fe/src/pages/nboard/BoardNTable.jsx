@@ -178,7 +178,7 @@ function BoardNTable({ boardlist, boardName }) {
                                     <TableCell
                                         align="center"
                                         sx={{
-                                            width: '11.4rem',
+                                            width: '6.4rem',
                                             fontSize: '0.8rem',
                                             fontWeight: '400',
                                             border: '0px',
@@ -233,6 +233,7 @@ function BoardNTable({ boardlist, boardName }) {
                                                 component="th"
                                                 scope="row"
                                                 sx={{
+                                                    textAlign: 'center',
                                                     fontSize: '0.8rem',
                                                     fontWeight: '400',
                                                     border: '0px',
@@ -246,11 +247,16 @@ function BoardNTable({ boardlist, boardName }) {
                                                 component="th"
                                                 scope="row"
                                                 sx={{
+                                                    textAlign: 'center',
                                                     fontSize: '0.8rem',
                                                     fontWeight: '400',
                                                     border: '0px',
                                                     borderBottom:
                                                         '0.063rem solid #D9D9D9',
+                                                    maxWidth: '7rem',
+                                                    whiteSpace: 'nowrap',
+                                                    overflow: 'hidden',
+                                                    textOverflow: 'ellipsis',
                                                 }}
                                             >
                                                 {item.postDate}
@@ -259,6 +265,7 @@ function BoardNTable({ boardlist, boardName }) {
                                                 component="th"
                                                 scope="row"
                                                 sx={{
+                                                    textAlign: 'center',
                                                     fontSize: '0.8rem',
                                                     fontWeight: '400',
                                                     border: '0px',
@@ -272,6 +279,7 @@ function BoardNTable({ boardlist, boardName }) {
                                                 component="th"
                                                 scope="row"
                                                 sx={{
+                                                    textAlign: 'center',
                                                     fontSize: '0.8rem',
                                                     fontWeight: '400',
                                                     border: '0px',
@@ -290,12 +298,12 @@ function BoardNTable({ boardlist, boardName }) {
                         sx={{
                             height: '3.125rem',
                             display: 'flex',
-                            //mr: 'auto',
                             justifyContent: 'flex-end',
                             mt: '0.2rem',
                         }}
                     >
                         <Button
+                            href="../nwriting"
                             sx={{
                                 backgroundColor: '#EDEDED',
                                 color: 'black',

@@ -12,9 +12,9 @@ import {
     ThemeProvider,
     Typography,
 } from '@mui/material';
-import freeboarddata from '../../testdata/freeboarddata.json';
+//import freeboarddata from '../../testdata/freeboarddata.json';
 
-function ShortTable(props) {
+function ShortTable({ data }) {
     //console.log(props);
     const theme = createTheme({
         palette: {
@@ -123,7 +123,7 @@ function ShortTable(props) {
                         <TableBody
                             sx={{ borderBottom: '0.063rem solid #D9D9D9' }}
                         >
-                            {freeboarddata.boardList.map(item => (
+                            {data.map(item => (
                                 <TableRow key={item.postId}>
                                     <TableCell
                                         component="th"

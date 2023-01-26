@@ -7,7 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function Commenttable({ data }) {
-    //console.log({ data });
+    console.log({ data });
     const theme = createTheme({
         palette: {
             primary: {
@@ -50,7 +50,7 @@ function Commenttable({ data }) {
                     댓글
                 </Typography>
                 {data &&
-                    data.map(item => (
+                    data.comments.map(item => (
                         <Box
                             key={item.cmtId}
                             sx={{
