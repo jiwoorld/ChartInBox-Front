@@ -15,6 +15,10 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import IconButton from '@mui/material/IconButton';
+import InputBase from '@mui/material/InputBase';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { getSelectUtilityClasses } from '@mui/material/Select';
 import ShortTable from './ShortTable';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import Swal from 'sweetalert2';
@@ -22,6 +26,20 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import MovieInformation from '../../components/board/MovieInfomation';
 
 function ShowingBoard(props) {
+    const [time, setTime] = React.useState('');
+    const handleTimeChange = event => {
+        setTime(event.target.value);
+    };
+
+    const [scope, setScope] = React.useState('');
+    const handleScopeChange = event => {
+        setScope(event.target.value);
+    };
+
+    const [lineup, setLineup] = React.useState('');
+    const handleLineupChange = event => {
+        setLineup(event.target.value);
+    };
     const theme = createTheme({
         palette: {
             primary: {
@@ -45,6 +63,7 @@ function ShowingBoard(props) {
     const [detail, setdetail] = React.useState({});
     const [comment, setcomment] = React.useState({});
     const [name, setname] = React.useState({});
+    const [info, setInfo] = React.useState({});
 
     const postId = useParams();
     const url = postId.id;
@@ -54,17 +73,18 @@ function ShowingBoard(props) {
         axios
             .get('/dummydata/showingboarddata.json')
             .then(function (response) {
+                //console.log(response.data);
                 console.log('RRr' + response.data);
                 setAllData(response.data);
                 setdetail(response.data.postDetail);
                 setcomment(response.data.comments);
                 setname(response.data.userNickname);
+                setInfo(response.data.movieInfo);
             })
             .catch(function (error) {
                 console.log(error);
             });
     }, [url, like]);
-
     const handleLike = () => {
         axios
             .post(`/movie-info/${url}/like`)
@@ -87,11 +107,6 @@ function ShowingBoard(props) {
     };
     like = allData?.movieLike;
     const [value, setValue] = React.useState('Controlled');
-    /* const a = detail.postDate;
-    const b = a.split('T');
-    const b1 = b[0];
-    const b2 = b[1];
-    const d = b1 + ' ' + b2; */
 
     const handleChange = event => {
         setValue(event.target.value);
@@ -247,7 +262,7 @@ function ShowingBoard(props) {
                                 sx={{
                                     width: '59.5rem',
                                     minHeight: '35rem',
-                                    pb: 5,
+                                    pb: 7,
                                     borderBottom: '2px solid #0000001A',
                                     //display: 'flex',
                                 }}
@@ -264,8 +279,95 @@ function ShowingBoard(props) {
                                 >
                                     {detail.postContent}
                                 </Typography>
-
-                                <MovieInformation></MovieInformation>
+                                <Box
+                                    sx={{
+                                        displey: 'flex',
+                                        direction: 'row',
+                                        height: '6rem',
+                                    }}
+                                >
+                                    {/* <MovieInformation></MovieInformation> */}
+                                    <Box
+                                        sx={{
+                                            width: '59.5rem',
+                                            height: '6.688rem',
+                                            backgroundColor: '#F5F5F5',
+                                            direction: 'row',
+                                            alignItems: 'space-between',
+                                            display: 'flex',
+                                        }}
+                                    >
+                                        <Box
+                                            /* sx={{
+                                                display: 'flex',
+                                                width: '3.375rem',
+                                                height: '4.497rem',
+                                                backgroundColor: 'black',
+                                                mt: 2,
+                                                ml: 3,
+                                            }} */
+                                            sx={{
+                                                display: 'flex',
+                                                width: '3.375rem',
+                                                height: '4.497rem',
+                                                background: `url(${info.mvPoster})`,
+                                                backgroundSize:
+                                                    '3.375rem 4.497rem',
+                                                resizeMode: 'stretch',
+                                                mt: 2,
+                                                ml: 3,
+                                            }}
+                                        ></Box>
+                                        <Box
+                                            sx={{
+                                                width: '50%',
+                                                display: 'flex',
+                                                mt: 3.5,
+                                                flexDirection: 'column',
+                                                alignItems: 'column',
+                                                textAlign: 'left',
+                                                pl: 3,
+                                            }}
+                                        >
+                                            <Box
+                                                sx={{
+                                                    fontSize: '0.875rem',
+                                                    fontWeight: 600,
+                                                    pb: 1,
+                                                }}
+                                            >
+                                                {info.mvTitle}
+                                            </Box>
+                                            <Box
+                                                sx={{
+                                                    fontSize: '0.625rem',
+                                                    fontWeight: 400,
+                                                }}
+                                            >
+                                                {info.mvGenre} |{' '}
+                                                {info.mvRuntime} |{' '}
+                                                {info.mvRating}
+                                            </Box>
+                                        </Box>
+                                        <Button
+                                            align="left"
+                                            variant="contained"
+                                            endIcon={<ThumbUpAltIcon />}
+                                            sx={{
+                                                mr: -10,
+                                                backgroundColor: '#F2CB05',
+                                                height: '2rem',
+                                                display: 'flex',
+                                                margin: 'auto',
+                                                width: '9.375rem',
+                                                borderRadius: '0.25rem',
+                                                fontSize: '0.65rem',
+                                            }}
+                                        >
+                                            이 영화를 추천합니다
+                                        </Button>
+                                    </Box>
+                                </Box>
 
                                 {like ? (
                                     {
@@ -296,7 +398,7 @@ function ShowingBoard(props) {
                                             },
                                             color: 'black',
                                             backgroundColor: 'white',
-                                            mt: 3,
+                                            mt: 5,
                                         }}
                                     >
                                         좋아요
@@ -304,7 +406,7 @@ function ShowingBoard(props) {
                                 )}
                             </Box>
 
-                            <Box //댓글
+                            {/* <Box //댓글
                                 sx={{
                                     //alignItems: 'flex-start',
                                     display: 'flex',
@@ -348,7 +450,7 @@ function ShowingBoard(props) {
                                                 pb: 1,
                                             }}
                                         >
-                                            {comment.cmtUserNickname}
+                                            {comment[0].cmtUserNickname}
                                         </Box>
                                         <Box
                                             sx={{
@@ -361,11 +463,11 @@ function ShowingBoard(props) {
                                                 pt: 2,
                                             }}
                                         >
-                                            {comment.cmtDate} |
+                                            {comment[0].cmtDate} |
                                         </Box>
                                         <IconButton
                                             aria-label="delete"
-                                            sx={{ pt: 3 }}
+                                            sx={{ pt: 3, pl: 5 }}
                                         >
                                             <MoreVertIcon />
                                         </IconButton>
@@ -381,7 +483,7 @@ function ShowingBoard(props) {
                                             pb: 3,
                                         }}
                                     >
-                                        {comment.cmtContent}
+                                        {comment[0].cmtContent}
                                     </Typography>
                                     <Box
                                         sx={{
@@ -401,7 +503,7 @@ function ShowingBoard(props) {
                                         </Button>
                                     </Box>
                                 </Box>
-                                {/* <Box
+                                <Box
                                     sx={{
                                         borderBottom: '2px solid #0000001A',
                                         pb: 1,
@@ -425,7 +527,7 @@ function ShowingBoard(props) {
                                                 pt: 2,
                                             }}
                                         >
-                                            {comment.cmtUserNickname}
+                                            {comment[1].cmtUserNickname}
                                         </Box>
                                         <Box
                                             sx={{
@@ -438,11 +540,11 @@ function ShowingBoard(props) {
                                                 pt: 2,
                                             }}
                                         >
-                                            {comment.cmtDate} |
+                                            {comment[1].cmtDate} |
                                         </Box>
                                         <IconButton
                                             aria-label="delete"
-                                            sx={{ pt: 3 }}
+                                            sx={{ pt: 3, pl: 5 }}
                                         >
                                             <MoreVertIcon />
                                         </IconButton>
@@ -458,7 +560,7 @@ function ShowingBoard(props) {
                                             pb: 3,
                                         }}
                                     >
-                                        {comment.cmtDate}
+                                        {comment[1].cmtDate}
                                     </Typography>
                                     <Box
                                         sx={{
@@ -477,7 +579,7 @@ function ShowingBoard(props) {
                                             답글 달기
                                         </Button>
                                     </Box>
-                                </Box> */}
+                                </Box>
                             </Box>
                             <Box //댓글쓰기
                                 component="form"
@@ -526,8 +628,110 @@ function ShowingBoard(props) {
                                 >
                                     등록
                                 </Button>
-                            </Box>
+                            </Box> */}
                             <ShortTable></ShortTable>
+                            <Box
+                                sx={{
+                                    ml: 14,
+                                    mt: 4,
+                                    mb: 10,
+                                    display: 'flex',
+                                    justifyContent: 'space-around',
+                                    width: '38.45rem',
+                                    alignItems: 'center',
+                                }}
+                            >
+                                <Box sx={{ height: '2.18rem', m: '0.3rem' }}>
+                                    <FormControl
+                                        fullWidth
+                                        sx={{ width: '7.45rem' }}
+                                    >
+                                        <Select
+                                            displayEmpty
+                                            inputProps={{
+                                                'aria-label': 'Without label',
+                                            }}
+                                            value={time}
+                                            label="Time"
+                                            onChange={handleTimeChange}
+                                        >
+                                            <MenuItem value="">
+                                                전체기간
+                                            </MenuItem>
+                                            <MenuItem value={10}>1일</MenuItem>
+                                            <MenuItem value={20}>1주</MenuItem>
+                                            <MenuItem value={30}>
+                                                한 달
+                                            </MenuItem>
+                                            <MenuItem value={40}>
+                                                6개월
+                                            </MenuItem>
+                                            <MenuItem value={50}>1년</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                                <Box sx={{ height: '2.18rem', m: '0.3rem' }}>
+                                    <FormControl
+                                        fullWidth
+                                        sx={{ width: '7.45rem' }}
+                                    >
+                                        <Select
+                                            value={scope}
+                                            label="Scope"
+                                            displayEmpty
+                                            inputProps={{
+                                                'aria-label': 'Without label',
+                                            }}
+                                            onChange={handleScopeChange}
+                                        >
+                                            <MenuItem value="">
+                                                제목+내용
+                                            </MenuItem>
+                                            <MenuItem value={10}>
+                                                제목만
+                                            </MenuItem>
+                                            <MenuItem value={20}>
+                                                본문만
+                                            </MenuItem>
+                                            <MenuItem value={30}>
+                                                댓글만
+                                            </MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                                <InputBase
+                                    sx={{
+                                        ml: 1,
+                                        flex: 1,
+                                        mt: 2.4,
+                                        border: '0.031rem solid #757575',
+                                        borderRadius: '0.25rem',
+                                        width: '15.688rem',
+                                        height: '3.25rem',
+                                        fontStyle: 'normal',
+                                        fontWeight: '300',
+                                        fontSize: '0.938rem',
+                                    }}
+                                    placeholder="  검색어를 입력하세요"
+                                    inputProps={{
+                                        'aria-label': 'search google maps',
+                                    }}
+                                />
+                                <Button
+                                    sx={{
+                                        m: '0.3rem',
+                                        backgroundColor: '#EDEDED',
+                                        color: '#757575',
+                                        width: '4.063rem',
+                                        mt: 2.7,
+                                        height: '3.25rem',
+                                        borderRadius: '0.25rem',
+                                        opacity: '70%',
+                                    }}
+                                >
+                                    검색
+                                </Button>
+                            </Box>
                         </Box>
                     </Box>
                 </Container>

@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import {
     Box,
     Button,
@@ -358,3 +358,4 @@ function ShowingBoardTable(props) {
 }
 
 export default ShowingBoardTable;
+ */
