@@ -82,11 +82,11 @@ function MovieInfo({ isLogin, setIsLogin }) {
     const reviewBoard = allData?.reviewBoardList ?? [];
     const qnaBoard = allData?.qnaBoardList ?? [];
     scrap = allData?.movieScrap;
+    const curationList = allData?.curationList ?? [];
     let mvRating = '';
     if (typeof info.mvRating === 'string') {
         mvRating = info.mvRating.slice(0, -3);
     } else {
-        console.log('string 아님');
     }
 
     return (
@@ -363,7 +363,7 @@ function MovieInfo({ isLogin, setIsLogin }) {
                     >
                         큐레이션
                     </Box>
-                    <MovieCuration></MovieCuration>
+                    <MovieCuration curationList={curationList}></MovieCuration>
                 </Box>
                 <MovieTable
                     tableName={'Review'}

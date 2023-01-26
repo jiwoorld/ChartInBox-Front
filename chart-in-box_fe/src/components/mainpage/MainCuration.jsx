@@ -4,7 +4,7 @@ import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 import MainMovie from './MainMovie';
 
-function MainCuration() {
+function MainCuration({ curationList, curationInfo }) {
     const theme = createTheme({
         typography: {
             fontFamily: "'Pretendard', sans-serif",
@@ -12,8 +12,9 @@ function MainCuration() {
     });
     const navigate = useNavigate();
     const handlePage = () => {
-        navigate('/curation');
+        navigate(`${curationInfo.curationLink}`);
     };
+
     return (
         <ThemeProvider theme={{ theme }}>
             <Box
@@ -52,7 +53,7 @@ function MainCuration() {
                     >
                         <Typography
                             sx={{
-                                width: '17.875rem',
+                                width: '17rem',
                                 height: '3.375rem',
                                 fontSize: '1.3125rem',
                                 lineHeight: '1.5rem',
@@ -60,7 +61,7 @@ function MainCuration() {
                             }}
                             align="left"
                         >
-                            비오는 날, 빗소리를 배경음악 삼아 보고싶은 영화
+                            {curationInfo.curationTitle}
                             <Typography
                                 sx={{
                                     mt: 1,
@@ -88,18 +89,9 @@ function MainCuration() {
                         justifyContent: 'space-between',
                     }}
                 >
-                    <MainMovie
-                        isDisplay=" "
-                        title="레이니데이 인 뉴욕"
-                    ></MainMovie>
-                    <MainMovie
-                        isDisplay=" "
-                        title="레이니데이 인 뉴욕"
-                    ></MainMovie>
-                    <MainMovie
-                        isDisplay=" "
-                        title="레이니데이 인 뉴욕"
-                    ></MainMovie>
+                    {curationList.map(item => (
+                        <MainMovie item={item}></MainMovie>
+                    ))}
                 </Box>
             </Box>
         </ThemeProvider>

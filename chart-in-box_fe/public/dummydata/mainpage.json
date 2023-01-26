@@ -11,177 +11,214 @@
         },
         {
             "mvChartId": 2,
+            "mvChartName": "교섭",
+            "mvChartAge": "12세이상관람가",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fd331d74e425a3c71989ab14d9cbe83241377daa5",
+            "mvChartRank": 2,
+            "mvChartCategory": "예매차트",
+            "movieId": "K23716"
+        },
+        {
+            "mvChartId": 3,
+            "mvChartName": "더 퍼스트 슬램덩크",
+            "mvChartAge": "12세이상관람가",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fa0aaca4b87c541b11085139bd941da0996a78ec1",
+            "mvChartRank": 3,
+            "mvChartCategory": "예매차트",
+            "movieId": "F57286"
+        },
+        {
+            "mvChartId": 4,
+            "mvChartName": "유령",
+            "mvChartAge": "15세이상관람가",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F04a53a2b94d62ba8a1fabd956545cda3d4d3a500",
+            "mvChartRank": 4,
+            "mvChartCategory": "예매차트",
+            "movieId": "K28955"
+        },
+        {
+            "mvChartId": 5,
+            "mvChartName": "방탄소년단: 옛 투 컴 인 시네마",
+            "mvChartAge": "전체관람가",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fd2fef75e56d3ae4e7f360216073cc28373616fb1",
+            "mvChartRank": 5,
+            "mvChartCategory": "예매차트",
+            "movieId": "A12276"
+        },
+        {
+            "mvChartId": 6,
             "mvChartName": "영웅",
             "mvChartAge": "12세이상관람가",
             "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F762a642d585ecff70e0e5cfc4211d9a0f809bf3b",
-            "mvChartRank": 2,
+            "mvChartRank": 6,
             "mvChartCategory": "예매차트",
             "movieId": "K22316"
         },
         {
-            "mvChartId": 3,
-            "mvChartName": "올빼미",
-            "mvChartAge": "15세이상관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F4899f10a714f3b1cb5bf9569f84e96df0020d414",
-            "mvChartRank": 3,
-            "mvChartCategory": "예매차트",
-            "movieId": "K32233"
-        },
-        {
-            "mvChartId": 4,
-            "mvChartName": "신비아파트 극장판 차원도깨비와 7개의 세계",
-            "mvChartAge": "전체관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F3409e2a019f9c0a9994d465685855321d152be75",
-            "mvChartRank": 4,
-            "mvChartCategory": "예매차트",
-            "movieId": "K33117"
-        },
-        {
-            "mvChartId": 5,
-            "mvChartName": "오늘 밤, 세계에서 이 사랑이 사라진다 해도",
-            "mvChartAge": "12세이상관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F343661a7c1984ae8d0598a5af0c2998117407f52",
-            "mvChartRank": 5,
-            "mvChartCategory": "예매차트",
-            "movieId": "F57023"
-        },
-        {
-            "mvChartId": 6,
-            "mvChartName": "탄생",
-            "mvChartAge": "12세이상관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F6a4287cc3410a33277a66c2364e74302b437cd41",
-            "mvChartRank": 6,
-            "mvChartCategory": "예매차트",
-            "movieId": "K27815"
-        },
-        {
             "mvChartId": 7,
-            "mvChartName": "극장판 뽀로로와 친구들: 바이러스를 없애줘!",
-            "mvChartAge": "전체관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F88ca3054ee320beec75ec8da1189805530835e13",
+            "mvChartName": "상견니",
+            "mvChartAge": "15세이상관람가",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F8cf05875cd680827ffdceca14ef26345a6b4497c",
             "mvChartRank": 7,
             "mvChartCategory": "예매차트",
-            "movieId": "K32612"
+            "movieId": "F57692"
         },
         {
             "mvChartId": 8,
-            "mvChartName": "스위치",
-            "mvChartAge": "12세이상관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fc137b6fd189123f7750114aef5fb8485f564d597",
+            "mvChartName": "장화신은 고양이: 끝내주는 모험",
+            "mvChartAge": "전체관람가",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F3cea7130cd9af437f24406c9c67768dcd50cf4d9",
             "mvChartRank": 8,
             "mvChartCategory": "예매차트",
-            "movieId": "K33342"
+            "movieId": "F55577"
         },
         {
             "mvChartId": 9,
-            "mvChartName": "젠틀맨",
+            "mvChartName": "메간",
             "mvChartAge": "15세이상관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Ff1b31158d0f5875240443a0af304af0b7dd7cac9",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F62c5652a3c98ab52e3f3acf6e6b028c89d476f27",
             "mvChartRank": 9,
             "mvChartCategory": "예매차트",
-            "movieId": "K28221"
+            "movieId": "F57709"
         },
         {
             "mvChartId": 10,
-            "mvChartName": "압꾸정",
-            "mvChartAge": "12세이상관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fa2a065aa4da819fdd01ba4d6e6f86d1a4ffceecc",
+            "mvChartName": "캐리와 슈퍼콜라",
+            "mvChartAge": "전체관람가",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fb33e6ef62b68fb55adbc5053f7286e66a649ce71",
             "mvChartRank": 10,
             "mvChartCategory": "예매차트",
-            "movieId": "K23437"
+            "movieId": "K33428"
         },
         {
             "mvChartId": 31,
-            "mvChartName": "올빼미",
-            "mvChartAge": "15세이상관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F4899f10a714f3b1cb5bf9569f84e96df0020d414",
+            "mvChartName": "교섭",
+            "mvChartAge": "12세이상관람가",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fd331d74e425a3c71989ab14d9cbe83241377daa5",
             "mvChartRank": 1,
             "mvChartCategory": "박스오피스-주간",
-            "movieId": "K32233"
+            "movieId": "K23716"
         },
         {
             "mvChartId": 32,
-            "mvChartName": "압꾸정",
+            "mvChartName": "더 퍼스트 슬램덩크",
             "mvChartAge": "12세이상관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fa2a065aa4da819fdd01ba4d6e6f86d1a4ffceecc",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fa0aaca4b87c541b11085139bd941da0996a78ec1",
             "mvChartRank": 2,
             "mvChartCategory": "박스오피스-주간",
-            "movieId": "K23437"
+            "movieId": "F57286"
         },
         {
             "mvChartId": 33,
+            "mvChartName": "아바타: 물의 길",
+            "mvChartAge": "12세이상관람가",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F0cdb0abb3d8da8c6332bf6a945a86f9a32f67abd",
+            "mvChartRank": 3,
+            "mvChartCategory": "박스오피스-주간",
+            "movieId": "F55873"
+        },
+        {
+            "mvChartId": 34,
+            "mvChartName": "유령",
+            "mvChartAge": "15세이상관람가",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F04a53a2b94d62ba8a1fabd956545cda3d4d3a500",
+            "mvChartRank": 4,
+            "mvChartCategory": "박스오피스-주간",
+            "movieId": "K28955"
+        },
+        {
+            "mvChartId": 35,
+            "mvChartName": "영웅",
+            "mvChartAge": "12세이상관람가",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F762a642d585ecff70e0e5cfc4211d9a0f809bf3b",
+            "mvChartRank": 5,
+            "mvChartCategory": "박스오피스-주간",
+            "movieId": "K22316"
+        },
+        {
+            "mvChartId": 36,
+            "mvChartName": "장화신은 고양이: 끝내주는 모험",
+            "mvChartAge": "전체관람가",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F3cea7130cd9af437f24406c9c67768dcd50cf4d9",
+            "mvChartRank": 6,
+            "mvChartCategory": "박스오피스-주간",
+            "movieId": "F55577"
+        },
+        {
+            "mvChartId": 37,
             "mvChartName": "오늘 밤, 세계에서 이 사랑이 사라진다 해도",
             "mvChartAge": "12세이상관람가",
             "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F343661a7c1984ae8d0598a5af0c2998117407f52",
-            "mvChartRank": 3,
+            "mvChartRank": 7,
             "mvChartCategory": "박스오피스-주간",
             "movieId": "F57023"
         },
         {
-            "mvChartId": 34,
-            "mvChartName": "탄생",
-            "mvChartAge": "12세이상관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F6a4287cc3410a33277a66c2364e74302b437cd41",
-            "mvChartRank": 4,
-            "mvChartCategory": "박스오피스-주간",
-            "movieId": "K27815"
-        },
-        {
-            "mvChartId": 35,
-            "mvChartName": "극장판 뽀로로와 친구들: 바이러스를 없애줘!",
-            "mvChartAge": "전체관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F88ca3054ee320beec75ec8da1189805530835e13",
-            "mvChartRank": 5,
-            "mvChartCategory": "박스오피스-주간",
-            "movieId": "K32612"
-        },
-        {
-            "mvChartId": 36,
-            "mvChartName": "프레이 포 더 데블",
-            "mvChartAge": "15세이상관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F0e70f1cef7dde35df525fb36025eb4ba508ac0fd",
-            "mvChartRank": 6,
-            "mvChartCategory": "박스오피스-주간",
-            "movieId": "F57051"
-        },
-        {
-            "mvChartId": 37,
-            "mvChartName": "원피스 필름 레드",
-            "mvChartAge": "12세이상관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F1cfb6c3e188f895b9174ced723d2700a99eec7f0",
-            "mvChartRank": 7,
-            "mvChartCategory": "박스오피스-주간",
-            "movieId": "F56848"
-        },
-        {
             "mvChartId": 38,
-            "mvChartName": "신비아파트 극장판 차원도깨비와 7개의 세계",
-            "mvChartAge": "전체관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F3409e2a019f9c0a9994d465685855321d152be75",
+            "mvChartName": "스위치",
+            "mvChartAge": "12세이상관람가",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fb00aca7f6762981e4ba08ebe8196f1e3148f340d",
             "mvChartRank": 8,
             "mvChartCategory": "박스오피스-주간",
-            "movieId": "K33117"
+            "movieId": "K33342"
         },
         {
             "mvChartId": 39,
-            "mvChartName": "블랙 팬서: 와칸다 포에버",
-            "mvChartAge": "12세이상관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Ff2e234313de6543bb1ba4ad0e5d6ae389a26765b",
+            "mvChartName": "캐리와 슈퍼콜라",
+            "mvChartAge": "전체관람가",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Fb33e6ef62b68fb55adbc5053f7286e66a649ce71",
             "mvChartRank": 9,
             "mvChartCategory": "박스오피스-주간",
-            "movieId": "F56519"
+            "movieId": "K33428"
         },
         {
             "mvChartId": 40,
-            "mvChartName": "데시벨",
-            "mvChartAge": "12세이상관람가",
-            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2Feb3c9f422e4d421f0892f3ee3a88c4b881f8ca67",
+            "mvChartName": "라일 라일 크로커다일",
+            "mvChartAge": "전체관람가",
+            "mvChartImg": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F76abe9bc273f863478184d0e118bc0fe3468a5dc",
             "mvChartRank": 10,
             "mvChartCategory": "박스오피스-주간",
-            "movieId": "K32369"
+            "movieId": "F57431"
         }
     ],
+    "curationList": [
+        {
+            "movieId": "F32196",
+            "movieTitle": "겨울왕국",
+            "moviePoster": "http://file.koreafilm.or.kr/thm/02/00/02/12/tn_DPF004274.JPG",
+            "movieAge": "전체관람가"
+        },
+        {
+            "movieId": "K14580",
+            "movieTitle": "뷰티인사이드",
+            "moviePoster": "http://file.koreafilm.or.kr/thm/02/00/04/13/tn_DPK011004.jpg",
+            "movieAge": "12세관람가"
+        },
+        {
+            "movieId": "F28257",
+            "movieTitle": "파퍼씨네 펭귄들",
+            "moviePoster": "http://file.koreafilm.or.kr/thm/02/00/01/46/tn_DPF002101.JPG",
+            "movieAge": "전체관람가"
+        }
+    ],
+    "curationInfo": {
+        "curationLink": "/curation/cold",
+        "curationTitle": "이불 밖은 위험해! 한파에 맞서는 영화",
+        "curationText": "손이 시려워 꽁, 발이 시려워 꽁! 이불 속에서 전기장판 키고 즐기는 겨울에 어울리는 영화를 모아봤어요.",
+        "curationCategory": "개추운날"
+    },
     "freeBoardList": [
+        {
+            "postId": 13,
+            "postCategory": "자유",
+            "postTitle": "dddd",
+            "postComment": 0,
+            "postUserNickname": "가나다라마바사아",
+            "postAnonym": "false",
+            "postDate": "2023-01-24T17:53:42",
+            "countVisit": 0,
+            "postLike": 0
+        },
         {
             "postId": 12,
             "postCategory": "자유",
@@ -238,7 +275,7 @@
             "postUserNickname": "잇타2피",
             "postAnonym": "false",
             "postDate": "2023-01-23T07:02:13",
-            "countVisit": 9,
+            "countVisit": 16,
             "postLike": 1
         }
     ]
