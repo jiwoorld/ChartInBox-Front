@@ -12,7 +12,15 @@
         "postComment": 2,
         "postSpoiler": "false",
         "postAnonym": "false",
-        "postReport": "[\"가나다라마바사아\"]"
+        "postReport": "[\"가나다라마바사아\"]",
+        "movieId": "F55873"
+    },
+    "movieInfo": {
+        "mvPoster": "http://file.koreafilm.or.kr/thm/02/99/17/88/tn_DPF026148.jpg",
+        "mvTitle": " 아바타: 물의 길",
+        "mvGenre": "액션,어드벤처,SF,스릴러,판타지",
+        "mvRuntime": "192",
+        "mvRating": "12세관람가"
     },
     "comments": [
         {

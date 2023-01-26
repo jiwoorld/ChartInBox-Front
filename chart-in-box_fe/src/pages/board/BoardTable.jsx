@@ -15,11 +15,16 @@ import {
 import InputBase from '@mui/material/InputBase';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import Select, { getSelectUtilityClasses } from '@mui/material/Select';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import freeboarddata from '../../testdata/freeboarddata.json';
+import axios, { AxiosError } from 'axios';
+import { common } from '@mui/material/colors';
+import { ThemeConsumer } from 'styled-components';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 function BoardTable({ boardName }) {
     const label = { inputProps: { 'aria-label': 'Color switch demo' } };
@@ -60,17 +65,28 @@ function BoardTable({ boardName }) {
     const handleLineupChange = event => {
         setLineup(event.target.value);
     };
+    /* const onChangeSearch = e => {
+        e.preventDefault();
+        setSearch(e.target.value);
+    }; */
+    /* constructor(){
+        super();
+    
+        this.state={
+          search:null
+        };
+      }
+    
+      searchSpace=(event)=>{
+        let keyword = event.target.value;
+        this.setState({search:keyword})
+      } */
 
     return (
         <ThemeProvider theme={theme}>
             <Box
                 sx={{
-                    //height: '45rem',
-                    //textAlign: 'center',
-                    //justifyContent: 'center',
-                    //alignItems: 'center',
                     display: 'flex',
-                    //alignItems: 'flex-start',
                     flexDirection: 'column',
                 }}
             >
@@ -78,7 +94,6 @@ function BoardTable({ boardName }) {
                     sx={{
                         height: '1.75rem',
                         display: 'flex',
-                        //justifyContent: 'space-between',
                         flexDirection: 'row',
                         alignItems: 'flex-start',
                         mb: 1,
