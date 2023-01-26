@@ -69,7 +69,7 @@ function App() {
                         element={<ChangeInfo></ChangeInfo>}
                     />
                     <Route
-                        path="/curation"
+                        path="/curation/:id"
                         element={
                             <CurationPage
                                 isLogin={isLogin}

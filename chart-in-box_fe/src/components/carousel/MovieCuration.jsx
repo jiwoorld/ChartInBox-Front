@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -13,6 +13,7 @@ function MovieCuration({ curationList = [] }) {
         autoplaySpeed: 5000,
         speed: 5000,
     };
+
     return (
         <Slider {...settings}>
             {curationList.map(item => (
@@ -25,15 +26,21 @@ function MovieCuration({ curationList = [] }) {
                             backgroundImage: `url(${item.curationPoster})`,
                             backgroundSize: 'cover',
                         }}
-                    ></Box>
-                    <Box
-                        sx={{
-                            maxWidth: '15.125rem',
-                            textAlign: 'left !important',
-                        }}
-                    >
-                        {item.curationTitle}
-                    </Box>
+                    ></Box>{' '}
+                    <a href={`${item.curationUrl}`}>
+                        <Box
+                            sx={{
+                                maxWidth: '15.125rem',
+                                textAlign: 'left !important',
+                                color: '#ffff',
+                                '&:hover,&.Mui-focusVisible': {
+                                    textDecoration: 'underLine',
+                                },
+                            }}
+                        >
+                            {item.curationTitle}
+                        </Box>
+                    </a>
                 </Box>
             ))}
         </Slider>

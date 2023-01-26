@@ -1,19 +1,14 @@
 import { ThemeProvider, Typography } from '@mui/material';
-import zIndex from '@mui/material/styles/zIndex';
 import { Box, createTheme } from '@mui/system';
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
 
-function MainMovie({ item }) {
+function MainMovie({ item = [] }) {
     const theme = createTheme({
         typography: {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-    const navigate = useNavigate();
-    const handlePage = () => {
-        navigate('/curation');
-    };
+
     let age = '';
     let ageColor = '';
     if (typeof item.movieAge === 'string') {
@@ -38,7 +33,6 @@ function MainMovie({ item }) {
                     height: '13.75rem',
                     position: 'relative',
                 }}
-                onClick={handlePage}
             >
                 <Box
                     sx={{
@@ -82,18 +76,21 @@ function MainMovie({ item }) {
                         alignItems: 'center',
                     }}
                 >
-                    <Typography
-                        sx={{
-                            fontSize: '1rem',
-                            fontWeight: '600',
-                            '&:hover,&.Mui-focusVisible': {
-                                textDecoration: 'underline',
-                            },
-                        }}
-                        align="left"
-                    >
-                        {item.movieTitle}
-                    </Typography>
+                    <a href={`/movie-info/${item.movieId}`}>
+                        <Typography
+                            sx={{
+                                fontSize: '1rem',
+                                fontWeight: '600',
+                                color: '#ffff',
+                                '&:hover,&.Mui-focusVisible': {
+                                    textDecoration: 'underline',
+                                },
+                            }}
+                            align="left"
+                        >
+                            {item.movieTitle}
+                        </Typography>
+                    </a>
                 </Box>
             </Box>
         </ThemeProvider>
