@@ -77,7 +77,9 @@ function MovieTable({ tableName, buttonName, Board }) {
                         sx={{
                             fontWeight: '500',
                             fontSize: '1.063rem',
+                            color: '#ffff !important',
                         }}
+                        href={`/movie-talk`}
                     >
                         전체보기
                     </Button>
@@ -249,6 +251,7 @@ function MovieTable({ tableName, buttonName, Board }) {
                                 opacity: '90%',
                             },
                         }}
+                        href={`/write`}
                     >
                         {buttonName}
                     </Button>

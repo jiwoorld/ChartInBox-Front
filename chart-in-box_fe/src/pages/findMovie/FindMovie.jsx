@@ -60,19 +60,19 @@ function FindMovie({ isLogin, setIsLogin }) {
                     height: '1.5625rem',
                     display: 'flex',
                     justifyContent: 'flex-start',
-                    ml: '7rem',
+                    ml: '11rem',
                     mt: '7rem',
                 }}
             >
                 {`'${searchTitle}'  검색결과`}
             </Typography>
-            {searchList === [] ? (
+            {searchList.length === 0 ? (
                 <Box
                     sx={{
-                        maxWidth: '68rem',
+                        width: '68rem',
                         height: '16.4rem',
-                        ml: '11rem',
-                        mt: '10rem',
+                        ml: '15rem',
+                        mt: '8rem',
                     }}
                 >
                     <Typography
@@ -87,21 +87,23 @@ function FindMovie({ isLogin, setIsLogin }) {
             ) : (
                 <Box
                     sx={{
-                        maxWidth: '68rem',
+                        maxWidth: '80rem',
                         height: '16.4rem',
-                        ml: '11rem',
+                        ml: '15rem',
                         mt: '4rem',
                         display: 'flex',
                         flexWrap: 'wrap',
-                        justifyContent: 'space-evenly',
+                        justifyContent: 'flex-start',
                     }}
                 >
                     {searchList.map(movie => (
-                        <CurationPageMovie
-                            mvTitle={movie.mvTitle}
-                            mvPoster={movie.mvPoster}
-                            mvId={movie.mvId}
-                        ></CurationPageMovie>
+                        <Box sx={{ mr: '2rem', mb: '2rem' }}>
+                            <CurationPageMovie
+                                mvTitle={movie.mvTitle}
+                                mvPoster={movie.mvPoster}
+                                mvId={movie.mvId}
+                            ></CurationPageMovie>
+                        </Box>
                     ))}
                 </Box>
             )}
