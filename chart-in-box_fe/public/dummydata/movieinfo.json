@@ -19,8 +19,39 @@
         ],
         "mvDirector": ["제임스 카메론"]
     },
-
     "movieScrap": false,
+    "curationList": [
+        {
+            "curationTitle": "이불 밖은 위험해! 한파에 맞서는 영화",
+            "curationPoster": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F04a53a2b94d62ba8a1fabd956545cda3d4d3a500",
+            "curationUrl": "/curation/cold"
+        },
+        {
+            "curationTitle": "집에서 데이트 할때 달달하게 보고싶은영화",
+            "curationPoster": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F04a53a2b94d62ba8a1fabd956545cda3d4d3a500",
+            "curationUrl": "/curation/homeDate"
+        },
+        {
+            "curationTitle": "영화를 사랑하는 기획자들이 손꼽아 뽑은 인생영화",
+            "curationPoster": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F04a53a2b94d62ba8a1fabd956545cda3d4d3a500",
+            "curationUrl": "/curation/pick1"
+        },
+        {
+            "curationTitle": "자꾸 보고 싶은 개발자들의 소중한 인생영화",
+            "curationPoster": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F04a53a2b94d62ba8a1fabd956545cda3d4d3a500",
+            "curationUrl": "/curation/pick3"
+        },
+        {
+            "curationTitle": "[앵콜!!!] 영화를 사랑하는 기획자들이 손꼽아 뽑은 인생영화2",
+            "curationPoster": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F04a53a2b94d62ba8a1fabd956545cda3d4d3a500",
+            "curationUrl": "/curation/pick2"
+        },
+        {
+            "curationTitle": "우울한 날, 나를 위로해주는 영화",
+            "curationPoster": "https://img1.daumcdn.net/thumb/C408x596/?fname=https%3A%2F%2Ft1.daumcdn.net%2Fmovie%2F04a53a2b94d62ba8a1fabd956545cda3d4d3a500",
+            "curationUrl": "/curation/sad"
+        }
+    ],
     "reviewBoardList": [
         {
             "postId": 5,

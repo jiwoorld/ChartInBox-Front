@@ -1,10 +1,10 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-function MovieCuration() {
+function MovieCuration({ curationList = [] }) {
     const settings = {
         infinite: true,
         slidesToShow: 3,
@@ -15,78 +15,27 @@ function MovieCuration() {
     };
     return (
         <Slider {...settings}>
-            <Box sx={{ width: '264px' }}>
-                <Box
-                    sx={{
-                        width: '15.125rem',
-                        height: '8.875rem',
-                        borderRadius: '0.9rem',
-                        backgroundColor: '#D9D9D9',
-                    }}
-                >
-                    1
+            {curationList.map(item => (
+                <Box sx={{ width: '264px' }}>
+                    <Box
+                        sx={{
+                            width: '15.125rem',
+                            height: '8.875rem',
+                            borderRadius: '0.9rem',
+                            backgroundImage: `url(${item.curationPoster})`,
+                            backgroundSize: 'cover',
+                        }}
+                    ></Box>
+                    <Box
+                        sx={{
+                            maxWidth: '15.125rem',
+                            textAlign: 'left !important',
+                        }}
+                    >
+                        {item.curationTitle}
+                    </Box>
                 </Box>
-            </Box>
-            <Box sx={{ width: '264px' }}>
-                <Box
-                    sx={{
-                        width: '15.125rem',
-                        height: '8.875rem',
-                        borderRadius: '0.9rem',
-                        backgroundColor: '#D9D9D9',
-                    }}
-                >
-                    2
-                </Box>
-            </Box>
-            <Box sx={{ width: '264px' }}>
-                <Box
-                    sx={{
-                        width: '15.125rem',
-                        height: '8.875rem',
-                        borderRadius: '0.9rem',
-                        backgroundColor: '#D9D9D9',
-                    }}
-                >
-                    3
-                </Box>
-            </Box>
-            <Box sx={{ width: '264px' }}>
-                <Box
-                    sx={{
-                        width: '15.125rem',
-                        height: '8.875rem',
-                        borderRadius: '0.9rem',
-                        backgroundColor: '#D9D9D9',
-                    }}
-                >
-                    4
-                </Box>
-            </Box>
-            <Box sx={{ width: '264px' }}>
-                <Box
-                    sx={{
-                        width: '15.125rem',
-                        height: '8.875rem',
-                        borderRadius: '0.9rem',
-                        backgroundColor: '#D9D9D9',
-                    }}
-                >
-                    5
-                </Box>
-            </Box>
-            <Box sx={{ width: '264px' }}>
-                <Box
-                    sx={{
-                        width: '15.125rem',
-                        height: '8.875rem',
-                        borderRadius: '0.9rem',
-                        backgroundColor: '#D9D9D9',
-                    }}
-                >
-                    6
-                </Box>
-            </Box>
+            ))}
         </Slider>
     );
 }
