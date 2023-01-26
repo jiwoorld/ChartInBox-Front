@@ -2,7 +2,7 @@ import { ThemeProvider, Typography } from '@mui/material';
 import { Box, createTheme } from '@mui/system';
 import * as React from 'react';
 
-function CurationPageMovie({ mvTitle, mvPoster, mvId }) {
+function CurationMovie({ item }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -33,7 +33,7 @@ function CurationPageMovie({ mvTitle, mvPoster, mvId }) {
                 sx={{
                     width: '12.125rem',
                     height: '266px',
-                    background: `linear-gradient(180deg, rgba(217, 217, 217, 0) 41.67%, rgba(0, 0, 0, 0.4) 67.19%, rgba(0, 0, 0, 0.8) 100%), url(${mvPoster})`,
+                    background: `linear-gradient(180deg, rgba(217, 217, 217, 0) 41.67%, rgba(0, 0, 0, 0.4) 67.19%, rgba(0, 0, 0, 0.8) 100%), url(${item.moviePoster})`,
                     mr: 0.5,
                     mt: 1,
                     borderRadius: '0.75rem',
@@ -50,7 +50,7 @@ function CurationPageMovie({ mvTitle, mvPoster, mvId }) {
                         alignContent: 'flex-start',
                     }}
                 >
-                    <a href={`/movie-info/${mvId}`}>
+                    <a href={`/movie-info/${item.movieId}`}>
                         <Typography
                             sx={{
                                 '&:hover,&.Mui-focusVisible': {
@@ -60,7 +60,7 @@ function CurationPageMovie({ mvTitle, mvPoster, mvId }) {
                                 mb: '1rem',
                             }}
                         >
-                            {mvTitle}
+                            {item.movieTitle}
                         </Typography>
                     </a>
                 </Box>
@@ -69,4 +69,4 @@ function CurationPageMovie({ mvTitle, mvPoster, mvId }) {
     );
 }
 
-export default CurationPageMovie;
+export default CurationMovie;
