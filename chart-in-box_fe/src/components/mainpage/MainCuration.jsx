@@ -91,17 +91,14 @@ function MainCuration() {
                     <MainMovie
                         isDisplay=" "
                         title="레이니데이 인 뉴욕"
-                        subTitle="평점 4.2/5"
                     ></MainMovie>
                     <MainMovie
                         isDisplay=" "
                         title="레이니데이 인 뉴욕"
-                        subTitle="평점 4.2/5"
                     ></MainMovie>
                     <MainMovie
                         isDisplay=" "
                         title="레이니데이 인 뉴욕"
-                        subTitle="평점 4.2/5"
                     ></MainMovie>
                 </Box>
             </Box>

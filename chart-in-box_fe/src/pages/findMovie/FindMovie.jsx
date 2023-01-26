@@ -72,6 +72,24 @@ function FindMovie({ isLogin, setIsLogin }) {
                         maxWidth: '68rem',
                         height: '16.4rem',
                         ml: '11rem',
+                        mt: '10rem',
+                    }}
+                >
+                    <Typography
+                        sx={{
+                            fontWeight: '500',
+                            fontSize: '1.6rem',
+                        }}
+                    >
+                        찾아보신 내용이 존재하지 않습니다
+                    </Typography>
+                </Box>
+            ) : (
+                <Box
+                    sx={{
+                        maxWidth: '68rem',
+                        height: '16.4rem',
+                        ml: '11rem',
                         mt: '4rem',
                         display: 'flex',
                         flexWrap: 'wrap',
@@ -85,24 +103,6 @@ function FindMovie({ isLogin, setIsLogin }) {
                             mvId={movie.mvId}
                         ></CurationPageMovie>
                     ))}
-                </Box>
-            ) : (
-                <Box
-                    sx={{
-                        maxWidth: '68rem',
-                        height: '16.4rem',
-                        ml: '11rem',
-                        mt: '10rem',
-                    }}
-                >
-                    <Typography
-                        sx={{
-                            fontWeight: '500',
-                            fontSize: '1.6rem',
-                        }}
-                    >
-                        찾아보신 내용이 존재하지 않습니다
-                    </Typography>
                 </Box>
             )}
 
