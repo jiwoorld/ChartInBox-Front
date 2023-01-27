@@ -10,8 +10,9 @@ import {
 import { Box } from '@mui/system';
 import * as React from 'react';
 import MenuBar from '../../components/menubar/MenuBar';
+import axios from 'axios';
+import { useEffect } from 'react';
 import Scrap from '../../components/scrap/Scrap';
-import scrap from '../../testdata/scrap.json';
 
 function ScrapMovie() {
     const theme = createTheme({
@@ -33,9 +34,21 @@ function ScrapMovie() {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-    /* const [moives, setMovies] = React.useState([
-        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-    ]); */
+
+    useEffect(() => {
+        axios
+            .get('http://localhost:8080/my-page/scrap')
+            // .get('/dummydata/mypagedata.json')
+            .then(function (response) {
+                console.log(response);
+                setScraplist(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    });
+    const [scraplist, setScraplist] = React.useState('');
+
     return (
         <ThemeProvider theme={theme}>
             <MenuBar></MenuBar>
@@ -82,17 +95,18 @@ function ScrapMovie() {
                                     textAlign: 'center',
                                 }}
                             >
-                                {scrap.map(item => (
-                                    <Grid key={item.mvId} item={5}>
-                                        <Box>
-                                            <Scrap
-                                                mvTitle={item.mvTitle}
-                                                mvId={item.mvId}
-                                                mvPoster={item.mvPoster}
-                                            ></Scrap>
-                                        </Box>
-                                    </Grid>
-                                ))}
+                                {scraplist &&
+                                    scraplist.map(item => (
+                                        <Grid key={item.mvId} item={5}>
+                                            <Box>
+                                                <Scrap
+                                                    mvTitle={item.mvTitle}
+                                                    mvId={item.mvId}
+                                                    mvPoster={item.mvPoster}
+                                                ></Scrap>
+                                            </Box>
+                                        </Grid>
+                                    ))}
                             </Grid>
                         </Box>
                     }

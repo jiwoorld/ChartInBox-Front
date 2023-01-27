@@ -67,8 +67,8 @@ function Commenttable({ data }) {
                             >
                                 <Box
                                     sx={{
-                                        fontSize: '0.875rem',
-                                        fontWeight: '600',
+                                        fontSize: '1.2rem',
+                                        fontWeight: '800',
                                         textAlign: 'left',
                                         fontStyle: 'noraml',
                                         width: '80%',
@@ -100,7 +100,7 @@ function Commenttable({ data }) {
                             </Box>
                             <Typography
                                 sx={{
-                                    fontSize: '0.875rem',
+                                    fontSize: '1.0rem',
                                     fontWeight: '400',
                                     textAlign: 'left',
                                     fontStyle: 'noraml',

@@ -57,32 +57,43 @@ function ShowingBoard() {
         },
     });
     const [allData, setAllData] = React.useState({});
-    const [detail, setdetail] = React.useState({});
-    const [comment, setcomment] = React.useState([]);
-    const [name, setname] = React.useState({});
-    const [info, setInfo] = React.useState({});
-    const [post, setPost] = React.useState([]);
+    // const [detail, setdetail] = React.useState({});
+    // const [comment, setcomment] = React.useState([]);
+    // const [name, setname] = React.useState({});
+    // const [info, setInfo] = React.useState({});
+    // const [post, setPost] = React.useState([]);
 
     const postId = useParams();
     const url = postId.id;
 
     let like = false;
 
+    console.log(url);
+
     useEffect(() => {
         axios
-            .get('/dummydata/showingboarddata.json')
+            .get(`http://localhost:8080/movie-talk/${url}`)
+            // .get('/dummydata/showingboarddata.json')
             .then(function (response) {
+                console.log(response);
                 setAllData(response.data);
-                setdetail(response.data.postDetail);
-                setcomment(response.data.comments);
-                setname(response.data.userNickname);
-                setInfo(response.data.movieInfo);
-                setPost(response.data.postList);
+                // setdetail(response.data.postDetail);
+                // setcomment(response.data.comments);
+                // setname(response.data.userNickname);
+                // setInfo(response.data.movieInfo);
+                // setPost(response.data.postList);
             })
             .catch(function (error) {
                 console.log(error);
             });
     }, []);
+
+    const detail = allData?.postDetail ?? [];
+    const comment = allData?.comments ?? [];
+    const name = allData?.userNickname ?? [];
+    const info = allData?.movieInfo ?? null;
+    const post = allData?.postList ?? [];
+
     const handleLike = () => {
         axios
             .post(`/movie-info/${url}/like`)
@@ -284,7 +295,8 @@ function ShowingBoard() {
                                     }}
                                 >
                                     {/* <MovieInformation></MovieInformation> */}
-                                    <Box
+                                    
+                                    {info ? <Box
                                         sx={{
                                             width: '59.5rem',
                                             height: '6.688rem',
@@ -363,7 +375,7 @@ function ShowingBoard() {
                                         >
                                             이 영화를 추천합니다
                                         </Button>
-                                    </Box>
+                                    </Box> : null}
                                 </Box>
                                 {/*{like ? (
                                     {
@@ -399,7 +411,7 @@ function ShowingBoard() {
                                     좋아요
                                 </Button>)}*/}
                             </Box>
-                            <Commenttable data={comment}></Commenttable>
+                            {comment ? <Commenttable data={comment}></Commenttable>  : null}
                             {<ShortTable data={post}></ShortTable>}
                             <Box
                                 sx={{

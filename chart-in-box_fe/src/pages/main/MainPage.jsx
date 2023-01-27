@@ -42,8 +42,8 @@ function MainPage({ isLogin, setIsLogin }) {
     const [allData, setAllData] = React.useState({});
     React.useEffect(() => {
         axios
-            // .get('/')
-            .get('/dummydata/mainpage.json')
+            .get('http://localhost:8080/')
+            // .get('/dummydata/mainpage.json')
             .then(function (response) {
                 setAllData(response.data);
             })

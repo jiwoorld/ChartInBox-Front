@@ -42,7 +42,7 @@ function Login({ clickJoin, clickPassword, loginClose, setIsLogin }) {
         postData.userPassword = data.password;
 
         await axios
-            .post('/log-in', postData)
+            .post('/log-in', postData, {withCredentials: true})
             .then(res => {
                 // submit 버튼 중복클릭 방지
                 let submitBtn = document.getElementById('submit');

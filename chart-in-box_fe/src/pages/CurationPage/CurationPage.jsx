@@ -50,8 +50,8 @@ function CurationPage({ isLogin, setIsLogin }) {
     const url = curation.id;
     React.useEffect(() => {
         axios
-            // .get(`/${url}`)
-            .get('/dummydata/curationdata.json')
+            .get(`http://localhost:8080/curation/${url}`)
+            // .get('/dummydata/curationdata.json')
             .then(function (response) {
                 setAllData(response.data);
             })
@@ -69,7 +69,7 @@ function CurationPage({ isLogin, setIsLogin }) {
                 sx={{
                     width: '100vw',
                     height: '12.125rem',
-                    background: `linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("http://file.koreafilm.or.kr/thm/02/00/02/12/tn_DPF004274.JPG")`,
+                    background: `linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(${curationInfo.curationPoster})`,
                     display: 'flex',
                     backgroundSize: 'cover',
                     alignItems: 'flex-end',

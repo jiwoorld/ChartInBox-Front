@@ -45,8 +45,8 @@ function MovieInfo({ isLogin, setIsLogin }) {
     let scrap = false;
     useEffect(() => {
         axios
-            // .get(`/movie-info/${url}`)
-            .get('/dummydata/movieinfo.json')
+            .get(`http://localhost:8080/movie-info/${url}`)
+            // .get('/dummydata/movieinfo.json')
             .then(function (response) {
                 setAllData(response.data);
             })
@@ -60,6 +60,7 @@ function MovieInfo({ isLogin, setIsLogin }) {
             // .get(`/movie-info/${url}`)
             .post(`/movie-info/${url}/scrap`)
             .then(function (response) {
+                console.log(response);
                 scrap = !scrap;
             })
             .catch(function (error) {
@@ -158,7 +159,6 @@ function MovieInfo({ isLogin, setIsLogin }) {
                                         textAlign: 'left',
                                         fontWeight: '600',
                                         fontSize: '1.5rem',
-                                        width: '13.3rem',
                                         height: '1.9rem',
                                     }}
                                 >
@@ -339,6 +339,7 @@ function MovieInfo({ isLogin, setIsLogin }) {
                                     fontWeight: '400',
                                     fontSize: '0.875rem',
                                     display: 'flex',
+                                  
                                 }}
                             >
                                 {'출연 ' + info.mvActor}

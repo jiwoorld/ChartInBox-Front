@@ -39,8 +39,8 @@ function FindMovie({ isLogin, setIsLogin }) {
     const url = mvTitle.mvTitle;
     React.useEffect(() => {
         axios
-            // .get(`/movie-search/${url}`)
-            .get('/dummydata/moviesearch.json')
+            .get(`http://localhost:8080/movie-search/${url}`)
+            // .get('/dummydata/moviesearch.json')
             .then(function (response) {
                 setData(response.data);
             })

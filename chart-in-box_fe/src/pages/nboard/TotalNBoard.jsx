@@ -62,7 +62,8 @@ function TotalNBoard({ isLogin, setIsLogin }) {
     });
     useEffect(() => {
         axios
-            .get('/dummydata/nparty.json')
+            .get("http://localhost:8080/n-party")
+            // .get('/dummydata/nparty.json')
             .then(function (response) {
                 setBoardlist(response.data.boardList);
                 //setuserNickname(response.data.userNickname);

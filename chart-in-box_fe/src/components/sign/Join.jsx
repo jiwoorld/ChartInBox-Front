@@ -85,6 +85,7 @@ function Join({ clickLogin, joinClose }) {
                     this.setAttribute('disabledRipple', 'true');
                     console.log('성공');
                 });
+
                 joinClose();
                 Swal.fire({
                     width: 460,
@@ -98,6 +99,14 @@ function Join({ clickLogin, joinClose }) {
                     timer: 5000,
                 }); //회원가입 성공
                 // navigate('/');
+                axios
+                .post('http://localhost:8080/join/mail', postData)
+                .then(function (response) {
+                    
+                })
+                .catch(function (error) {
+                });
+
             })
             .catch(err => {
                 console.log('error남!!!!!!!!!', err);

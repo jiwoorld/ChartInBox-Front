@@ -32,7 +32,8 @@ const data = {
 function TotalBoard({ match, isLogin, setIsLogin }) {
     useEffect(() => {
         axios
-            .get('/dummydata/freeboarddata.json')
+            .get("http://localhost:8080/movie-talk")
+            // .get('/dummydata/freeboarddata.json')
             .then(function (response) {
                 setBoardList(response.data.boardList);
             })

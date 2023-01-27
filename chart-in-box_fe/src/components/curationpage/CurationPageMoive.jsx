@@ -40,6 +40,7 @@ function CurationPageMovie({ mvTitle, mvPoster, mvId }) {
                     display: 'flex',
                     justifyContent: 'flex-end',
                     alignItems: 'flex-end',
+                   
                 }}
             >
                 <Box
@@ -48,6 +49,7 @@ function CurationPageMovie({ mvTitle, mvPoster, mvId }) {
                         flexDirection: 'column',
                         alignContent: 'flex-start',
                         mr: '1rem',
+                        
                     }}
                 >
                     <a href={`/movie-info/${mvId}`}>

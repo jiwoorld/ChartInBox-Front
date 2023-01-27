@@ -39,35 +39,34 @@ function MovieSearch({ isLogin, setIsLogin }) {
         },
     });
     const genreItems = [
-        '애니메이션',
-        '액션',
-        '코미디',
-        '로맨스',
-        '스릴러',
-        '호러',
-        'sf',
-        '판타지',
-        '드라마 장르',
-        '범죄',
-        '다큐멘터리',
-        '음악/뮤지컬',
-        '고전',
-        '단편 영화',
-        '인디',
-        '어린이&가족',
+        "드라마",
+"하이틴",
+"청춘영화",
+"재난",
+"미스터리",
+"SF",
+"코메디",
+"액션",
+"범죄",
+"어드벤처",
+"가족",
+"로맨스",
+"공포",
+"사극",
+"판타지",
     ];
     const realizeYearItems = [
-        "1950's",
-        "1960's",
-        "1970's",
-        "1980's",
-        "1990's",
-        "2000's",
-        "2010's",
-        "2020's",
+        "1950",
+        "1960",
+        "1970",
+        "1980",
+        "1990",
+        "2000",
+        "2010",
+        "2020",
     ];
     const nationItems = [
-        '한국',
+        '대한민국',
         '일본',
         '미국',
         '프랑스',
@@ -80,7 +79,6 @@ function MovieSearch({ isLogin, setIsLogin }) {
         '스페인',
         '이탈리아',
         '러시아',
-        '아랍',
         '호주',
         '영국',
         '멕시코',
@@ -95,8 +93,8 @@ function MovieSearch({ isLogin, setIsLogin }) {
 
     React.useEffect(() => {
         axios
-            // .get('/moive-explore')
-            .get('/dummydata/explorebefore.json')
+            .get('http://localhost:8080/moviesearch')
+            // .get('/dummydata/explorebefore.json')
             .then(function (response) {
                 setCurationList(response.data.curationList);
                 setMovieExploreList(response.data.movieExploreList);
@@ -108,15 +106,16 @@ function MovieSearch({ isLogin, setIsLogin }) {
     const handleFilter = () => {
         console.log('조회');
         console.log(mvGenre, mvNation, mvYear);
+    
         axios
-            // .post('/movie-explore', {
-            //     params: {
-            //         genre: mvGenre,
-            //         nation: mvNation,
-            //         year: mvYear,
-            //     },
-            // })
-            .get('/dummydata/explore.json')
+            .get('http://localhost:8080/moviesearch', {
+                params: {
+                    genre: mvGenre,
+                    nation: mvNation,
+                    year: mvYear,
+                },
+            })
+            // .get('/dummydata/explore.json')
             .then(function (response) {
                 setMovieExploreList(response.data);
                 setIsCheck(true);
@@ -125,8 +124,8 @@ function MovieSearch({ isLogin, setIsLogin }) {
                 console.log(error);
             });
     };
-
-    return (
+console.log(curationList,"dd"); 
+console.log(movieExploreList,"ff");     return (
         <ThemeProvider theme={theme}>
             <MenuBarMovie isLogin={isLogin} setIsLogin={setIsLogin} />
             <Box
@@ -217,6 +216,7 @@ function MovieSearch({ isLogin, setIsLogin }) {
                                 height: '1.75rem',
                                 fontSize: '1.3125rem',
                                 fontWeight: '600',
+                              
                             }}
                         >
                             오늘의 큐레이션
@@ -224,7 +224,7 @@ function MovieSearch({ isLogin, setIsLogin }) {
                         <Box
                             sx={{
                                 height: '14.375rem',
-                                width: '68.5rem',
+                                width: '72rem',
                                 display: 'flex',
                                 justifyContent: 'space-between',
                                 alignItems: 'center',

@@ -26,7 +26,8 @@ function Mypage() {
     const [moives, setMovies] = React.useState([1]);
     useEffect(() => {
         axios
-            .get('/dummydata/mypagedata.json')
+            .get('http://localhost:8080/my-page')
+            // .get('/dummydata/mypagedata.json')
             .then(function (response) {
                 setEmail(response.data.userEmail);
                 setNickname(response.data.userNickname);

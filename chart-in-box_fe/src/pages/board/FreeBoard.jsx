@@ -39,7 +39,8 @@ function FreeBoard({ isLogin, setIsLogin }) {
     });
     useEffect(() => {
         axios
-            .get('/dummydata/freedata.json')
+            .get("http://localhost:8080/movie-talk/free-board")
+            // .get('/dummydata/freedata.json')
             .then(function (response) {
                 setBoardList(response.data.boardList);
             })
