@@ -145,6 +145,10 @@ function MycommentTable(props) {
                                                 border: '0px',
                                                 borderBottom:
                                                     '0.063rem solid #D9D9D9',
+                                                maxWidth: '7rem',
+                                                whiteSpace: 'nowrap',
+                                                overflow: 'hidden',
+                                                textOverflow: 'ellipsis',
                                             }}
                                         >
                                             {item.cmtDate}

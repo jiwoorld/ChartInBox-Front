@@ -15,8 +15,10 @@ import {
 } from '@mui/material';
 import postdata from '../../testdata/postdata.json';
 
-function MypageTable(props) {
+function MypageTable() {
     const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
+    const cards = [1, 2];
     const theme = createTheme({
         palette: {
             primary: {
@@ -141,6 +143,10 @@ function MypageTable(props) {
                                                 border: '0px',
                                                 borderBottom:
                                                     '0.063rem solid #D9D9D9',
+                                                maxWidth: '7rem',
+                                                whiteSpace: 'nowrap',
+                                                overflow: 'hidden',
+                                                textOverflow: 'ellipsis',
                                             }}
                                         >
                                             {item.postDate}

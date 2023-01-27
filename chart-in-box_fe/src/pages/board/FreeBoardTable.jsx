@@ -18,12 +18,28 @@ import FormControl from '@mui/material/FormControl';
 import Select, { getSelectUtilityClasses } from '@mui/material/Select';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import freeboarddata from '../../testdata/freeboarddata.json';
+import freedata from '../../testdata/freedata.json';
+import axios from 'axios';
+import { useEffect } from 'react';
 import Switch from '@mui/material/Switch';
+import { setDataInElement } from '@ckeditor/ckeditor5-utils';
 
-function BoardTable(props) {
+function FreeBoardTable() {
     //const tableName = props.tableName;
     const label = { inputProps: { 'aria-label': 'Color switch demo' } };
+    /* useEffect(() => {
+        axios
+            .get('/dummydata/freedata.json')
+            .then(function (response) {
+                setData(response.data);
+                setBoardlist(response.data.boardList);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    });
+    const [boardlist, setBoardlist] = React.useState('');
+    const [data, setData] = React.useState(''); */
 
     const theme = createTheme({
         palette: {
@@ -92,7 +108,7 @@ function BoardTable(props) {
                                 fontSize: '1.313rem',
                             }}
                         >
-                            전체게시판
+                            자유게시판
                         </Typography>
                     </Box>
                     <FormGroup>
@@ -208,7 +224,7 @@ function BoardTable(props) {
                             <TableBody
                                 sx={{ borderBottom: '0.063rem solid #D9D9D9' }}
                             >
-                                {freeboarddata.boardList.map(item => (
+                                {freedata.boardList.map(item => (
                                     <TableRow key={item.postId}>
                                         <TableCell
                                             component="th"
@@ -399,4 +415,4 @@ function BoardTable(props) {
     );
 }
 
-export default BoardTable;
+export default FreeBoardTable;

@@ -13,8 +13,9 @@ import MyInformation from '../../components/board/MyInformation';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import FreeBoardTable from './FreeBoardTable';
 
-const data = {
+/* const data = {
     totalboard: {
         name: '전체글',
     },
@@ -27,11 +28,11 @@ const data = {
     qnaboard: {
         name: 'Q&A',
     },
-};
+}; */
 
-function TotalBoard({ match, isLogin, setIsLogin }) {
-    const { boardname } = useParams();
-    const board = data[boardname];
+function FreeBoard({ isLogin, setIsLogin }) {
+    /* const { boardname } = useParams();
+    const board = data[boardname]; */
     const theme = createTheme({
         palette: {
             primary: {
@@ -116,11 +117,11 @@ function TotalBoard({ match, isLogin, setIsLogin }) {
                             p: 1,
                         }}
                     >
-                        <BoardTable></BoardTable>
+                        <FreeBoardTable></FreeBoardTable>
                     </Box>
                 </Container>
             </main>
         </ThemeProvider>
     );
 }
-export default TotalBoard;
+export default FreeBoard;

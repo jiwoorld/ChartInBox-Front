@@ -21,7 +21,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
 import { Paper } from '@mui/material';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
 import { styled } from '@mui/material/styles';
 import { borderBottom } from '@mui/system';
 import { pink } from '@mui/material/colors';
@@ -227,17 +227,7 @@ function Writing() {
                             </Box>
                         </Grid>
                         <Grid item xs={3}>
-                            <Box
-                                sx={
-                                    {
-                                        //Height: '3rem',
-                                        //alignItems: 'flex-start',
-                                        /* ml: 3,
-                                    pb: 2,
-                                    mt: 3, */
-                                    }
-                                }
-                            >
+                            <Box>
                                 <FormControl sx={{ width: 300 }}>
                                     <Select
                                         displayEmpty
@@ -345,21 +335,6 @@ function Writing() {
                             >
                                 이 영화를 추천하지 않습니다.
                             </Button>
-                            {/* <Button
-                                variant="contained"
-                                endIcon={<ThumbUpAltIcon />}
-                                sx={{ backgroundColor: '#F2CB05' }}
-                            >
-                                이 영화를 추천합니다.
-                            </Button>
-                            <Button
-                                variant="contained"
-                                endIcon={<ThumbDownAltIcon />}
-                                sx={{ backgroundColor: '#CF5E53' }}
-                            >
-                                이 영화를 추천하지 않습니다.
-                            </Button> */}
-                            {/* </Box> */}
                         </Grid>
                     </Grid>
                 </Container>

@@ -65,6 +65,7 @@ function NBoardSubBar({ setBoardName }) {
                     }}
                 >
                     <Button
+                        className="menuButton"
                         onClick={handletotalBoard}
                         sx={{
                             pl: '1rem',
@@ -86,6 +87,7 @@ function NBoardSubBar({ setBoardName }) {
                     }}
                 >
                     <Button
+                        className="menuButton"
                         onClick={handlenetflexBoard}
                         sx={{
                             pl: '1rem',
@@ -107,6 +109,7 @@ function NBoardSubBar({ setBoardName }) {
                     }}
                 >
                     <Button
+                        className="menuButton"
                         onClick={handlewatchaBoard}
                         sx={{
                             pl: '1rem',
@@ -128,6 +131,7 @@ function NBoardSubBar({ setBoardName }) {
                     }}
                 >
                     <Button
+                        className="menuButton"
                         onClick={handletvingBoard}
                         sx={{
                             pl: '1rem',
@@ -149,6 +153,7 @@ function NBoardSubBar({ setBoardName }) {
                     }}
                 >
                     <Button
+                        className="menuButton"
                         onClick={handlewaveBoard}
                         sx={{
                             pl: '1rem',
@@ -170,6 +175,7 @@ function NBoardSubBar({ setBoardName }) {
                     }}
                 >
                     <Button
+                        className="menuButton"
                         onClick={handledisneyBoard}
                         sx={{
                             pl: '1rem',
@@ -191,6 +197,7 @@ function NBoardSubBar({ setBoardName }) {
                     }}
                 >
                     <Button
+                        className="menuButton"
                         onClick={handleetcBoard}
                         sx={{
                             pl: '1rem',

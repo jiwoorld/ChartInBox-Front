@@ -89,3 +89,14 @@ a:hover {
 .my:hover {
     color: black;
 }
+.menuButton:link {
+    color: black;
+    text-decoration: none;
+}
+.menuButton:visited {
+    color: #757575;
+    text-decoration: none;
+}
+.menuButton:hover {
+    color: black;
+}
