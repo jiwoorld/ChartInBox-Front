@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import { Button } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import IconButton from '@mui/material/IconButton';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -131,7 +131,7 @@ function Commenttable({ data }) {
                         </Box>
                     ))}
             </Box>
-            {/* <Box //댓글쓰기
+            <Box //댓글쓰기
                 component="form"
                 sx={{
                     '& > :not(style)': {
@@ -147,16 +147,16 @@ function Commenttable({ data }) {
                 <TextField
                     multiline
                     maxRows={4}
-                    value={value}
-                    onChange={handleChange}
+                    //value={value}
+                    //onChange={handleChange}
                     label="댓글을 입력해주세요"
                     variant="outlined"
                     sx={{
                         width: '59.5rem',
                     }}
                 />
-            </Box> */}
-            {/* <Box
+            </Box>
+            <Box
                 sx={{
                     textAlign: 'right',
                     mb: 8,
@@ -178,7 +178,7 @@ function Commenttable({ data }) {
                 >
                     등록
                 </Button>
-            </Box> */}
+            </Box>
         </ThemeProvider>
     );
 }
