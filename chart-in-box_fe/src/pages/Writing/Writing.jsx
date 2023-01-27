@@ -21,7 +21,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
 import { Paper } from '@mui/material';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
 import { styled } from '@mui/material/styles';
 import { borderBottom } from '@mui/system';
 import { pink } from '@mui/material/colors';
@@ -32,6 +32,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
+import Footer from '../../components/footer/Footer';
 //import ReactHtmlParser from 'react-html-parser';
 
 function Writing() {
@@ -210,10 +211,7 @@ function Writing() {
                                 component="form"
                                 sx={{
                                     '& > :not(style)': {
-                                        /* pb: 2, */
                                         width: '53.5rem',
-                                        /* mt: 3,*/
-                                        // ml: -4,
                                     },
                                 }}
                                 noValidate
@@ -227,17 +225,7 @@ function Writing() {
                             </Box>
                         </Grid>
                         <Grid item xs={3}>
-                            <Box
-                                sx={
-                                    {
-                                        //Height: '3rem',
-                                        //alignItems: 'flex-start',
-                                        /* ml: 3,
-                                    pb: 2,
-                                    mt: 3, */
-                                    }
-                                }
-                            >
+                            <Box>
                                 <FormControl sx={{ width: 300 }}>
                                     <Select
                                         displayEmpty
@@ -263,21 +251,30 @@ function Writing() {
                                 className="App"
                                 sx={{
                                     '& > :not(style)': {
-                                        /* pb: 2, */
                                         maxWidth: '53.5rem',
-                                        /* mt: 3, */
-                                        //ml: -21,
                                     },
                                 }}
                             >
-                                <CKEditor
+                                <TextField
+                                    sx={{
+                                        width: '53.5rem',
+                                    }}
+                                    multiline
+                                    rows={15}
+                                    id="outlined-basic"
+                                    label="내용을 입력해 주세요."
+                                    variant="outlined"
+                                />
+                                {/* <CKEditor
+                                    sx={{
+                                        border: 1,
+                                    }}
                                     height="30rem"
                                     editor={ClassicEditor}
                                     config={{
                                         placeholder: '내용을 입력하세요.',
                                     }}
                                     onReady={editor => {
-                                        // You can store the "editor" and use when it is needed.
                                         console.log(
                                             'Editor is ready to use!',
                                             editor,
@@ -293,7 +290,7 @@ function Writing() {
                                     onFocus={(event, editor) => {
                                         console.log('Focus.', editor);
                                     }}
-                                />
+                                /> */}
                             </Box>
                         </Grid>
                         <Grid item xs={3}>
@@ -345,39 +342,12 @@ function Writing() {
                             >
                                 이 영화를 추천하지 않습니다.
                             </Button>
-                            {/* <Button
-                                variant="contained"
-                                endIcon={<ThumbUpAltIcon />}
-                                sx={{ backgroundColor: '#F2CB05' }}
-                            >
-                                이 영화를 추천합니다.
-                            </Button>
-                            <Button
-                                variant="contained"
-                                endIcon={<ThumbDownAltIcon />}
-                                sx={{ backgroundColor: '#CF5E53' }}
-                            >
-                                이 영화를 추천하지 않습니다.
-                            </Button> */}
-                            {/* </Box> */}
                         </Grid>
                     </Grid>
                 </Container>
             </main>
 
-            <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-                <Typography variant="h6" align="center" gutterBottom>
-                    Footer
-                </Typography>
-                <Typography
-                    variant="subtitle1"
-                    align="center"
-                    color="text.secondary"
-                    component="p"
-                >
-                    푸터가 들어갈 칸입니다
-                </Typography>
-            </Box>
+            <Footer></Footer>
         </ThemeProvider>
     );
 }

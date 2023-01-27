@@ -61,6 +61,8 @@ function MovietalkMenuBar({ setBoardName }) {
                     }}
                 >
                     <Button
+                        className="menuButton"
+                        href="../movie-talk/totalboard"
                         sx={{
                             width: '31.25rem',
                             height: '60px',
@@ -70,12 +72,13 @@ function MovietalkMenuBar({ setBoardName }) {
                             fontSize: '0.875rem',
                             color: 'secondary.main',
                         }}
-                        onClick={handletotalBoard}
                     >
                         {' '}
                         전체글{' '}
                     </Button>
                     <Button
+                        className="menuButton"
+                        href="../movie-talk/freeboard"
                         sx={{
                             width: '31.25rem',
                             mr: '1rem',
@@ -86,12 +89,12 @@ function MovietalkMenuBar({ setBoardName }) {
                             fontSize: '0.875rem',
                             color: 'secondary.main',
                         }}
-                        onClick={handlefreeBoard}
                     >
                         {' '}
                         자유게시판{' '}
                     </Button>
                     <Button
+                        className="menuButton"
                         sx={{
                             width: '31.25rem',
                             height: '60px',
@@ -101,12 +104,13 @@ function MovietalkMenuBar({ setBoardName }) {
                             fontSize: '0.875rem',
                             color: 'secondary.main',
                         }}
-                        onClick={handleReviewBoard}
+                        href="../movie-talk/reviewboard"
                     >
                         {' '}
                         리뷰게시판{' '}
                     </Button>
                     <Button
+                        className="menuButton"
                         sx={{
                             width: '31.25rem',
                             height: '60px',
@@ -116,7 +120,7 @@ function MovietalkMenuBar({ setBoardName }) {
                             color: 'secondary.main',
                             fontSize: '0.875rem',
                         }}
-                        onClick={handleQnaBoard}
+                        href="../movie-talk/qnaboard"
                     >
                         {' '}
                         Q&A{' '}

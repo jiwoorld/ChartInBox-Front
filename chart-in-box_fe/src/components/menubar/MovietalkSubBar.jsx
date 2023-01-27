@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 
-function MovietalkSubBar({ setBoardName }) {
+function MovietalkSubBar() {
     const theme = createTheme({
         palette: {
             primary: {
@@ -27,7 +27,7 @@ function MovietalkSubBar({ setBoardName }) {
 
     const navigate = useNavigate();
     //navigate 함수  -> 페이지 이동
-    const handlefreeBoard = () => {
+    /* const handlefreeBoard = () => {
         setBoardName('자유 게시판');
     };
     const handletotalBoard = () => {
@@ -38,7 +38,7 @@ function MovietalkSubBar({ setBoardName }) {
     };
     const handleQnaBoard = () => {
         setBoardName(' Q&A');
-    };
+    }; */
     return (
         <ThemeProvider theme={theme}>
             <Box
@@ -58,6 +58,7 @@ function MovietalkSubBar({ setBoardName }) {
                     }}
                 >
                     <Button
+                        className="menuButton"
                         sx={{
                             pl: '1rem',
                             pt: '0.5rem',
@@ -65,7 +66,7 @@ function MovietalkSubBar({ setBoardName }) {
                             fontWeight: 400,
                             fontSize: '0.875rem',
                         }}
-                        onClick={handletotalBoard}
+                        href="../movie-talk/totalboard"
                     >
                         전체글
                     </Button>
@@ -79,6 +80,7 @@ function MovietalkSubBar({ setBoardName }) {
                     }}
                 >
                     <Button
+                        className="menuButton"
                         sx={{
                             pl: '1rem',
                             pt: '0.5rem',
@@ -86,7 +88,7 @@ function MovietalkSubBar({ setBoardName }) {
                             fontWeight: 400,
                             fontSize: '0.875rem',
                         }}
-                        onClick={handlefreeBoard}
+                        href="../movie-talk/freeboard"
                     >
                         자유
                     </Button>
@@ -100,6 +102,7 @@ function MovietalkSubBar({ setBoardName }) {
                     }}
                 >
                     <Button
+                        className="menuButton"
                         sx={{
                             pl: '1rem',
                             fontWeight: 400,
@@ -107,7 +110,7 @@ function MovietalkSubBar({ setBoardName }) {
                             width: '15.125rem',
                             fontSize: '0.875rem',
                         }}
-                        onClick={handleReviewBoard}
+                        href="../movie-talk/reviewboard"
                     >
                         리뷰
                     </Button>
@@ -121,6 +124,7 @@ function MovietalkSubBar({ setBoardName }) {
                     }}
                 >
                     <Button
+                        className="menuButton"
                         sx={{
                             pl: '1rem',
                             fontWeight: 400,
@@ -128,7 +132,7 @@ function MovietalkSubBar({ setBoardName }) {
                             pt: '0.5rem',
                             fontSize: '0.875rem',
                         }}
-                        onClick={handleQnaBoard}
+                        href="../movie-talk/qnaboard"
                     >
                         Q&A
                     </Button>

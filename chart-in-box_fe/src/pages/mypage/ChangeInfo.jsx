@@ -16,6 +16,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
 import Swal from 'sweetalert2';
+import Footer from '../../components/footer/Footer';
 
 const FormHelperTexts = styled(FormHelperText)`
     width: 100%;
@@ -412,6 +413,7 @@ function ChangeInfo({ changeClose }) {
                     </Box>
                 </Container>
             </main>
+            <Footer></Footer>
         </ThemeProvider>
     );
 }

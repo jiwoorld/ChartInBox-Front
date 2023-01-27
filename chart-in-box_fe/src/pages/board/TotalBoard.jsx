@@ -12,9 +12,37 @@ import MovietalkSubBar from '../../components/menubar/MovietalkSubBar';
 import MyInformation from '../../components/board/MyInformation';
 import axios from 'axios';
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import Footer from '../../components/footer/Footer';
 
-function TotalBoard({ isLogin, setIsLogin }) {
-    const [boardName, setBoardName] = React.useState('전체글');
+const data = {
+    totalboard: {
+        name: '전체글',
+    },
+    freeboard: {
+        name: '자유',
+    },
+    reviewboard: {
+        name: '리뷰',
+    },
+    qnaboard: {
+        name: 'Q&A',
+    },
+};
+function TotalBoard({ match, isLogin, setIsLogin }) {
+    useEffect(() => {
+        axios
+            .get('/dummydata/freeboarddata.json')
+            .then(function (response) {
+                setBoardList(response.data.boardList);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, []);
+    const [boardlist, setBoardList] = React.useState([]);
+    const { boardname } = useParams();
+    const board = data[boardname];
     const theme = createTheme({
         palette: {
             primary: {
@@ -34,7 +62,7 @@ function TotalBoard({ isLogin, setIsLogin }) {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-    useEffect(() => {
+    /* useEffect(() => {
         axios
             .get('/dummydata/freeboarddata.json')
             .then(function (response) {
@@ -45,13 +73,15 @@ function TotalBoard({ isLogin, setIsLogin }) {
                 console.log(error);
             });
     });
+
     const [boardlist, setBoardlist] = React.useState('');
     //const [usernickname, setuserNickname] = React.useState('');
+ */
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <MenuBar isLogin={isLogin} setIsLogin={setIsLogin}></MenuBar>
-            <MovietalkMenuBar setBoardName={setBoardName}></MovietalkMenuBar>
+            <MovietalkMenuBar></MovietalkMenuBar>
             <main>
                 <Container
                     maxWidth="70rem"
@@ -85,9 +115,7 @@ function TotalBoard({ isLogin, setIsLogin }) {
                                 //border: 2,
                             }}
                         >
-                            <MovietalkSubBar
-                                setBoardName={setBoardName}
-                            ></MovietalkSubBar>
+                            <MovietalkSubBar></MovietalkSubBar>
                         </Box>
                     </Box>
 
@@ -100,12 +128,13 @@ function TotalBoard({ isLogin, setIsLogin }) {
                         }}
                     >
                         <BoardTable
-                            boardlist={boardlist}
-                            boardName={boardName}
+                            data={boardlist}
+                            tableName="전체게시판"
                         ></BoardTable>
                     </Box>
                 </Container>
             </main>
+            <Footer></Footer>
         </ThemeProvider>
     );
 }

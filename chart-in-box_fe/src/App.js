@@ -13,6 +13,7 @@ import CurationPage from './pages/CurationPage/CurationPage';
 import TotalBoard from './pages/board/TotalBoard';
 import Posting from './pages/board/Posting';
 import TotalNBoard from './pages/nboard/TotalNBoard';
+import FreeBoard from './pages/board/FreeBoard';
 import Writing from './pages/Writing/Writing';
 import NWriting from './pages/Writing/NWriting';
 import MovieSearch from './pages/search/MovieSearch';
@@ -39,13 +40,21 @@ function App() {
                     <Route path="/privatepolicy" element={<PrivatePolicy />} />
                     <Route path="/mypage" element={<Mypage />} />
                     <Route
-                        path="/movie-talk"
+                        path="/movie-talk/totalboard"
                         element={
                             <TotalBoard
                                 isLogin={isLogin}
                                 setIsLogin={setIsLogin}
                             />
                         }
+                    />
+                    {/* <Route
+                        path="/movie-talk/:boardname"
+                        element={<TotalBoard></TotalBoard>}
+                    /> */}
+                    <Route
+                        path="/movie-talk/freeboard"
+                        element={<FreeBoard></FreeBoard>}
                     />
                     <Route path="/posting" element={<Posting />} />
                     <Route path="/my-page/scrap" element={<ScrapMovie />} />

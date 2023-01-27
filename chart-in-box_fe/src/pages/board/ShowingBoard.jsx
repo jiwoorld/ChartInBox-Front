@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
+import Commenttable from '../../components/board/Commenttable';
 import MovietalkMenuBar from '../../components/menubar/MovietalkMenuBar';
 import MovietalkSubBar from '../../components/menubar/MovietalkSubBar';
 import MyInformation from '../../components/board/MyInformation';
@@ -23,6 +24,7 @@ import Select, { getSelectUtilityClasses } from '@mui/material/Select';
 import ShortTable from './ShortTable';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import Swal from 'sweetalert2';
+import Footer from '../../components/footer/Footer';
 
 function ShowingBoard() {
     const [time, setTime] = React.useState('');
@@ -56,10 +58,10 @@ function ShowingBoard() {
     });
     const [allData, setAllData] = React.useState({});
     const [detail, setdetail] = React.useState({});
-    const [comment, setcomment] = React.useState({});
+    const [comment, setcomment] = React.useState([]);
     const [name, setname] = React.useState({});
     const [info, setInfo] = React.useState({});
-    const [post, setPost] = React.useState({});
+    const [post, setPost] = React.useState([]);
 
     const postId = useParams();
     const url = postId.id;
@@ -80,7 +82,7 @@ function ShowingBoard() {
             .catch(function (error) {
                 console.log(error);
             });
-    });
+    }, []);
     const handleLike = () => {
         axios
             .post(`/movie-info/${url}/like`)
@@ -107,6 +109,7 @@ function ShowingBoard() {
     const handleChange = event => {
         setValue(event.target.value);
     };
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -396,9 +399,8 @@ function ShowingBoard() {
                                     좋아요
                                 </Button>)}*/}
                             </Box>
-                            {/* <Commenttable data={comment}></Commenttable> */}
-
-                            {/* {<ShortTable data={post}></ShortTable>} */}
+                            <Commenttable data={comment}></Commenttable>
+                            {<ShortTable data={post}></ShortTable>}
                             <Box
                                 sx={{
                                     ml: 14,
@@ -505,6 +507,7 @@ function ShowingBoard() {
                     </Box>
                 </Container>
             </main>
+            <Footer></Footer>
         </ThemeProvider>
     );
 }

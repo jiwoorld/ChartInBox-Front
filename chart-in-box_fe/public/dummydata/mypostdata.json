@@ -1,0 +1,22 @@
+[
+    {
+        "postId": 12,
+        "postCategory": "자유",
+        "postTitle": "제목테스트",
+        "postComment": 0,
+        "postUserNickname": "가나다라마바사아",
+        "postDate": "2023-01-18T11:59:01",
+        "countVisit": 1,
+        "postLike": 0
+    },
+    {
+        "postId": 5,
+        "postCategory": "리뷰",
+        "postTitle": "모가디슈 본 사람?????",
+        "postComment": 0,
+        "postUserNickname": "가나다라마바사아",
+        "postDate": "2023-01-18T11:59:01",
+        "countVisit": 0,
+        "postLike": 0
+    }
+]

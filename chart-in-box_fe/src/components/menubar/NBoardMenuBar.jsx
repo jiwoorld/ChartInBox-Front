@@ -71,6 +71,7 @@ function NBoardSubBar({ setBoardName }) {
                     }}
                 >
                     <Button
+                        className="menuButton"
                         sx={{
                             width: '31.25rem',
                             mr: '1rem',
@@ -87,6 +88,7 @@ function NBoardSubBar({ setBoardName }) {
                         전체글{' '}
                     </Button>
                     <Button
+                        className="menuButton"
                         sx={{
                             width: '31.25rem',
                             mr: '1rem',
@@ -103,6 +105,7 @@ function NBoardSubBar({ setBoardName }) {
                         넷플릭스{' '}
                     </Button>
                     <Button
+                        className="menuButton"
                         onClick={handlewatchaBoard}
                         sx={{
                             width: '31.25rem',
@@ -118,6 +121,7 @@ function NBoardSubBar({ setBoardName }) {
                         왓차{' '}
                     </Button>
                     <Button
+                        className="menuButton"
                         onClick={handletvingBoard}
                         sx={{
                             width: '31.25rem',
@@ -133,6 +137,7 @@ function NBoardSubBar({ setBoardName }) {
                         티빙{' '}
                     </Button>
                     <Button
+                        className="menuButton"
                         onClick={handlewaveBoard}
                         sx={{
                             width: '31.25rem',
@@ -148,6 +153,7 @@ function NBoardSubBar({ setBoardName }) {
                         웨이브{' '}
                     </Button>
                     <Button
+                        className="menuButton"
                         onClick={handledisneyBoard}
                         sx={{
                             width: '31.25rem',
@@ -163,6 +169,7 @@ function NBoardSubBar({ setBoardName }) {
                         디즈니{' '}
                     </Button>
                     <Button
+                        className="menuButton"
                         onClick={handleetcBoard}
                         sx={{
                             width: '31.25rem',

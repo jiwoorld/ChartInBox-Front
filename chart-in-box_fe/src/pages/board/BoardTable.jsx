@@ -18,9 +18,11 @@ import FormControl from '@mui/material/FormControl';
 import Select, { getSelectUtilityClasses } from '@mui/material/Select';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import freeboarddata from '../../testdata/freeboarddata.json';
 import Switch from '@mui/material/Switch';
 
-function BoardTable({ boardlist, boardName }) {
+function BoardTable({ data, tableName }) {
+    //const tableName = props.tableName;
     const label = { inputProps: { 'aria-label': 'Color switch demo' } };
 
     const theme = createTheme({
@@ -90,7 +92,7 @@ function BoardTable({ boardlist, boardName }) {
                                 fontSize: '1.313rem',
                             }}
                         >
-                            {boardName}
+                            {tableName}
                         </Typography>
                     </Box>
                     <FormGroup>
@@ -206,88 +208,87 @@ function BoardTable({ boardlist, boardName }) {
                             <TableBody
                                 sx={{ borderBottom: '0.063rem solid #D9D9D9' }}
                             >
-                                {boardlist &&
-                                    boardlist.map(item => (
-                                        <TableRow key={item.postId}>
-                                            <TableCell
-                                                component="th"
-                                                scope="row"
-                                                sx={{
-                                                    fontSize: '0.8rem',
-                                                    fontWeight: '400',
-                                                    border: '0px',
-                                                    borderBottom:
-                                                        '0.063rem solid #D9D9D9',
-                                                }}
+                                {data.map(item => (
+                                    <TableRow key={item.postId}>
+                                        <TableCell
+                                            component="th"
+                                            scope="row"
+                                            sx={{
+                                                fontSize: '0.8rem',
+                                                fontWeight: '400',
+                                                border: '0px',
+                                                borderBottom:
+                                                    '0.063rem solid #D9D9D9',
+                                            }}
+                                        >
+                                            <a
+                                                href={`/movie-talk/${item.postId}`}
                                             >
-                                                <a
-                                                    href={`/movie-talk/${item.postId}`}
-                                                >
-                                                    {item.postTitle}
-                                                </a>
-                                            </TableCell>
-                                            <TableCell
-                                                component="th"
-                                                scope="row"
-                                                sx={{
-                                                    textAlign: 'center',
-                                                    fontSize: '0.8rem',
-                                                    fontWeight: '400',
-                                                    border: '0px',
-                                                    borderBottom:
-                                                        '0.063rem solid #D9D9D9',
-                                                }}
-                                            >
-                                                {item.postUserNickname}
-                                            </TableCell>
-                                            <TableCell
-                                                component="th"
-                                                scope="row"
-                                                sx={{
-                                                    textAlign: 'center',
-                                                    fontSize: '0.8rem',
-                                                    fontWeight: '400',
-                                                    border: '0px',
-                                                    borderBottom:
-                                                        '0.063rem solid #D9D9D9',
-                                                    maxWidth: '7rem',
-                                                    whiteSpace: 'nowrap',
-                                                    overflow: 'hidden',
-                                                    textOverflow: 'ellipsis',
-                                                }}
-                                            >
-                                                {item.postDate}
-                                            </TableCell>
-                                            <TableCell
-                                                component="th"
-                                                scope="row"
-                                                sx={{
-                                                    textAlign: 'center',
-                                                    fontSize: '0.8rem',
-                                                    fontWeight: '400',
-                                                    border: '0px',
-                                                    borderBottom:
-                                                        '0.063rem solid #D9D9D9',
-                                                }}
-                                            >
-                                                {item.countVisit}
-                                            </TableCell>
-                                            <TableCell
-                                                component="th"
-                                                scope="row"
-                                                sx={{
-                                                    textAlign: 'center',
-                                                    fontSize: '0.8rem',
-                                                    fontWeight: '400',
-                                                    border: '0px',
-                                                    borderBottom:
-                                                        '0.063rem solid #D9D9D9',
-                                                }}
-                                            >
-                                                {item.postLike}
-                                            </TableCell>
-                                        </TableRow>
-                                    ))}
+                                                {item.postTitle}
+                                            </a>
+                                        </TableCell>
+                                        <TableCell
+                                            component="th"
+                                            scope="row"
+                                            sx={{
+                                                textAlign: 'center',
+                                                fontSize: '0.8rem',
+                                                fontWeight: '400',
+                                                border: '0px',
+                                                borderBottom:
+                                                    '0.063rem solid #D9D9D9',
+                                            }}
+                                        >
+                                            {item.postUserNickname}
+                                        </TableCell>
+                                        <TableCell
+                                            component="th"
+                                            scope="row"
+                                            sx={{
+                                                textAlign: 'center',
+                                                fontSize: '0.8rem',
+                                                fontWeight: '400',
+                                                border: '0px',
+                                                borderBottom:
+                                                    '0.063rem solid #D9D9D9',
+                                                maxWidth: '7rem',
+                                                whiteSpace: 'nowrap',
+                                                overflow: 'hidden',
+                                                textOverflow: 'ellipsis',
+                                            }}
+                                        >
+                                            {item.postDate}
+                                        </TableCell>
+                                        <TableCell
+                                            component="th"
+                                            scope="row"
+                                            sx={{
+                                                textAlign: 'center',
+                                                fontSize: '0.8rem',
+                                                fontWeight: '400',
+                                                border: '0px',
+                                                borderBottom:
+                                                    '0.063rem solid #D9D9D9',
+                                            }}
+                                        >
+                                            {item.countVisit}
+                                        </TableCell>
+                                        <TableCell
+                                            component="th"
+                                            scope="row"
+                                            sx={{
+                                                textAlign: 'center',
+                                                fontSize: '0.8rem',
+                                                fontWeight: '400',
+                                                border: '0px',
+                                                borderBottom:
+                                                    '0.063rem solid #D9D9D9',
+                                            }}
+                                        >
+                                            {item.postLike}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
                             </TableBody>
                         </Table>
                     </TableContainer>

@@ -1,46 +1,23 @@
 import * as React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import { useParams } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
-import BoardNTable from './BoardNTable';
-import NBoardMenuBar from '../../components/menubar/NBoardMenuBar';
-import NBoardSubBar from '../../components/menubar/NBoardSubBar';
-import { useNavigate } from 'react-router-dom';
+import BoardTable from './BoardTable';
+import MovietalkMenuBar from '../../components/menubar/MovietalkMenuBar';
+import MovietalkSubBar from '../../components/menubar/MovietalkSubBar';
 import MyInformation from '../../components/board/MyInformation';
 import axios from 'axios';
 import { useEffect } from 'react';
-import Footer from '../../components/footer/Footer';
+import { useParams } from 'react-router-dom';
+import FreeBoardTable from './FreeBoardTable';
 
-/* const data = {
-    total: {
-        name: '전체글',
-    },
-    disney: {
-        name: '디즈니',
-    },
-    etc: {
-        name: '기타',
-    },
-    netflex: {
-        name: '넷플릭스',
-    },
-    tving: {
-        name: '티빙',
-    },
-    watcha: {
-        name: '왓차',
-    },
-    wave: {
-        name: '웨이브',
-    },
-}; */
-
-function TotalNBoard({ isLogin, setIsLogin }) {
-    const [boardName, setBoardName] = React.useState('전체글');
+function FreeBoard({ isLogin, setIsLogin }) {
+    /* const { boardname } = useParams();
+    const board = data[boardname]; */
     const theme = createTheme({
         palette: {
             primary: {
@@ -62,22 +39,20 @@ function TotalNBoard({ isLogin, setIsLogin }) {
     });
     useEffect(() => {
         axios
-            .get('/dummydata/nparty.json')
+            .get('/dummydata/freedata.json')
             .then(function (response) {
-                setBoardlist(response.data.boardList);
-                //setuserNickname(response.data.userNickname);
+                setBoardList(response.data.boardList);
             })
             .catch(function (error) {
                 console.log(error);
             });
-    });
-    const [boardlist, setBoardlist] = React.useState('');
-    //const [usernickname, setuserNickname] = React.useState('');
+    }, []);
+    const [boardlist, setBoardList] = React.useState([]);
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <MenuBar isLogin={isLogin} setIsLogin={setIsLogin}></MenuBar>
-            <NBoardMenuBar setBoardName={setBoardName}></NBoardMenuBar>
+            <MovietalkMenuBar></MovietalkMenuBar>
             <main>
                 <Container
                     maxWidth="70rem"
@@ -89,17 +64,9 @@ function TotalNBoard({ isLogin, setIsLogin }) {
                     }}
                 >
                     <Box sx={{ p: 1 }}>
-                        <Box
-                            sx={{
-                                width: '15.125rem',
-                                height: '14rem',
-                                mb: 3,
-                            }}
-                        >
-                            <MyInformation></MyInformation>
-                        </Box>
+                        <MyInformation></MyInformation>
                         <Button
-                            href="../nwriting"
+                            href="../write"
                             sx={{
                                 width: '15.125rem',
                                 fontSize: '0.938rem',
@@ -112,10 +79,17 @@ function TotalNBoard({ isLogin, setIsLogin }) {
                         >
                             글쓰기
                         </Button>
-                        <NBoardSubBar
-                            setBoardName={setBoardName}
-                        ></NBoardSubBar>
+                        <Box
+                            sx={{
+                                width: '16.625rem',
+                                height: '16.625rem',
+                                //border: 2,
+                            }}
+                        >
+                            <MovietalkSubBar></MovietalkSubBar>
+                        </Box>
                     </Box>
+
                     <Box
                         sx={{
                             width: '59.5rem',
@@ -124,15 +98,14 @@ function TotalNBoard({ isLogin, setIsLogin }) {
                             p: 1,
                         }}
                     >
-                        <BoardNTable
-                            boardlist={boardlist}
-                            boardName={boardName}
-                        ></BoardNTable>
+                        <BoardTable
+                            data={boardlist}
+                            tableName="자유"
+                        ></BoardTable>
                     </Box>
                 </Container>
             </main>
-            <Footer></Footer>
         </ThemeProvider>
     );
 }
-export default TotalNBoard;
+export default FreeBoard;
