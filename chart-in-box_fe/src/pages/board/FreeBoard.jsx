@@ -37,21 +37,17 @@ function FreeBoard({ isLogin, setIsLogin }) {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-    /* useEffect(() => {
+    useEffect(() => {
         axios
-            .get('/dummydata/freeboarddata.json')
+            .get('/dummydata/freedata.json')
             .then(function (response) {
-                setBoardlist(response.data.boardList);
-                //setuserNickname(response.data.userNickname);
+                setBoardList(response.data.boardList);
             })
             .catch(function (error) {
                 console.log(error);
             });
-    });
-
-    const [boardlist, setBoardlist] = React.useState('');
-    //const [usernickname, setuserNickname] = React.useState('');
- */
+    }, []);
+    const [boardlist, setBoardList] = React.useState([]);
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -102,7 +98,10 @@ function FreeBoard({ isLogin, setIsLogin }) {
                             p: 1,
                         }}
                     >
-                        <FreeBoardTable></FreeBoardTable>
+                        <BoardTable
+                            data={boardlist}
+                            tableName="자유"
+                        ></BoardTable>
                     </Box>
                 </Container>
             </main>

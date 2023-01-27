@@ -21,7 +21,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import freeboarddata from '../../testdata/freeboarddata.json';
 import Switch from '@mui/material/Switch';
 
-function BoardTable(props) {
+function BoardTable({ data, tableName }) {
     //const tableName = props.tableName;
     const label = { inputProps: { 'aria-label': 'Color switch demo' } };
 
@@ -92,7 +92,7 @@ function BoardTable(props) {
                                 fontSize: '1.313rem',
                             }}
                         >
-                            전체게시판
+                            {tableName}
                         </Typography>
                     </Box>
                     <FormGroup>
@@ -208,7 +208,7 @@ function BoardTable(props) {
                             <TableBody
                                 sx={{ borderBottom: '0.063rem solid #D9D9D9' }}
                             >
-                                {freeboarddata.boardList.map(item => (
+                                {data.map(item => (
                                     <TableRow key={item.postId}>
                                         <TableCell
                                             component="th"

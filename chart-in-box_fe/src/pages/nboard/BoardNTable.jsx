@@ -404,7 +404,6 @@ function BoardNTable({ boardlist, boardName }) {
                     </Box>
                 </Box>
             </Box>
-            <Footer></Footer>
         </ThemeProvider>
     );
 }

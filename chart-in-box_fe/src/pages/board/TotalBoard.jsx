@@ -29,8 +29,18 @@ const data = {
         name: 'Q&A',
     },
 };
-
 function TotalBoard({ match, isLogin, setIsLogin }) {
+    useEffect(() => {
+        axios
+            .get('/dummydata/freeboarddata.json')
+            .then(function (response) {
+                setBoardList(response.data.boardList);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, []);
+    const [boardlist, setBoardList] = React.useState([]);
     const { boardname } = useParams();
     const board = data[boardname];
     const theme = createTheme({
@@ -117,7 +127,10 @@ function TotalBoard({ match, isLogin, setIsLogin }) {
                             p: 1,
                         }}
                     >
-                        <BoardTable></BoardTable>
+                        <BoardTable
+                            data={boardlist}
+                            tableName="전체게시판"
+                        ></BoardTable>
                     </Box>
                 </Container>
             </main>

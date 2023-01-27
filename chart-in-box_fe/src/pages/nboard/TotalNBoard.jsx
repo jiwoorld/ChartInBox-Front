@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 import MyInformation from '../../components/board/MyInformation';
 import axios from 'axios';
 import { useEffect } from 'react';
+import Footer from '../../components/footer/Footer';
 
 /* const data = {
     total: {
@@ -40,8 +41,6 @@ import { useEffect } from 'react';
 
 function TotalNBoard({ isLogin, setIsLogin }) {
     const [boardName, setBoardName] = React.useState('전체글');
-    /* const { nboardname } = useParams();
-    const nboard = data[nboardname]; */
     const theme = createTheme({
         palette: {
             primary: {
@@ -132,6 +131,7 @@ function TotalNBoard({ isLogin, setIsLogin }) {
                     </Box>
                 </Container>
             </main>
+            <Footer></Footer>
         </ThemeProvider>
     );
 }
