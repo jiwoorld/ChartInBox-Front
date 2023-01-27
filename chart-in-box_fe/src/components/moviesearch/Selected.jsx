@@ -8,7 +8,7 @@ import {
 import * as React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-function Selected(props) {
+function Selected({ title, items, setValue }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -34,11 +34,11 @@ function Selected(props) {
             },
         },
     });
-    const [value, setValue] = React.useState('');
-    const title = props.title;
-    const items = props.items;
+    const [value, setvalue] = React.useState('');
+
     const handleChange = event => {
         setValue(event.target.value);
+        setvalue(event.target.value);
     };
 
     return (
