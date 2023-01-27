@@ -32,6 +32,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
+import Footer from '../../components/footer/Footer';
 //import ReactHtmlParser from 'react-html-parser';
 
 function Writing() {
@@ -340,19 +341,7 @@ function Writing() {
                 </Container>
             </main>
 
-            <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-                <Typography variant="h6" align="center" gutterBottom>
-                    Footer
-                </Typography>
-                <Typography
-                    variant="subtitle1"
-                    align="center"
-                    color="text.secondary"
-                    component="p"
-                >
-                    푸터가 들어갈 칸입니다
-                </Typography>
-            </Box>
+            <Footer></Footer>
         </ThemeProvider>
     );
 }

@@ -158,13 +158,12 @@ function Mypage() {
                 </Container>
 
                 <Container sx={{ py: 5, leftMargin: '300%' }} paddingLeft="20%">
-                    <Box sx={{ p: '10px', ml: '13%' }}>
+                    <Box sx={{ p: '10px', ml: '13%', mb: -30 }}>
                         <Grid container spacing={4} sx={{}}>
                             <Grid
                                 card
                                 xs={5}
                                 sx={{
-                                    border: 1,
                                     borderColor: 'white',
                                 }}
                             >
@@ -188,14 +187,7 @@ function Mypage() {
                                 </CardContent>
                             </Grid>
                             <Grid card xs={1}></Grid>
-                            <Grid
-                                card
-                                xs={5}
-                                sx={{
-                                    border: 1,
-                                    borderColor: 'white',
-                                }}
-                            >
+                            <Grid card xs={5} sx={{}}>
                                 <CardContent sx={{ flexGrow: 1 }}>
                                     <Box sx={{ paddingBottom: '30px' }}>
                                         <Typography

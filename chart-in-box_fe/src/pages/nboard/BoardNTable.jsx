@@ -21,6 +21,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import freeboarddata from '../../testdata/freeboarddata.json';
+import Footer from '../../components/footer/Footer';
 
 function BoardNTable({ boardlist, boardName }) {
     //const tableName = props.tableName;
@@ -403,6 +404,7 @@ function BoardNTable({ boardlist, boardName }) {
                     </Box>
                 </Box>
             </Box>
+            <Footer></Footer>
         </ThemeProvider>
     );
 }

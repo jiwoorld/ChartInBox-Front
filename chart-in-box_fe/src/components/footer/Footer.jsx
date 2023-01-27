@@ -57,7 +57,6 @@ function Footer() {
                     chartinbox1234@gmail.com 개인정보처리방침
                 </Typography>
             </Box>
-            <Footer></Footer>
         </Box>
     );
 }

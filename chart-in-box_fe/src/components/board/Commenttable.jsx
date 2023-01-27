@@ -50,7 +50,7 @@ function Commenttable({ data }) {
                     댓글
                 </Typography>
                 {data &&
-                    data.comments.map(item => (
+                    data.map(item => (
                         <Box
                             key={item.cmtId}
                             sx={{
@@ -89,7 +89,7 @@ function Commenttable({ data }) {
                                         pt: 2,
                                     }}
                                 >
-                                    {item.cmtContent} |
+                                    {item.cmtDate} |
                                 </Box>
                                 <IconButton
                                     aria-label="delete"
@@ -109,7 +109,7 @@ function Commenttable({ data }) {
                                     pb: 3,
                                 }}
                             >
-                                {item.cmtDate}
+                                {item.cmtContent}
                             </Typography>
                             <Box
                                 sx={{

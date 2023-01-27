@@ -13,6 +13,7 @@ import MyInformation from '../../components/board/MyInformation';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Footer from '../../components/footer/Footer';
 
 const data = {
     totalboard: {
@@ -120,6 +121,7 @@ function TotalBoard({ match, isLogin, setIsLogin }) {
                     </Box>
                 </Container>
             </main>
+            <Footer></Footer>
         </ThemeProvider>
     );
 }

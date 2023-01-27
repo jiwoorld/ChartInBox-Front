@@ -17,6 +17,7 @@ import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
 import MycommentTable from './MycommentTable';
+import Footer from '../../components/footer/Footer';
 
 function Mycomment() {
     return (
@@ -80,23 +81,9 @@ export default function Album() {
                         내댓글{' '}
                     </Button>
                 </Box>
-
                 <MycommentTable></MycommentTable>
             </main>
-
-            <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-                <Typography variant="h6" align="center" gutterBottom>
-                    Footer
-                </Typography>
-                <Typography
-                    variant="subtitle1"
-                    align="center"
-                    color="text.secondary"
-                    component="p"
-                >
-                    푸터가 들어갈 칸입니다
-                </Typography>
-            </Box>
+            <Footer></Footer>
         </ThemeProvider>
     );
 }

@@ -18,6 +18,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
 import MovieTable from '../../components/movieinfo/MovieTable';
 import MypageTable from './MyPostTable';
+import Footer from '../../components/footer/Footer';
 
 function Mypost() {
     return (
@@ -84,6 +85,7 @@ export default function Album() {
 
                 <MypageTable></MypageTable>
             </main>
+            <Footer></Footer>
         </ThemeProvider>
     );
 }
