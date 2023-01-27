@@ -8,9 +8,10 @@ import {
     Typography,
 } from '@mui/material';
 import { Box } from '@mui/system';
+import axios from 'axios';
 import * as React from 'react';
 import CurationPageMovie from '../../components/curationpage/CurationPageMoive';
-import MainMovie from '../../components/mainpage/MainMovie';
+import SearchCuration from '../../components/curationpage/SearchCuration';
 import MenuBarMovie from '../../components/menubar/MenuBarMovie';
 import Selected from '../../components/moviesearch/Selected';
 
@@ -24,7 +25,7 @@ function MovieSearch({ isLogin, setIsLogin }) {
                 main: '#CF5E53',
             },
             third: {
-                main: '#001F28',
+                main: '#0000',
             },
             background: {
                 default: '#001F28',
@@ -85,10 +86,46 @@ function MovieSearch({ isLogin, setIsLogin }) {
         '멕시코',
         '태국',
     ];
-    const sortItems = ['평점 순', '게시글 순'];
-    const [moives, setMovies] = React.useState([
-        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
-    ]);
+    const [curationList, setCurationList] = React.useState([]);
+    const [movieExploreList, setMovieExploreList] = React.useState([]);
+    const [mvGenre, setMvGenre] = React.useState('');
+    const [mvNation, setMvNation] = React.useState('');
+    const [mvYear, setMvYear] = React.useState('');
+    const [isCheck, setIsCheck] = React.useState(false);
+
+    React.useEffect(() => {
+        axios
+            // .get('/moive-explore')
+            .get('/dummydata/explorebefore.json')
+            .then(function (response) {
+                setCurationList(response.data.curationList);
+                setMovieExploreList(response.data.movieExploreList);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }, []);
+    const handleFilter = () => {
+        console.log('조회');
+        console.log(mvGenre, mvNation, mvYear);
+        axios
+            // .post('/movie-explore', {
+            //     params: {
+            //         genre: mvGenre,
+            //         nation: mvNation,
+            //         year: mvYear,
+            //     },
+            // })
+            .get('/dummydata/explore.json')
+            .then(function (response) {
+                setMovieExploreList(response.data);
+                setIsCheck(true);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    };
+
     return (
         <ThemeProvider theme={theme}>
             <MenuBarMovie isLogin={isLogin} setIsLogin={setIsLogin} />
@@ -120,12 +157,21 @@ function MovieSearch({ isLogin, setIsLogin }) {
                         justifyContent: 'space-evenly',
                     }}
                 >
-                    <Selected title="장르" items={genreItems}></Selected>
+                    <Selected
+                        title="장르"
+                        items={genreItems}
+                        setValue={setMvGenre}
+                    ></Selected>
                     <Selected
                         title="개봉년도"
                         items={realizeYearItems}
+                        setValue={setMvYear}
                     ></Selected>
-                    <Selected title="국가" items={nationItems}></Selected>
+                    <Selected
+                        title="국가"
+                        items={nationItems}
+                        setValue={setMvNation}
+                    ></Selected>
                     <Button
                         sx={{
                             width: '2rem',
@@ -139,11 +185,125 @@ function MovieSearch({ isLogin, setIsLogin }) {
                                 backgroundColor: '#F2CB05',
                             },
                         }}
+                        onClick={handleFilter}
                     >
                         조회{' '}
                     </Button>
                 </Box>
             </Box>
+            {!isCheck ? (
+                <Box
+                    sx={{
+                        width: '100vw',
+                        height: '22rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                >
+                    <Box
+                        sx={{
+                            mr: 10,
+                            width: '68.5rem',
+                            height: '20rem',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            flexDirection: 'column',
+                        }}
+                    >
+                        <Typography
+                            sx={{
+                                width: '9.3125rem',
+                                height: '1.75rem',
+                                fontSize: '1.3125rem',
+                                fontWeight: '600',
+                            }}
+                        >
+                            오늘의 큐레이션
+                        </Typography>
+                        <Box
+                            sx={{
+                                height: '14.375rem',
+                                width: '68.5rem',
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                            }}
+                        >
+                            {curationList.map(item => (
+                                <SearchCuration item={item}></SearchCuration>
+                            ))}
+                        </Box>
+                    </Box>
+                </Box>
+            ) : (
+                <Box
+                    sx={{
+                        ml: '11rem',
+                        maxWidth: '24.25rem',
+                        height: '1.9375rem',
+                        display: 'flex',
+                    }}
+                >
+                    {mvGenre !== '' && (
+                        <Box
+                            sx={{
+                                width: '6.25rem',
+                                height: '1.9375rem',
+                                background: 'rgba(255, 255, 255, 0.5)',
+                                borderRadius: '0.5625rem',
+                                fontWeight: '600',
+                                fontSize: '0.875rem',
+                                color: '#000',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                mr: '1rem',
+                            }}
+                        >
+                            {mvGenre}
+                        </Box>
+                    )}
+                    {mvYear !== '' && (
+                        <Box
+                            sx={{
+                                width: '6.25rem',
+                                height: '1.9375rem',
+                                background: 'rgba(255, 255, 255, 0.5)',
+                                borderRadius: '0.5625rem',
+                                fontWeight: '600',
+                                fontSize: '0.875rem',
+                                color: '#000',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                mr: '1rem',
+                            }}
+                        >
+                            {mvYear}
+                        </Box>
+                    )}
+                    {mvNation !== '' && (
+                        <Box
+                            sx={{
+                                width: '6.25rem',
+                                height: '1.9375rem',
+                                background: 'rgba(255, 255, 255, 0.5)',
+                                borderRadius: '0.5625rem',
+                                fontWeight: '600',
+                                fontSize: '0.875rem',
+                                color: '#000',
+                                display: 'flex',
+
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            {mvNation}
+                        </Box>
+                    )}
+                </Box>
+            )}
 
             <Paper
                 sx={{
@@ -192,9 +352,13 @@ function MovieSearch({ isLogin, setIsLogin }) {
                                 textAlign: 'center',
                             }}
                         >
-                            {moives.map(movie => (
-                                <Grid key={movie.id} item={5}>
-                                    <CurationPageMovie></CurationPageMovie>
+                            {movieExploreList.map(item => (
+                                <Grid key={item.id} item={5}>
+                                    <CurationPageMovie
+                                        mvTitle={item.mvTitle}
+                                        mvPoster={item.mvPoster}
+                                        mvId={item.mvId}
+                                    ></CurationPageMovie>
                                 </Grid>
                             ))}
                         </Grid>
