@@ -14,6 +14,7 @@ import MyCommentTable from '../../components/mypage/MyCommentTable';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Footer from '../../components/footer/Footer';
 
 function Mypage() {
     const theme = createTheme({
@@ -271,6 +272,7 @@ function Mypage() {
                     <MyScrapMovie data={scraplist}></MyScrapMovie>
                 </Container>
             </Box>
+            <Footer></Footer>
         </ThemeProvider>
     );
 }
