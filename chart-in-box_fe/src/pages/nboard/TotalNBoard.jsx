@@ -11,8 +11,10 @@ import NBoardMenuBar from '../../components/menubar/NBoardMenuBar';
 import NBoardSubBar from '../../components/menubar/NBoardSubBar';
 import { useNavigate } from 'react-router-dom';
 import MyInformation from '../../components/board/MyInformation';
+import axios from 'axios';
+import { useEffect } from 'react';
 
-const data = {
+/* const data = {
     total: {
         name: '전체글',
     },
@@ -34,11 +36,12 @@ const data = {
     wave: {
         name: '웨이브',
     },
-};
+}; */
 
-function TotalNBoard({ match }) {
-    const { nboardname } = useParams();
-    const nboard = data[nboardname];
+function TotalNBoard({ isLogin, setIsLogin }) {
+    const [boardName, setBoardName] = React.useState('전체글');
+    /* const { nboardname } = useParams();
+    const nboard = data[nboardname]; */
     const theme = createTheme({
         palette: {
             primary: {
@@ -58,12 +61,24 @@ function TotalNBoard({ match }) {
             fontFamily: "'Pretendard', sans-serif",
         },
     });
-
+    useEffect(() => {
+        axios
+            .get('/dummydata/nparty.json')
+            .then(function (response) {
+                setBoardlist(response.data.boardList);
+                //setuserNickname(response.data.userNickname);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    });
+    const [boardlist, setBoardlist] = React.useState('');
+    //const [usernickname, setuserNickname] = React.useState('');
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
-            <MenuBar></MenuBar>
-            <NBoardMenuBar></NBoardMenuBar>
+            <MenuBar isLogin={isLogin} setIsLogin={setIsLogin}></MenuBar>
+            <NBoardMenuBar setBoardName={setBoardName}></NBoardMenuBar>
             <main>
                 <Container
                     maxWidth="70rem"
@@ -98,7 +113,9 @@ function TotalNBoard({ match }) {
                         >
                             글쓰기
                         </Button>
-                        <NBoardSubBar></NBoardSubBar>
+                        <NBoardSubBar
+                            setBoardName={setBoardName}
+                        ></NBoardSubBar>
                     </Box>
                     <Box
                         sx={{
@@ -108,7 +125,10 @@ function TotalNBoard({ match }) {
                             p: 1,
                         }}
                     >
-                        <BoardNTable tableName={nboard.name}></BoardNTable>
+                        <BoardNTable
+                            boardlist={boardlist}
+                            boardName={boardName}
+                        ></BoardNTable>
                     </Box>
                 </Container>
             </main>

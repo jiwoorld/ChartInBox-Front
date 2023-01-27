@@ -23,7 +23,6 @@ function MyPostTable({ data }) {
     const navigate = useNavigate();
     const tableName = data.tableName;
     const link = data.tableLink;
-    console.log({ data });
     const theme = createTheme({
         palette: {},
         typography: {

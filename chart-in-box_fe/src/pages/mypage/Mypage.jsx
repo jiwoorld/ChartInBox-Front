@@ -76,6 +76,7 @@ function Mypage() {
                         내 프로필
                     </Button>
                     <Button
+                        className="my"
                         href="/my-page/edit"
                         sx={{
                             height: '1.375rem',
@@ -85,7 +86,7 @@ function Mypage() {
                             fontWeight: '400',
                             fontSize: '1.125rem',
                             color: '#757575',
-                            fontColor: 'grey',
+                            fontColor: '#757575',
                         }}
                     >
                         {' '}

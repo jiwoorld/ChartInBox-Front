@@ -1,0 +1,16 @@
+{
+    "boardList": [
+        {
+            "postId": 1,
+            "postCategory": "넷플릭스",
+            "postTitle": "넷플릭스 같이 볼 사람",
+            "postComment": 0,
+            "postUserNickname": "잇타2피",
+            "postAnonym": "false",
+            "postDate": "2023-01-23T07:02:13",
+            "countVisit": 1,
+            "postLike": 0
+        }
+    ],
+    "userNickname": ""
+}

@@ -78,3 +78,14 @@ a:hover {
 .movieInfoA:hover {
     color: white;
 }
+.my:link {
+    color: #757575;
+    text-decoration: none;
+}
+.my:visited {
+    color: #757575;
+    text-decoration: none;
+}
+.my:hover {
+    color: black;
+}

@@ -22,8 +22,9 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import freeboarddata from '../../testdata/freeboarddata.json';
 
-function BoardNTable(props) {
-    const tableName = props.tableName;
+function BoardNTable({ boardlist, boardName }) {
+    //const tableName = props.tableName;
+    const label = { inputProps: { 'aria-label': 'Color switch demo' } };
 
     const theme = createTheme({
         palette: {
@@ -77,7 +78,6 @@ function BoardNTable(props) {
                     sx={{
                         height: '1.75rem',
                         display: 'flex',
-                        //justifyContent: 'space-between',
                         flexDirection: 'row',
                         alignItems: 'flex-start',
                         mb: 1,
@@ -85,7 +85,7 @@ function BoardNTable(props) {
                 >
                     <Box
                         sx={{
-                            width: '74%',
+                            width: '76%',
                             justifyContent: 'space-between',
                         }}
                     >
@@ -96,43 +96,42 @@ function BoardNTable(props) {
                                 fontSize: '1.313rem',
                             }}
                         >
-                            {tableName}
+                            {boardName}
                         </Typography>
                     </Box>
                     <FormGroup>
-                        <FormControlLabel
-                            control={<Switch defaultChecked />}
-                            label="스포포함"
-                        />
+                        <Switch {...label} defaultChecked color="default" />{' '}
                     </FormGroup>
+                    <Box sx={{ width: '4rem', pt: 1 }}>스포포함</Box>
                     <Box
                         sx={{
                             maxWidth: '10rem',
                             Height: '3rem',
                             flexDirection: 'row',
                             alignItems: 'flex-start',
-                            m: '0.3rem',
-                            mt: -1.5,
                         }}
                     >
-                        <FormControl fullWidth>
-                            <Select
-                                displayEmpty
-                                inputProps={{
-                                    'aria-label': 'Without label',
-                                }}
-                                value={lineup}
-                                label="Lineup"
-                                onChange={handleLineupChange}
-                            >
-                                <MenuItem value="">최신순</MenuItem>
-                                <MenuItem value={10}>조회순</MenuItem>
-                                <MenuItem value={20}>좋아요순</MenuItem>
-                                <MenuItem value={30}>댓글순</MenuItem>
-                            </Select>
-                        </FormControl>
+                        <Box sx={{ ml: 7, mt: -1.5 }}>
+                            <FormControl fullWidth>
+                                <Select
+                                    displayEmpty
+                                    inputProps={{
+                                        'aria-label': 'Without label',
+                                    }}
+                                    value={lineup}
+                                    label="Lineup"
+                                    onChange={handleLineupChange}
+                                >
+                                    <MenuItem value="">최신순</MenuItem>
+                                    <MenuItem value={10}>조회순</MenuItem>
+                                    <MenuItem value={20}>좋아요순</MenuItem>
+                                    <MenuItem value={30}>댓글순</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Box>
                     </Box>
                 </Box>
+
                 <Box>
                     <TableContainer>
                         <Table
@@ -178,7 +177,7 @@ function BoardNTable(props) {
                                     <TableCell
                                         align="center"
                                         sx={{
-                                            width: '11.4rem',
+                                            width: '6.4rem',
                                             fontSize: '0.8rem',
                                             fontWeight: '400',
                                             border: '0px',
@@ -213,80 +212,84 @@ function BoardNTable(props) {
                             <TableBody
                                 sx={{ borderBottom: '0.063rem solid #D9D9D9' }}
                             >
-                                {freeboarddata.boardList.map(postId => (
-                                    <TableRow>
-                                        <TableCell
-                                            key={postId.postTitle}
-                                            component="th"
-                                            scope="row"
-                                            sx={{
-                                                fontSize: '0.8rem',
-                                                fontWeight: '400',
-                                                border: '0px',
-                                                borderBottom:
-                                                    '0.063rem solid #D9D9D9',
-                                            }}
-                                        >
-                                            {postId.postTitle}
-                                        </TableCell>
-                                        <TableCell
-                                            key={postId.postUserNickname}
-                                            component="th"
-                                            scope="row"
-                                            sx={{
-                                                fontSize: '0.8rem',
-                                                fontWeight: '400',
-                                                border: '0px',
-                                                borderBottom:
-                                                    '0.063rem solid #D9D9D9',
-                                            }}
-                                        >
-                                            {postId.postUserNickname}
-                                        </TableCell>
-                                        <TableCell
-                                            key={postId.postDate}
-                                            component="th"
-                                            scope="row"
-                                            sx={{
-                                                fontSize: '0.8rem',
-                                                fontWeight: '400',
-                                                border: '0px',
-                                                borderBottom:
-                                                    '0.063rem solid #D9D9D9',
-                                            }}
-                                        >
-                                            {postId.postDate}
-                                        </TableCell>
-                                        <TableCell
-                                            key={postId.countVisit}
-                                            component="th"
-                                            scope="row"
-                                            sx={{
-                                                fontSize: '0.8rem',
-                                                fontWeight: '400',
-                                                border: '0px',
-                                                borderBottom:
-                                                    '0.063rem solid #D9D9D9',
-                                            }}
-                                        >
-                                            {postId.countVisit}
-                                        </TableCell>
-                                        <TableCell
-                                            key={postId.postLike}
-                                            component="th"
-                                            scope="row"
-                                            sx={{
-                                                fontSize: '0.8rem',
-                                                fontWeight: '400',
-                                                border: '0px',
-                                                borderBottom:
-                                                    '0.063rem solid #D9D9D9',
-                                            }}
-                                        >
-                                            {postId.postLike}
-                                        </TableCell>
-                                    </TableRow>
-                                ))}
+                                {boardlist &&
+                                    boardlist.map(item => (
+                                        <TableRow>
+                                            <TableCell
+                                                component="th"
+                                                scope="row"
+                                                sx={{
+                                                    fontSize: '0.8rem',
+                                                    fontWeight: '400',
+                                                    border: '0px',
+                                                    borderBottom:
+                                                        '0.063rem solid #D9D9D9',
+                                                }}
+                                            >
+                                                {item.postTitle}
+                                            </TableCell>
+                                            <TableCell
+                                                component="th"
+                                                scope="row"
+                                                sx={{
+                                                    textAlign: 'center',
+                                                    fontSize: '0.8rem',
+                                                    fontWeight: '400',
+                                                    border: '0px',
+                                                    borderBottom:
+                                                        '0.063rem solid #D9D9D9',
+                                                }}
+                                            >
+                                                {item.postUserNickname}
+                                            </TableCell>
+                                            <TableCell
+                                                component="th"
+                                                scope="row"
+                                                sx={{
+                                                    textAlign: 'center',
+                                                    fontSize: '0.8rem',
+                                                    fontWeight: '400',
+                                                    border: '0px',
+                                                    borderBottom:
+                                                        '0.063rem solid #D9D9D9',
+                                                    maxWidth: '7rem',
+                                                    whiteSpace: 'nowrap',
+                                                    overflow: 'hidden',
+                                                    textOverflow: 'ellipsis',
+                                                }}
+                                            >
+                                                {item.postDate}
+                                            </TableCell>
+                                            <TableCell
+                                                component="th"
+                                                scope="row"
+                                                sx={{
+                                                    textAlign: 'center',
+                                                    fontSize: '0.8rem',
+                                                    fontWeight: '400',
+                                                    border: '0px',
+                                                    borderBottom:
+                                                        '0.063rem solid #D9D9D9',
+                                                }}
+                                            >
+                                                {item.countVisit}
+                                            </TableCell>
+                                            <TableCell
+                                                component="th"
+                                                scope="row"
+                                                sx={{
+                                                    textAlign: 'center',
+                                                    fontSize: '0.8rem',
+                                                    fontWeight: '400',
+                                                    border: '0px',
+                                                    borderBottom:
+                                                        '0.063rem solid #D9D9D9',
+                                                }}
+                                            >
+                                                {item.postLike}
+                                            </TableCell>
+                                        </TableRow>
+                                    ))}
                             </TableBody>
                         </Table>
                     </TableContainer>
@@ -294,12 +297,12 @@ function BoardNTable(props) {
                         sx={{
                             height: '3.125rem',
                             display: 'flex',
-                            //mr: 'auto',
                             justifyContent: 'flex-end',
                             mt: '0.2rem',
                         }}
                     >
                         <Button
+                            href="../nwriting"
                             sx={{
                                 backgroundColor: '#EDEDED',
                                 color: 'black',

@@ -3,6 +3,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Button, TextField } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import MenuBar from '../../components/menubar/MenuBar';
@@ -10,11 +11,11 @@ import MovietalkMenuBar from '../../components/menubar/MovietalkMenuBar';
 import MovietalkSubBar from '../../components/menubar/MovietalkSubBar';
 import MyInformation from '../../components/board/MyInformation';
 import ShowingBoardTable from './ShowingBoardTable';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useEffect } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -22,10 +23,8 @@ import Select, { getSelectUtilityClasses } from '@mui/material/Select';
 import ShortTable from './ShortTable';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import Swal from 'sweetalert2';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import MovieInformation from '../../components/board/MovieInfomation';
 
-function ShowingBoard(props) {
+function ShowingBoard() {
     const [time, setTime] = React.useState('');
     const handleTimeChange = event => {
         setTime(event.target.value);
@@ -36,10 +35,6 @@ function ShowingBoard(props) {
         setScope(event.target.value);
     };
 
-    const [lineup, setLineup] = React.useState('');
-    const handleLineupChange = event => {
-        setLineup(event.target.value);
-    };
     const theme = createTheme({
         palette: {
             primary: {
@@ -70,12 +65,11 @@ function ShowingBoard(props) {
     const url = postId.id;
 
     let like = false;
+
     useEffect(() => {
         axios
             .get('/dummydata/showingboarddata.json')
             .then(function (response) {
-                //console.log(response.data);
-                console.log('RRr' + response.data);
                 setAllData(response.data);
                 setdetail(response.data.postDetail);
                 setcomment(response.data.comments);
@@ -86,7 +80,7 @@ function ShowingBoard(props) {
             .catch(function (error) {
                 console.log(error);
             });
-    }, [url, like]);
+    });
     const handleLike = () => {
         axios
             .post(`/movie-info/${url}/like`)
@@ -127,7 +121,6 @@ function ShowingBoard(props) {
                         flexDirection: 'row',
                     }}
                 >
-                    {/* {detail.postTitle} */}
                     <Box sx={{ p: 1 }}>
                         <MyInformation></MyInformation>
                         <Button
@@ -162,7 +155,6 @@ function ShowingBoard(props) {
                     >
                         <Box //글
                             sx={{
-                                //alignItems: 'flex-start',
                                 minHeight: '50rem',
                                 display: 'flex',
                                 flexDirection: 'column',
@@ -370,8 +362,7 @@ function ShowingBoard(props) {
                                         </Button>
                                     </Box>
                                 </Box>
-
-                                {like ? (
+                                {/*{like ? (
                                     {
                                         /* <Button
                                         onClick={() => handleLike()}
@@ -387,251 +378,27 @@ function ShowingBoard(props) {
                                         }}
                                     >
                                         좋아요
-                                    </Button> */
-                                    }
+                                    </Button> 
                                 ) : (
-                                    <Button
-                                        onClick={() => handleLike()}
-                                        variant="contained"
-                                        endIcon={<ThumbUpAltIcon />}
-                                        sx={{
-                                            '&:hover,&.Mui-focusVisible': {
-                                                backgroundColor: '#C2C2C2',
-                                            },
-                                            color: 'black',
-                                            backgroundColor: 'white',
-                                            mt: 5,
-                                        }}
-                                    >
-                                        좋아요
-                                    </Button>
-                                )}
-                            </Box>
-
-                            {/* <Box //댓글
-                                sx={{
-                                    //alignItems: 'flex-start',
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    mt: 10,
-                                }}
-                            >
-                                <Typography
-                                    sx={{
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600',
-                                        textAlign: 'left',
-                                        fontStyle: 'noraml',
-                                        borderBottom: '2px solid #0000001A',
-                                        pb: 2,
-                                    }}
-                                >
-                                    댓글
-                                </Typography>
-                                <Box
-                                    sx={{
-                                        borderBottom: '2px solid #0000001A',
-                                    }}
-                                >
-                                    <Box
-                                        sx={{
-                                            alignItems: 'center',
-                                            display: 'flex',
-                                            justifyContent: 'space-between',
-                                        }}
-                                    >
-                                        <Box
-                                            sx={{
-                                                fontSize: '0.875rem',
-                                                fontWeight: '600',
-                                                textAlign: 'left',
-                                                fontStyle: 'noraml',
-                                                width: '80%',
-                                                color: '#1A1A1A',
-                                                pt: 2,
-                                                pb: 1,
-                                            }}
-                                        >
-                                            {comment[0].cmtUserNickname}
-                                        </Box>
-                                        <Box
-                                            sx={{
-                                                fontSize: '0.875rem',
-                                                fontWeight: '600',
-                                                textAlign: 'left',
-                                                fontStyle: 'noraml',
-                                                color: '#757575',
-                                                mr: -5,
-                                                pt: 2,
-                                            }}
-                                        >
-                                            {comment[0].cmtDate} |
-                                        </Box>
-                                        <IconButton
-                                            aria-label="delete"
-                                            sx={{ pt: 3, pl: 5 }}
-                                        >
-                                            <MoreVertIcon />
-                                        </IconButton>
-                                    </Box>
-                                    <Typography
-                                        sx={{
-                                            fontSize: '0.875rem',
-                                            fontWeight: '400',
-                                            textAlign: 'left',
-                                            fontStyle: 'noraml',
-                                            color: '#1A1A1A',
-                                            pt: 2,
-                                            pb: 3,
-                                        }}
-                                    >
-                                        {comment[0].cmtContent}
-                                    </Typography>
-                                    <Box
-                                        sx={{
-                                            textAlign: 'right',
-                                        }}
-                                    >
-                                        <Button
-                                            size="small"
-                                            sx={{
-                                                alignContent: 'left',
-                                                fontSize: '0.75rem',
-                                                fontWeight: '400',
-                                                color: '#424242',
-                                            }}
-                                        >
-                                            답글 달기
-                                        </Button>
-                                    </Box>
-                                </Box>
-                                <Box
-                                    sx={{
-                                        borderBottom: '2px solid #0000001A',
-                                        pb: 1,
-                                    }}
-                                >
-                                    <Box
-                                        sx={{
-                                            alignItems: 'center',
-                                            display: 'flex',
-                                            justifyContent: 'space-between',
-                                        }}
-                                    >
-                                        <Box
-                                            sx={{
-                                                fontSize: '0.875rem',
-                                                fontWeight: '600',
-                                                textAlign: 'left',
-                                                fontStyle: 'noraml',
-                                                width: '80%',
-                                                color: '#1A1A1A',
-                                                pt: 2,
-                                            }}
-                                        >
-                                            {comment[1].cmtUserNickname}
-                                        </Box>
-                                        <Box
-                                            sx={{
-                                                fontSize: '0.875rem',
-                                                fontWeight: '600',
-                                                textAlign: 'left',
-                                                fontStyle: 'noraml',
-                                                color: '#757575',
-                                                mr: -5,
-                                                pt: 2,
-                                            }}
-                                        >
-                                            {comment[1].cmtDate} |
-                                        </Box>
-                                        <IconButton
-                                            aria-label="delete"
-                                            sx={{ pt: 3, pl: 5 }}
-                                        >
-                                            <MoreVertIcon />
-                                        </IconButton>
-                                    </Box>
-                                    <Typography
-                                        sx={{
-                                            fontSize: '0.875rem',
-                                            fontWeight: '400',
-                                            textAlign: 'left',
-                                            fontStyle: 'noraml',
-                                            color: '#1A1A1A',
-                                            pt: 2,
-                                            pb: 3,
-                                        }}
-                                    >
-                                        {comment[1].cmtDate}
-                                    </Typography>
-                                    <Box
-                                        sx={{
-                                            textAlign: 'right',
-                                        }}
-                                    >
-                                        <Button
-                                            size="small"
-                                            sx={{
-                                                alignContent: 'left',
-                                                fontSize: '0.75rem',
-                                                fontWeight: '400',
-                                                color: '#424242',
-                                            }}
-                                        >
-                                            답글 달기
-                                        </Button>
-                                    </Box>
-                                </Box>
-                            </Box>
-                            <Box //댓글쓰기
-                                component="form"
-                                sx={{
-                                    '& > :not(style)': {
-                                        mt: 3,
-                                        mb: 1,
-                                        width: '59.5rem',
-                                        //height: '5rem',
-                                    },
-                                }}
-                                noValidate
-                                autoComplete="off"
-                            >
-                                <TextField
-                                    multiline
-                                    maxRows={4}
-                                    value={value}
-                                    onChange={handleChange}
-                                    label="댓글을 입력해주세요"
-                                    variant="outlined"
-                                    sx={{
-                                        width: '59.5rem',
-                                    }}
-                                />
-                            </Box>
-                            <Box
-                                sx={{
-                                    textAlign: 'right',
-                                    mb: 8,
-                                }}
-                            >
                                 <Button
-                                    variant="outlined"
-                                    size="small"
+                                    onClick={() => handleLike()}
+                                    variant="contained"
+                                    endIcon={<ThumbUpAltIcon />}
                                     sx={{
-                                        alignContent: 'left',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '500',
-                                        backgroundColor: '#F2CB05',
-                                        borderRadius: '0.5rem',
-                                        border: 0,
-                                        color: '#1D192B',
-                                        fontSize: '0.875rem',
+                                        '&:hover,&.Mui-focusVisible': {
+                                            backgroundColor: '#C2C2C2',
+                                        },
+                                        color: 'black',
+                                        backgroundColor: 'white',
+                                        mt: 5,
                                     }}
                                 >
-                                    등록
-                                </Button>
-                            </Box> */}
-                            <ShortTable data={post}></ShortTable>
+                                    좋아요
+                                </Button>)}*/}
+                            </Box>
+                            {/* <Commenttable data={comment}></Commenttable> */}
+
+                            {/* {<ShortTable data={post}></ShortTable>} */}
                             <Box
                                 sx={{
                                     ml: 14,

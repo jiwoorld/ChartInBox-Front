@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 
-function NBoardSubBar() {
+function NBoardSubBar({ setBoardName }) {
     const theme = createTheme({
         palette: {
             primary: {
@@ -27,6 +27,27 @@ function NBoardSubBar() {
 
     const navigate = useNavigate();
     //navigate 함수  -> 페이지 이동
+    const handledisneyBoard = () => {
+        setBoardName('디즈니');
+    };
+    const handletotalBoard = () => {
+        setBoardName('전체글');
+    };
+    const handleetcBoard = () => {
+        setBoardName('기타');
+    };
+    const handlenetflexBoard = () => {
+        setBoardName('넷플릭스');
+    };
+    const handletvingBoard = () => {
+        setBoardName('티빙');
+    };
+    const handlewatchaBoard = () => {
+        setBoardName('왓차');
+    };
+    const handlewaveBoard = () => {
+        setBoardName('웨이브');
+    };
 
     return (
         <ThemeProvider theme={theme}>
@@ -50,7 +71,6 @@ function NBoardSubBar() {
                     }}
                 >
                     <Button
-                        href="../n-party/total"
                         sx={{
                             width: '31.25rem',
                             mr: '1rem',
@@ -61,12 +81,12 @@ function NBoardSubBar() {
                             fontSize: '0.875rem',
                             color: 'secondary.main',
                         }}
+                        onClick={handletotalBoard}
                     >
                         {' '}
                         전체글{' '}
                     </Button>
                     <Button
-                        href="../n-party/netflex"
                         sx={{
                             width: '31.25rem',
                             mr: '1rem',
@@ -77,12 +97,13 @@ function NBoardSubBar() {
                             fontSize: '0.875rem',
                             color: 'secondary.main',
                         }}
+                        onClick={handlenetflexBoard}
                     >
                         {' '}
                         넷플릭스{' '}
                     </Button>
                     <Button
-                        href="../n-party/watcha"
+                        onClick={handlewatchaBoard}
                         sx={{
                             width: '31.25rem',
                             height: '60px',
@@ -97,7 +118,7 @@ function NBoardSubBar() {
                         왓차{' '}
                     </Button>
                     <Button
-                        href="../n-party/tving"
+                        onClick={handletvingBoard}
                         sx={{
                             width: '31.25rem',
                             height: '60px',
@@ -112,7 +133,7 @@ function NBoardSubBar() {
                         티빙{' '}
                     </Button>
                     <Button
-                        href="../n-party/wave"
+                        onClick={handlewaveBoard}
                         sx={{
                             width: '31.25rem',
                             height: '60px',
@@ -127,7 +148,7 @@ function NBoardSubBar() {
                         웨이브{' '}
                     </Button>
                     <Button
-                        href="../n-party/disney"
+                        onClick={handledisneyBoard}
                         sx={{
                             width: '31.25rem',
                             height: '60px',
@@ -142,7 +163,7 @@ function NBoardSubBar() {
                         디즈니{' '}
                     </Button>
                     <Button
-                        href="../n-party/etc"
+                        onClick={handleetcBoard}
                         sx={{
                             width: '31.25rem',
                             height: '60px',
