@@ -211,10 +211,7 @@ function Writing() {
                                 component="form"
                                 sx={{
                                     '& > :not(style)': {
-                                        /* pb: 2, */
                                         width: '53.5rem',
-                                        /* mt: 3,*/
-                                        // ml: -4,
                                     },
                                 }}
                                 noValidate
@@ -254,21 +251,30 @@ function Writing() {
                                 className="App"
                                 sx={{
                                     '& > :not(style)': {
-                                        /* pb: 2, */
                                         maxWidth: '53.5rem',
-                                        /* mt: 3, */
-                                        //ml: -21,
                                     },
                                 }}
                             >
-                                <CKEditor
+                                <TextField
+                                    sx={{
+                                        width: '53.5rem',
+                                    }}
+                                    multiline
+                                    rows={15}
+                                    id="outlined-basic"
+                                    label="내용을 입력해 주세요."
+                                    variant="outlined"
+                                />
+                                {/* <CKEditor
+                                    sx={{
+                                        border: 1,
+                                    }}
                                     height="30rem"
                                     editor={ClassicEditor}
                                     config={{
                                         placeholder: '내용을 입력하세요.',
                                     }}
                                     onReady={editor => {
-                                        // You can store the "editor" and use when it is needed.
                                         console.log(
                                             'Editor is ready to use!',
                                             editor,
@@ -284,7 +290,7 @@ function Writing() {
                                     onFocus={(event, editor) => {
                                         console.log('Focus.', editor);
                                     }}
-                                />
+                                /> */}
                             </Box>
                         </Grid>
                         <Grid item xs={3}>
